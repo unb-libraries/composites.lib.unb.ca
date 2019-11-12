@@ -1,0 +1,27 @@
+language: php
+
+services:
+  - docker
+
+php:
+  - '7.2'
+
+git:
+  depth: 1
+
+before_install:
+  - composer install
+  - vendor/unb-libraries/dockworker/scripts/travis/init.sh
+
+script:
+  - set -e
+  - vendor/bin/dockworker local:build-test
+  - vendor/unb-libraries/dockworker/scripts/kubectl/init.sh
+  - vendor/bin/dockworker image:deploy $TRAVIS_BRANCH
+
+notifications:
+  slack:
+    rooms:
+      secure: ulm+QOGMdAWhhGDlx90pX050UzQsip1lm3xPsknw9hA6YsSIb7W9t/c/Z5+8oHAZgfxv6PBpLGBpTnibofEoJbXPZiJJf4ftU6q1N+9QF6bZJx54wnv/3cFm7eH2FaK9WgOC+KucvaQXHWg+6l5hgdZqkPhR8w2a0mYUYw4GrZaUy+Z40SFqM/+pnsgofRKSQH28ShCQ64qYjTk9vn3db2szIG4E8HQS7F99WHPp4Kp0rx3KX6CZRPd4O+cXlzhYyRcFd070SOY9ZFeSk5LA+PEVyIkDRWsfRCHJxi8QcxPYPhx4sZhhf8Xg95IVGt4SjIwrnAZB6i5mUBBYVzcY8nThZqR563b5LM3BJDjXSKj1ECj7tHfks/0TQVmKpXy/LiiqsaSlXWfwIjbFNQNc7bf2Lzt1hgMRTsqULIEEQup7eKSSLKMh4/n+PV9sRFs7niK3daL2EFRceCpOYgp5I7ItDfPdnPVNwMwYXPv95YEk6s/Sc5UzSrYOf1upheqJL9FurPcugGxjghxnc4OMWYBcyBbSFlHnR1LHUoJvpFWY4XODXW+PG5FgtlS9UJy0n7uaWoU7a5ByO8trp02g8hrhaqmYZybSuZAcf87nqcoCTJuHAcFDd8wREFLjKkutR49qLIEaL/0e9pxTEbSEzUqqACZZ9XVvqbAPfq6Ts+w=
+    on_start: always
+    on_success: always

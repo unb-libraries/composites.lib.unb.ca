@@ -1,0 +1,22 @@
+uuid: a686db29-c5fb-41a7-a56d-30321d74df31
+langcode: en
+status: true
+dependencies:
+  theme:
+    - seven
+_core:
+  default_config_hash: 3yLcX1Pa1GSdFQB9zcFVhS_rzOged2plM-2oecELUhc
+id: seven_primary_local_tasks
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

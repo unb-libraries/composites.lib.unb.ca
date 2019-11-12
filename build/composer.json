@@ -1,0 +1,143 @@
+{
+    "authors": [
+        {
+            "name": "UNB Libraries libsupport@unb.ca",
+            "role": "Creator"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        }
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "description": "Drupal 8 component of composites.lib.unb.ca",
+    "extra": {
+        "enable-patching": true,
+        "installer-paths": {
+            "core": [
+                "type:drupal-core"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ]
+        },
+        "patches": {
+            "drupal/bootstrap_barrio": {
+                "Fix CSS library 404": "https://www.drupal.org/files/issues/2019-02-19/3033946-6.patch",
+                "Fix Layout Builder": "https://www.drupal.org/files/issues/2018-06-01/2976934-3.patch"
+            }
+        }
+    },
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "name": "unb-libraries/composites.lib.unb.ca",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jonthornton/jquery-timepicker",
+                "version": "1.11.15",
+                "type": "drupal-library",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip"
+                },
+                "extra": {
+                    "installer-name": "jonthornton-jquery-timepicker"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "trentrichardson/jquery-timepicker-addon",
+                "version": "1.6.3",
+                "type": "drupal-library",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/v1.6.3.zip"
+                },
+                "extra": {
+                    "installer-name": "jquery-timepicker-addon"
+                }
+            }
+        }
+    ],
+    "require": {
+        "drupal/bootstrap4": "1.0-rc1",
+        "drupal/conditional_fields": "1.0-alpha6",
+        "drupal/config_update": "1.5",
+        "drupal/core": "8.7.9",
+        "drupal/entity_reference_revisions": "1.7",
+        "drupal/externalauth": "1.2",
+        "drupal/features": "3.7",
+        "drupal/field_formatter_class": "1.1",
+        "drupal/field_group": "3.0-rc1",
+        "drupal/fixed_block_content": "1.0",
+        "drupal/fontawesome": "2.14",
+        "drupal/gapi": "1.x-dev",
+        "drupal/google_analytics": "2.2",
+        "drupal/health_check": "1.2",
+        "drupal/key": "1.10",
+        "drupal/ldap": "3.0-beta7",
+        "drupal/optional_end_date": "1.0-beta1",
+        "drupal/paragraphs": "1.10",
+        "drupal/pathauto": "1.5",
+        "drupal/redis": "1.2",
+        "drupal/require_login": "2.1",
+        "drupal/restui": "1.17",
+        "drupal/search_api": "1.14",
+        "drupal/timepicker-timepicker": "1.11",
+        "drupal/token": "1.5",
+        "google/apiclient": "^2.0",
+        "jonthornton/jquery-timepicker": "~1.11.15",
+        "trentrichardson/jquery-timepicker-addon": "^1.6.3",
+        "unb-libraries/drupal-builder": "^8.0.0",
+        "unb-libraries/calendar_hours": "dev-8.x-1.x",
+        "unb-libraries/alert_scheduler": "dev-8.x-1.x"
+    },
+    "require-dev": {
+        "unb-libraries/drupal-development-libraries": "8.0.6"
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ]
+    },
+    "type": "project"
+}

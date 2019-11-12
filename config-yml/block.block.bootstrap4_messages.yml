@@ -1,0 +1,22 @@
+uuid: c6f13b62-ddfb-4ac6-9219-8a01756c2df8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bootstrap4
+_core:
+  default_config_hash: LeQmsHUrAbC6lPDRpM7kywYGxPYpsR3Arq_GjhgwKzA
+id: bootstrap4_messages
+theme: bootstrap4
+region: content
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall for the default docker installation profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function PROFILE_SLUG_lib_unb_ca_install() {
+  \Drupal::service('theme_installer')->install(['composites_lib_unb_ca']);
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'composites_lib_unb_ca')
+    ->save();
+}

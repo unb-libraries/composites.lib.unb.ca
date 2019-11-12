@@ -1,0 +1,22 @@
+{
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "name": "unb-libraries/composites.lib.unb.ca",
+  "description": "Scaffold and provision local development for composites.lib.unb.ca",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require-dev": {
+    "drupal/bootstrap4": "1.0-rc1",
+    "unb-libraries/dockworker-drupal": "~3"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "vendor/bin/dockworker dockworker:git:setup-hooks"
+    ]
+  }
+}
