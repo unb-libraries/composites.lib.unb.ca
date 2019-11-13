@@ -10,7 +10,6 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
-  devel: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
@@ -20,6 +19,10 @@ module:
   help: 0
   history: 0
   image: 0
+  ldap: 0
+  ldap_authentication: 0
+  ldap_servers: 0
+  ldap_user: 0
   link: 0
   menu_ui: 0
   node: 0
@@ -38,6 +41,7 @@ module:
   user: 0
   views_ui: 0
   menu_link_content: 1
+  externalauth: 10
   views: 10
   composites: 1000
 theme:
