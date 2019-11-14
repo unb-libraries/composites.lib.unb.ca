@@ -36,7 +36,7 @@ services:
     networks:
       - composites.lib.unb.ca
     ports:
-      - "3096:80"
+      - "3105:80"
     env_file:
       - ./env/drupal.env
     volumes:
