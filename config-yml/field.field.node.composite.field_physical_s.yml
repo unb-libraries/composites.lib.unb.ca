@@ -1,0 +1,19 @@
+uuid: bcd150e9-0c04-4200-9677-c22700350e98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_physical_s
+    - node.type.composite
+id: node.composite.field_physical_s
+field_name: field_physical_s
+entity_type: node
+bundle: composite
+label: 'Physical Size'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

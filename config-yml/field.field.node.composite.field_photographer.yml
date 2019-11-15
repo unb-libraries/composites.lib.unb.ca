@@ -1,0 +1,29 @@
+uuid: c905a5fd-6010-4fa4-a342-adb065980884
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_photographer
+    - node.type.composite
+    - taxonomy.vocabulary.photographer
+id: node.composite.field_photographer
+field_name: field_photographer
+entity_type: node
+bundle: composite
+label: Photographer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      photographer: photographer
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

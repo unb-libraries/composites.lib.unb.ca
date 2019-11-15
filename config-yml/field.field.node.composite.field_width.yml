@@ -1,0 +1,23 @@
+uuid: 5bb4e373-06bb-4e57-bf1f-c27d56108220
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_width
+    - node.type.composite
+id: node.composite.field_width
+field_name: field_width
+entity_type: node
+bundle: composite
+label: Width
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

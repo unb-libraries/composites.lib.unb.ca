@@ -1,0 +1,19 @@
+uuid: 4ca4a472-050b-477f-ab05-eefd6746fb62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cd_location
+    - node.type.composite
+id: node.composite.field_cd_location
+field_name: field_cd_location
+entity_type: node
+bundle: composite
+label: 'CD Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

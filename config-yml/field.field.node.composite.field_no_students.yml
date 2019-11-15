@@ -1,0 +1,23 @@
+uuid: b5d71635-5b34-40ab-a983-575c87e4a0b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_no_students
+    - node.type.composite
+id: node.composite.field_no_students
+field_name: field_no_students
+entity_type: node
+bundle: composite
+label: 'No. Students'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,17 @@
+uuid: bc52fb62-8938-47bc-b977-8ba93bf6207e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Composite
+type: composite
+description: 'Composite image content type for composites.lib.unb.ca'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

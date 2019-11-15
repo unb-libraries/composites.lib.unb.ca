@@ -1,0 +1,29 @@
+uuid: 8e075ddb-f858-48e0-bdd9-042e82375bc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subjects
+    - node.type.composite
+    - node.type.subject
+id: node.composite.field_subjects
+field_name: field_subjects
+entity_type: node
+bundle: composite
+label: Subjects
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      subject: subject
+    sort:
+      field: field_last_name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

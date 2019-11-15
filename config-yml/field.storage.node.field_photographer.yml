@@ -1,0 +1,20 @@
+uuid: 68c7fab7-4324-4365-87bc-18eb95a3bef4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_photographer
+field_name: field_photographer
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

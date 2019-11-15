@@ -1,0 +1,8 @@
+uuid: 6051475f-774f-4945-a923-7874c5c598cd
+langcode: en
+status: true
+dependencies: {  }
+name: Photographer
+vid: photographer
+description: 'Controlled vocabulary for photographers in composites.lib.unb.ca'
+weight: 0

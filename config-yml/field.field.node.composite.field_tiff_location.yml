@@ -1,0 +1,19 @@
+uuid: 05d524f9-7ba9-47be-9c95-f4d9e2741477
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tiff_location
+    - node.type.composite
+id: node.composite.field_tiff_location
+field_name: field_tiff_location
+entity_type: node
+bundle: composite
+label: 'TIFF Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

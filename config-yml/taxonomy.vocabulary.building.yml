@@ -1,0 +1,8 @@
+uuid: da15ebc7-3ee9-4133-94cf-fd0c6b246de3
+langcode: en
+status: true
+dependencies: {  }
+name: Building
+vid: building
+description: 'Controlled vocabulary for buildings in composites.lib.unb.ca'
+weight: 0

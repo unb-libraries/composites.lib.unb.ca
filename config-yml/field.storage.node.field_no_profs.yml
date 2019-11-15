@@ -1,0 +1,20 @@
+uuid: 6fae0d2d-6fb2-4841-98d5-7e72326b81bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_no_profs
+field_name: field_no_profs
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

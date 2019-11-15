@@ -1,0 +1,29 @@
+uuid: 03851b50-9951-4b6b-b0b3-3f80edba4f94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_current_buildings
+    - node.type.composite
+    - taxonomy.vocabulary.building
+id: node.composite.field_current_buildings
+field_name: field_current_buildings
+entity_type: node
+bundle: composite
+label: 'Current Buildings'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      building: building
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

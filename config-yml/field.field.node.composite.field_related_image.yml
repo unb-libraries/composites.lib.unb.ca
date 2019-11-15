@@ -1,0 +1,19 @@
+uuid: cd6bfcc7-fd13-4d2d-838b-a88ea45951b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_image
+    - node.type.composite
+id: node.composite.field_related_image
+field_name: field_related_image
+entity_type: node
+bundle: composite
+label: 'Related Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: 6055614d-40a4-4bb2-8731-d9d449fc468d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.composite.field_comp_source_file
+    - node.type.composite
+  module:
+    - user
+id: node.composite.teaser
+targetEntityType: node
+bundle: composite
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_comp_source_file: true

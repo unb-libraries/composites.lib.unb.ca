@@ -19,4 +19,16 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_alt_name: true
+  field_awards: true
+  field_bottom_x: true
+  field_bottom_y: true
+  field_class: true
+  field_gender: true
+  field_initials: true
   field_last_name: true
+  field_source_file: true
+  field_surname: true
+  field_title: true
+  field_top_x: true
+  field_top_y: true

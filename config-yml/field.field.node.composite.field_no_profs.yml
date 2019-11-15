@@ -1,0 +1,23 @@
+uuid: 90fe5e61-7dbf-4519-a5f1-7b792e6d4c25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_no_profs
+    - node.type.composite
+id: node.composite.field_no_profs
+field_name: field_no_profs
+entity_type: node
+bundle: composite
+label: 'No. Profs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

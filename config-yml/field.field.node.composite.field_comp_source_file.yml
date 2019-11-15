@@ -1,0 +1,19 @@
+uuid: 0219ded0-770a-4085-8764-d540d5e2d5a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_comp_source_file
+    - node.type.composite
+id: node.composite.field_comp_source_file
+field_name: field_comp_source_file
+entity_type: node
+bundle: composite
+label: 'Comp. Source File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

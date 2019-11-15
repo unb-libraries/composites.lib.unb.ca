@@ -1,0 +1,29 @@
+uuid: a1f731b5-087a-4f2a-9f76-d4a7cdc08f17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_former_buildings
+    - node.type.composite
+    - taxonomy.vocabulary.building
+id: node.composite.field_former_buildings
+field_name: field_former_buildings
+entity_type: node
+bundle: composite
+label: 'Former Buildings'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      building: building
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
