@@ -108,7 +108,3 @@ spec:
           name: drupal-persistent-storage
           persistentVolumeClaim:
             claimName: composites-lib-unb-ca
-        -
-          name: exportfiles-persistent-storage
-          persistentVolumeClaim:
-            claimName: exportfiles-composites-lib-unb-ca
