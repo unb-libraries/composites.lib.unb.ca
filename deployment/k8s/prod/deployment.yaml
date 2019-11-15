@@ -95,9 +95,6 @@ spec:
             -
               mountPath: /app/html/sites/default
               name: drupal-persistent-storage
-            -
-              mountPath: /exportfiles
-              name: exportfiles-persistent-storage
       priorityClassName: high-priority-services
       imagePullSecrets:
         -
