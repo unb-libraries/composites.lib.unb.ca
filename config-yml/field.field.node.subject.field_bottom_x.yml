@@ -1,0 +1,23 @@
+uuid: 9ab07586-d0ab-4db1-bb96-8dbee826e397
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bottom_x
+    - node.type.subject
+id: node.subject.field_bottom_x
+field_name: field_bottom_x
+entity_type: node
+bundle: subject
+label: 'Bottom X'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

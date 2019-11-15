@@ -1,0 +1,19 @@
+uuid: 0d793cda-4bbf-4393-83be-0c189bc8b30a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_name
+    - node.type.subject
+id: node.subject.field_last_name
+field_name: field_last_name
+entity_type: node
+bundle: subject
+label: 'Last Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

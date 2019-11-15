@@ -1,0 +1,19 @@
+uuid: 950150ad-c6b7-49f2-8d39-b5b63dbaa3fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_file
+    - node.type.subject
+id: node.subject.field_source_file
+field_name: field_source_file
+entity_type: node
+bundle: subject
+label: 'Source File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

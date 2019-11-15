@@ -1,0 +1,22 @@
+uuid: 850ee529-0d53-4a59-ac50-7ed1ce48ca86
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.subject.field_last_name
+    - node.type.subject
+  module:
+    - user
+id: node.subject.teaser
+targetEntityType: node
+bundle: subject
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_last_name: true

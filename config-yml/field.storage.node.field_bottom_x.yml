@@ -1,0 +1,20 @@
+uuid: ad424418-d024-4587-9387-b55639d9c9b9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bottom_x
+field_name: field_bottom_x
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

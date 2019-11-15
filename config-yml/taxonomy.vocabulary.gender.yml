@@ -1,0 +1,8 @@
+uuid: 028dc686-2cf0-4c27-b474-8bbf4f946344
+langcode: en
+status: true
+dependencies: {  }
+name: Gender
+vid: gender
+description: 'Controlled vocabulary for genders in composites.lib.unb.ca'
+weight: 0

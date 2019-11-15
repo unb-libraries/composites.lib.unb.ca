@@ -1,0 +1,140 @@
+uuid: 615c6503-a797-4a94-aa8f-adfbd4fdc5cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.subject.field_alt_name
+    - field.field.node.subject.field_awards
+    - field.field.node.subject.field_bottom_x
+    - field.field.node.subject.field_bottom_y
+    - field.field.node.subject.field_class
+    - field.field.node.subject.field_gender
+    - field.field.node.subject.field_initials
+    - field.field.node.subject.field_last_name
+    - field.field.node.subject.field_source_file
+    - field.field.node.subject.field_surname
+    - field.field.node.subject.field_title
+    - field.field.node.subject.field_top_x
+    - field.field.node.subject.field_top_y
+    - node.type.subject
+  module:
+    - user
+id: node.subject.default
+targetEntityType: node
+bundle: subject
+mode: default
+content:
+  field_alt_name:
+    weight: 113
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_awards:
+    weight: 114
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_bottom_x:
+    weight: 109
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_bottom_y:
+    weight: 110
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_class:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_gender:
+    weight: 112
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_initials:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_last_name:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_source_file:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_surname:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title:
+    weight: 111
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_top_x:
+    weight: 107
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_top_y:
+    weight: 108
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

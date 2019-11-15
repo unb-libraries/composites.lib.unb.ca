@@ -1,0 +1,19 @@
+uuid: 3b7920dd-e013-4c0b-b63a-f6a5fe9ca518
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_alt_name
+    - node.type.subject
+id: node.subject.field_alt_name
+field_name: field_alt_name
+entity_type: node
+bundle: subject
+label: 'Alt. Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

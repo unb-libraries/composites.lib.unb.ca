@@ -1,0 +1,23 @@
+uuid: 7c51a704-25de-4d9a-bffe-068d7f5dd1f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bottom_y
+    - node.type.subject
+id: node.subject.field_bottom_y
+field_name: field_bottom_y
+entity_type: node
+bundle: subject
+label: 'Bottom Y'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

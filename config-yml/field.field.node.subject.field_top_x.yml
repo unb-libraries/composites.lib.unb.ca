@@ -1,0 +1,23 @@
+uuid: 72108e24-2d8a-4ed8-8b0c-75909bdf78ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_top_x
+    - node.type.subject
+id: node.subject.field_top_x
+field_name: field_top_x
+entity_type: node
+bundle: subject
+label: 'Top X'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

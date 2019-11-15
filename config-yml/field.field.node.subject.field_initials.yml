@@ -1,0 +1,19 @@
+uuid: 7a74ffdb-1f52-4fb8-9a0d-cdbd46a822c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_initials
+    - node.type.subject
+id: node.subject.field_initials
+field_name: field_initials
+entity_type: node
+bundle: subject
+label: Initials
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

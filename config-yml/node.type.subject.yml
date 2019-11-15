@@ -1,0 +1,17 @@
+uuid: d596f8f5-394a-4a1f-84a9-ced2620282a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Subject
+type: subject
+description: 'Photo subject content type for composites.lib.unb.ca'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,19 @@
+uuid: c42768cc-7a2c-47a1-b45b-1f200779cd88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title
+    - node.type.subject
+id: node.subject.field_title
+field_name: field_title
+entity_type: node
+bundle: subject
+label: Title/Designation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
