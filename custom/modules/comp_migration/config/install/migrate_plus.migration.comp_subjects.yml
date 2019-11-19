@@ -1,0 +1,27 @@
+id: comp_subjects
+label: Composite photo subjects from source for composites.lib.unb.ca
+
+migration_tags:
+  - CSV
+
+source:
+  plugin: csv
+  path: 'app/html/modules/custom/comp_subjects/data/csv/graduates.csv'
+  header_row_count: 1
+  keys:
+    - graduate_id
+  column_names:
+    0:
+      graduate_id: graduate_id
+
+external_id: graduate_id
+
+destination:
+  plugin: node:subject
+
+dependencies:
+  module:
+    - comp_migration
+  enforced:
+    module:
+      - comp_migration

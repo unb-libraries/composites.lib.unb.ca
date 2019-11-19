@@ -1,0 +1,9 @@
+<?php
+
+/**
+* @file
+* Contains comp_migration.install.
+*/
+
+function comp_migration_install() {
+}
