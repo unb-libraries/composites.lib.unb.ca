@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.composite.field_subjects
     - field.field.node.composite.field_tiff_location
     - field.field.node.composite.field_type
+    - field.field.node.composite.field_web_resolution
     - field.field.node.composite.field_width
     - node.type.composite
   module:
@@ -199,6 +200,17 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_web_resolution:
+    weight: 123
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
     region: content
   field_width:
     weight: 111

@@ -47,14 +47,14 @@ content:
     type: string_textfield
     region: content
   field_bottom_x:
-    weight: 129
+    weight: 137
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_bottom_y:
-    weight: 130
+    weight: 138
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -118,14 +118,14 @@ content:
     type: string_textfield
     region: content
   field_top_x:
-    weight: 127
+    weight: 135
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_top_y:
-    weight: 128
+    weight: 136
     settings:
       placeholder: ''
     third_party_settings: {  }

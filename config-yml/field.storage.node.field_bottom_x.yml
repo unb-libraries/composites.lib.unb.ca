@@ -1,4 +1,4 @@
-uuid: ad424418-d024-4587-9387-b55639d9c9b9
+uuid: ccc3bb59-ecd6-433f-98d2-4cafebe19b77
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,8 @@ dependencies:
 id: node.field_bottom_x
 field_name: field_bottom_x
 entity_type: node
-type: integer
-settings:
-  unsigned: false
-  size: normal
+type: float
+settings: {  }
 module: core
 locked: false
 cardinality: 1

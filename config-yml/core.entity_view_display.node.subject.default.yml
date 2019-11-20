@@ -41,22 +41,26 @@ content:
     type: string
     region: content
   field_bottom_x:
-    weight: 109
+    weight: 117
     label: above
     settings:
       thousand_separator: ''
+      decimal_separator: .
+      scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    type: number_decimal
     region: content
   field_bottom_y:
-    weight: 110
+    weight: 118
     label: above
     settings:
       thousand_separator: ''
+      decimal_separator: .
+      scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    type: number_decimal
     region: content
   field_class:
     weight: 105
@@ -115,22 +119,26 @@ content:
     type: string
     region: content
   field_top_x:
-    weight: 107
+    weight: 115
     label: above
     settings:
       thousand_separator: ''
+      decimal_separator: .
+      scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    type: number_decimal
     region: content
   field_top_y:
-    weight: 108
+    weight: 116
     label: above
     settings:
       thousand_separator: ''
+      decimal_separator: .
+      scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    type: number_decimal
     region: content
   links:
     weight: 100

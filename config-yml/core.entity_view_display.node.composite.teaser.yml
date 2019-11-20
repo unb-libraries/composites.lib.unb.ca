@@ -19,4 +19,24 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_cd_location: true
   field_comp_source_file: true
+  field_contributors: true
+  field_current_buildings: true
+  field_date: true
+  field_format: true
+  field_former_buildings: true
+  field_height: true
+  field_image: true
+  field_no_profs: true
+  field_no_students: true
+  field_notes: true
+  field_photographer: true
+  field_physical_s: true
+  field_related_image: true
+  field_resolution: true
+  field_source_number: true
+  field_subjects: true
+  field_tiff_location: true
+  field_type: true
+  field_width: true

@@ -1,11 +1,11 @@
-uuid: a4efdf0d-c719-4d35-b5d2-d399d8eaadb6
+uuid: 5df132b6-3bdd-49b6-b48b-8cc05ee0bb18
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_top_x
-field_name: field_top_x
+id: node.field_web_resolution
+field_name: field_web_resolution
 entity_type: node
 type: float
 settings: {  }

@@ -13,8 +13,11 @@ source:
   column_names:
     0:
       graduate_id: graduate_id
+    1:
+      alt_class_name: alt_class_name
 
 external_id: graduate_id
+alt_class_name: field_class
 
 destination:
   plugin: node:subject

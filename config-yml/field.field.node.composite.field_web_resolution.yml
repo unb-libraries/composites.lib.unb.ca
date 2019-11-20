@@ -1,15 +1,15 @@
-uuid: e13b0183-f3b9-4b2c-a28c-e567f72db41b
+uuid: 6a89fa3c-c254-4990-bdc1-4550311fc2ac
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_top_y
-    - node.type.subject
-id: node.subject.field_top_y
-field_name: field_top_y
+    - field.storage.node.field_web_resolution
+    - node.type.composite
+id: node.composite.field_web_resolution
+field_name: field_web_resolution
 entity_type: node
-bundle: subject
-label: 'Top Y'
+bundle: composite
+label: 'Web Resolution (dpi)'
 description: ''
 required: false
 translatable: false

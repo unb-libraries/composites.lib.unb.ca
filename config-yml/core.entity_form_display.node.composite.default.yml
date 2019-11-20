@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.composite.field_subjects
     - field.field.node.composite.field_tiff_location
     - field.field.node.composite.field_type
+    - field.field.node.composite.field_web_resolution
     - field.field.node.composite.field_width
     - image.style.thumbnail
     - node.type.composite
@@ -198,6 +199,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_web_resolution:
+    weight: 143
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_width:
     weight: 131
