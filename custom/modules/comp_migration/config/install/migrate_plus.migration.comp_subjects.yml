@@ -39,12 +39,25 @@ source:
       alt_name: Alt. Name
     12:
       awards: Awards
-      
+
 process:
   type:
     plugin: default_value
     default_value: subject
-
+  field_alt_name: alt_name
+  field_awards: awards
+  field_bottom_x: bottom_x
+  field_bottom_y: bottom_y
+  field_class: alt_class_name
+  field_external_id: graduate_id
+  field_gender: taxo_gender
+  field_initials: initials
+  field_last_name: last_name
+  field_source_file: source_file
+  field_surname: surname
+  field_title: title
+  field_top_x: top_x
+  field_top_y: top_y
 
 destination:
   plugin: entity:node
