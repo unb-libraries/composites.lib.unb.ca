@@ -16,8 +16,30 @@ source:
     0:
       graduate_id: Graduate ID
     1:
-      alt_class_name: alt_class_name
-
+      alt_class_name: Alt. Class Name
+    2:
+      source_file: Source File
+    3:
+      last_name: Last Name
+    4:
+      surname: Surname
+    5:
+      coord_top: Top Corner Coordinates
+    6:
+      coord_bottom: Bottom Corner Coordinates
+    7:
+      title: Title
+    8:
+      notes: Notes
+    9:
+      initials: Initials
+    10:
+      gender: Gender
+    11:
+      alt_name: Alt. Name
+    12:
+      awards: Awards
+      
 process:
   type:
     plugin: default_value
