@@ -1,0 +1,20 @@
+uuid: 363e466c-bc93-4145-8df7-0dc82c5f2be6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_external_id
+field_name: field_external_id
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

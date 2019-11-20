@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.subject.field_bottom_x
     - field.field.node.subject.field_bottom_y
     - field.field.node.subject.field_class
+    - field.field.node.subject.field_external_id
     - field.field.node.subject.field_gender
     - field.field.node.subject.field_initials
     - field.field.node.subject.field_last_name
@@ -69,6 +70,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_external_id:
+    weight: 119
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_gender:
     weight: 112

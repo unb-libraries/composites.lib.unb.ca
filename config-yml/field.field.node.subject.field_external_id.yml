@@ -1,0 +1,23 @@
+uuid: c12ce5ab-c297-4037-a588-e534da354221
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_external_id
+    - node.type.subject
+id: node.subject.field_external_id
+field_name: field_external_id
+entity_type: node
+bundle: subject
+label: 'External ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
