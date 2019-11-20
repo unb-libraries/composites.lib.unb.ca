@@ -6,21 +6,26 @@ migration_tags:
 
 source:
   plugin: csv
-  path: 'app/html/modules/custom/comp_subjects/data/csv/graduates.csv'
+  path: "app/html/modules/custom/comp_subjects/data/csv/graduates.csv"
+  delimiter: "|"
+  enclosure: "'"
   header_row_count: 1
   keys:
     - graduate_id
   column_names:
     0:
-      graduate_id: graduate_id
+      graduate_id: Graduate ID
     1:
       alt_class_name: alt_class_name
 
-external_id: graduate_id
-alt_class_name: field_class
+process:
+  type:
+    plugin: default_value
+    default_value: subject
+
 
 destination:
-  plugin: node:subject
+  plugin: entity:node
 
 dependencies:
   module:
