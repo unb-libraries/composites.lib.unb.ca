@@ -6,7 +6,7 @@ migration_tags:
 
 source:
   plugin: csv
-  path: "app/html/modules/custom/comp_subjects/data/csv/graduates.csv"
+  path: "/app/html/modules/custom/comp_migration/data/csv/graduates.csv"
   delimiter: "|"
   enclosure: "'"
   header_row_count: 1
@@ -44,6 +44,7 @@ process:
   type:
     plugin: default_value
     default_value: subject
+  title: source_file
   field_alt_name: alt_name
   field_awards: awards
   field_bottom_x: bottom_x
