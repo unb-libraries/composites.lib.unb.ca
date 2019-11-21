@@ -1,0 +1,87 @@
+id: comp_subjects
+label: Composite photo subjects from source for composites.lib.unb.ca
+
+migration_tags:
+  - CSV
+
+source:
+  plugin: csv
+  path: "/app/html/modules/custom/comp_migration/data/csv/images.csv"
+  delimiter: "|"
+  enclosure: "'"
+  header_row_count: 1
+  keys:
+    - image_id
+  column_names:
+    0:
+      graduate_id: Graduate ID
+    1:
+      source_file: Source File
+    2:
+      source_number: Source Number
+    3:
+      type: Type
+    4:
+      surname: Surname
+    5:
+      format: Format
+    6:
+      contributor: Contributor
+    7:
+      buildings_current: Current Buildings
+    8:
+      buildings_former: Former Buildings
+    9:
+      date: Date
+    10:
+      photographer: Photographer
+    11:
+      width: Width
+    12:
+      height: Height
+    13:
+      resolution: Resolution (dpi)
+    14:
+      physical_size: Physical Size
+    15:
+      cd_location: CD Location
+    16:
+      tiff_location: TIFF Location
+    17:
+      notes: Notes
+    18:
+      no_students: Number of Students
+    19:
+      no_profs: Number of Professors
+    20:
+      related_image: Related Image
+
+process:
+  type:
+    plugin: default_value
+    default_value: subject
+  title: source_file
+  field_alt_name: alt_name
+  field_awards: awards
+  field_bottom_x: bottom_x
+  field_bottom_y: bottom_y
+  field_class: alt_class_name
+  field_external_id: graduate_id
+  field_gender: taxo_gender
+  field_initials: initials
+  field_last_name: last_name
+  field_source_file: source_file
+  field_surname: surname
+  field_title: title
+  field_top_x: top_x
+  field_top_y: top_y
+
+destination:
+  plugin: entity:node
+
+dependencies:
+  module:
+    - comp_migration
+  enforced:
+    module:
+      - comp_migration
