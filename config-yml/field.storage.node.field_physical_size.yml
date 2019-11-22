@@ -1,16 +1,17 @@
-uuid: 363e466c-bc93-4145-8df7-0dc82c5f2be6
+uuid: f889bbd2-225e-4499-8a58-f926c0042bd8
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_external_id
-field_name: field_external_id
+id: node.field_physical_size
+field_name: field_physical_size
 entity_type: node
-type: integer
+type: string
 settings:
-  unsigned: false
-  size: normal
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1

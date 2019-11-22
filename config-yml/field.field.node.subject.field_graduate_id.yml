@@ -1,15 +1,15 @@
-uuid: c12ce5ab-c297-4037-a588-e534da354221
+uuid: 4e496d44-1538-43a0-a3e1-3b22f25d9b80
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_external_id
+    - field.storage.node.field_graduate_id
     - node.type.subject
-id: node.subject.field_external_id
-field_name: field_external_id
+id: node.subject.field_graduate_id
+field_name: field_graduate_id
 entity_type: node
 bundle: subject
-label: 'External ID'
+label: 'Graduate ID (External)'
 description: ''
 required: false
 translatable: false

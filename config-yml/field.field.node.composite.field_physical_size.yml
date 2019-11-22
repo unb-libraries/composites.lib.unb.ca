@@ -1,12 +1,12 @@
-uuid: bcd150e9-0c04-4200-9677-c22700350e98
+uuid: 486bb668-f82a-402e-bf88-8fcee021401b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_physical_s
+    - field.storage.node.field_physical_size
     - node.type.composite
-id: node.composite.field_physical_s
-field_name: field_physical_s
+id: node.composite.field_physical_size
+field_name: field_physical_size
 entity_type: node
 bundle: composite
 label: 'Physical Size'

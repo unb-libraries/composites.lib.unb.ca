@@ -8,13 +8,13 @@ dependencies:
     - field.field.node.subject.field_bottom_x
     - field.field.node.subject.field_bottom_y
     - field.field.node.subject.field_class
-    - field.field.node.subject.field_external_id
     - field.field.node.subject.field_gender
+    - field.field.node.subject.field_graduate_id
     - field.field.node.subject.field_initials
     - field.field.node.subject.field_last_name
     - field.field.node.subject.field_source_file
+    - field.field.node.subject.field_subject_title
     - field.field.node.subject.field_surname
-    - field.field.node.subject.field_title
     - field.field.node.subject.field_top_x
     - field.field.node.subject.field_top_y
     - node.type.subject
@@ -71,15 +71,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_external_id:
-    weight: 119
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_gender:
     weight: 112
     label: above
@@ -87,6 +78,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_graduate_id:
+    weight: 121
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_initials:
     weight: 104
@@ -112,16 +112,16 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_surname:
-    weight: 103
+  field_subject_title:
+    weight: 120
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_title:
-    weight: 111
+  field_surname:
+    weight: 103
     label: above
     settings:
       link_to_entity: false

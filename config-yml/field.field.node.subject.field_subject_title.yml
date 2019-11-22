@@ -1,12 +1,12 @@
-uuid: c42768cc-7a2c-47a1-b45b-1f200779cd88
+uuid: 064842f4-d602-4bec-888f-0729f7009c65
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_title
+    - field.storage.node.field_subject_title
     - node.type.subject
-id: node.subject.field_title
-field_name: field_title
+id: node.subject.field_subject_title
+field_name: field_subject_title
 entity_type: node
 bundle: subject
 label: Title/Designation

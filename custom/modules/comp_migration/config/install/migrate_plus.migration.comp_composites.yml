@@ -1,4 +1,4 @@
-id: comp_subjects
+id: comp_composites
 label: Composite photo subjects from source for composites.lib.unb.ca
 
 migration_tags:
@@ -14,7 +14,7 @@ source:
     - image_id
   column_names:
     0:
-      graduate_id: Graduate ID
+      image_id: Graduate ID
     1:
       source_file: Source File
     2:
@@ -22,59 +22,65 @@ source:
     3:
       type: Type
     4:
-      surname: Surname
-    5:
       format: Format
-    6:
+    5:
       contributor: Contributor
-    7:
+    6:
       buildings_current: Current Buildings
-    8:
+    7:
       buildings_former: Former Buildings
-    9:
+    8:
       date: Date
-    10:
+    9:
       photographer: Photographer
-    11:
+    10:
       width: Width
-    12:
+    11:
       height: Height
-    13:
+    12:
       resolution: Resolution (dpi)
-    14:
+    13:
       physical_size: Physical Size
-    15:
+    14:
       cd_location: CD Location
-    16:
+    15:
       tiff_location: TIFF Location
-    17:
+    16:
       notes: Notes
-    18:
+    17:
       no_students: Number of Students
-    19:
+    18:
       no_profs: Number of Professors
-    20:
+    19:
       related_image: Related Image
 
 process:
   type:
     plugin: default_value
-    default_value: subject
+    default_value: composite
   title: source_file
-  field_alt_name: alt_name
-  field_awards: awards
-  field_bottom_x: bottom_x
-  field_bottom_y: bottom_y
-  field_class: alt_class_name
-  field_external_id: graduate_id
-  field_gender: taxo_gender
-  field_initials: initials
-  field_last_name: last_name
-  field_source_file: source_file
-  field_surname: surname
-  field_title: title
-  field_top_x: top_x
-  field_top_y: top_y
+  field_cd_location: cd_location
+  field_comp_source_file: source_file
+#  field_contributors: taxo_contributors
+#  field_current_buildings: taxo_buildings_current
+#  field_date: date
+  field_format: format
+#  field_former_buildings: taxo_buildings_former
+  field_height: height
+  field_image: drupal_image
+  field_image_id: image_id
+  field_no_profs: no_profs
+  field_no_students: no_students
+  field_notes: notes
+#  field_photographer: taxo_photographer
+  field_physical_size: physical_size
+  field_related_image: related_image
+  field_resolution: resolution
+  field_source_number: source_number
+#  field_subjects: entity_subjects
+  field_type: type
+  field_web_resolution: web_resolution
+  field_width: width
 
 destination:
   plugin: entity:node

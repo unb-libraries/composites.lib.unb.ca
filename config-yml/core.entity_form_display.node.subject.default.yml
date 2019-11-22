@@ -8,13 +8,13 @@ dependencies:
     - field.field.node.subject.field_bottom_x
     - field.field.node.subject.field_bottom_y
     - field.field.node.subject.field_class
-    - field.field.node.subject.field_external_id
     - field.field.node.subject.field_gender
+    - field.field.node.subject.field_graduate_id
     - field.field.node.subject.field_initials
     - field.field.node.subject.field_last_name
     - field.field.node.subject.field_source_file
+    - field.field.node.subject.field_subject_title
     - field.field.node.subject.field_surname
-    - field.field.node.subject.field_title
     - field.field.node.subject.field_top_x
     - field.field.node.subject.field_top_y
     - node.type.subject
@@ -69,13 +69,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_external_id:
-    weight: 139
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_gender:
     weight: 132
     settings:
@@ -84,6 +77,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_graduate_id:
+    weight: 141
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_initials:
     weight: 124
@@ -109,16 +109,16 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_surname:
-    weight: 123
+  field_subject_title:
+    weight: 140
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_title:
-    weight: 131
+  field_surname:
+    weight: 123
     settings:
       size: 60
       placeholder: ''

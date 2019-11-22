@@ -1,17 +1,16 @@
-uuid: 40408cf9-c640-4992-b7fe-5049b35d7f24
+uuid: b0ab1ea8-31d7-43ae-9a2d-714d204a926e
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_physical_s
-field_name: field_physical_s
+id: node.field_image_id
+field_name: field_image_id
 entity_type: node
-type: string
+type: integer
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

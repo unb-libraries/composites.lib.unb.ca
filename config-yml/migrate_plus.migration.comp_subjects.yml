@@ -1,0 +1,74 @@
+uuid: eb98d550-5ecb-4946-9d8a-29dd235ba4dd
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - comp_migration
+_core:
+  default_config_hash: ZztxfqBbiT22V80vZm5t8hwAV4pLX5nlF3lDzOL2g0s
+id: comp_subjects
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Composite photo subjects from source for composites.lib.unb.ca'
+source:
+  plugin: csv
+  path: /app/html/modules/custom/comp_migration/data/csv/graduates.csv
+  delimiter: '|'
+  enclosure: ''''
+  header_row_count: 1
+  keys:
+    - graduate_id
+  column_names:
+    -
+      graduate_id: 'Graduate ID'
+    -
+      alt_class_name: 'Alt. Class Name'
+    -
+      source_file: 'Source File'
+    -
+      last_name: 'Last Name'
+    -
+      surname: Surname
+    -
+      coord_top: 'Top Corner Coordinates'
+    -
+      coord_bottom: 'Bottom Corner Coordinates'
+    -
+      title: Title
+    -
+      notes: Notes
+    -
+      initials: Initials
+    -
+      gender: Gender
+    -
+      alt_name: 'Alt. Name'
+    -
+      awards: Awards
+process:
+  type:
+    plugin: default_value
+    default_value: subject
+  title: source_file
+  field_alt_name: alt_name
+  field_awards: awards
+  field_bottom_x: bottom_x
+  field_bottom_y: bottom_y
+  field_class: alt_class_name
+  field_graduate_id: graduate_id
+  field_gender: taxo_gender
+  field_initials: initials
+  field_last_name: last_name
+  field_source_file: source_file
+  field_surname: surname
+  field_title: title
+  field_top_x: top_x
+  field_top_y: top_y
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null

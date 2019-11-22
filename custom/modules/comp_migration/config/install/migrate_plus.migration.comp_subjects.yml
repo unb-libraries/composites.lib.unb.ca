@@ -50,7 +50,7 @@ process:
   field_bottom_x: bottom_x
   field_bottom_y: bottom_y
   field_class: alt_class_name
-  field_external_id: graduate_id
+  field_graduate_id: graduate_id
   field_gender: taxo_gender
   field_initials: initials
   field_last_name: last_name

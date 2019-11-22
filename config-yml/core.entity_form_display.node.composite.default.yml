@@ -12,11 +12,12 @@ dependencies:
     - field.field.node.composite.field_former_buildings
     - field.field.node.composite.field_height
     - field.field.node.composite.field_image
+    - field.field.node.composite.field_image_id
     - field.field.node.composite.field_no_profs
     - field.field.node.composite.field_no_students
     - field.field.node.composite.field_notes
     - field.field.node.composite.field_photographer
-    - field.field.node.composite.field_physical_s
+    - field.field.node.composite.field_physical_size
     - field.field.node.composite.field_related_image
     - field.field.node.composite.field_resolution
     - field.field.node.composite.field_source_number
@@ -114,6 +115,13 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_image_id:
+    weight: 145
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_no_profs:
     weight: 138
     settings:
@@ -145,8 +153,8 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_physical_s:
-    weight: 134
+  field_physical_size:
+    weight: 144
     settings:
       size: 60
       placeholder: ''
