@@ -29,5 +29,10 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
      *   The prepare-row event.
      */
     public function onPrepareRow(MigratePrepareRowEvent $event) {
+      $row = $event->getRow();
+      $migration = $event->getMigration();
+      $migration_id = $migration->id();
+
+      $row->setSourceProperty('top_x', 100);
     }
 }

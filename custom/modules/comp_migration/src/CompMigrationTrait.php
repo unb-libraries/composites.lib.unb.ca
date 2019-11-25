@@ -13,7 +13,7 @@ trait CompMigrationTrait {
    * Get the current migrations.
    *
    * @return array
-   *   An associative array containing applicable migration IDs.
+   *   An array containing applicable migration IDs.
    */
 
    public function getMigrations() {
