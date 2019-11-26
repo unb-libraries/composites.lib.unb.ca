@@ -1,15 +1,15 @@
-uuid: bc327e05-79ee-41c2-8288-419f73ffbae1
+uuid: d6d40b2b-34e7-4f08-afc2-82cdd37dcb7f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_surname
+    - field.storage.node.field_given_name
     - node.type.subject
-id: node.subject.field_surname
-field_name: field_surname
+id: node.subject.field_given_name
+field_name: field_given_name
 entity_type: node
 bundle: subject
-label: Surname
+label: 'Given Name'
 description: ''
 required: false
 translatable: false

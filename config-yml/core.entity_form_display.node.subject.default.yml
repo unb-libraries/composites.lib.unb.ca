@@ -4,19 +4,21 @@ status: true
 dependencies:
   config:
     - field.field.node.subject.field_alt_name
+    - field.field.node.subject.field_alt_name_source
     - field.field.node.subject.field_awards
     - field.field.node.subject.field_bottom_x
     - field.field.node.subject.field_bottom_y
     - field.field.node.subject.field_class
     - field.field.node.subject.field_gender
+    - field.field.node.subject.field_given_name
     - field.field.node.subject.field_graduate_id
     - field.field.node.subject.field_initials
     - field.field.node.subject.field_last_name
     - field.field.node.subject.field_source_file
     - field.field.node.subject.field_subject_title
-    - field.field.node.subject.field_surname
     - field.field.node.subject.field_top_x
     - field.field.node.subject.field_top_y
+    - field.field.node.subject.field_valedictorian
     - node.type.subject
   module:
     - path
@@ -33,6 +35,14 @@ content:
     third_party_settings: {  }
   field_alt_name:
     weight: 133
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_alt_name_source:
+    weight: 143
     settings:
       size: 60
       placeholder: ''
@@ -78,6 +88,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_given_name:
+    weight: 144
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_graduate_id:
     weight: 141
     settings:
@@ -117,14 +135,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_surname:
-    weight: 123
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_top_x:
     weight: 135
     settings:
@@ -138,6 +148,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_valedictorian:
+    weight: 142
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   path:
     type: path

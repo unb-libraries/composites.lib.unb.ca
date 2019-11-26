@@ -1,0 +1,23 @@
+uuid: 91913eed-1d57-407e-8a4e-c0616962cde8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_valedictorian
+    - node.type.subject
+id: node.subject.field_valedictorian
+field_name: field_valedictorian
+entity_type: node
+bundle: subject
+label: Valedictorian
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -39,6 +39,10 @@ source:
       alt_name: Alt. Name
     12:
       awards: Awards
+    13:
+      alt_name_source: Alt. Name Source
+    14:
+      valedictorian: Valedictorian
 
 process:
   type:
@@ -55,10 +59,12 @@ process:
   field_initials: initials
   field_last_name: last_name
   field_source_file: source_file
-  field_surname: surname
+  field_given_name: surname
   field_title: title
   field_top_x: top_x
   field_top_y: top_y
+  field_alt_name_source: alt_name_source
+  field_valedictorian: valedictorian
 
 destination:
   plugin: entity:node
