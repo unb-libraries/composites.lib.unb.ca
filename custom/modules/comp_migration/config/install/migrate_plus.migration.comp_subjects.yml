@@ -65,6 +65,7 @@ process:
   field_top_y: top_y
   field_alt_name_source: alt_name_source
   field_valedictorian: valedictorian
+  field_subject_notes: notes
 
 destination:
   plugin: entity:node

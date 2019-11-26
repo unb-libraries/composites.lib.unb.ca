@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.subject.field_initials
     - field.field.node.subject.field_last_name
     - field.field.node.subject.field_source_file
+    - field.field.node.subject.field_subject_notes
     - field.field.node.subject.field_subject_title
     - field.field.node.subject.field_top_x
     - field.field.node.subject.field_top_y
@@ -129,6 +130,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_subject_notes:
+    weight: 125
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_subject_title:
     weight: 120
