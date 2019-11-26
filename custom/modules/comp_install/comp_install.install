@@ -1,15 +1,15 @@
 <?php
 
-namespace Drupal\comp_migration\Event;
+namespace Drupal\comp_install\Event;
 
 use Drupal\taxonomy\Entity\Term;
 
 /**
 * @file
-* Contains comp_migration.install.
+* Contains comp_install.install.
 */
 
-function comp_migration_install() {
+function comp_install_install() {
   // Create default taxonomny terms.
   // Gender.
   $genders = [
@@ -24,6 +24,6 @@ function comp_migration_install() {
       'name' => $gender,
     ]);
 
-    $term->save();  
+    $term->save();
   }
 }
