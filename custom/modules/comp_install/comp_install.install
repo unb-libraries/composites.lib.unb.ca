@@ -1,14 +1,15 @@
 <?php
 
-namespace Drupal\comp_install\Event;
-
-use Drupal\taxonomy\Entity\Term;
-
 /**
 * @file
 * Contains comp_install.install.
 */
 
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_install().
+ */
 function comp_install_install() {
   // Create default taxonomny terms.
   // Gender.
@@ -19,11 +20,9 @@ function comp_install_install() {
   ];
 
   foreach ($genders as $gender) {
-    $term = Term::create([
+    Term::create([
       'vid' => 'gender',
       'name' => $gender,
-    ]);
-
-    $term->save();
+    ])->save();
   }
 }
