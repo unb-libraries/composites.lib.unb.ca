@@ -1,17 +1,16 @@
-uuid: 145aa84d-01ff-4a1c-a0b1-35ce4f984ccc
+uuid: 2d9fee07-0376-425f-8fd4-2aba371e8bce
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_tiff_location
-field_name: field_tiff_location
+id: node.field_disp_resolution
+field_name: field_disp_resolution
 entity_type: node
-type: string
+type: integer
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

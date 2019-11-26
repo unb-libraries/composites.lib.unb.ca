@@ -1,18 +1,16 @@
-uuid: 5ff207ff-616c-499e-89e4-5dded7883544
+uuid: 77d02839-0b16-4412-97f3-ced8c5852b7e
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-id: node.field_format
-field_name: field_format
+id: node.field_grad_ceremony
+field_name: field_grad_ceremony
 entity_type: node
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

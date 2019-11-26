@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.composite.field_cd_location
     - field.field.node.composite.field_comp_source_file
+    - field.field.node.composite.field_comp_year
     - field.field.node.composite.field_contributors
     - field.field.node.composite.field_current_buildings
-    - field.field.node.composite.field_date
-    - field.field.node.composite.field_format
+    - field.field.node.composite.field_disp_resolution
     - field.field.node.composite.field_former_buildings
+    - field.field.node.composite.field_grad_ceremony
     - field.field.node.composite.field_height
     - field.field.node.composite.field_image
     - field.field.node.composite.field_image_id
@@ -22,15 +22,13 @@ dependencies:
     - field.field.node.composite.field_resolution
     - field.field.node.composite.field_source_number
     - field.field.node.composite.field_subjects
-    - field.field.node.composite.field_tiff_location
     - field.field.node.composite.field_type
-    - field.field.node.composite.field_web_resolution
     - field.field.node.composite.field_width
     - image.style.thumbnail
     - node.type.composite
   module:
-    - datetime
     - image
+    - link
     - path
 id: node.composite.default
 targetEntityType: node
@@ -43,14 +41,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_cd_location:
-    weight: 135
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_comp_source_file:
     weight: 122
     settings:
@@ -58,6 +48,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_comp_year:
+    weight: 146
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_contributors:
     weight: 126
@@ -77,19 +74,12 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_date:
-    weight: 129
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_format:
-    weight: 125
+  field_disp_resolution:
+    weight: 147
     settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: number
     region: content
   field_former_buildings:
     weight: 128
@@ -99,6 +89,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_grad_ceremony:
+    weight: 148
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_height:
     weight: 132
@@ -192,14 +190,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_tiff_location:
-    weight: 136
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_type:
     weight: 124
     settings:
@@ -207,13 +197,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_web_resolution:
-    weight: 143
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
     region: content
   field_width:
     weight: 131

@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.composite.field_cd_location
     - field.field.node.composite.field_comp_source_file
+    - field.field.node.composite.field_comp_year
     - field.field.node.composite.field_contributors
     - field.field.node.composite.field_current_buildings
-    - field.field.node.composite.field_date
-    - field.field.node.composite.field_format
+    - field.field.node.composite.field_disp_resolution
     - field.field.node.composite.field_former_buildings
+    - field.field.node.composite.field_grad_ceremony
     - field.field.node.composite.field_height
     - field.field.node.composite.field_image
     - field.field.node.composite.field_image_id
@@ -22,28 +22,18 @@ dependencies:
     - field.field.node.composite.field_resolution
     - field.field.node.composite.field_source_number
     - field.field.node.composite.field_subjects
-    - field.field.node.composite.field_tiff_location
     - field.field.node.composite.field_type
-    - field.field.node.composite.field_web_resolution
     - field.field.node.composite.field_width
     - node.type.composite
   module:
-    - datetime
     - image
+    - link
     - user
 id: node.composite.default
 targetEntityType: node
 bundle: composite
 mode: default
 content:
-  field_cd_location:
-    weight: 115
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_comp_source_file:
     weight: 102
     label: above
@@ -51,6 +41,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_comp_year:
+    weight: 126
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_contributors:
     weight: 106
@@ -68,22 +67,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_date:
-    weight: 109
+  field_disp_resolution:
+    weight: 127
     label: above
     settings:
-      format_type: medium
-      timezone_override: ''
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_format:
-    weight: 105
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
+    type: number_integer
     region: content
   field_former_buildings:
     weight: 108
@@ -92,6 +83,18 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_grad_ceremony:
+    weight: 128
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   field_height:
     weight: 112
@@ -195,14 +198,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_tiff_location:
-    weight: 116
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_type:
     weight: 104
     label: above
@@ -210,17 +205,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_web_resolution:
-    weight: 123
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_decimal
     region: content
   field_width:
     weight: 111

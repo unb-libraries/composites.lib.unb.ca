@@ -1,14 +1,16 @@
-uuid: 5df132b6-3bdd-49b6-b48b-8cc05ee0bb18
+uuid: 7cbbef72-6068-4208-bbd2-c2bd511e4f29
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_web_resolution
-field_name: field_web_resolution
+id: node.field_comp_year
+field_name: field_comp_year
 entity_type: node
-type: float
-settings: {  }
+type: integer
+settings:
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

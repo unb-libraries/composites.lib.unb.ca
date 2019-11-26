@@ -1,0 +1,23 @@
+uuid: 52fb228e-7875-484a-99bc-b5fde47b7639
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disp_resolution
+    - node.type.composite
+id: node.composite.field_disp_resolution
+field_name: field_disp_resolution
+entity_type: node
+bundle: composite
+label: 'Display Resolution'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

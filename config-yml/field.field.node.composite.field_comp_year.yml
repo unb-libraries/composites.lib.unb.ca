@@ -1,23 +1,23 @@
-uuid: 6a89fa3c-c254-4990-bdc1-4550311fc2ac
+uuid: 0c2e493e-7a14-42d2-859c-44d3652df995
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_web_resolution
+    - field.storage.node.field_comp_year
     - node.type.composite
-id: node.composite.field_web_resolution
-field_name: field_web_resolution
+id: node.composite.field_comp_year
+field_name: field_comp_year
 entity_type: node
 bundle: composite
-label: 'Web Resolution (dpi)'
+label: 'Comp. Year'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  min: !!float 0
+  min: 0
   max: null
   prefix: ''
   suffix: ''
-field_type: float
+field_type: integer
