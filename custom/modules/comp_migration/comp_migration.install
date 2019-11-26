@@ -1,9 +1,29 @@
 <?php
 
+namespace Drupal\comp_migration\Event;
+
+use Drupal\taxonomy\Entity\Term;
+
 /**
 * @file
 * Contains comp_migration.install.
 */
 
 function comp_migration_install() {
+  // Create default taxonomny terms.
+  // Gender.
+  $genders = [
+    'Not Identified',
+    'Female',
+    'Male',
+  ];
+
+  foreach ($genders as $gender) {
+    $term = Term::create([
+      'vid' => 'gender',
+      'name' => $gender,
+    ]);
+
+    $term->save();  
+  }
 }

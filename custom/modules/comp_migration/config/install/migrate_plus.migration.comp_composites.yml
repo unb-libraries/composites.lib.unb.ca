@@ -21,8 +21,6 @@ source:
       source_number: Source Number
     3:
       type: Type
-    4:
-      format: Format
     5:
       contributor: Contributor
     6:
@@ -59,12 +57,9 @@ process:
     plugin: default_value
     default_value: composite
   title: source_file
-  field_cd_location: cd_location
   field_comp_source_file: source_file
 #  field_contributors: taxo_contributors
 #  field_current_buildings: taxo_buildings_current
-#  field_date: date
-  field_format: format
 #  field_former_buildings: taxo_buildings_former
   field_height: height
   field_image: drupal_image
@@ -79,8 +74,9 @@ process:
   field_source_number: source_number
 #  field_subjects: entity_subjects
   field_type: type
-  field_web_resolution: web_resolution
+  field_disp_resolution: disp_resolution
   field_width: width
+  field_comp_year: comp_year
 
 destination:
   plugin: entity:node

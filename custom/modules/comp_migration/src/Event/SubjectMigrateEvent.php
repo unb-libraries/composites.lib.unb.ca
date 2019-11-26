@@ -51,5 +51,29 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
 
     $row->setSourceProperty('bottom_x', $bottom_x);
     $row->setSourceProperty('bottom_y', $bottom_y);
+
+    // Gender.
+    $src_gender = strtoupper($row->getSourceProperty('gender'));
+
+    switch ($src_gender) {
+      default:
+        $gender = "Not Identified";
+        break;
+      case "F":
+        $gender = "Female";
+        break;
+      case "M":
+        $gender = "Male";
+        break;
+    }
+
+    $terms = \Drupal::entityQuery('taxonomy_term')
+      ->condition('vid', 'gender')
+      ->condition('name', $gender)
+      ->execute();
+
+    reset($terms);
+    $tid = key($terms)->id();
+    $row->setSourceProperty('taxo_gender', $tid);
   }
 }
