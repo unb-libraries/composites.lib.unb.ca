@@ -73,7 +73,7 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
       ->execute();
 
     reset($terms);
-    $tid = key($terms)->id();
+    $tid = key($terms);
     $row->setSourceProperty('taxo_gender', $tid);
   }
 }
