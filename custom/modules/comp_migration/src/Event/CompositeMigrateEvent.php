@@ -78,6 +78,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       $row->setSourceProperty('taxo_buildings_former', $tids);
 
+
     }
 
     /**
@@ -92,9 +93,11 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
      * The ID of the term (int).
      */
     public function findAddTerm(string $vid, string $name) {
+      $name = trim($name);
+      
       $terms = \Drupal::entityQuery('taxonomy_term')
         ->condition('vid', $vid)
-        ->condition('name', trim($name))
+        ->condition('name', $name)
         ->execute();
 
       reset($terms);
