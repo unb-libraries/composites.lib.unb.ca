@@ -3,3 +3,4 @@ vendor
 composer.lock
 tests/features/bootstrap
 scripts/local
+custom/modules/comp_migration/data/img

@@ -58,7 +58,7 @@ process:
     default_value: composite
   title: source_file
   field_comp_source_file: source_file
-#  field_contributors: taxo_contributors
+  field_contributors: taxo_contributors
 #  field_current_buildings: taxo_buildings_current
 #  field_former_buildings: taxo_buildings_former
   field_height: height
