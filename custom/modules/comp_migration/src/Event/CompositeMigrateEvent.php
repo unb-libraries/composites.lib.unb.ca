@@ -46,27 +46,44 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       $tids = [];
 
       foreach ($contribs as $contrib) {
-        $terms = \Drupal::entityQuery('taxonomy_term')
-          ->condition('vid', 'contributor')
-          ->condition('name', $contrib)
-          ->execute();
-
-        reset($terms);
-        $tid = key($terms);
-
-        if (empty($tid)) {
-          $term = Term::create([
-            'name' => $contrib,
-            'vid' => 'contributor',
-          ]);
-
-          $term->save();
-          $tid = $term->id();
-        }
-
+        $tid = $this->findAddTerm('contributor', $contrib);
         $tids[] = $tid ? $tid : NULL;
       }
 
       $row->setSourceProperty('taxo_contributors', $tids);
     }
+
+    /**
+     * Find or create taxonomy term.
+     *
+     * @param string $vid
+     * The ID of the vocabulary for the term.
+     * @param string $name
+     * The name for the term.
+     *
+     * @return int
+     * The ID of the term (int).
+     */
+    public function findAddTerm(string $vid, string $name) {
+      $terms = \Drupal::entityQuery('taxonomy_term')
+        ->condition('vid', $vid)
+        ->condition('name', $name)
+        ->execute();
+
+      reset($terms);
+      $tid = key($terms);
+
+      if (empty($tid)) {
+        $term = Term::create([
+          'name' => $name,
+          'vid' => $vid,
+        ]);
+
+        $term->save();
+        $tid = $term->id();
+      }
+
+      return $tid;
+    }
+
 }
