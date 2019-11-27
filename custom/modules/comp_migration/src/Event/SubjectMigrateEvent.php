@@ -83,4 +83,5 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
     $awards_multi = explode(';', $src_awards);
     $row->setSourceProperty('awards_multi', $awards_multi);
   }
+  
 }

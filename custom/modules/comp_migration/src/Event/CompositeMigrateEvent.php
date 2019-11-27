@@ -51,6 +51,33 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       }
 
       $row->setSourceProperty('taxo_contributors', $tids);
+
+      // Buildings (current name).
+      $src_buildings = $row->getSourceProperty('buildings_current');
+      $buildings = explode(',', $src_buildings);
+      // Term IDs.
+      $tids = [];
+
+      foreach ($buildings as $building) {
+        $tid = $this->findAddTerm('building', $building);
+        $tids[] = $tid ? $tid : NULL;
+      }
+
+      $row->setSourceProperty('taxo_buildings_current', $tids);
+
+      // Buildings (previous name).
+      $src_buildings = $row->getSourceProperty('buildings_former');
+      $buildings = explode(',', $src_buildings);
+      // Term IDs.
+      $tids = [];
+
+      foreach ($buildings as $building) {
+        $tid = $this->findAddTerm('building', $building);
+        $tids[] = $tid ? $tid : NULL;
+      }
+
+      $row->setSourceProperty('taxo_buildings_former', $tids);
+
     }
 
     /**
@@ -67,20 +94,25 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     public function findAddTerm(string $vid, string $name) {
       $terms = \Drupal::entityQuery('taxonomy_term')
         ->condition('vid', $vid)
-        ->condition('name', $name)
+        ->condition('name', trim($name))
         ->execute();
 
       reset($terms);
       $tid = key($terms);
 
       if (empty($tid)) {
-        $term = Term::create([
-          'name' => $name,
-          'vid' => $vid,
-        ]);
+        if ($name != NULL) {
+          $term = Term::create([
+            'name' => $name,
+            'vid' => $vid,
+          ]);
 
-        $term->save();
-        $tid = $term->id();
+          $term->save();
+          $tid = $term->id();
+        }
+        else {
+          $tid = NULL;
+        }
       }
 
       return $tid;
