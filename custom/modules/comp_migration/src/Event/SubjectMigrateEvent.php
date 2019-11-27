@@ -31,6 +31,8 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
    * new content types will take place. Post row migration.
    */
   public function onPrepareRow(MigratePrepareRowEvent $event) {
+    // Transformations for fields not copied straight from source.
+
     // Get row and migration.
     $row = $event->getRow();
     $migration = $event->getMigration();
@@ -75,5 +77,10 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
     reset($terms);
     $tid = key($terms);
     $row->setSourceProperty('taxo_gender', $tid);
+
+    // Awards.
+    $src_awards = $row->getSourceProperty('awards');
+    $awards_multi = explode(';', $src_awards);
+    $row->setSourceProperty('awards_multi', $awards_multi);
   }
 }

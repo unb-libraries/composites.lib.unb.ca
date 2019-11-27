@@ -48,9 +48,9 @@ process:
   type:
     plugin: default_value
     default_value: subject
-  title: source_file
+  title: last_name
   field_alt_name: alt_name
-  field_awards: awards
+  field_awards: awards_multi
   field_bottom_x: bottom_x
   field_bottom_y: bottom_y
   field_class: alt_class_name
