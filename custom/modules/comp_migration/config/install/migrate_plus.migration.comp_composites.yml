@@ -67,14 +67,16 @@ process:
   field_no_profs: no_profs
   field_no_students: no_students
   field_notes: notes
-#  field_photographer: taxo_photographer
+  field_photographer: taxo_photographer
   field_physical_size: physical_size
   field_related_image: related_image
   field_resolution: resolution
   field_source_number: source_number
-#  field_subjects: entity_subjects
+  field_subjects: entity_subjects
   field_type: type
-  field_disp_resolution: disp_resolution
+  field_disp_resolution:
+    plugin: default_value
+    default_value: 72
   field_width: width
   field_comp_year: comp_year
 

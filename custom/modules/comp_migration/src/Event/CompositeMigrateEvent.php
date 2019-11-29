@@ -78,7 +78,34 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       $row->setSourceProperty('taxo_buildings_former', $tids);
 
+      // Photographer.
+      $src_photographer = $row->getSourceProperty('photographer');
 
+      if (!empty($src_photographer)) {
+        $tid = $this->findAddTerm('photographer', $src_photographer);
+        $row->setSourceProperty('taxo_photographer', $tid);
+      }
+
+      // Subjects.
+      // Composite source file.
+      $src_file_comp = $row->getSourceProperty('source_file');
+
+      // Search for subjects with same source file.
+      if (!empty($src_file_comp)) {
+        $nids = \Drupal::entityQuery('node')
+          ->condition('type', 'subject')
+          ->condition('field_source_file', $src_file_comp)
+          ->execute();
+      }
+
+      $subjects = [];
+      foreach ($nids as $nid) {
+        $subjects[] = ['target_id' => $nid];
+      }
+
+      if (!empty($subjects)) {
+        $row->setSourceProperty('entity_subjects', $subjects);
+      }
     }
 
     /**
@@ -94,7 +121,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
      */
     public function findAddTerm(string $vid, string $name) {
       $name = trim($name);
-      
+
       $terms = \Drupal::entityQuery('taxonomy_term')
         ->condition('vid', $vid)
         ->condition('name', $name)
