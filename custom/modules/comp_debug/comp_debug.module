@@ -1,0 +1,9 @@
+<?php
+
+function comp_debug_node_load($entities) {
+  foreach ($entities as $entity) {
+    if ($entity->bundle() == "composite") {
+      kint($entity);
+    }
+  }
+}
