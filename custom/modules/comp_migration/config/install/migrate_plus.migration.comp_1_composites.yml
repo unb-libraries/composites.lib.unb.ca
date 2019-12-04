@@ -1,4 +1,4 @@
-id: comp_composites
+id: comp_1_composites
 label: Composite photo subjects from source for composites.lib.unb.ca
 
 migration_tags:
@@ -8,7 +8,7 @@ source:
   plugin: csv
   path: "/app/html/modules/custom/comp_migration/data/csv/images.csv"
   delimiter: "|"
-  enclosure: "'"
+  enclosure: '"'
   header_row_count: 1
   keys:
     - image_id

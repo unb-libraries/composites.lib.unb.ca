@@ -1,4 +1,4 @@
-id: comp_subjects
+id: comp_0_subjects
 label: Composite photo subjects from source for composites.lib.unb.ca
 
 migration_tags:
@@ -8,7 +8,7 @@ source:
   plugin: csv
   path: "/app/html/modules/custom/comp_migration/data/csv/graduates.csv"
   delimiter: "|"
-  enclosure: "'"
+  enclosure: '"'
   header_row_count: 1
   keys:
     - graduate_id
