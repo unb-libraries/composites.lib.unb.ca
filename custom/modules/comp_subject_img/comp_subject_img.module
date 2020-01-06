@@ -12,8 +12,6 @@ use \Drupal\node\Entity\Node;
  * Creates image field for subject.
  */
 function comp_subject_img_preprocess_node__subject(&$variables) {
-  kint($variables);
-
   // Get subject id.
   $sid = $variables['node']->id();
 
@@ -28,7 +26,7 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
   $composite = Node::load($cid);
 
   // Get composite image field.
-  $comp_img = $composite->get("field_image");
-  $variables['test'] = $comp_img;
+  $comp_img = $composite->field_image->view('full');
+  $variables['content']['composite_image'] = $comp_img;
 
 }
