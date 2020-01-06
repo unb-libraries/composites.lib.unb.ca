@@ -1,0 +1,5 @@
+name: Subject image processing for composites.lib.unb.ca
+type: module
+description: Subject image processing for composites.lib.unb.ca
+core: 8.x
+package: Custom

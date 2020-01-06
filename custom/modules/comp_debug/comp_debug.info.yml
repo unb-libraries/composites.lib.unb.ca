@@ -3,3 +3,5 @@ type: module
 description: Debugging for composites.lib.unb.ca
 core: 8.x
 package: Custom
+dependencies:
+  - kint:kint
