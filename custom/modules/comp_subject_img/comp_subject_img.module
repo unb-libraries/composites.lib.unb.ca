@@ -6,10 +6,12 @@
  */
 
 use \Drupal\node\Entity\Node;
+use \Drupal\image\Entity\ImageStyle;
 
 /**
  * Implements hook_preprocess_HOOK().
- * Creates image field for subject.
+ * Creates image field for subject node and add as renderable content with the
+ * correct image style to crop the composite.
  */
 function comp_subject_img_preprocess_node__subject(&$variables) {
   // Get subject id.
@@ -21,12 +23,65 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
     ->condition('field_subjects', $sid)
     ->execute();
 
-  // Get first result with reset() to be safe. Query should only return 1.
+  // Get first result node using reset() to be safe. Should return 1 value.
   $cid = reset($results);
   $composite = Node::load($cid);
 
-  // Get composite image field.
-  $comp_img = $composite->field_image->view('full');
+  // Get composite image field as renderable content to be passed to templates.
+  $comp_img = $composite->field_image->view();
   $variables['content']['composite_image'] = $comp_img;
 
+  // Create on-the-fly image style with cropping effect for composite.
+
+  // Delete style if already exists.
+  if (!empty(ImageStyle::load('composite_crop'))) {
+    $style = ImageStyle::load('composite_crop');
+    $style->flush();
+    $style->delete();
+  }
+
+  // (Re)create style.
+  $style = ImageStyle::create(['name' => 'composite_crop']);
+
+  // Crop effect configuration.
+  $dpi = 72;
+
+  $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
+  $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
+  $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
+  $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
+
+  $anchorX = $topX * $dpi;
+  $anchorY = $topY * $dpi;
+  $anchor = strval($anchorX) . "-" . strval($anchorY);
+  $width = ($botX * $dpi) - $anchorX;
+  $height = ($botY * $dpi) - $anchorY;
+
+  $config = [
+    'uuid' => NULL,
+    'id' => 'image_crop',
+    'weight' => 0,
+    'data' => [
+      'width' => $width,
+      'height' => $height,
+      'anchor' => $anchor,
+    ],
+  ];
+
+  // Create effect, add to style, save.
+  $effect = \Drupal::service('plugin.manager.image.effect')->
+    createInstance($config['id'], $config);
+
+  $style->addImageEffect($effect->getConfiguration());
+  $style->save();
+
+  // Renederable array for styled image.
+  $render = [
+    '#theme' => 'image_style',
+    '#style_name' => 'composite_crop',
+    '#uri' => $composite->field_image->entity->uri->value,
+  ];
+
+  // Save renderable output to content.
+  $variables['content']['subject_image'] = $render;
 }
