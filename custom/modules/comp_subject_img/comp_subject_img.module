@@ -27,9 +27,9 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
   $cid = reset($results);
   $composite = Node::load($cid);
 
-  // Get composite image field as renderable content to be passed to templates.
-  $comp_img = $composite->field_image->view();
-  $variables['content']['composite_image'] = $comp_img;
+  // Pass composite image field as renderable content to templates.
+  $comp_img = $composite->field_image;
+  $variables['content']['composite_image'] = $comp_img->view();
 
   // Create on-the-fly image style with cropping effect for composite.
 
@@ -79,7 +79,7 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
   $render = [
     '#theme' => 'image_style',
     '#style_name' => 'composite_crop',
-    '#uri' => $composite->field_image->entity->uri->value,
+    '#uri' => $comp_img->entity->uri->value,
   ];
 
   // Save renderable output to content.
