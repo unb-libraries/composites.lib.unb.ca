@@ -46,17 +46,20 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
   // Crop effect configuration.
   $dpi = 72;
 
+  // Retrieve coordinates from subject record.
   $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
   $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
   $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
   $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
 
+  // Calculate anchor, width, height using resolution (dpi).
   $anchorX = $topX * $dpi;
   $anchorY = $topY * $dpi;
   $anchor = strval($anchorX) . "-" . strval($anchorY);
   $width = ($botX * $dpi) - $anchorX;
   $height = ($botY * $dpi) - $anchorY;
 
+  // Configuration for cropping effect.
   $config = [
     'uuid' => NULL,
     'id' => 'image_crop',
@@ -75,7 +78,7 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
   $style->addImageEffect($effect->getConfiguration());
   $style->save();
 
-  // Renederable array for styled image.
+  // Renderable array for styled image.
   $render = [
     '#theme' => 'image_style',
     '#style_name' => 'composite_crop',

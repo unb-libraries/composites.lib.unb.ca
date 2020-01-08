@@ -123,6 +123,24 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       $row->setSourceProperty('drupal_image', $field_image);
     }
+
+    // Related Image.
+    $src_filename = trim($row->getSourceProperty('related_image')) . ".jpg";
+    $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/' . $src_filename;
+    $data = file_get_contents($src_path);
+
+    if (!empty($data)) {
+      $file = file_save_data($data, "public://" . $src_filename, FILE_EXISTS_REPLACE);
+      $fid = $file->id();
+
+      $field_rel_image = [
+        'target_id' => $fid,
+        'alt' => $src_filename,
+        'title' => $src_filename,
+      ];
+
+      $row->setSourceProperty('drupal_rel_image', $field_rel_image);
+    }
   }
 
   /**
