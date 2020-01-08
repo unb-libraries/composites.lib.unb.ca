@@ -1,10 +1,12 @@
-uuid: cd6bfcc7-fd13-4d2d-838b-a88ea45951b7
+uuid: 60b50be0-78b8-4ae6-8754-d127ebe40087
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_related_image
     - node.type.composite
+  module:
+    - image
 id: node.composite.field_related_image
 field_name: field_related_image
 entity_type: node
@@ -15,5 +17,22 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  file_directory: comp_images
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

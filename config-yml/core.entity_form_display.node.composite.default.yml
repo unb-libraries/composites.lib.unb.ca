@@ -160,12 +160,12 @@ content:
     type: string_textfield
     region: content
   field_related_image:
-    weight: 140
+    weight: 149
     settings:
-      size: 60
-      placeholder: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: string_textfield
+    type: image_image
     region: content
   field_resolution:
     weight: 133
