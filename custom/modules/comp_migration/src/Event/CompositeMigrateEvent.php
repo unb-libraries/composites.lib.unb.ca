@@ -108,7 +108,8 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
     // Image.
     $src_filename = trim($row->getSourceProperty('source_file')) . ".jpg";
-    $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/' . $src_filename;
+    $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
+      . $src_filename;
     $data = file_get_contents($src_path);
 
     if (!empty($data)) {
@@ -125,21 +126,27 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     }
 
     // Related Image.
-    $src_filename = trim($row->getSourceProperty('related_image')) . ".jpg";
-    $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/' . $src_filename;
-    $data = file_get_contents($src_path);
+    $src_filename = trim($row->getSourceProperty('related_image'));
 
-    if (!empty($data)) {
-      $file = file_save_data($data, "public://" . $src_filename, FILE_EXISTS_REPLACE);
-      $fid = $file->id();
+    // Checking for absence of related image prevents file_get_contents warning.
+    if (!empty($src_filename)) {
+      $src_filename .= ".jpg";
+      $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
+        . $src_filename;
+      $data = file_get_contents($src_path);
 
-      $field_rel_image = [
-        'target_id' => $fid,
-        'alt' => $src_filename,
-        'title' => $src_filename,
-      ];
+      if (!empty($data)) {
+        $file = file_save_data($data, "public://" . $src_filename, FILE_EXISTS_REPLACE);
+        $fid = $file->id();
 
-      $row->setSourceProperty('drupal_rel_image', $field_rel_image);
+        $field_rel_image = [
+          'target_id' => $fid,
+          'alt' => $src_filename,
+          'title' => $src_filename,
+        ];
+
+        $row->setSourceProperty('drupal_rel_image', $field_rel_image);
+      }
     }
   }
 
