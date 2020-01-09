@@ -49,7 +49,8 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
     ]);
 
     // Crop effect configuration.
-    $dpi = 72;
+    $dpi = intval($composite->get('field_disp_resolution')
+      ->getValue()[0]['value']);
 
     // Retrieve coordinates from subject record.
     $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
