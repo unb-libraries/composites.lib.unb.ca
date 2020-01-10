@@ -1,0 +1,17 @@
+<?php
+
+/**
+* @file
+* Contains comp_core.module.
+*/
+
+/**
+ * Implements hook_theme().
+ */
+function comp_core_theme($existing, $type, $theme, $path) {
+  return [
+    'comp_landing' => [
+      'variables' => [],
+    ],
+  ];
+}

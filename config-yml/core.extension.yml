@@ -5,6 +5,7 @@ module:
   ckeditor: 0
   color: 0
   comment: 0
+  comp_core: 0
   comp_install: 0
   comp_subject_img: 0
   config: 0
