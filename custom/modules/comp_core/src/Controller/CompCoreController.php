@@ -20,4 +20,26 @@ class CompCoreController extends ControllerBase {
     return $element;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function about() {
+    $element = [
+      '#theme' => 'comp_about',
+      '#attributes' => [],
+    ];
+    return $element;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function ack() {
+    $element = [
+      '#theme' => 'comp_ack',
+      '#attributes' => [],
+    ];
+    return $element;
+  }
+
 }

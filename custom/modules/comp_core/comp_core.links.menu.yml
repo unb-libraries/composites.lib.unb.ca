@@ -1,0 +1,35 @@
+comp_core.home:
+  title: 'Home'
+  description: 'Home'
+  parent: main
+  menu_name: main
+  route_name: comp_core.home
+  weight: 10
+comp_core.about:
+  title: 'About'
+  description: 'About'
+  parent: main
+  menu_name: main
+  route_name: comp_core.about
+  weight: 20
+comp_core.ack:
+  title: 'Acknowledgements'
+  description: 'Acknowledgements'
+  parent: main
+  menu_name: main
+  route_name: comp_core.ack
+  weight: 30
+comp_core.contact:
+  title: 'Contact Us'
+  description: 'Contact Us'
+  parent: main
+  menu_name: main
+  route_name: comp_core.contact
+  weight: 40
+comp_core.archives:
+  title: 'Archives & Special Collections'
+  description: 'Archives & Special Collections'
+  parent: main
+  menu_name: main
+  url: 'https://lib.unb.ca/archives'
+  weight: 50

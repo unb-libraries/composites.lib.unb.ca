@@ -13,5 +13,11 @@ function comp_core_theme($existing, $type, $theme, $path) {
     'comp_landing' => [
       'variables' => [],
     ],
+    'comp_about' => [
+      'variables' => [],
+    ],
+    'comp_ack' => [
+      'variables' => [],
+    ],
   ];
 }
