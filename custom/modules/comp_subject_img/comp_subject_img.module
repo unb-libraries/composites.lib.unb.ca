@@ -32,9 +32,12 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
   $variables['content']['composite_image'] = $comp_img->view();
 
   // Create on-the-fly image style with cropping effect for composite.
-  $initials = $variables['content']['field_initials'][0]['#context']['value'];
-  $last_name = $variables['content']['field_last_name'][0]['#context']['value'];
-  $source = $variables['content']['field_source_file'][0]['#context']['value'];
+  $initials = empty($variables['content']['field_initials'][0]) ? NULL :
+    $variables['content']['field_initials'][0]['#context']['value'];
+  $last_name = empty($variables['content']['field_last_name'][0]) ? NULL :
+    $variables['content']['field_last_name'][0]['#context']['value'];
+  $source = empty($variables['content']['field_source_file'][0]) ? NULL :
+    $variables['content']['field_source_file'][0]['#context']['value'];
   $style_name = $initials . $last_name . '_' . $source . '_composite_crop';
 
   // Load style if already exists.
