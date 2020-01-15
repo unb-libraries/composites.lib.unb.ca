@@ -148,6 +148,11 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $row->setSourceProperty('drupal_rel_image', $field_rel_image);
       }
     }
+
+    // Year.
+    $src_date = $row->getSourceProperty('date');
+    $year = empty($src_date) ? NULL : substr($src_date, 0, 4);
+    $row->setSourceProperty('comp_year', $year);
   }
 
   /**
