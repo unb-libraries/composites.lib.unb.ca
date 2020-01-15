@@ -114,6 +114,7 @@
         "drupal/search_api": "1.14",
         "drupal/timepicker-timepicker": "1.11",
         "drupal/token": "1.5",
+        "drupal/twig_tweak": "2.4",
         "google/apiclient": "^2.0",
         "jonthornton/jquery-timepicker": "~1.11.15",
         "trentrichardson/jquery-timepicker-addon": "^1.6.3",
