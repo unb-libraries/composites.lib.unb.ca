@@ -113,8 +113,6 @@
         "drupal/require_login": "2.1",
         "drupal/restui": "1.17",
         "drupal/search_api": "1.14",
-        "drupal/search_api_autocomplete": "1.2",
-        "drupal/search_api_solr": "3.8",
         "drupal/timepicker-timepicker": "1.11",
         "drupal/token": "1.5",
         "drupal/twig_tweak": "2.4",
