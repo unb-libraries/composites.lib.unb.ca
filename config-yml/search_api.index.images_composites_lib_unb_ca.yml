@@ -7,6 +7,7 @@ dependencies:
     - search_api
     - node
   config:
+    - field.storage.node.field_comp_year
     - search_api.server.drupal_solr_lib_unb_ca
 third_party_settings:
   search_api_solr:
@@ -50,14 +51,21 @@ id: images_composites_lib_unb_ca
 name: images.composites.lib.unb.ca
 description: ''
 read_only: false
-field_settings: {  }
+field_settings:
+  field_comp_year:
+    label: 'Comp. Year'
+    datasource_id: 'entity:node'
+    property_path: field_comp_year
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_comp_year
 datasource_settings:
   'entity:node':
     bundles:
       default: false
       selected:
         - composite
-        - subject
     languages:
       default: false
       selected:
