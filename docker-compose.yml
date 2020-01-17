@@ -22,6 +22,16 @@ services:
     env_file:
       - ./env/redis.env
 
+  drupal-solr-lib-unb-ca:
+    image: unblibraries/solr-drupal:8.x-3.x
+    expose:
+      - "8983"
+    networks:
+      - composites.lib.unb.ca
+    entrypoint:
+      - docker-entrypoint-multiple.sh
+      - images.composites.lib.unb.ca:/solr-conf
+
   composites.lib.unb.ca:
     build:
       context: .
