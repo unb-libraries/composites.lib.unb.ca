@@ -1,0 +1,23 @@
+uuid: 0101fe62-5762-4746-a093-e3e6115b2fd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.comp_decade_facet
+  module:
+    - facets
+  theme:
+    - composites_lib_unb_ca
+id: comp.decadefacet
+theme: composites_lib_unb_ca
+region: content
+weight: 0
+provider: null
+plugin: 'facet_block:comp_decade_facet'
+settings:
+  id: 'facet_block:comp_decade_facet'
+  label: 'Comp. Decade Facet'
+  provider: facets
+  label_display: visible
+  block_id: comp.decadefacet
+visibility: {  }

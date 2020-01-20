@@ -1,4 +1,4 @@
-uuid: 14d63025-c56e-40a0-953e-54008a21e061
+uuid: ad86d875-d7b8-451b-9574-0d771a60cb41
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
     - views.view.browse_composites
   module:
     - search_api
-id: comp_year_facet
-name: 'Comp. Year Facet'
-url_alias: comp_year_facet
+id: comp_decade_facet
+name: 'Comp. Decade Facet'
+url_alias: comp_decade_facet
 weight: 0
 min_count: 1
-show_only_one_result: false
-field_identifier: field_comp_year
+show_only_one_result: true
+field_identifier: field_comp_decade
 facet_source_id: 'search_api:views_page__browse_composites__page_1'
 widget:
   type: links
@@ -23,9 +23,9 @@ widget:
     soft_limit_settings:
       show_less_label: 'Show less'
       show_more_label: 'Show more'
-    show_reset_link: false
+    show_reset_link: true
     reset_text: 'Show all'
-    hide_reset_when_no_selection: false
+    hide_reset_when_no_selection: true
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
