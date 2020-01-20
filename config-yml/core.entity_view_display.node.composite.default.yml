@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.composite.field_comp_decade
     - field.field.node.composite.field_comp_source_file
     - field.field.node.composite.field_comp_year
     - field.field.node.composite.field_contributors
@@ -34,8 +35,17 @@ targetEntityType: node
 bundle: composite
 mode: default
 content:
+  field_comp_decade:
+    weight: 3
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_comp_source_file:
-    weight: 6
+    weight: 7
     label: above
     settings:
       link_to_entity: false
@@ -52,14 +62,6 @@ content:
     type: number_integer
     region: content
   field_contributors:
-    weight: 13
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_current_buildings:
     weight: 14
     label: above
     settings:
@@ -67,8 +69,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_current_buildings:
+    weight: 15
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_disp_resolution:
-    weight: 11
+    weight: 12
     label: above
     settings:
       thousand_separator: ''
@@ -77,7 +87,7 @@ content:
     type: number_integer
     region: content
   field_former_buildings:
-    weight: 15
+    weight: 16
     label: above
     settings:
       link: true
@@ -85,7 +95,7 @@ content:
     type: entity_reference_label
     region: content
   field_grad_ceremony:
-    weight: 4
+    weight: 5
     label: above
     settings:
       trim_length: 80
@@ -97,7 +107,7 @@ content:
     type: link
     region: content
   field_height:
-    weight: 9
+    weight: 10
     label: above
     settings:
       thousand_separator: ''
@@ -115,15 +125,6 @@ content:
     type: image
     region: content
   field_no_profs:
-    weight: 16
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_no_students:
     weight: 17
     label: above
     settings:
@@ -132,15 +133,24 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
-  field_notes:
+  field_no_students:
     weight: 18
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_notes:
+    weight: 19
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_photographer:
-    weight: 12
+    weight: 13
     label: above
     settings:
       link: true
@@ -148,7 +158,7 @@ content:
     type: entity_reference_label
     region: content
   field_physical_size:
-    weight: 7
+    weight: 8
     label: above
     settings:
       link_to_entity: false
@@ -165,7 +175,7 @@ content:
     type: image
     region: content
   field_resolution:
-    weight: 10
+    weight: 11
     label: above
     settings:
       thousand_separator: ''
@@ -174,7 +184,7 @@ content:
     type: number_integer
     region: content
   field_subjects:
-    weight: 5
+    weight: 6
     label: above
     settings:
       link: true
@@ -182,7 +192,7 @@ content:
     type: entity_reference_label
     region: content
   field_type:
-    weight: 3
+    weight: 4
     label: above
     settings:
       link_to_entity: false
@@ -190,7 +200,7 @@ content:
     type: string
     region: content
   field_width:
-    weight: 8
+    weight: 9
     label: above
     settings:
       thousand_separator: ''
