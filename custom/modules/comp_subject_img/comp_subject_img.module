@@ -30,6 +30,8 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
   // Pass composite image field as renderable content to templates.
   $comp_img = $composite->field_image;
   $variables['content']['composite_image'] = $comp_img->view();
+  $variables['content']['composite_image']['#title'] = 'Composite Image';
+  $variables['content']['composite_image']['#weight'] = -1;
 
   // Create on-the-fly image style with cropping effect for composite.
   $initials = empty($variables['content']['field_initials'][0]) ? NULL :
@@ -88,13 +90,16 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
     $style->save();
   }
 
-  // Renderable array for styled image.
-  $render = [
-    '#theme' => 'image_style',
-    '#style_name' => $style_name,
-    '#uri' => $comp_img->entity->uri->value,
-  ];
+  // Save styled image as renederable field to content.
+  $variables['content']['subject_image'] = $comp_img->view([
+    'type' => 'image',
+    'label' => 'above',
+    'settings' => [
+      'image_style' => $style_name,
+      'image_link' => 'content',
+    ],
+  ]);
 
-  // Save renderable output to content.
-  $variables['content']['subject_image'] = $render;
+  $variables['content']['subject_image']['#title'] = 'Subject Image';
+  $variables['content']['subject_image']['#weight'] = -1;
 }
