@@ -29,7 +29,7 @@ bundle: subject
 mode: default
 content:
   field_alt_name:
-    weight: 113
+    weight: 8
     label: above
     settings:
       link_to_entity: false
@@ -37,7 +37,7 @@ content:
     type: string
     region: content
   field_alt_name_source:
-    weight: 123
+    weight: 9
     label: above
     settings:
       link_to_entity: false
@@ -45,7 +45,7 @@ content:
     type: string
     region: content
   field_awards:
-    weight: 114
+    weight: 6
     label: above
     settings:
       link_to_entity: false
@@ -53,7 +53,7 @@ content:
     type: string
     region: content
   field_bottom_x:
-    weight: 117
+    weight: 12
     label: above
     settings:
       thousand_separator: ''
@@ -64,7 +64,7 @@ content:
     type: number_decimal
     region: content
   field_bottom_y:
-    weight: 118
+    weight: 13
     label: above
     settings:
       thousand_separator: ''
@@ -75,7 +75,7 @@ content:
     type: number_decimal
     region: content
   field_class:
-    weight: 105
+    weight: 4
     label: above
     settings:
       link_to_entity: false
@@ -83,7 +83,7 @@ content:
     type: string
     region: content
   field_gender:
-    weight: 112
+    weight: 7
     label: above
     settings:
       link: true
@@ -91,24 +91,15 @@ content:
     type: entity_reference_label
     region: content
   field_given_name:
-    weight: 124
+    weight: 1
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_graduate_id:
-    weight: 121
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_initials:
-    weight: 104
+    weight: 2
     label: above
     settings:
       link_to_entity: false
@@ -116,15 +107,7 @@ content:
     type: string
     region: content
   field_last_name:
-    weight: 102
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_source_file:
-    weight: 106
+    weight: 0
     label: above
     settings:
       link_to_entity: false
@@ -132,14 +115,14 @@ content:
     type: string
     region: content
   field_subject_notes:
-    weight: 125
+    weight: 14
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_subject_title:
-    weight: 120
+    weight: 3
     label: above
     settings:
       link_to_entity: false
@@ -147,7 +130,7 @@ content:
     type: string
     region: content
   field_top_x:
-    weight: 115
+    weight: 10
     label: above
     settings:
       thousand_separator: ''
@@ -158,7 +141,7 @@ content:
     type: number_decimal
     region: content
   field_top_y:
-    weight: 116
+    weight: 11
     label: above
     settings:
       thousand_separator: ''
@@ -169,7 +152,7 @@ content:
     type: number_decimal
     region: content
   field_valedictorian:
-    weight: 122
+    weight: 5
     label: above
     settings:
       format: default
@@ -178,9 +161,9 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  field_graduate_id: true
+  field_source_file: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

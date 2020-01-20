@@ -45,3 +45,5 @@ hidden:
   field_tiff_location: true
   field_type: true
   field_width: true
+  langcode: true
+  search_api_excerpt: true

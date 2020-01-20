@@ -20,17 +20,23 @@ content:
     region: content
 hidden:
   field_alt_name: true
+  field_alt_name_source: true
   field_awards: true
   field_bottom_x: true
   field_bottom_y: true
   field_class: true
   field_gender: true
+  field_given_name: true
   field_graduate_id: true
   field_initials: true
   field_last_name: true
   field_source_file: true
+  field_subject_notes: true
   field_subject_title: true
   field_surname: true
   field_title: true
   field_top_x: true
   field_top_y: true
+  field_valedictorian: true
+  langcode: true
+  search_api_excerpt: true

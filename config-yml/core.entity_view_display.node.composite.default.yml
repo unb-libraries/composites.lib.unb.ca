@@ -35,7 +35,7 @@ bundle: composite
 mode: default
 content:
   field_comp_source_file:
-    weight: 102
+    weight: 6
     label: above
     settings:
       link_to_entity: false
@@ -43,16 +43,16 @@ content:
     type: string
     region: content
   field_comp_year:
-    weight: 126
+    weight: 2
     label: above
     settings:
       thousand_separator: ''
-      prefix_suffix: true
+      prefix_suffix: false
     third_party_settings: {  }
     type: number_integer
     region: content
   field_contributors:
-    weight: 106
+    weight: 13
     label: above
     settings:
       link: true
@@ -60,7 +60,7 @@ content:
     type: entity_reference_label
     region: content
   field_current_buildings:
-    weight: 107
+    weight: 14
     label: above
     settings:
       link: true
@@ -68,7 +68,7 @@ content:
     type: entity_reference_label
     region: content
   field_disp_resolution:
-    weight: 127
+    weight: 11
     label: above
     settings:
       thousand_separator: ''
@@ -77,7 +77,7 @@ content:
     type: number_integer
     region: content
   field_former_buildings:
-    weight: 108
+    weight: 15
     label: above
     settings:
       link: true
@@ -85,7 +85,7 @@ content:
     type: entity_reference_label
     region: content
   field_grad_ceremony:
-    weight: 128
+    weight: 4
     label: above
     settings:
       trim_length: 80
@@ -97,7 +97,7 @@ content:
     type: link
     region: content
   field_height:
-    weight: 112
+    weight: 9
     label: above
     settings:
       thousand_separator: ''
@@ -106,7 +106,7 @@ content:
     type: number_integer
     region: content
   field_image:
-    weight: 121
+    weight: 0
     label: above
     settings:
       image_style: ''
@@ -114,17 +114,8 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  field_image_id:
-    weight: 125
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_no_profs:
-    weight: 118
+    weight: 16
     label: above
     settings:
       thousand_separator: ''
@@ -133,7 +124,7 @@ content:
     type: number_integer
     region: content
   field_no_students:
-    weight: 119
+    weight: 17
     label: above
     settings:
       thousand_separator: ''
@@ -142,14 +133,14 @@ content:
     type: number_integer
     region: content
   field_notes:
-    weight: 117
+    weight: 18
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_photographer:
-    weight: 110
+    weight: 12
     label: above
     settings:
       link: true
@@ -157,7 +148,7 @@ content:
     type: entity_reference_label
     region: content
   field_physical_size:
-    weight: 124
+    weight: 7
     label: above
     settings:
       link_to_entity: false
@@ -165,7 +156,7 @@ content:
     type: string
     region: content
   field_related_image:
-    weight: 129
+    weight: 1
     label: above
     settings:
       image_style: ''
@@ -174,16 +165,7 @@ content:
     type: image
     region: content
   field_resolution:
-    weight: 113
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_source_number:
-    weight: 103
+    weight: 10
     label: above
     settings:
       thousand_separator: ''
@@ -192,7 +174,7 @@ content:
     type: number_integer
     region: content
   field_subjects:
-    weight: 122
+    weight: 5
     label: above
     settings:
       link: true
@@ -200,7 +182,7 @@ content:
     type: entity_reference_label
     region: content
   field_type:
-    weight: 104
+    weight: 3
     label: above
     settings:
       link_to_entity: false
@@ -208,7 +190,7 @@ content:
     type: string
     region: content
   field_width:
-    weight: 111
+    weight: 8
     label: above
     settings:
       thousand_separator: ''
@@ -216,9 +198,9 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  field_image_id: true
+  field_source_number: true
+  langcode: true
+  links: true
+  search_api_excerpt: true
