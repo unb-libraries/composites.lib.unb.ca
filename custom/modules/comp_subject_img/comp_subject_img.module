@@ -96,7 +96,6 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
     'label' => 'above',
     'settings' => [
       'image_style' => $style_name,
-      'image_link' => 'content',
     ],
   ]);
 

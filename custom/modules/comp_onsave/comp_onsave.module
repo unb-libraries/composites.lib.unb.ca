@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Contains comp_onsave.module.
+ */
+
+/**
+ * Implements hook_entity_presave().
+ */
+function comp_onsave_entity_presave($entity) {
+  // Process for different entity types.
+  switch($entity->bundle()) {
+    // If the entity is a composite...
+    case 'composite':
+
+      // Process and add decade value.
+      // Retrieve year.
+      $year = $entity->get('field_comp_year')->getValue()[0]['value'];
+      $decade = intdiv($year, 10) * 10;
+      $entity->set('field_comp_decade', $decade);
+  }
+}
