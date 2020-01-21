@@ -9,15 +9,25 @@
  * Implements hook_entity_presave().
  */
 function comp_onsave_entity_presave($entity) {
-  // Process for different entity types.
+  // Process for different content types.
   switch($entity->bundle()) {
     // If the entity is a composite...
     case 'composite':
-
       // Process and add decade value.
       // Retrieve year.
       $year = $entity->get('field_comp_year')->getValue()[0]['value'];
       $decade = intdiv($year, 10) * 10;
       $entity->set('field_comp_decade', $decade);
+      break;
+    // If the entity is a subject...
+    case 'subject':
+      // Build name and save as title.
+      // Retrieve name fields.
+      $lname = $entity->get('field_last_name')->getValue()[0]['value'];
+      $gname = $entity->get('field_given_name')->getValue()[0]['value'];
+      $title = $lname . ', ' . $gname;
+      kint($title);
+      $entity->set('title', $title);
+      break;
   }
 }
