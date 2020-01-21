@@ -5,12 +5,15 @@
  * Contains comp_onsave.module.
  */
 
+use \Drupal\node\Entity\Node;
+
 /**
  * Implements hook_entity_presave().
  */
 function comp_onsave_entity_presave($entity) {
   // Process for different content types.
   switch($entity->bundle()) {
+
     // If the entity is a composite...
     case 'composite':
       // Process and add decade value.
@@ -19,7 +22,31 @@ function comp_onsave_entity_presave($entity) {
       $decade = intdiv($year, 10) * 10;
       $decade = $decade >= 1870 ? $decade : NULL;
       $entity->set('field_comp_decade', $decade);
+
+      // Sort subjects by last name.
+      // Retrieve subject node ids associated to composite.
+      $sids = $entity->get('field_subjects')->getValue();
+
+      // Retrieve title (name) for each id.
+      foreach ($sids as $k=>$sid) {
+        $sid['name'] = Node::load($sid['target_id'])->getTitle();
+        $sids[$k] = $sid;
+      }
+
+      // Sort multidimensional array by name column.
+      array_multisort(array_column($sids, 'name'), SORT_ASC, $sids);
+
+      // Create array with only the new sorted 'target_id'.
+      $sorted_sids = [];
+
+      foreach ($sids as $k=>$sid) {
+        $sorted_sids[$k] = ['target_id' => $sid['target_id']];
+      }
+
+      // Update field value with the sorted ids.
+      $entity->get('field_subjects')->setValue($sorted_sids);
       break;
+
     // If the entity is a subject...
     case 'subject':
       // Build name and save as title.
