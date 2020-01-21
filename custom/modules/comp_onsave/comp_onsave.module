@@ -17,6 +17,7 @@ function comp_onsave_entity_presave($entity) {
       // Retrieve year.
       $year = $entity->get('field_comp_year')->getValue()[0]['value'];
       $decade = intdiv($year, 10) * 10;
+      $decade = $decade >= 1870 ? $decade : NULL;
       $entity->set('field_comp_decade', $decade);
       break;
     // If the entity is a subject...
@@ -26,7 +27,6 @@ function comp_onsave_entity_presave($entity) {
       $lname = $entity->get('field_last_name')->getValue()[0]['value'];
       $gname = $entity->get('field_given_name')->getValue()[0]['value'];
       $title = $lname . ', ' . $gname;
-      kint($title);
       $entity->set('title', $title);
       break;
   }

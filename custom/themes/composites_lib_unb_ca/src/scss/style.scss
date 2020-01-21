@@ -9,6 +9,27 @@
 // Include custom sub theme.
 @import 'custom/variables';
 
+// Regions.
+// Content region.
+div.region.region-content {
+  margin-top: 1em;
+}
+
+// Views.
+div.views-row {
+  margin-top: 2em;
+}
+// Browse composites view.
+div.view-id-browse_composites div.item-list {
+  margin-top: 1em;
+
+  & > ul {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+  }
+}
+
 // Composite decade facet.
 ul[data-drupal-facet-id="comp_decade_facet"] {
   list-style-type: none;
@@ -24,4 +45,6 @@ ul[data-drupal-facet-id="comp_decade_facet"] {
   }
 }
 
-// Browse composites view.
+div.facets-widget-links > h3 {
+  font-size: 1rem;
+}
