@@ -5,6 +5,13 @@ comp_core.home:
   menu_name: main
   route_name: comp_core.home
   weight: 10
+comp_core.browse:
+  title: 'Browse'
+  description: 'About'
+  parent: main
+  menu_name: main
+  url: internal:/browse-composites
+  weight: 15
 comp_core.about:
   title: 'About'
   description: 'About'

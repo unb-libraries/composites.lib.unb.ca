@@ -8,3 +8,20 @@
 
 // Include custom sub theme.
 @import 'custom/variables';
+
+// Composite decade facet.
+ul[data-drupal-facet-id="comp_decade_facet"] {
+  list-style-type: none;
+  padding-left: 0;
+
+  & > li {
+    display: inline;
+    padding: 0 2px 0 8px;
+
+    &:not(:first-of-type) {
+      border-left: 1px solid;
+    }
+  }
+}
+
+// Browse composites view.
