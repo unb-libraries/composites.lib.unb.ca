@@ -20,6 +20,7 @@ content:
     region: content
 hidden:
   field_cd_location: true
+  field_comp_decade: true
   field_comp_source_file: true
   field_comp_year: true
   field_contributors: true

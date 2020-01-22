@@ -119,8 +119,8 @@ content:
     weight: 0
     label: above
     settings:
-      image_style: ''
-      image_link: ''
+      image_style: large
+      image_link: file
     third_party_settings: {  }
     type: image
     region: content

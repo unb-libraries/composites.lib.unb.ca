@@ -1,0 +1,20 @@
+uuid: a41c2bee-78f0-416d-8b97-c31167cc0473
+langcode: en
+status: true
+dependencies:
+  theme:
+    - composites_lib_unb_ca
+id: tabs
+theme: composites_lib_unb_ca
+region: content
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

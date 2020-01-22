@@ -29,7 +29,13 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
 
   // Pass composite image field as renderable content to templates.
   $comp_img = $composite->field_image;
-  $variables['content']['composite_image'] = $comp_img->view();
+  $variables['content']['composite_image'] = $comp_img->view([
+    'settings' => [
+      'image_style' => 'large',
+    ],
+  ]);
+
+  $variables['content']['composite_image']['#title'] = 'Composite Image';
   $variables['content']['composite_image']['#title'] = 'Composite Image';
   $variables['content']['composite_image']['#weight'] = -1;
 
