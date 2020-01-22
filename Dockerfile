@@ -1,7 +1,7 @@
 FROM unblibraries/dockworker-drupal:latest
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
-ENV DRUPAL_SITE_ID composites
+ENV DRUPAL_SITE_ID comp
 ENV DRUPAL_SITE_URI composites.lib.unb.ca
 ENV DRUPAL_SITE_UUID 022dab87-328e-494c-b8f8-ebde1e1a0162
 
