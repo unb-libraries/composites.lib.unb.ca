@@ -116,6 +116,7 @@
         "drupal/search_api_solr": "3.8",
         "drupal/timepicker-timepicker": "1.11",
         "drupal/token": "1.5",
+        "drupal/twig_field_value": "1.2",
         "drupal/twig_tweak": "2.4",
         "google/apiclient": "^2.0",
         "jonthornton/jquery-timepicker": "~1.11.15",
