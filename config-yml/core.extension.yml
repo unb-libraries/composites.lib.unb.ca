@@ -54,7 +54,7 @@ module:
   menu_link_content: 1
   externalauth: 10
   views: 10
-  composites: 1000
+  comp: 1000
 theme:
   stark: 0
   stable: 0
@@ -63,6 +63,6 @@ theme:
   seven: 0
   bootstrap4: 0
   composites_lib_unb_ca: 0
-profile: composites
+profile: comp
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
