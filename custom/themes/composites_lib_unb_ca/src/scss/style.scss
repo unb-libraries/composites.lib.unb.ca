@@ -13,7 +13,14 @@
 // Content region.
 div.region.region-content {
   margin-top: 1em;
+
+  // Give images in content region an instant photo look.
+  & img {
+    box-shadow: 4px 4px 8px lightgrey;
+    border: 10px;
+  }
 }
+
 // Navigation pager.
 nav.pager {
   margin-top: 2em;

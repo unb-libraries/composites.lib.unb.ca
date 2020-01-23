@@ -1,0 +1,15 @@
+uuid: fc94eee5-7a72-4c8e-bca5-d025f275c161
+langcode: en
+status: true
+dependencies: {  }
+name: extrawide
+label: 'Extrawide (960 x ?)'
+effects:
+  2fafaf8b-d17f-42ac-9ff4-dbe8a0de6336:
+    uuid: 2fafaf8b-d17f-42ac-9ff4-dbe8a0de6336
+    id: image_scale
+    weight: 1
+    data:
+      width: 960
+      height: null
+      upscale: true

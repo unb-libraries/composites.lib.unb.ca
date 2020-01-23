@@ -119,7 +119,7 @@ content:
     weight: 0
     label: above
     settings:
-      image_style: large
+      image_style: extrawide
       image_link: file
     third_party_settings: {  }
     type: image

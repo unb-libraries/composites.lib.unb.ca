@@ -93,6 +93,23 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
       createInstance($config['id'], $config);
 
     $style->addImageEffect($effect->getConfiguration());
+
+    // Configuration for scaling effect.
+    $config = [
+      'uuid' => NULL,
+      'id' => 'image_scale',
+      'weight' => 0,
+      'data' => [
+        'width' => 200,
+        'upscale' => 1,
+      ],
+    ];
+
+    // Create effect, add to style, save.
+    $effect = \Drupal::service('plugin.manager.image.effect')->
+      createInstance($config['id'], $config);
+
+    $style->addImageEffect($effect->getConfiguration());
     $style->save();
   }
 
