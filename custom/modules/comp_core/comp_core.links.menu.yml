@@ -10,8 +10,23 @@ comp_core.browse:
   description: 'About'
   parent: main
   menu_name: main
-  url: internal:/browse-composites
+  url: route:<nolink>
+  expanded: TRUE
   weight: 15
+comp_core.browse_year:
+  title: 'By Year'
+  description: 'Browse subjects by composite year'
+  parent: comp_core.browse
+  menu_name: main
+  url: internal:/browse-composites
+  weight: 10
+comp_core.browse_name:
+  title: 'All Subjects'
+  description: 'Browse all composite subjects by name'
+  parent: comp_core.browse
+  menu_name: main
+  url: internal:/browse-composites
+  weight: 20
 comp_core.about:
   title: 'About'
   description: 'About'

@@ -10,23 +10,32 @@
 @import 'custom/variables';
 
 // Global.
-a:hover, a:focus {
+a:hover, a:focus, a:active, a.is-active:not(.dropdown-item),
+span.dropdown-toggle:hover, span.dropdown-toggle[aria-expanded="true"] {
   border: none;
   background-color: $unb-darkred;
+  color: white;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  cursor: pointer;
 }
 
 // Regions.
 // Header region.
 div.region-header a {
   margin-left: 1em;
+
+  &:hover, &:focus, &active {
+    background-color: initial;
+    color: $unb-darkred;
+  }
 }
 
 // Content region.
 div.region.region-content {
   margin-top: 1em;
+  color: $unb-darkgray;
 
   // Give images in content region an instant photo look.
   & img {
@@ -39,11 +48,28 @@ div.region.region-content {
 
 // Main navigation.
 div.region-header + nav.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
   background-color: $unb-gray;
 
-  & a {
+  & a:not(.dropdown-item), & span {
+    padding: 1em;
     color: white !important;
   }
+
+  & div.dropdown-menu {
+    background-color: $unb-halfgray;
+
+    & a.dropdown-item:active {
+      background-color: initial !important;
+      color: initial !important;
+    }
+  }
+}
+
+// Primary navigation tabs.
+nav.tabs > ul.nav-tabs.primary a {
+  color: $unb-red !important;
 }
 
 // Navigation pager.
