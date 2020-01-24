@@ -44,6 +44,12 @@ div.region.region-content {
     box-shadow: 4px 4px 8px lightgrey;
     border: 6px solid white;
   }
+
+  // Remove decoration from lists.
+  & ul > li {
+    list-style-type: square;
+    margin-top: 0.2em;
+  }
 }
 
 // Main navigation.
@@ -96,7 +102,6 @@ div.view-id-browse_composites div.item-list {
   margin-top: 1em;
 
   & > ul {
-    list-style-type: square;
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
