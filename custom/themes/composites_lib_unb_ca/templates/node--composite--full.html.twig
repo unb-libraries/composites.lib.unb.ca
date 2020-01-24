@@ -100,13 +100,13 @@
   <div{{ content_attributes.addClass('node__content') }}>
 
     {% if content.field_comp_year|field_value %}
-      <h2><b>
+      <h2>
         {{ content.field_comp_year|field_value }}
 
         {% if content.field_type|field_value %}
           {{ content.field_type|field_value }}{{ ' Photo' }}</h2>
         {% endif %}
-      </b></h2>
+      </h2>
     {% endif %}
 
     {% if content.field_image|field_value %}

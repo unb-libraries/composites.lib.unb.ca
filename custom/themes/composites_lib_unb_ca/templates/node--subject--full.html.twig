@@ -100,10 +100,10 @@
   <div{{ content_attributes.addClass('node__content') }}>
 
     {% if content.field_last_name|field_value %}
-      <h2><b>
+      <h2>
         {{ content.field_given_name|field_value }}
         {{ content.field_last_name|field_value }}</h2>
-      </b></h2>
+      </h2>
     {% endif %}
 
     {% if content.field_awards|field_value %}

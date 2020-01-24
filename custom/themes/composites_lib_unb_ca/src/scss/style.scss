@@ -9,15 +9,40 @@
 // Include custom sub theme.
 @import 'custom/variables';
 
+// Global.
+a:hover, a:focus {
+  border: none;
+  background-color: $unb-darkred;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 // Regions.
+// Header region.
+div.region-header a {
+  margin-left: 1em;
+}
+
 // Content region.
 div.region.region-content {
   margin-top: 1em;
 
   // Give images in content region an instant photo look.
   & img {
+    -webkit-box-shadow: 4px 4px 8px lightgrey;
+    -moz-box-shadow: 4px 4px 8px lightgrey;
     box-shadow: 4px 4px 8px lightgrey;
-    border: 10px;
+    border: 6px solid white;
+  }
+}
+
+// Main navigation.
+div.region-header + nav.navbar {
+  background-color: $unb-gray;
+
+  & a {
+    color: white !important;
   }
 }
 
@@ -45,6 +70,7 @@ div.view-id-browse_composites div.item-list {
   margin-top: 1em;
 
   & > ul {
+    list-style-type: square;
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
