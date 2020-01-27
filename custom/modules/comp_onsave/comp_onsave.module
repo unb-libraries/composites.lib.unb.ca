@@ -58,7 +58,7 @@ function comp_onsave_entity_presave($entity) {
 
       // Process and populate sort initial field.
       // Get first title character and classify.
-      $leading = substr($title, 0, 1);
+      $leading = strtoupper(substr($title, 0, 1));
 
       if (ctype_alnum($leading)) {
 

@@ -109,7 +109,7 @@ div.view-id-browse_composites div.item-list {
 }
 
 // Composite decade facet.
-ul[data-drupal-facet-id="comp_decade_facet"] {
+ul.js-facets-links {
   list-style-type: none;
   padding-left: 0;
 

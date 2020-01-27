@@ -16,7 +16,7 @@ provider: null
 plugin: 'facet_block:sort_initial_facet'
 settings:
   id: 'facet_block:sort_initial_facet'
-  label: 'Sort Initial Facet'
+  label: 'Browse all Subjects'
   provider: facets
   label_display: visible
   block_id: sortinitialfacet
