@@ -1,0 +1,23 @@
+uuid: 7197cda2-1928-46a5-b877-33dfe541f7ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sort_initial_facet
+  module:
+    - facets
+  theme:
+    - composites_lib_unb_ca
+id: sortinitialfacet
+theme: composites_lib_unb_ca
+region: content
+weight: 0
+provider: null
+plugin: 'facet_block:sort_initial_facet'
+settings:
+  id: 'facet_block:sort_initial_facet'
+  label: 'Sort Initial Facet'
+  provider: facets
+  label_display: visible
+  block_id: sortinitialfacet
+visibility: {  }
