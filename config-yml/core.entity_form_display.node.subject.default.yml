@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.subject.field_graduate_id
     - field.field.node.subject.field_initials
     - field.field.node.subject.field_last_name
+    - field.field.node.subject.field_sort_initial
     - field.field.node.subject.field_source_file
     - field.field.node.subject.field_subject_notes
     - field.field.node.subject.field_subject_title
@@ -146,6 +147,7 @@ content:
 hidden:
   created: true
   field_graduate_id: true
+  field_sort_initial: true
   field_source_file: true
   langcode: true
   path: true

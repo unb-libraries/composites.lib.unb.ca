@@ -31,6 +31,7 @@ services:
     entrypoint:
       - docker-entrypoint-multiple.sh
       - images.composites.lib.unb.ca:/solr-conf
+      - people.composites.lib.unb.ca:/solr-conf
 
   composites.lib.unb.ca:
     build:

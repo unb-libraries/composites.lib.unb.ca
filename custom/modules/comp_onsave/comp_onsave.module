@@ -53,8 +53,24 @@ function comp_onsave_entity_presave($entity) {
       // Retrieve name fields.
       $lname = $entity->get('field_last_name')->getValue()[0]['value'];
       $gname = $entity->get('field_given_name')->getValue()[0]['value'];
-      $title = $lname . ', ' . $gname;
+      $title = empty($gname) ? $lname : $lname . ', ' . $gname;
       $entity->set('title', $title);
+
+      // Process and populate sort initial field.
+      // Get first title character and classify.
+      $leading = substr($title, 0, 1);
+
+      if (ctype_alnum($leading)) {
+
+        if (ctype_digit($leading)) {
+            $leading = '#';
+        }
+      }
+      else {
+        $leading = '@';
+      }
+
+      $entity->set('field_sort_initial', $leading);
       break;
   }
 }

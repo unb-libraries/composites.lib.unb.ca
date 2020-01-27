@@ -4,7 +4,24 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.subject.field_alt_name
+    - field.field.node.subject.field_alt_name_source
+    - field.field.node.subject.field_awards
+    - field.field.node.subject.field_bottom_x
+    - field.field.node.subject.field_bottom_y
+    - field.field.node.subject.field_class
+    - field.field.node.subject.field_gender
+    - field.field.node.subject.field_given_name
+    - field.field.node.subject.field_graduate_id
+    - field.field.node.subject.field_initials
     - field.field.node.subject.field_last_name
+    - field.field.node.subject.field_sort_initial
+    - field.field.node.subject.field_source_file
+    - field.field.node.subject.field_subject_notes
+    - field.field.node.subject.field_subject_title
+    - field.field.node.subject.field_top_x
+    - field.field.node.subject.field_top_y
+    - field.field.node.subject.field_valedictorian
     - node.type.subject
   module:
     - user
@@ -30,6 +47,7 @@ hidden:
   field_graduate_id: true
   field_initials: true
   field_last_name: true
+  field_sort_initial: true
   field_source_file: true
   field_subject_notes: true
   field_subject_title: true

@@ -25,7 +25,7 @@ comp_core.browse_name:
   description: 'Browse all composite subjects by name'
   parent: comp_core.browse
   menu_name: main
-  url: internal:/browse-composites
+  url: internal:/browse-subjects
   weight: 20
 comp_core.about:
   title: 'About'

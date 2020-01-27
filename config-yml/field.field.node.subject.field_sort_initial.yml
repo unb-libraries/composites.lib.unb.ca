@@ -1,0 +1,19 @@
+uuid: 4579edc0-f930-4c27-86a2-b5bbb48490a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sort_initial
+    - node.type.subject
+id: node.subject.field_sort_initial
+field_name: field_sort_initial
+entity_type: node
+bundle: subject
+label: 'Sort Initial'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
