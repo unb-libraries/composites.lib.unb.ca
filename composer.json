@@ -4,6 +4,11 @@
   "prefer-stable": true,
   "name": "unb-libraries/composites.lib.unb.ca",
   "description": "Scaffold and provision local development for composites.lib.unb.ca",
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
   "repositories": [
     {
       "type": "composer",
