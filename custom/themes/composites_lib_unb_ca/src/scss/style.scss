@@ -10,6 +10,11 @@
 @import 'custom/variables';
 
 // Global.
+// Everything.
+body {
+  border-radius: 0px !important;
+}
+// Hyperlinks, including menu items.
 a:hover, a:focus, a:active, a.is-active:not(.dropdown-item),
 span.dropdown-toggle:hover, span.dropdown-toggle[aria-expanded="true"] {
   border: none;
@@ -19,6 +24,25 @@ span.dropdown-toggle:hover, span.dropdown-toggle[aria-expanded="true"] {
   -moz-box-shadow: none;
   box-shadow: none;
   cursor: pointer;
+}
+// All input.
+input {
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+
+// Broad.
+a#main-content + div.container {
+  margin-left: inherit;
+}
+input.btn-primary {
+  background-color: $unb-darkred;
+  border-color: $unb-darkred;
+
+  &:hover, &:focus, &:active {
+    background-color: $unb-red !important;
+    border-color: $unb-red !important;
+  }
 }
 
 // Regions.
@@ -129,4 +153,13 @@ ul.js-facets-links {
 
 div.facets-widget-links > h3 {
   font-size: 1rem;
+}
+
+// Forms.
+div#block-exposedformsearch-subjectspage-1 input#edit-name {
+  border-color: $unb-halfgray !important;
+
+  &:focus {
+    border-color: $unb-halfgray !important;
+  }
 }
