@@ -1,0 +1,23 @@
+uuid: 8a4404fd-2069-459f-bb7c-337db08832c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search_subjects
+  module:
+    - views
+  theme:
+    - composites_lib_unb_ca
+id: exposedformsearch_subjectspage_1
+theme: composites_lib_unb_ca
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:search_subjects-page_1'
+settings:
+  id: 'views_exposed_filter_block:search_subjects-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility: {  }
