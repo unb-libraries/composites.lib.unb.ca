@@ -14,6 +14,10 @@
 body {
   border-radius: 0px !important;
 }
+// Multi-line text.
+p, li {
+  text-align: justify;
+}
 // Hyperlinks, including menu items.
 a:hover, a:focus, a:active, a.is-active:not(.dropdown-item),
 span.dropdown-toggle:hover, span.dropdown-toggle[aria-expanded="true"] {
@@ -156,7 +160,7 @@ div.facets-widget-links > h3 {
 }
 
 // Forms.
-div#block-exposedformsearch-subjectspage-1 input#edit-name {
+div.views-exposed-form.block input.form-text {
   border-color: $unb-halfgray !important;
 
   &:focus {
