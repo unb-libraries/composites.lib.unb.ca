@@ -54,7 +54,7 @@ input.btn-primary {
 // Regions.
 // Header region.
 div.region-header a {
-  margin-left: 1em 3.18em;
+  padding: 1em 0 !important;
 
   &:hover, &:focus, &active {
     background-color: initial;
@@ -95,7 +95,7 @@ div.region-header + nav.navbar {
     }
   }
 
-  & a:not(.dropdown-item), & span {
+  & li > a:not(.dropdown-item), & li > span {
     padding: 1em 3.18em;
     color: white !important;
   }
@@ -141,7 +141,7 @@ div.region-content div.block {
 }
 
 // Nodes.
-// Node fields.
+// Node fields.div.region-header + nav.navbar
 div.node__content {
   margin-top: 1em;
 
@@ -198,19 +198,18 @@ div.views-exposed-form.block input.form-text {
 }
 
 // Media.
-@media (min-width: 1200px)
-.container {
-    max-width: 1140px;
+@media (min-width: 1200px) {
+  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
+    padding: 1em 2.72em !important;
+  }
 }
-@media (min-width: 992px)
-.container {
-    max-width: 960px;
+@media (max-width: 1200px) {
+  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
+    padding: 1em 1.78em !important;
+  }
 }
-@media (min-width: 768px)
-.container {
-    max-width: 720px;
-}
-@media (min-width: 576px)
-.container {
-    max-width: 540px;
+@media (max-width: 992px) {
+  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
+    padding: 1em 4.6em !important;
+  }
 }
