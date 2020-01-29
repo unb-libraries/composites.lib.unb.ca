@@ -14,6 +14,11 @@
 body {
   border-radius: 0px !important;
 }
+// Header.
+header {
+  margin-left: auto;
+  margin-right: auto;
+}
 // Multi-line text.
 p, li {
   text-align: justify;
@@ -36,9 +41,6 @@ input {
 }
 
 // Broad.
-a#main-content + div.container {
-  margin-left: inherit;
-}
 input.btn-primary {
   background-color: $unb-darkred;
   border-color: $unb-darkred;
@@ -52,7 +54,7 @@ input.btn-primary {
 // Regions.
 // Header region.
 div.region-header a {
-  margin-left: 1em;
+  margin-left: 1em 3.18em;
 
   &:hover, &:focus, &active {
     background-color: initial;
@@ -82,17 +84,24 @@ div.region.region-content {
 
 // Main navigation.
 div.region-header + nav.navbar {
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
   background-color: $unb-gray;
 
+  & > div.container {
+    padding: inherit;
+
+    & > div.navbar-brand {
+      display: none;
+    }
+  }
+
   & a:not(.dropdown-item), & span {
-    padding: 1em;
+    padding: 1em 3.18em;
     color: white !important;
   }
 
   & div.dropdown-menu {
-    background-color: $unb-halfgray;
+    background-color: $unb-offwhite;
 
     & a.dropdown-item:active {
       background-color: initial !important;
@@ -112,6 +121,23 @@ nav.tabs > ul.nav-tabs.primary a {
 // Navigation pager.
 nav.pager {
   margin-top: 2em;
+}
+
+// Blocks.
+div.region-content div.block {
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: $unb-offwhite;
+
+  & h2 {
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  & div#edit-actions {
+    display: inline-flex;
+  }
+
 }
 
 // Nodes.
@@ -164,9 +190,27 @@ div.facets-widget-links > h3 {
 
 // Forms.
 div.views-exposed-form.block input.form-text {
-  border-color: $unb-halfgray !important;
+  border-color: $unb-offwhite !important;
 
   &:focus {
-    border-color: $unb-halfgray !important;
+    border-color: $unb-offwhite !important;
   }
+}
+
+// Media.
+@media (min-width: 1200px)
+.container {
+    max-width: 1140px;
+}
+@media (min-width: 992px)
+.container {
+    max-width: 960px;
+}
+@media (min-width: 768px)
+.container {
+    max-width: 720px;
+}
+@media (min-width: 576px)
+.container {
+    max-width: 540px;
 }

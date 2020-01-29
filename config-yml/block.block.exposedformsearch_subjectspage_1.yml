@@ -5,19 +5,25 @@ dependencies:
   config:
     - views.view.search_subjects
   module:
+    - system
     - views
   theme:
     - composites_lib_unb_ca
 id: exposedformsearch_subjectspage_1
 theme: composites_lib_unb_ca
-region: sidebar_first
-weight: 0
+region: content
+weight: -2
 provider: null
 plugin: 'views_exposed_filter_block:search_subjects-page_1'
 settings:
   id: 'views_exposed_filter_block:search_subjects-page_1'
   label: ''
   provider: views
-  label_display: '0'
+  label_display: visible
   views_label: ''
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
