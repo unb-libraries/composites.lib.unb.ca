@@ -44,9 +44,7 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
     $variables['content']['field_initials'][0]['#context']['value'];
   $last_name = empty($variables['content']['field_last_name'][0]) ? NULL :
     $variables['content']['field_last_name'][0]['#context']['value'];
-  $source = empty($variables['content']['field_source_file'][0]) ? NULL :
-    $variables['content']['field_source_file'][0]['#context']['value'];
-  $style_name = $initials . $last_name . '_' . $source . '_composite_crop';
+  $style_name = $initials . $last_name . '_' . $sid . '_composite_crop';
 
   // Load style if already exists.
   $style = empty(ImageStyle::load($style_name)) ? NULL
