@@ -101,7 +101,7 @@ div.region-header + nav.navbar {
   }
 
   & div.dropdown-menu {
-    background-color: $unb-offwhite;
+    background-color: $unb-halfgray;
 
     & a.dropdown-item:active {
       background-color: initial !important;
@@ -114,8 +114,14 @@ button.navbar-toggler::before {
 }
 
 // Primary navigation tabs.
-nav.tabs > ul.nav-tabs.primary a {
-  color: $unb-red !important;
+nav.tabs > ul.nav-tabs.primary {
+  &, & li {
+    border: none;
+  }
+
+  & a:not(.is-active) {
+    color: $unb-red !important;
+  }
 }
 
 // Navigation pager.
@@ -124,10 +130,10 @@ nav.pager {
 }
 
 // Blocks.
-div.region-content div.block {
+div.region-content div.block:not(#block-mainpagecontent) {
   margin-bottom: 1em;
   padding: 1em;
-  background-color: $unb-offwhite;
+  background-color: $unb-halfgray;
 
   & h2 {
     margin-bottom: 0;
@@ -137,7 +143,18 @@ div.region-content div.block {
   & div#edit-actions {
     display: inline-flex;
   }
-
+}
+div.views-exposed-form.block,
+div.block-comp-browse.block {
+  display: inline-table;
+  height: 144px;
+}
+div.views-exposed-form.block {
+  width: 70%;
+}
+div.block-comp-browse.block {
+  width: 29%;
+  float: right;
 }
 
 // Nodes.
@@ -190,10 +207,10 @@ div.facets-widget-links > h3 {
 
 // Forms.
 div.views-exposed-form.block input.form-text {
-  border-color: $unb-offwhite !important;
+  border-color: $unb-halfgray !important;
 
   &:focus {
-    border-color: $unb-offwhite !important;
+    border-color: $unb-halfgray !important;
   }
 }
 

@@ -11,7 +11,7 @@ dependencies:
 id: comp.decadefacet
 theme: composites_lib_unb_ca
 region: content
-weight: 0
+weight: 1
 provider: null
 plugin: 'facet_block:comp_decade_facet'
 settings:

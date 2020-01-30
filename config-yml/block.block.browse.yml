@@ -1,0 +1,26 @@
+uuid: 62b84398-7046-4c3b-b48a-6ebaaaeac90d
+langcode: en
+status: true
+dependencies:
+  module:
+    - comp_core
+    - system
+  theme:
+    - composites_lib_unb_ca
+id: browse
+theme: composites_lib_unb_ca
+region: content
+weight: -1
+provider: null
+plugin: comp_browse
+settings:
+  id: comp_browse
+  label: Browse
+  provider: comp_core
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/search-subjects*"
+    negate: false
+    context_mapping: {  }

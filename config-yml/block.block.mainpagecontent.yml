@@ -1,0 +1,20 @@
+uuid: 7196372f-4b62-4b22-a0da-82ffad5eec67
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - composites_lib_unb_ca
+id: mainpagecontent
+theme: composites_lib_unb_ca
+region: content
+weight: 2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
