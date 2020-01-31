@@ -1,0 +1,232 @@
+@import 'overrides/variables';
+
+// Path to default bootstrap4 sass.
+@import '../../../../../vendor/drupal/bootstrap4/dist/bootstrap/4.3.1/scss/bootstrap';
+
+// Path to default bootstrap4 theme sass.
+@import '../../../../../vendor/drupal/bootstrap4/scss/theme';
+
+// Include custom sub theme.
+@import 'custom/variables';
+
+// Global.
+// Everything.
+body {
+  border-radius: 0px !important;
+}
+// Header.
+header {
+  margin-left: auto;
+  margin-right: auto;
+}
+// Multi-line text.
+p, li {
+  text-align: justify;
+}
+// Hyperlinks, including menu items.
+a:hover, a:focus, a:active, a.is-active:not(.dropdown-item),
+span.dropdown-toggle:hover, span.dropdown-toggle[aria-expanded="true"] {
+  border: none;
+  background-color: $unb-darkred;
+  color: white;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+// All input.
+input {
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+
+// Broad.
+input.btn-primary {
+  background-color: $unb-darkred;
+  border-color: $unb-darkred;
+
+  &:hover, &:focus, &:active {
+    background-color: $unb-red !important;
+    border-color: $unb-red !important;
+  }
+}
+
+// Regions.
+// Header region.
+div.region-header a {
+  padding: 1em 0 !important;
+
+  &:hover, &:focus, &active {
+    background-color: initial;
+    color: $unb-darkred;
+  }
+}
+
+// Content region.
+div.region.region-content {
+  margin-top: 1em;
+  color: $unb-darkgray;
+
+  // Give images in content region an instant photo look.
+  & img {
+    -webkit-box-shadow: 4px 4px 8px lightgrey;
+    -moz-box-shadow: 4px 4px 8px lightgrey;
+    box-shadow: 4px 4px 8px lightgrey;
+    border: 6px solid white;
+  }
+
+  // Remove decoration from lists.
+  & ul > li {
+    list-style-type: square;
+    margin-top: 0.2em;
+  }
+}
+
+// Main navigation.
+div.region-header + nav.navbar {
+  padding: 0;
+  background-color: $unb-gray;
+
+  & > div.container {
+    padding: inherit;
+
+    & > div.navbar-brand {
+      display: none;
+    }
+  }
+
+  & li > a:not(.dropdown-item), & li > span {
+    padding: 1em 3.18em;
+    color: white !important;
+  }
+
+  & div.dropdown-menu {
+    background-color: $unb-halfgray;
+
+    & a.dropdown-item:active {
+      background-color: initial !important;
+      color: initial !important;
+    }
+  }
+}
+button.navbar-toggler::before {
+  content: "Menu";
+}
+
+// Primary navigation tabs.
+nav.tabs > ul.nav-tabs.primary {
+  &, & li {
+    border: none;
+  }
+
+  & a:not(.is-active) {
+    color: $unb-red !important;
+  }
+}
+
+// Navigation pager.
+nav.pager {
+  margin-top: 2em;
+}
+
+// Blocks.
+div.region-content div.block:not(#block-mainpagecontent) {
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: $unb-halfgray;
+
+  & h2 {
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  & div#edit-actions {
+    display: inline-flex;
+  }
+}
+div.views-exposed-form.block,
+div.block-comp-browse.block {
+  display: inline-table;
+  height: 144px;
+}
+div.views-exposed-form.block {
+  width: 70%;
+}
+div.block-comp-browse.block {
+  width: 29%;
+  float: right;
+}
+
+// Nodes.
+// Node fields.div.region-header + nav.navbar
+div.node__content {
+  margin-top: 1em;
+
+  & > div.field {
+    margin-bottom: 1em;
+  }
+}
+
+// Views.
+div.view {
+  margin-top: 2em;
+}
+
+div.views-row {
+  margin-top: 2em;
+}
+// Browse composites view.
+div.view-id-browse_composites div.item-list {
+  margin-top: 1em;
+
+  & > ul {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+  }
+}
+
+// Composite decade facet.
+ul.js-facets-links {
+  list-style-type: none;
+  padding-left: 0;
+
+  & > li {
+    display: inline;
+    padding: 0 2px 0 8px;
+
+    &:not(:first-of-type) {
+      border-left: 1px solid;
+    }
+  }
+}
+
+div.facets-widget-links > h3 {
+  font-size: 1rem;
+}
+
+// Forms.
+div.views-exposed-form.block input.form-text {
+  border-color: $unb-halfgray !important;
+
+  &:focus {
+    border-color: $unb-halfgray !important;
+  }
+}
+
+// Media.
+@media (min-width: 1200px) {
+  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
+    padding: 1em 2.72em !important;
+  }
+}
+@media (max-width: 1200px) {
+  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
+    padding: 1em 1.78em !important;
+  }
+}
+@media (max-width: 992px) {
+  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
+    padding: 1em 4.6em !important;
+  }
+}

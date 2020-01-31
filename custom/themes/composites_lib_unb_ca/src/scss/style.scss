@@ -9,224 +9,164 @@
 // Include custom sub theme.
 @import 'custom/variables';
 
-// Global.
-// Everything.
-body {
-  border-radius: 0px !important;
-}
-// Header.
-header {
-  margin-left: auto;
-  margin-right: auto;
-}
-// Multi-line text.
-p, li {
-  text-align: justify;
-}
-// Hyperlinks, including menu items.
-a:hover, a:focus, a:active, a.is-active:not(.dropdown-item),
-span.dropdown-toggle:hover, span.dropdown-toggle[aria-expanded="true"] {
-  border: none;
-  background-color: $unb-darkred;
-  color: white;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  cursor: pointer;
-}
+// Global (careful here).
 // All input.
 input {
-  border-radius: 0px !important;
+  border-radius: .1rem !important;
   box-shadow: none !important;
+  border: initial !important;
 }
-
-// Broad.
+// Primary buttons.
 input.btn-primary {
   background-color: $unb-darkred;
   border-color: $unb-darkred;
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: $unb-red !important;
     border-color: $unb-red !important;
   }
 }
 
-// Regions.
-// Header region.
-div.region-header a {
-  padding: 1em 0 !important;
+// Header.
+header {
+  margin-left: auto;
+  margin-right: auto;
 
-  &:hover, &:focus, &active {
-    background-color: initial;
-    color: $unb-darkred;
-  }
-}
-
-// Content region.
-div.region.region-content {
-  margin-top: 1em;
-  color: $unb-darkgray;
-
-  // Give images in content region an instant photo look.
-  & img {
-    -webkit-box-shadow: 4px 4px 8px lightgrey;
-    -moz-box-shadow: 4px 4px 8px lightgrey;
-    box-shadow: 4px 4px 8px lightgrey;
-    border: 6px solid white;
-  }
-
-  // Remove decoration from lists.
-  & ul > li {
-    list-style-type: square;
-    margin-top: 0.2em;
-  }
-}
-
-// Main navigation.
-div.region-header + nav.navbar {
-  padding: 0;
-  background-color: $unb-gray;
-
-  & > div.container {
-    padding: inherit;
-
-    & > div.navbar-brand {
-      display: none;
+  // Branding link.
+  & a.navbar-brand {
+    &:active,
+    &:focus,
+    &:focus-within,
+    &:hover {
+      background-color: inherit !important;
+      color: $unb-darkerred;
+      box-shadow: none !important;
     }
   }
 
-  & li > a:not(.dropdown-item), & li > span {
-    padding: 1em 3.18em;
-    color: white !important;
-  }
+  // Main navigation.
+  & div.region-header + nav.navbar {
+    padding: 0px;
+    background-color: $unb-darkgray;
+    font-weight: 500;
 
-  & div.dropdown-menu {
-    background-color: $unb-halfgray;
+    & a:not(.dropdown-item),
+    & span {
+      padding: 1em;
 
-    & a.dropdown-item:active {
-      background-color: initial !important;
-      color: initial !important;
+      &:active,
+      &:focus,
+      &:focus-within,
+      &:hover {
+        background-color: $unb-darkred !important;
+        box-shadow: none !important;
+        cursor: pointer;
+      }
+    }
+
+    & a.dropdown-item {
+      &:active,
+      &:focus,
+      &:focus-within {
+        background-color: initial;
+        color: initial;
+        box-shadow: none !important;
+      }
+    }
+
+    & div.dropdown-menu {
+      background-color: $unb-halfgray;
+      border-radius: .1rem;
+      border: none;
+    }
+
+    & button.navbar-toggler {
+      border: none;
+
+      &:before {
+        content: "Menu";
+      }
+
+      &:active,
+      &:focus,
+      &:focus-within {
+        outline: none !important;
+      }
     }
   }
 }
-button.navbar-toggler::before {
-  content: "Menu";
-}
+// End Header.
 
-// Primary navigation tabs.
-nav.tabs > ul.nav-tabs.primary {
-  &, & li {
-    border: none;
-  }
+// Main.
+main[role="main"] {
+  // Content.
+  & div.region.region-content {
+    // Blocks.
+    & div.block:not(#block-mainpagecontent) {
+      background-color: $unb-halfgray;
 
-  & a:not(.is-active) {
-    color: $unb-red !important;
-  }
-}
+      & h2 {
+        font-size: 1.4em;
+      }
+    }
 
-// Navigation pager.
-nav.pager {
-  margin-top: 2em;
-}
+    & div#block-exposedformsearch-subjectspage-1,
+    & div#block-browse {
+      display: inline-block;
+      margin: .7em 0;
+      padding: 1em 1.4em;
+    }
 
-// Blocks.
-div.region-content div.block:not(#block-mainpagecontent) {
-  margin-bottom: 1em;
-  padding: 1em;
-  background-color: $unb-halfgray;
+    & div#block-exposedformsearch-subjectspage-1 {
+      width: 70%;
 
-  & h2 {
-    margin-bottom: 0;
-    font-size: 20px;
-  }
+      & div.form-item-name {
+        width: 90%;
+      }
 
-  & div#edit-actions {
-    display: inline-flex;
-  }
-}
-div.views-exposed-form.block,
-div.block-comp-browse.block {
-  display: inline-table;
-  height: 144px;
-}
-div.views-exposed-form.block {
-  width: 70%;
-}
-div.block-comp-browse.block {
-  width: 29%;
-  float: right;
-}
+      & div#edit-actions {
+        display: inline-block;
 
-// Nodes.
-// Node fields.div.region-header + nav.navbar
-div.node__content {
-  margin-top: 1em;
+        & input#edit-submit-search-subjects {
+          height: calc(1.5em + 0.75rem + 2px);
+        }
+      }
+    }
 
-  & > div.field {
-    margin-bottom: 1em;
-  }
-}
-
-// Views.
-div.view {
-  margin-top: 2em;
-}
-
-div.views-row {
-  margin-top: 2em;
-}
-// Browse composites view.
-div.view-id-browse_composites div.item-list {
-  margin-top: 1em;
-
-  & > ul {
-    columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
-  }
-}
-
-// Composite decade facet.
-ul.js-facets-links {
-  list-style-type: none;
-  padding-left: 0;
-
-  & > li {
-    display: inline;
-    padding: 0 2px 0 8px;
-
-    &:not(:first-of-type) {
-      border-left: 1px solid;
+    & div#block-browse {
+      height: 8.5em;
+      width: 29%;
+      float: right;
     }
   }
 }
+// End Main.
 
-div.facets-widget-links > h3 {
-  font-size: 1rem;
-}
-
-// Forms.
-div.views-exposed-form.block input.form-text {
-  border-color: $unb-halfgray !important;
-
-  &:focus {
-    border-color: $unb-halfgray !important;
-  }
-}
-
-// Media.
+// Responsive.
 @media (min-width: 1200px) {
-  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
-    padding: 1em 2.72em !important;
+  // Header.
+  header {
+    width: 1110px;
   }
 }
-@media (max-width: 1200px) {
-  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
-    padding: 1em 1.78em !important;
+@media (min-width: 992px) and (max-width: 1199px){
+  // Header.
+  header {
+    width: 930px;
   }
 }
-@media (max-width: 992px) {
-  div.region-header + nav.navbar li > a:not(.dropdown-item), & li > span {
-    padding: 1em 4.6em !important;
+@media (min-width: 768px) and (max-width: 991px) {
+  // Header.
+  header {
+    width: 690px;
   }
 }
+@media (max-width: 767px) {
+  // Header.
+  header {
+    width: 510px;
+  }
+}
+// End Responsive.
