@@ -30,9 +30,12 @@ function comp_onsave_entity_presave($entity) {
       // Retrieve title (name) for each id.
       foreach ($sids as $k=>$sid) {
         $subject = Node::load($sid['target_id']);
-        //
         $sid['name'] = $subject->getTitle();
         $sids[$k] = $sid;
+        // Since we have the subject, add a reference back to the composite.
+        $comp_ref = ['target_id' => $entity->id()];
+        $subject->set('field_composite', $comp_ref);
+        $subject->save();
       }
 
       // Sort multidimensional array by name column.
