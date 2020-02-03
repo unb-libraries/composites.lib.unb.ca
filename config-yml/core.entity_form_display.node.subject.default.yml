@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.subject.field_bottom_x
     - field.field.node.subject.field_bottom_y
     - field.field.node.subject.field_class
+    - field.field.node.subject.field_composite
     - field.field.node.subject.field_gender
     - field.field.node.subject.field_given_name
     - field.field.node.subject.field_graduate_id
@@ -146,6 +147,7 @@ content:
     region: content
 hidden:
   created: true
+  field_composite: true
   field_graduate_id: true
   field_sort_initial: true
   field_source_file: true

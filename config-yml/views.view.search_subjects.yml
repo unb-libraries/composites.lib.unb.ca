@@ -35,7 +35,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Search
+          submit_button: Go
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -170,7 +170,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-            placeholder: 'Name (all)'
+            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
           is_grouped: false
@@ -199,10 +199,21 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'Search Subjects'
+      title: Search
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: true
+          content: 'Your search did not match any records.'
+          plugin_id: text_custom
       relationships: {  }
       arguments: {  }
       display_extenders: {  }

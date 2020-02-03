@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.subject.field_bottom_x
     - field.field.node.subject.field_bottom_y
     - field.field.node.subject.field_class
+    - field.field.node.subject.field_composite
     - field.field.node.subject.field_gender
     - field.field.node.subject.field_given_name
     - field.field.node.subject.field_graduate_id
@@ -42,6 +43,7 @@ hidden:
   field_bottom_x: true
   field_bottom_y: true
   field_class: true
+  field_composite: true
   field_gender: true
   field_given_name: true
   field_graduate_id: true

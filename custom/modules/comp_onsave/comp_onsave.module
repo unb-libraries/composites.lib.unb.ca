@@ -29,7 +29,9 @@ function comp_onsave_entity_presave($entity) {
 
       // Retrieve title (name) for each id.
       foreach ($sids as $k=>$sid) {
-        $sid['name'] = Node::load($sid['target_id'])->getTitle();
+        $subject = Node::load($sid['target_id']);
+        //
+        $sid['name'] = $subject->getTitle();
         $sids[$k] = $sid;
       }
 
