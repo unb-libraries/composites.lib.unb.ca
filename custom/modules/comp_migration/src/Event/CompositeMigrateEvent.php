@@ -98,6 +98,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     }
 
     $subjects = [];
+
     foreach ($nids as $nid) {
       $subjects[] = ['target_id' => $nid];
     }

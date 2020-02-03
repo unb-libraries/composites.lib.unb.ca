@@ -5,7 +5,7 @@
  * Contains comp_onsave.module.
  */
 
-use \Drupal\node\Entity\Node;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_entity_presave().
