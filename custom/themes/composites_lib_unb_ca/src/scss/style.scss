@@ -14,7 +14,10 @@
 input {
   border-radius: .1rem !important;
   box-shadow: none !important;
-  border: initial !important;
+
+  &:focus {
+    border-color: $unb-halfaqua !important;
+  }
 }
 // All unordered lists.
 ul {
@@ -112,6 +115,19 @@ main[role="main"] {
     // Blocks.
     & div.block {
       margin-bottom: 1.4em;
+
+      & a {
+        color: $unb-halfaqua;
+      }
+
+      & a:hover,
+      & a:focus {
+        border-bottom: 1px solid;
+        background-color: initial;
+        color: $unb-darkerred;
+        transition: color 0.15s ease-in, border-color 0.15s ease-in;
+        box-shadow: none !important;
+      }
     }
 
     & div.block:not(#block-mainpagecontent) {
