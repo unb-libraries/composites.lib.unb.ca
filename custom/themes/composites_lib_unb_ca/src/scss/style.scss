@@ -19,11 +19,11 @@ input {
     border-color: $unb-halfaqua !important;
   }
 }
-// All unordered lists.
-ul {
-  list-style: none;
+// Round borders.
+input,
+li {
+  border-radius: .1rem !important;
 }
-
 // Primary buttons.
 input.btn-primary {
   background-color: $unb-darkred;
@@ -112,9 +112,16 @@ header {
 main[role="main"] {
   // Content.
   & div.region.region-content {
+    // Give images in content region an instant photo look.
+    & img {
+      -webkit-box-shadow: 4px 4px 8px lightgrey;
+      -moz-box-shadow: 4px 4px 8px lightgrey;
+      box-shadow: 4px 4px 8px lightgrey;
+      border: 6px solid white;
+    }
     // Blocks.
     & div.block {
-      margin-bottom: 1.4em;
+      margin-bottom: 2em;
       // Links.
       & a {
         color: $unb-halfaqua;
@@ -132,15 +139,14 @@ main[role="main"] {
     // Blocks except main content.
     & div.block:not(#block-mainpagecontent) {
       background-color: $unb-halfgray;
-
+      // Header 2.
       & h2 {
         font-size: 1.4em;
       }
-
+      // Links.
       & a {
         color: $unb-red;
       }
-
     }
     // Search and browse blocks.
     & div#block-exposedformsearch-subjectspage-1,
@@ -201,20 +207,53 @@ main[role="main"] {
       }
     }
     // Views.
+    & div.view {
+      // Unordered lists.
+      ul {
+        list-style: none;
+      }
+    }
     // Browse by year.
     & div.view-browse-composites {
       // Item list.
       & > div.view-content > div.item-list {
         margin-left: 1.5em;
-        // List item.
-        & > ul > li {
+
+        &:not(:last-of-type) > ul > li:first-of-type,
+        & > ul > li:not(:last-of-type) {
           border-bottom: 1px solid $unb-halfgray;
         }
       }
     }
   }
+  // Nav pager.
+  & nav.pager {
+    margin-top: 2em;
+    text-align: center;
+
+    & a:hover,
+    & a:focus {
+      color: $unb-halfaqua !important;
+    }
+  }
 }
 // End Main.
+
+// Footer.
+footer > div.container {
+  margin-top: 1em;
+  border-top: 1px solid $unb-halfgray;
+  padding-top: 1em;
+
+  & div#footer-logo-div, div#footer-menu-div {
+    padding-left: 0;
+
+    & img#footer-logo-img {
+      max-width: 260px;
+    }
+  }
+}
+//End footer.
 
 // Responsive.
 @media (min-width: 1200px) {
