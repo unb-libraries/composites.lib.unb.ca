@@ -504,6 +504,18 @@ display:
           expose:
             label: ''
           plugin_id: search_api
+        field_type:
+          id: field_type
+          table: search_api_index_images_composites_lib_unb_ca
+          field: field_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
       title: 'Browse Composites'
       header: {  }
       footer: {  }

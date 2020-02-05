@@ -9,6 +9,7 @@ dependencies:
   config:
     - field.storage.node.field_comp_decade
     - field.storage.node.field_comp_year
+    - field.storage.node.field_type
     - search_api.server.drupal_solr_lib_unb_ca
 third_party_settings:
   search_api_solr:
@@ -69,6 +70,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_comp_year
+  field_type:
+    label: Type
+    datasource_id: 'entity:node'
+    property_path: field_type
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_type
 datasource_settings:
   'entity:node':
     bundles:
