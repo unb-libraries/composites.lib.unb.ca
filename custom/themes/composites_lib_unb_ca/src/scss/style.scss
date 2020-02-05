@@ -115,11 +115,11 @@ main[role="main"] {
     // Blocks.
     & div.block {
       margin-bottom: 1.4em;
-
+      // Links.
       & a {
         color: $unb-halfaqua;
       }
-
+      // Link status.
       & a:hover,
       & a:focus {
         border-bottom: 1px solid;
@@ -129,7 +129,7 @@ main[role="main"] {
         box-shadow: none !important;
       }
     }
-
+    // Blocks except main content.
     & div.block:not(#block-mainpagecontent) {
       background-color: $unb-halfgray;
 
@@ -137,21 +137,12 @@ main[role="main"] {
         font-size: 1.4em;
       }
 
-      & ul.js-facets-links {
-        list-style-type: none;
-        padding-left: 0;
-
-        & > li {
-          display: inline;
-          padding: 0 2px 0 8px;
-
-          &:not(:first-of-type) {
-            border-left: 1px solid;
-          }
-        }
+      & a {
+        color: $unb-red;
       }
-    }
 
+    }
+    // Search and browse blocks.
     & div#block-exposedformsearch-subjectspage-1,
     & div#block-browse {
       display: inline-block;
@@ -173,7 +164,7 @@ main[role="main"] {
         }
       }
     }
-
+    // Browse block.
     & div#block-browse {
       height: 8.5em;
       width: 29%;
@@ -185,6 +176,40 @@ main[role="main"] {
 
       & h3 {
         font-size: 1em;
+      }
+
+      & ul.js-facets-links {
+        list-style-type: none;
+        padding-left: 0;
+
+        & > li {
+          display: inline;
+          padding: 0 2px 0 8px;
+
+          &:not(:first-of-type) {
+            border-left: 1px solid;
+          }
+        }
+
+        & a.is-active {
+          font-weight: bolder;
+
+          & span.facet-item__status {
+            display: none;
+          }
+        }
+      }
+    }
+    // Views.
+    // Browse by year.
+    & div.view-browse-composites {
+      // Item list.
+      & > div.view-content > div.item-list {
+        margin-left: 1.5em;
+        // List item.
+        & > ul > li {
+          border-bottom: 1px solid $unb-halfgray;
+        }
       }
     }
   }
