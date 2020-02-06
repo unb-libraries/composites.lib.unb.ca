@@ -3,6 +3,10 @@ services:
     class: Drupal\comp_migration\Event\CompositeMigrateEvent
     tags:
       - { name: event_subscriber }
+  comp_migration.1_composite_migrate_subscriber:
+    class: Drupal\comp_migration\Event\CompositeMigratePostEvent
+    tags:
+      - { name: event_subscriber }
   comp_migration.0_subject_migrate_subscriber:
     class: Drupal\comp_migration\Event\SubjectMigrateEvent
     tags:
