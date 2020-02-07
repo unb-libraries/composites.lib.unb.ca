@@ -1,0 +1,7 @@
+
+comp_cms_extend.edit_subjects:
+  path: '/ceremony/{node}/addresses/edit'
+  defaults:
+    _form: '\Drupal\comp_cms_extend\Form\EditSubjectsForm'
+  requirements:
+    _role: 'authenticated'

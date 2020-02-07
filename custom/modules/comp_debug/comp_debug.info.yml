@@ -2,6 +2,6 @@ name: Debugging for composites.lib.unb.ca
 type: module
 description: Debugging for composites.lib.unb.ca
 core: 8.x
-package: Custom
+package: composites_lib_unb_ca
 dependencies:
   - kint:kint

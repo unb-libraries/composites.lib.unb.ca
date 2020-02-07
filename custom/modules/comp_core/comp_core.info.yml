@@ -2,4 +2,4 @@ name: Main custom module for composites.lib.unb.ca
 type: module
 description: Contains core functionality for composites.lib.unb.ca
 core: 8.x
-package: Custom
+package: composites_lib_unb_ca
