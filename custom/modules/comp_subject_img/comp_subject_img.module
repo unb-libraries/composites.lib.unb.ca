@@ -54,7 +54,8 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
     }
 
     // (Re)create style.
-    $style = ImageStyle::create(['name' => 'composite_crop']);
+    $style = ImageStyle::create(['name' => 'composite_crop',
+      'label' => 'composite_crop']);
 
     // Crop effect configuration.
     $dpi = intval($composite->get('field_disp_resolution')
