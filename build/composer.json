@@ -89,7 +89,7 @@
         }
     ],
     "require": {
-        "drupal/bootstrap4": "1.0-rc2",
+        "drupal/bootstrap4": "1.0-rc3",
         "drupal/conditional_fields": "1.0-alpha6",
         "drupal/config_update": "1.5",
         "drupal/core": "8.8.2",
