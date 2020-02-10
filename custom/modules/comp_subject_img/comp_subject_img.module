@@ -46,83 +46,75 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
     $variables['content']['composite_image']['#weight'] = -1;
 
     // Create on-the-fly image style with cropping effect for composite.
-    $initials = empty($variables['content']['field_initials'][0]) ? NULL :
-      $variables['content']['field_initials'][0]['#context']['value'];
-    $last_name = empty($variables['content']['field_last_name'][0]) ? NULL :
-      $variables['content']['field_last_name'][0]['#context']['value'];
-    $style_name = $sid . '_composite_crop';
-
-    // Load style if already exists.
-    $style = empty(ImageStyle::load($style_name)) ? NULL
-      : ImageStyle::load($style_name);
-
-    if (empty($style)) {
-      // (Re)create style.
-      $style = ImageStyle::create([
-        'name' => $style_name,
-        'label' => $style_name
-      ]);
-
-      // Crop effect configuration.
-      $dpi = intval($composite->get('field_disp_resolution')
-        ->getValue()[0]['value']);
-
-      // Retrieve coordinates from subject record.
-      $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
-      $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
-      $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
-      $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
-
-      // Calculate anchor, width, height using resolution (dpi).
-      $anchorX = $topX * $dpi;
-      $anchorY = $topY * $dpi;
-      $anchor = strval($anchorX) . "-" . strval($anchorY);
-      $width = ($botX * $dpi) - $anchorX;
-      $height = ($botY * $dpi) - $anchorY;
-
-      // Configuration for cropping effect.
-      $config = [
-        'uuid' => NULL,
-        'id' => 'image_crop',
-        'weight' => 0,
-        'data' => [
-          'width' => $width,
-          'height' => $height,
-          'anchor' => $anchor,
-        ],
-      ];
-
-      // Create effect, add to style, save.
-      $effect = \Drupal::service('plugin.manager.image.effect')->
-        createInstance($config['id'], $config);
-
-      $style->addImageEffect($effect->getConfiguration());
-
-      // Configuration for scaling effect.
-      $config = [
-        'uuid' => NULL,
-        'id' => 'image_scale',
-        'weight' => 0,
-        'data' => [
-          'width' => 400,
-          'upscale' => 1,
-        ],
-      ];
-
-      // Create effect, add to style, save.
-      $effect = \Drupal::service('plugin.manager.image.effect')->
-        createInstance($config['id'], $config);
-
-      $style->addImageEffect($effect->getConfiguration());
-      $style->save();
+    // Delete style if already exists.
+    if (!empty(ImageStyle::load('composite_crop'))) {
+      $style = ImageStyle::load('composite_crop');
+      $style->flush();
+      $style->delete();
     }
+
+    // (Re)create style.
+    $style = ImageStyle::create(['name' => 'composite_crop']);
+
+    // Crop effect configuration.
+    $dpi = intval($composite->get('field_disp_resolution')
+      ->getValue()[0]['value']);
+
+    // Retrieve coordinates from subject record.
+    $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
+    $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
+    $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
+    $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
+
+    // Calculate anchor, width, height using resolution (dpi).
+    $anchorX = $topX * $dpi;
+    $anchorY = $topY * $dpi;
+    $anchor = strval($anchorX) . "-" . strval($anchorY);
+    $width = ($botX * $dpi) - $anchorX;
+    $height = ($botY * $dpi) - $anchorY;
+
+    // Configuration for cropping effect.
+    $config = [
+      'uuid' => NULL,
+      'id' => 'image_crop',
+      'weight' => 0,
+      'data' => [
+        'width' => $width,
+        'height' => $height,
+        'anchor' => $anchor,
+      ],
+    ];
+
+    // Create effect, add to style, save.
+    $effect = \Drupal::service('plugin.manager.image.effect')->
+      createInstance($config['id'], $config);
+
+    $style->addImageEffect($effect->getConfiguration());
+
+    // Configuration for scaling effect.
+    $config = [
+      'uuid' => NULL,
+      'id' => 'image_scale',
+      'weight' => 0,
+      'data' => [
+        'width' => 400,
+        'upscale' => 1,
+      ],
+    ];
+
+    // Create effect, add to style, save.
+    $effect = \Drupal::service('plugin.manager.image.effect')->
+      createInstance($config['id'], $config);
+
+    $style->addImageEffect($effect->getConfiguration());
+    $style->save();
 
     // Save styled image as renederable field to content.
     $variables['content']['subject_image'] = $comp_img->view([
       'type' => 'image',
       'label' => 'above',
       'settings' => [
-        'image_style' => $style_name,
+        'image_style' => 'composite_crop',
       ],
     ]);
 
