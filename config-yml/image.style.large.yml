@@ -15,3 +15,9 @@ effects:
       width: 480
       height: 480
       upscale: false
+  1555cff7-9b46-4ffe-b981-675c9146e889:
+    uuid: 1555cff7-9b46-4ffe-b981-675c9146e889
+    id: image_convert
+    weight: 2
+    data:
+      extension: jpg

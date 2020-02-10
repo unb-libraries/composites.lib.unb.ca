@@ -15,3 +15,9 @@ effects:
       width: 220
       height: 220
       upscale: false
+  daacdaf5-0f5d-4399-a8d0-9e8a57542588:
+    uuid: daacdaf5-0f5d-4399-a8d0-9e8a57542588
+    id: image_convert
+    weight: 2
+    data:
+      extension: jpg

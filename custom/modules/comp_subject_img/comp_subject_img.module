@@ -86,7 +86,7 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
       ],
     ];
 
-    // Create effect, add to style, save.
+    // Create effect, add to style.
     $effect = \Drupal::service('plugin.manager.image.effect')->
       createInstance($config['id'], $config);
 
@@ -103,11 +103,29 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
       ],
     ];
 
-    // Create effect, add to style, save.
+    // Create effect, add to style.
     $effect = \Drupal::service('plugin.manager.image.effect')->
       createInstance($config['id'], $config);
 
     $style->addImageEffect($effect->getConfiguration());
+
+    // Configuration for convert effect (to support TIFF files).
+    $config = [
+      'uuid' => NULL,
+      'id' => 'image_convert',
+      'weight' => 100,
+      'data' => [
+        'extension' => 'jpg',
+      ],
+    ];
+
+    // Create effect, add to style.
+    $effect = \Drupal::service('plugin.manager.image.effect')->
+      createInstance($config['id'], $config);
+
+    $style->addImageEffect($effect->getConfiguration());
+
+    // Save style.
     $style->save();
 
     // Save styled image as renederable field to content.
