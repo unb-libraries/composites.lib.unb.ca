@@ -16,16 +16,10 @@ use \Drupal\image\Entity\ImageStyle;
 function comp_subject_img_preprocess_node__subject(&$variables) {
   // Get subject id.
   $sid = $variables['node']->id();
+  $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
 
-  // Find and load parent composite.
-  $results = \Drupal::entityQuery('node')
-    ->condition('type', 'composite')
-    ->condition('field_subjects', $sid)
-    ->execute();
-
-  // Get first result node using reset() to be safe. Should return 1 value.
-  if (!empty($results)) {
-    $cid = reset($results);
+  if (!empty($variables['content']['field_composite'])) {
+    $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
     $composite = Node::load($cid);
     $comp_img = $composite->field_image;
   }
