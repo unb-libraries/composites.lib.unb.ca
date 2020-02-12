@@ -17,13 +17,14 @@ class CompCMSExtendController extends ControllerBase {
       ->getStorage('node')
       ->create([
         'type' => 'subject',
+        'field_composite' => $cid,
       ]);
 
     $form = \Drupal::entityTypeManager()
       ->getFormObject('node', 'default')
       ->setEntity($node);
 
-    return \Drupal::formBuilder()->getForm($form, $cid);
+    return \Drupal::formBuilder()->getForm($form);
   }
 
 }
