@@ -84,6 +84,14 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_composite:
+    type: entity_reference_label
+    weight: 15
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_gender:
     weight: 7
     label: above
@@ -164,7 +172,6 @@ content:
     type: boolean
     region: content
 hidden:
-  field_composite: true
   field_graduate_id: true
   field_sort_initial: true
   field_source_file: true
