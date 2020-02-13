@@ -104,7 +104,7 @@
         "drupal/gapi": "1.x-dev",
         "drupal/google_analytics": "2.2",
         "drupal/health_check": "1.2",
-        "drupal/imagemagick": "3.0",
+        "drupal/imagemagick": "3.1",
         "drupal/key": "1.10",
         "drupal/ldap": "3.0-beta7",
         "drupal/optional_end_date": "1.0-beta1",
