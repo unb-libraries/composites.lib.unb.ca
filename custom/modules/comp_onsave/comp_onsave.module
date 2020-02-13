@@ -68,40 +68,7 @@ function comp_onsave_entity_presave($entity) {
       if (ctype_alnum($leading)) {
 
         if (ctype_digit($leading)) {
-            $leading = '#';      // Process and add decade value.
-      // Retrieve year.
-      $year = $entity->get('field_comp_year')->getValue()[0]['value'];
-      $decade = intdiv($year, 10) * 10;
-      $decade = $decade >= 1870 ? $decade : NULL;
-      $entity->set('field_comp_decade', $decade);
-
-      // Sort subjects by last name.
-      // Retrieve subject node ids associated to composite.
-      $sids = $entity->get('field_subjects')->getValue();
-
-      // Retrieve title (name) for each id.
-      foreach ($sids as $k=>$sid) {
-        $subject = Node::load($sid['target_id']);
-        $sid['name'] = $subject->getTitle();
-        $sids[$k] = $sid;
-        // Since we have the subject, add a reference back to the composite.
-        $comp_ref = ['target_id' => $entity->id()];
-        $subject->set('field_composite', $comp_ref);
-        $subject->save();
-      }
-
-      // Sort multidimensional array by name column.
-      array_multisort(array_column($sids, 'name'), SORT_ASC, $sids);
-
-      // Create array with only the new sorted 'target_id'.
-      $sorted_sids = [];
-
-      foreach ($sids as $k=>$sid) {
-        $sorted_sids[$k] = ['target_id' => $sid['target_id']];
-      }
-
-      // Update field value with the sorted ids.
-      $entity->get('field_subjects')->setValue($sorted_sids);
+            $leading = '#';
         }
       }
       else {
@@ -127,14 +94,17 @@ function comp_onsave_entity_insert($entity) {
     // If the entity is a subject...
     case 'subject':
       $cid = $entity->get('field_composite')->getValue()[0]['target_id'];
-      $composite = Node::load($cid);
-      $subjects = $composite->get('field_subjects')->getValue();
-      $sid = $entity->id();
 
-      if (!in_array($sid, $subjects)) {
-        $subjects[] = [ 'target_id' => $sid ];
-        $composite->set('field_subjects', $subjects);
-        $composite->save();
+      if (!empty($cid)) {
+        $composite = Node::load($cid);
+        $subjects = $composite->get('field_subjects')->getValue();
+        $sid = $entity->id();
+
+        if (!in_array($sid, $subjects)) {
+          $subjects[] = [ 'target_id' => $sid ];
+          $composite->set('field_subjects', $subjects);
+          $composite->save();
+        }
       }
 
     break;
