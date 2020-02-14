@@ -217,18 +217,24 @@ main[role="main"] {
     & div.view-browse-composites {
       // Item list.
       & > div.view-content > div.item-list {
+        margin-top: 2em;
         margin-left: 1.5em;
 
-        &:not(:last-of-type) > ul > li:first-of-type,
+        &:not(:last-of-type) > ul > li,
         & > ul > li:not(:last-of-type) {
+          padding-bottom: 1em;
           border-bottom: 1px solid $unb-halfgray;
+        }
+
+        & div.collapse > div.item-list > ul {
+          columns: 2;
         }
       }
     }
   }
   // Nav pager.
   & nav.pager {
-    margin-top: 2em;
+    margin-top: 4em;
     text-align: center;
 
     & a:hover,

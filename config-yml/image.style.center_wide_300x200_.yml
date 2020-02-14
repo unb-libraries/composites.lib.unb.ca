@@ -1,0 +1,23 @@
+uuid: 512fdfb7-3491-46fe-b42a-ea685e32c19b
+langcode: en
+status: true
+dependencies: {  }
+name: center_wide_300x200_
+label: 'Center Wide (300x200)'
+effects:
+  15c84bc7-2fa2-4a00-a035-05e91daad094:
+    uuid: 15c84bc7-2fa2-4a00-a035-05e91daad094
+    id: image_scale
+    weight: 1
+    data:
+      width: 300
+      height: null
+      upscale: false
+  fa721405-d6a8-4fd8-b23d-20a29e424542:
+    uuid: fa721405-d6a8-4fd8-b23d-20a29e424542
+    id: image_crop
+    weight: 2
+    data:
+      width: 300
+      height: 200
+      anchor: center-center
