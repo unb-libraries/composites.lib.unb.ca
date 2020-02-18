@@ -265,6 +265,11 @@ footer > div.container {
       max-width: 260px;
     }
   }
+
+  & a, a:hover, a:focus {
+    background-color: initial;
+    box-shadow: none;
+  }
 }
 //End footer.
 
