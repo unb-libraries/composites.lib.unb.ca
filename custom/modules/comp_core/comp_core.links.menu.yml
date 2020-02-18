@@ -5,9 +5,9 @@ comp_core.home:
   menu_name: main
   route_name: comp_core.home
   weight: 10
-comp_core.browse:
-  title: 'Browse'
-  description: 'About'
+comp_core.browse_search:
+  title: 'Browse/Search'
+  description: 'Find subjects and composites'
   parent: main
   menu_name: main
   url: route:<nolink>
@@ -15,18 +15,25 @@ comp_core.browse:
   weight: 15
 comp_core.browse_year:
   title: 'By Year'
-  description: 'Browse subjects by composite year'
-  parent: comp_core.browse
+  description: 'Browse composites and subjects by year'
+  parent: comp_core.browse_search
   menu_name: main
   url: internal:/browse-composites
   weight: 10
 comp_core.browse_name:
   title: 'All Subjects'
   description: 'Browse all composite subjects by name'
-  parent: comp_core.browse
+  parent: comp_core.browse_search
   menu_name: main
   url: internal:/browse-subjects
   weight: 20
+comp_core.search:
+  title: 'Search'
+  description: 'Search subjects'
+  parent: comp_core.browse_search
+  menu_name: main
+  url: internal:/search-subjects
+  weight: 30
 comp_core.about:
   title: 'About'
   description: 'About'
