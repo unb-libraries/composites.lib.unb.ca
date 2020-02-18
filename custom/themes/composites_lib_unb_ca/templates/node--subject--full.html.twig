@@ -102,7 +102,13 @@
     {% if content.field_last_name|field_value %}
       <h2>
         {{ content.field_given_name|field_value }}
-        {{ content.field_last_name|field_value }}</h2>
+        {{ content.field_last_name|field_value }}
+        {{- ' (' -}}
+        <a href="/node/{{ content.cid }}"">
+          {{- content.composite_type|field_value -}}
+          {{- ' ' -}}{{- content.composite_year|field_value -}}
+        </a>
+        {{- ')' -}}
       </h2>
     {% endif %}
 

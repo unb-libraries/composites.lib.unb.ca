@@ -20,24 +20,38 @@ function comp_subject_img_preprocess_node__subject(&$variables) {
 
   if (!empty($variables['content']['field_composite'])) {
     $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
-    $composite = Node::load($cid);
-    $comp_img = $composite->field_image;
+
+    if (!empty($cid)) {
+      // Pass composite year field as content to templates.
+      $variables['content']['cid'] = $cid;
+
+      // Retrieve composite node and additional fields.
+      $composite = Node::load($cid);
+      $comp_year = $composite->field_comp_year;
+      $comp_type = $composite->field_type;
+      $comp_img = $composite->field_image;
+    }
   }
   else {
-    $comp_img = NULL;
+    $comp_img = $comp_type = $comp_year = NULL;
+  }
+
+  if (!empty($comp_year)) {
+    // Pass composite year field as content to templates.
+    $variables['content']['composite_year'] = $comp_year->view();
+    $variables['content']['composite_year']['#title'] = 'Composite Year';
+  }
+
+  if (!empty($comp_type)) {
+    // Pass composite type field as content to templates.
+    $variables['content']['composite_type'] = $comp_type->view();
+    $variables['content']['composite_type']['#title'] = 'Composite Type';
   }
 
   if (!empty($comp_img)) {
     // Pass composite image field as renderable content to templates.
-    $variables['content']['composite_image'] = $comp_img->view([
-      'settings' => [
-        'image_style' => 'large',
-      ],
-    ]);
-
+    $variables['content']['composite_image'] = $comp_img->view();
     $variables['content']['composite_image']['#title'] = 'Composite Image';
-    $variables['content']['composite_image']['#title'] = 'Composite Image';
-    $variables['content']['composite_image']['#weight'] = -1;
 
     // Retrieve display resolution (dpi).
     $dpi = intval($composite->get('field_disp_resolution')
