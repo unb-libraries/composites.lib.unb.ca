@@ -8,6 +8,8 @@ dependencies:
     - search_api
   config:
     - field.storage.node.field_composite
+    - field.storage.node.field_comp_year
+    - field.storage.node.field_type
     - field.storage.node.field_sort_initial
     - search_api.server.subjects_composites_lib_unb_ca
 third_party_settings:
@@ -53,6 +55,18 @@ name: people.composites.lib.unb.ca
 description: ''
 read_only: false
 field_settings:
+  field_comp_year:
+    label: 'Composite » Content » Comp. Year'
+    datasource_id: 'entity:node'
+    property_path: 'field_composite:entity:field_comp_year'
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_composite
+        - field.storage.node.field_comp_year
+      module:
+        - node
   field_composite:
     label: Composite
     datasource_id: 'entity:node'
@@ -69,11 +83,23 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_sort_initial
+  field_type:
+    label: 'Composite » Content » Type'
+    datasource_id: 'entity:node'
+    property_path: 'field_composite:entity:field_type'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_composite
+        - field.storage.node.field_type
+      module:
+        - node
   title:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
     type: text
+    boost: !!float 3
     dependencies:
       module:
         - node
