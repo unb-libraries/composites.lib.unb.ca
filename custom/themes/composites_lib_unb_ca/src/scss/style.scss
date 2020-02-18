@@ -63,7 +63,6 @@ header {
 
     & a,
     & span {
-      padding: 1em;
       color: $unb-25gray;
 
       &:active,
@@ -74,6 +73,10 @@ header {
         color: white !important;
         box-shadow: none !important;
         cursor: pointer;
+      }
+
+      &:not(.dropdown-item) {
+        padding: 1em;
       }
     }
 
