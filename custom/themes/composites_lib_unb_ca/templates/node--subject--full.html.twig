@@ -98,7 +98,6 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-
     {% if content.field_last_name|field_value %}
       <h2>
         {{ content.field_given_name|field_value }}
@@ -118,15 +117,60 @@
       <br>
     {% endif %}
 
-    {% if content.subject_image|field_value %}
-      {{ content.subject_image|field_value }}
-    {% endif %}
-    <br>
-    <br>
+    <div class="container">
+      <div class="row">
 
-    {#
-    {{ content }}
-    #}
+        <div class="col-sm-6">
+
+          {% if content.subject_image|field_value %}
+            {{ content.subject_image|field_value }}
+          {% endif %}
+          <br>
+          <br>
+
+          {#
+          {{ content }}
+          #}
+        </div>
+
+        <div class="col-sm-6">
+          <dl>
+            <div>
+              <dt>{{ content.field_subject_tile|field_label }}</dt>
+              <dd>{{ content.field_subject_tile|field_value }}</dd>
+            </div>
+            <div>
+              <dt>{{ content.field_class|field_label }}</dt>
+              <dd>{{ content.field_class|field_value }}</dd>
+            </div>
+            <div>
+              <dt>{{ content.field_valedictorian|field_label }}</dt>
+              <dd>{{ content.field_valedictorian|field_value }}</dd>
+            </div>
+            <div>
+              <dt>{{ content.field_awards|field_label }}</dt>
+              <dd>{{ content.field_awards|field_value }}</dd>
+            </div>
+            <div>
+              <dt>{{ content.field_gender|field_label }}</dt>
+              <dd>{{ content.field_gender|field_value }}</dd>
+            </div>
+            <div>
+              <dt>{{ content.field_alt_name|field_label }}</dt>
+              <dd>{{ content.field_alt_name|field_value }}</dd>
+            </div>
+            <div>
+              <dt>{{ content.field_alt_name_source|field_label }}</dt>
+              <dd>{{ content.field_alt_name_source|field_value }}</dd>
+            </div>
+            <div>
+              <dt>{{ content.field_subject_notes|field_label }}</dt>
+              <dd>{{ content.field_subject_notes|field_value }}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
   </div>
 
 </article>
