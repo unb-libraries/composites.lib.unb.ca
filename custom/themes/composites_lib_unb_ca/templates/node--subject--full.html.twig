@@ -98,24 +98,6 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {% if content.field_last_name|field_value %}
-      <h2>
-        {{ content.field_given_name|field_value }}
-        {{ content.field_last_name|field_value }}
-        {{- ' (' -}}
-        <a href="/node/{{ content.cid }}"">
-          {{- content.composite_type|field_value -}}
-          {{- ' ' -}}{{- content.composite_year|field_value -}}
-        </a>
-        {{- ')' -}}
-      </h2>
-    {% endif %}
-
-    {% if content.field_awards|field_value %}
-      {{ 'Recipient of: '}}{{ content.field_awards|field_value }}
-      <br>
-      <br>
-    {% endif %}
 
     <div class="container">
       <div class="row">
@@ -134,6 +116,26 @@
         </div>
 
         <div class="col-sm-6">
+
+          {% if content.field_last_name|field_value %}
+            <h2>
+              {{ content.field_given_name|field_value }}
+              {{ content.field_last_name|field_value }}
+              {{- ' (' -}}
+              <a href="/node/{{ content.cid }}"">
+                {{- content.composite_type|field_value -}}
+                {{- ' ' -}}{{- content.composite_year|field_value -}}
+              </a>
+              {{- ')' -}}
+            </h2>
+          {% endif %}
+
+          {% if content.field_awards|field_value %}
+            {{ 'Recipient of: '}}{{ content.field_awards|field_value }}
+            <br>
+            <br>
+          {% endif %}
+
           <dl>
             <div>
               <dt>{{ content.field_subject_tile|field_label }}</dt>
@@ -153,7 +155,7 @@
             </div>
             <div>
               <dt>{{ content.field_gender|field_label }}</dt>
-              <dd>{{ content.field_gender|field_value }}</dd>
+              <dd>{{ content.field_gender|field_value[0]['#title'] }}</dd>
             </div>
             <div>
               <dt>{{ content.field_alt_name|field_label }}</dt>

@@ -36,6 +36,32 @@ input.btn-primary {
     border-color: $unb-red !important;
   }
 }
+// Collapse links.
+a.comp-collapse {
+  color: initial !important;
+  border: none !important;
+
+  & ~ i {
+    position: relative;
+    top: 7px;
+    left: -.2em;
+
+    &.subs-expanded {
+      display: none;
+    }
+  }
+
+  &[aria-expanded="true"] {
+
+    & ~ i.subs-collapsed {
+      display: none;
+    }
+
+    & ~ i.subs-expanded {
+      display:inline-block;
+    }
+  }
+}
 
 // Header.
 header {
