@@ -1,0 +1,56 @@
+uuid: e5598f22-7dec-46fb-85ed-5ff6e0a5e0c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.slideshow_image.field_image_ss
+    - field.field.node.slideshow_image.field_link_path
+    - field.field.node.slideshow_image.field_sort_order
+    - image.style.thumbnail
+    - node.type.slideshow_image
+  module:
+    - image
+id: node.slideshow_image.default
+targetEntityType: node
+bundle: slideshow_image
+mode: default
+content:
+  field_image_ss:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_link_path:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sort_order:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

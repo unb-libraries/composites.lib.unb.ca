@@ -41,24 +41,27 @@ a.comp-collapse {
   color: initial !important;
   border: none !important;
 
+  // Adjust.
   & ~ i {
     position: relative;
     top: 7px;
     left: -.2em;
 
+    // Hide expanded arrow when collapsed.
     &.subs-expanded {
       display: none;
     }
   }
 
+  // Show expanded arrow, hide collpased arrow when expanded.
   &[aria-expanded="true"] {
-
-    & ~ i.subs-collapsed {
-      display: none;
-    }
 
     & ~ i.subs-expanded {
       display:inline-block;
+    }
+
+    & ~ i.subs-collapsed {
+      display: none;
     }
   }
 }

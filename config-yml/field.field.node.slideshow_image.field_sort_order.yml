@@ -1,0 +1,23 @@
+uuid: b581a738-0094-448e-9a84-896315acc9cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sort_order
+    - node.type.slideshow_image
+id: node.slideshow_image.field_sort_order
+field_name: field_sort_order
+entity_type: node
+bundle: slideshow_image
+label: 'Sort Order'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

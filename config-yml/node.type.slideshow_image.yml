@@ -1,4 +1,4 @@
-uuid: bc52fb62-8938-47bc-b977-8ba93bf6207e
+uuid: 43f65c53-0320-42c8-a59c-7c499c911897
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Composite
-type: composite
-description: 'Composite image content type for composites.lib.unb.ca'
+name: 'Slideshow Image'
+type: slideshow_image
+description: 'An image for the slideshow in composites.lib.unb.ca'
 help: ''
 new_revision: false
 preview_mode: 0
