@@ -86,6 +86,21 @@
                     "installer-name": "jquery-timepicker-addon"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "malsup/jquery.cycle",
+                "version": "1.0",
+                "type": "drupal-library",
+                "dist": {
+                    "type": "file",
+                    "url": "https://malsup.github.io/jquery.cycle.all.js"
+                },
+                "require": {
+                    "composer/installers": "^1.0.20"
+                }
+            }
         }
     ],
     "require": {
@@ -119,8 +134,11 @@
         "drupal/token": "1.5",
         "drupal/twig_field_value": "1.2",
         "drupal/twig_tweak": "2.4",
+        "drupal/views_slideshow": "4.6",
         "google/apiclient": "^2.0",
         "jonthornton/jquery-timepicker": "~1.11.15",
+        "malsup/jquery.cycle": "1.0",
+        "oomphinc/composer-installers-extender": "1.1.2",
         "trentrichardson/jquery-timepicker-addon": "^1.6.3",
         "unb-libraries/drupal-builder": "^8.0.0",
         "unb-libraries/calendar_hours": "dev-8.x-1.x",
