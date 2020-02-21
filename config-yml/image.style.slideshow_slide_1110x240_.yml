@@ -1,0 +1,23 @@
+uuid: 2b38a3f1-30f5-4cd6-bf99-57b5d9e7db41
+langcode: en
+status: true
+dependencies: {  }
+name: slideshow_slide_1110x240_
+label: 'Slideshow Slide (1110x240)'
+effects:
+  a16dac05-40d5-4b25-b549-d475da9bf18b:
+    uuid: a16dac05-40d5-4b25-b549-d475da9bf18b
+    id: image_crop
+    weight: -9
+    data:
+      width: 1110
+      height: 240
+      anchor: center-center
+  8b52fcf4-afb9-464f-a647-c73f7a008534:
+    uuid: 8b52fcf4-afb9-464f-a647-c73f7a008534
+    id: image_scale
+    weight: -10
+    data:
+      width: 1110
+      height: null
+      upscale: false

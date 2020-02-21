@@ -11,7 +11,7 @@ dependencies:
 id: mainnavigation
 theme: composites_lib_unb_ca
 region: nav_main
-weight: 0
+weight: -5
 provider: null
 plugin: 'system_menu_block:main'
 settings:

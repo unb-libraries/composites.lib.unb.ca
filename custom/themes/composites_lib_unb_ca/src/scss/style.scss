@@ -70,7 +70,6 @@ a.comp-collapse {
 header {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0.7em;
 
   // Branding link.
   & a.navbar-brand {
@@ -150,6 +149,18 @@ header {
 main[role="main"] {
   // Content.
   & div.region.region-content {
+    // Slideshow.
+    & div.views_slideshow_slide {
+      width: 100% !important;
+
+      & img {
+        width: 100%;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border: 1px solid $unb-halfgray;
+      }
+    }
     // Give images in content region an instant photo look.
     & img {
       -webkit-box-shadow: 4px 4px 8px lightgrey;
@@ -159,7 +170,7 @@ main[role="main"] {
     }
     // Blocks.
     & div.block {
-      margin-bottom: 2em;
+      margin-top: 0.7em;
       // Links.
       & a {
         color: $unb-halfaqua;
