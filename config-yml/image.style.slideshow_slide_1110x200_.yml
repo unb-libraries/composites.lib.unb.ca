@@ -1,0 +1,23 @@
+uuid: 89dd6058-0d3c-44b6-ab6a-e0287625ce8b
+langcode: en
+status: true
+dependencies: {  }
+name: slideshow_slide_1110x200_
+label: 'Slideshow Slide (1110x200)'
+effects:
+  3b0f1d53-f5d9-4279-9802-3e1eda61737b:
+    uuid: 3b0f1d53-f5d9-4279-9802-3e1eda61737b
+    id: image_scale
+    weight: 1
+    data:
+      width: 1010
+      height: null
+      upscale: false
+  ba5ccd71-3151-4382-a19e-8ff6ad9ac11e:
+    uuid: ba5ccd71-3151-4382-a19e-8ff6ad9ac11e
+    id: image_crop
+    weight: 2
+    data:
+      width: 1010
+      height: 200
+      anchor: center-center

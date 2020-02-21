@@ -121,6 +121,78 @@
     <br>
     <br>
 
+    <dl>
+      <div>
+        <dt>{{ content.field_subjects|field_label }}</dt>
+        <dd>
+          <ul>
+          {% for subject in content.field_subjects|field_value %}
+            <li>{{ subject }}</li>
+          {% endfor %}
+          </ul>
+        </dd>
+      </div>
+      <br>
+      <div>
+        <dt>{{ content.field_grad_ceremony|field_label }}</dt>
+        <dd>{{ content.field_grad_ceremony|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_comp_source_file|field_label }}</dt>
+        <dd>{{ content.field_comp_source_file|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_physical_size|field_label }}</dt>
+        <dd>{{ content.field_physical_size|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_width|field_label }}</dt>
+        <dd>{{ content.field_width|field_value[0]['#title'] }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_height|field_label }}</dt>
+        <dd>{{ content.field_height|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_resolution|field_label }}</dt>
+        <dd>{{ content.field_resolution|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_disp_resolution|field_label }}</dt>
+        <dd>{{ content.field_disp_resolution|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_photographer|field_label }}</dt>
+        <dd>{{ content.field_photographer|field_value }}</dd>
+      </div>
+    </dl>
+      <div>
+        <dt>{{ content.field_contributors|field_label }}</dt>
+        <dd>{{ content.field_contributors|field_value }}</dd>
+      </div>
+    </dl>
+      <div>
+        <dt>{{ content.field_current_buildings|field_label }}</dt>
+        <dd>{{ content.field_current_buildings|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_former_buildings|field_label }}</dt>
+        <dd>{{ content.field_former_buildings|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_no_profs|field_label }}</dt>
+        <dd>{{ content.field_no_profs|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_no_students|field_label }}</dt>
+        <dd>{{ content.field_no_students|field_value }}</dd>
+      </div>
+      <div>
+        <dt>{{ content.field_notes|field_label }}</dt>
+        <dd>{{ content.field_notes|field_value }}</dd>
+      </div>
+    </dl>
+
     {#
     {{ content }}
     #}

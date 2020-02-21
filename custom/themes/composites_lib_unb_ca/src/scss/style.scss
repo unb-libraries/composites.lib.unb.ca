@@ -165,6 +165,10 @@ main[role="main"] {
         border: 1px solid $unb-darkgray;
       }
     }
+    // Display subjects multi-value field as block.
+    & dl > div > dd > ul {
+      columns: 3;
+    }
     // Give images in content region an instant photo look.
     & img {
       -webkit-box-shadow: 4px 4px 8px lightgrey;

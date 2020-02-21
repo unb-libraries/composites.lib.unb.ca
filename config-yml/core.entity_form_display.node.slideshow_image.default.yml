@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.slideshow_image.field_image_ss
     - field.field.node.slideshow_image.field_link_path
     - field.field.node.slideshow_image.field_sort_order
-    - image.style.thumbnail
+    - image.style.slideshow_slide_1110x200_
     - node.type.slideshow_image
   module:
     - image
@@ -18,8 +18,8 @@ content:
   field_image_ss:
     weight: 1
     settings:
+      preview_image_style: slideshow_slide_1110x200_
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
