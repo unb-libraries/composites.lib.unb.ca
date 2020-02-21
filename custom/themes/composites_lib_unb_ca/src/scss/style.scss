@@ -150,15 +150,19 @@ main[role="main"] {
   // Content.
   & div.region.region-content {
     // Slideshow.
-    & div.views_slideshow_slide {
+    & div.views_slideshow_slide,
+    & div.views_slideshow_cycle_teaser_section {
       width: 100% !important;
+      height: 200px;
 
       & img {
-        width: 100%;
+        object-fit: cover;
+        max-width: 100%;
+        height: 200px;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
-        border: 1px solid $unb-halfgray;
+        border: 1px solid $unb-darkgray;
       }
     }
     // Give images in content region an instant photo look.
