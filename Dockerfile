@@ -16,7 +16,11 @@ RUN /scripts/addOsPackages.sh && \
 
 # Add package conf.
 COPY ./package-conf /package-conf
-RUN /scripts/setupStandardConf.sh
+RUN /scripts/setupStandardConf.sh && \
+  curl -O https://raw.githubusercontent.com/VoidVolker/MagickSlicer/master/magick-slicer.sh && \
+  mv magick-slicer.sh /usr/local/bin/magick-slicer && \
+  chmod +x /usr/local/bin/magick-slicer && \
+  /scripts/InstallGitLFS.sh
 
 # Build the contrib Drupal tree.
 ARG COMPOSER_DEPLOY_DEV=no-dev
