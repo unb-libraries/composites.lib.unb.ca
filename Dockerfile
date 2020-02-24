@@ -9,7 +9,7 @@ ENV DRUPAL_SITE_UUID 022dab87-328e-494c-b8f8-ebde1e1a0162
 COPY ./scripts/container /scripts
 
 # Add additional OS packages.
-ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick rsyslog postfix php7-ldap php7-xmlreader php7-zip php7-redis
+ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick bash rsyslog postfix php7-ldap php7-xmlreader php7-zip php7-redis
 RUN /scripts/addOsPackages.sh && \
   /scripts/initRsyslog.sh && \
   echo "TLS_REQCERT never" > /etc/openldap/ldap.conf
