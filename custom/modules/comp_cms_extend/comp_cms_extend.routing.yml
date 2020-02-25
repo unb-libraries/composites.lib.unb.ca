@@ -1,10 +1,10 @@
-
 comp_cms_extend.edit_subjects:
   path: '/node/{node}/subjects/edit'
   defaults:
     _form: '\Drupal\comp_cms_extend\Form\EditSubjectsForm'
   requirements:
     _role: 'authenticated'
+    _custom_access: \Drupal\comp_cms_extend\Controller\CompCMSExtendController::onlyComposites
 comp_cms_extend.add_comp_subject:
   path: '/node/add/comp_subject/{cid}'
   defaults:
@@ -15,3 +15,10 @@ comp_cms_extend.add_comp_subject:
         type: integer
   requirements:
     _permission: 'access content'
+comp_cms_extend.hi_res_img:
+  path: '/node/{node}/hires'
+  defaults:
+    _form: '\Drupal\comp_cms_extend\Form\HiResImgForm'
+  requirements:
+    _role: 'authenticated'
+    _custom_access: \Drupal\comp_cms_extend\Controller\CompCMSExtendController::onlyComposites

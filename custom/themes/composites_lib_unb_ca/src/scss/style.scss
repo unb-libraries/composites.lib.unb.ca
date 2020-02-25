@@ -9,6 +9,11 @@
 // Include custom sub theme.
 @import 'custom/variables';
 
+// Temp, debug, REMOVE.
+div#seadragon-viewer {
+  height: 800px;
+}
+
 // Global (careful here).
 // All input.
 input {

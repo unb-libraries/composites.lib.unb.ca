@@ -1,0 +1,17 @@
+openseadragon:
+  remote: https://github.com/openseadragon/openseadragon
+  version: 2.2.1
+  license:
+    name: BSD 3-clause
+    URL: https://raw.githubusercontent.com/openseadragon/openseadragon/master/LICENSE.txt
+    gpl-compatible: true
+  js:
+    https://openseadragon.github.io/openseadragon/openseadragon.min.js: { type: external, minified: true }
+  dependencies:
+    - core/jquery
+
+openseadragon_viewer:
+  js:
+    js/openseadragon_viewer.js: {}
+  dependencies:
+    - comp_cms_extend/openseadragon

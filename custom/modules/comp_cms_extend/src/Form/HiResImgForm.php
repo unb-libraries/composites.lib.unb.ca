@@ -11,13 +11,13 @@ use Drupal\node\Entity\Node;
 /**
  * EditSubjectsForm class.
  */
-class EditSubjectsForm extends FormBase {
+class HiResImgForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'comp_cms_extend_edit_subjects_form';
+    return 'comp_cms_extend_hi_res_img_form';
   }
 
   /**
@@ -26,22 +26,32 @@ class EditSubjectsForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $node = NULL) {
     $form = [];
 
-    // List current subjects.
-    $view = Views::getView('edit_composite_subjects');
-    $view->setDisplay('block_1');
-    $view->setArguments([$node]);
-    $render = $view->render();
-    $form['edit_composite_subjects_view'] = $render;
-
-    // Add new subject.
-    $form['add_subject_button'] = [
-      '#type' => 'link',
-      '#title' => t('Add Subject'),
-      '#url' => Url::fromRoute('comp_cms_extend.add_comp_subject', ['cid' => $node]),
-      '#attributes' => [
-        'class' => ['button'],
-      ],
+    $title = [
+      "#type" => "processed_text",
+      "#text" => t("High Resolution Image"),
+      "#format" => "full_html",
+      "#langcode" => "en",
     ];
+
+    $form['sample_view']['title'] = $title;
+    $form['sample_view']['zoom'] = [
+      '#markup' => '<div id="seadragon-viewer"></div>',
+    ];
+
+    $form['#attached'] = [
+      'library' => [
+        'comp_cms_extend/openseadragon',
+        'comp_cms_extend/openseadragon_viewer',
+      ],
+      /*
+      'drupalSettings' => [
+        'herbarium_specimen' => [
+          'dzi_filepath' => "/sites/default/files/dzi/$nid.dzi",
+        ],
+      ],
+       */
+    ];
+
     return $form;
   }
 
