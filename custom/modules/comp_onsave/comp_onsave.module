@@ -6,6 +6,7 @@
  */
 
 use Drupal\node\Entity\Node;
+use Drupal\file\Entity\File;
 
 /**
  * Implements hook_entity_presave().
@@ -50,6 +51,25 @@ function comp_onsave_entity_presave($entity) {
 
       // Update field value with the sorted ids.
       $entity->get('field_subjects')->setValue($sorted_sids);
+
+      // Generate DZI file and tiles.
+      $fid = $entity->get('field_image')->getValue()[0]['target_id'];
+
+      if(!empty($fid)) {
+        $file = File::load($fid);
+        $filename = $file->getFilename();
+        $fn_plain = substr($filename, 0, -4);
+        $img_location = \Drupal::service('file_system')->realpath(file_default_scheme() . "://") . "/comp_images";
+        $img_path = $img_location . "/$filename";
+        $dzi_path = $img_location . "/dzi/$fn_plain";
+
+        $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
+         " -o \"{$dzi_path}\"";
+
+        kint($command);
+        exit;
+        exec($command, $output, $return);
+      }
     break;
 
     // If the entity is a subject...

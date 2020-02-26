@@ -43,13 +43,11 @@ class HiResImgForm extends FormBase {
         'comp_cms_extend/openseadragon',
         'comp_cms_extend/openseadragon_viewer',
       ],
-      /*
       'drupalSettings' => [
-        'herbarium_specimen' => [
-          'dzi_filepath' => "/sites/default/files/dzi/$nid.dzi",
+        'comp_cms_extend' => [
+          'dzi_filepath' => "/sites/default/files/dzi/$node.dzi",
         ],
       ],
-       */
     ];
 
     return $form;

@@ -108,13 +108,22 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     }
 
     // Image.
+    // Create image and DZI subfolders in public files.
+    exec(
+      "mkdir -p sites/default/files/comp_images"
+    );
+
+    exec(
+      "mkdir -p sites/default/files/comp_images/dzi"
+    );
+
     $src_filename = trim($row->getSourceProperty('source_file')) . ".jpg";
     $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
       . $src_filename;
     $data = file_get_contents($src_path);
 
     if (!empty($data)) {
-      $file = file_save_data($data, "public://" . $src_filename, FILE_EXISTS_REPLACE);
+      $file = file_save_data($data, "public://comp_images/" . $src_filename, FILE_EXISTS_REPLACE);
       $fid = $file->id();
 
       $field_image = [
@@ -137,7 +146,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       $data = file_get_contents($src_path);
 
       if (!empty($data)) {
-        $file = file_save_data($data, "public://" . $src_filename, FILE_EXISTS_REPLACE);
+        $file = file_save_data($data, "public://comp_images/" . $src_filename, FILE_EXISTS_REPLACE);
         $fid = $file->id();
 
         $field_rel_image = [
