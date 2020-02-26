@@ -108,15 +108,6 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     }
 
     // Image.
-    // Create image and DZI subfolders in public files.
-    exec(
-      "mkdir -p sites/default/files/comp_images"
-    );
-
-    exec(
-      "mkdir -p sites/default/files/comp_images/dzi"
-    );
-
     $src_filename = trim($row->getSourceProperty('source_file')) . ".jpg";
     $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
       . $src_filename;

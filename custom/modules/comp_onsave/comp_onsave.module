@@ -66,8 +66,6 @@ function comp_onsave_entity_presave($entity) {
         $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
          " -o \"{$dzi_path}\"";
 
-        kint($command);
-        exit;
         exec($command, $output, $return);
       }
     break;

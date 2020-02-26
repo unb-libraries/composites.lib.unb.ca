@@ -25,4 +25,17 @@ function comp_install_install() {
       'name' => $gender,
     ])->save();
   }
+
+  // Create image and DZI subfolders in public files.
+  exec(
+    "mkdir -p sites/default/files/comp_images"
+  );
+
+  exec(
+    "mkdir -p sites/default/files/comp_images/dzi"
+  );
+
+  exec(
+    "chown -R nginx:nginx sites/default/files/comp_images"
+  );
 }
