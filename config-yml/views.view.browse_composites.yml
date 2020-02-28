@@ -303,7 +303,7 @@ display:
           type: image
           settings:
             image_style: center_wide_300x200_
-            image_link: ''
+            image_link: content
           group_column: ''
           group_columns: {  }
           group_rows: true
