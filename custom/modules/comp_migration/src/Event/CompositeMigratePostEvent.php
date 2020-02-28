@@ -42,7 +42,40 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
       // Load and save migrated node (to apply "onsave" operations).
       $composite = Node::load($cid);
       $composite->save();
+
+      // Generate high resolution DZI tiles.
+      $fid = $composite->get('field_image')->getValue()[0]['target_id'];
+      $nid = $composite->id();
+      $this->generateDziTiles($fid, $nid);
     }
+  }
+
+  /**
+   * Generates DZI tiles for the given image file.
+   */
+  public function generateDziTiles($fid, $nid) {
+    $file = File::load($fid);
+    $filename = $file->getFilename();
+    // Cut extension from filename.
+    $fn_plain = substr($filename, 0, -4);
+    // Get image path.
+    $img_location = \Drupal::service('file_system')->realpath(file_default_scheme() . "://") . "/comp_images";
+    $img_path = $img_location . "/$filename";
+    $dzi_path = $img_location . "/dzi/composite_$nid";
+
+    $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
+     " -o \"{$dzi_path}\"";
+
+    // Run command in shell.
+    exec($command, $output, $return);
+
+    // For batch process.
+    $context['message'] = t(
+      'Generated DZI tiles for high-resolution composite file @file',
+      [
+        '@file' => $fn_plain,
+      ]
+    );
   }
 
 }

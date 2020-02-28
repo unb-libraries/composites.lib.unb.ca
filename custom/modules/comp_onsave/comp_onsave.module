@@ -51,28 +51,6 @@ function comp_onsave_entity_presave($entity) {
 
       // Update field value with the sorted ids.
       $entity->get('field_subjects')->setValue($sorted_sids);
-
-      // Generate DZI file and tiles.
-      $fid = $entity->get('field_image')->getValue()[0]['target_id'];
-
-      if (!empty($fid)) {
-        // Use batch processing.
-        $batch = array(
-          'title' => t('Updating high-resolution DZI tiles for file ID [' .
-            $fid . ']...'),
-          'operations' => [],
-          'init_message'     => t('Starting...'),
-          'progress_message' => t('Processed @current out of @total.'),
-          'error_message'    => t('An error occurred during processing.'),
-          'finished' => t('Done.'),
-        );
-
-        // Add generation of DZI tiles for file to batch operations.
-        $batch['operations'][] = ['generate_dzi_tiles', [$fid]];
-
-        // Add batch.
-        batch_set($batch);
-      }
     break;
 
     // If the entity is a subject...
@@ -104,7 +82,7 @@ function comp_onsave_entity_presave($entity) {
 }
 
 /**
- * Implements hook_entity_update().
+ * Implements hook_entity_insert().
  */
 function comp_onsave_entity_insert($entity) {
   // Process for different content types.
@@ -112,6 +90,13 @@ function comp_onsave_entity_insert($entity) {
 
     // If the entity is a composite...
     case 'composite':
+    // Generate DZI file and tiles.
+    $fid = $entity->get('field_image')->getValue()[0]['target_id'];
+    $nid = $entity->id();
+
+    if (!empty($fid)) {
+      prepare_dzi_batch($fid, $nid);
+    }
     break;
 
     // If the entity is a subject...
@@ -129,27 +114,72 @@ function comp_onsave_entity_insert($entity) {
           $composite->save();
         }
       }
-
     break;
   }
 }
 
 /**
+ * Implements hook_entity_update().
+ */
+function comp_onsave_entity_update($entity) {
+  // Process for different content types.
+  switch($entity->bundle()) {
+
+    // If the entity is a composite...
+    case 'composite':
+    // Generate DZI file and tiles.
+    $fid = $entity->get('field_image')->getValue()[0]['target_id'];
+    $nid = $entity->id();
+
+    if (!empty($fid)) {
+      prepare_dzi_batch($fid, $nid);
+    }
+    break;
+  }
+}
+
+/**
+ * Prepare batch process for DZI tile generation.
+ */
+function prepare_dzi_batch($fid, $nid) {
+  // Prepare batch processing.
+  $batch = array(
+    'title' => t('Updating high-resolution DZI tiles for file ID [' .
+      $fid . ']...'),
+    'operations' => [],
+    'init_message'     => t('Starting...'),
+    'progress_message' => t('Processed @current out of @total.'),
+    'error_message'    => t('An error occurred during processing.'),
+    'finished' => t('Done.'),
+  );
+
+  // Add generation of DZI tiles for file to batch operations.
+  $batch['operations'][] = ['generate_dzi_tiles', [$fid, $nid]];
+
+  // Add batch.
+  batch_set($batch);
+}
+
+/**
  * Generates DZI tiles for the given image file.
  */
-function generate_dzi_tiles($fid) {
+function generate_dzi_tiles($fid, $nid) {
   $file = File::load($fid);
   $filename = $file->getFilename();
+  // Cut extension from filename.
   $fn_plain = substr($filename, 0, -4);
+  // Get image path.
   $img_location = \Drupal::service('file_system')->realpath(file_default_scheme() . "://") . "/comp_images";
   $img_path = $img_location . "/$filename";
-  $dzi_path = $img_location . "/dzi/$fn_plain";
+  $dzi_path = $img_location . "/dzi/composite_$nid";
 
   $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
    " -o \"{$dzi_path}\"";
 
+  // Run command in shell.
   exec($command, $output, $return);
 
+  // For batch process.
   $context['message'] = t(
     'Generated DZI tiles for high-resolution composite file @file',
     [

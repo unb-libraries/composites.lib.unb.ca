@@ -42,7 +42,7 @@ class HiResImgForm extends FormBase {
       ],
       'drupalSettings' => [
         'comp_cms_extend' => [
-          'dzi_filepath' => "/sites/default/files/dzi/$node.dzi",
+          'dzi_filepath' => "/sites/default/files/comp_images/dzi/composite_$node.dzi",
         ],
       ],
     ];
