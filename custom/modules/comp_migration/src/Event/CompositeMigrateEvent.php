@@ -38,100 +38,80 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     $migration = $event->getMigration();
     $migration_id = $migration->id();
 
-    // Contributors.
-    $src_contribs = $row->getSourceProperty('contributor');
-    $contribs = explode(',', $src_contribs);
-    // Term IDs.
-    $tids = [];
+    // Only act on rows for this migration.
+    if ($migration_id == 'comp_1_composites') {
 
-    foreach ($contribs as $contrib) {
-      $tid = $this->findAddTerm('contributor', $contrib);
-      $tids[] = $tid ? $tid : NULL;
-    }
+      // Contributors.
+      $src_contribs = $row->getSourceProperty('contributor');
+      $contribs = explode(',', $src_contribs);
+      // Term IDs.
+      $tids = [];
 
-    $row->setSourceProperty('taxo_contributors', $tids);
+      foreach ($contribs as $contrib) {
+        $tid = $this->findAddTerm('contributor', $contrib);
+        $tids[] = $tid ? $tid : NULL;
+      }
 
-    // Buildings (current name).
-    $src_buildings = $row->getSourceProperty('buildings_current');
-    $buildings = explode(',', $src_buildings);
-    // Term IDs.
-    $tids = [];
+      $row->setSourceProperty('taxo_contributors', $tids);
 
-    foreach ($buildings as $building) {
-      $tid = $this->findAddTerm('building', $building);
-      $tids[] = $tid ? $tid : NULL;
-    }
+      // Buildings (current name).
+      $src_buildings = $row->getSourceProperty('buildings_current');
+      $buildings = explode(',', $src_buildings);
+      // Term IDs.
+      $tids = [];
 
-    $row->setSourceProperty('taxo_buildings_current', $tids);
+      foreach ($buildings as $building) {
+        $tid = $this->findAddTerm('building', $building);
+        $tids[] = $tid ? $tid : NULL;
+      }
 
-    // Buildings (previous name).
-    $src_buildings = $row->getSourceProperty('buildings_former');
-    $buildings = explode(',', $src_buildings);
-    // Term IDs.
-    $tids = [];
+      $row->setSourceProperty('taxo_buildings_current', $tids);
 
-    foreach ($buildings as $building) {
-      $tid = $this->findAddTerm('building', $building);
-      $tids[] = $tid ? $tid : NULL;
-    }
+      // Buildings (previous name).
+      $src_buildings = $row->getSourceProperty('buildings_former');
+      $buildings = explode(',', $src_buildings);
+      // Term IDs.
+      $tids = [];
 
-    $row->setSourceProperty('taxo_buildings_former', $tids);
+      foreach ($buildings as $building) {
+        $tid = $this->findAddTerm('building', $building);
+        $tids[] = $tid ? $tid : NULL;
+      }
 
-    // Photographer.
-    $src_photographer = $row->getSourceProperty('photographer');
+      $row->setSourceProperty('taxo_buildings_former', $tids);
 
-    if (!empty($src_photographer)) {
-      $tid = $this->findAddTerm('photographer', $src_photographer);
-      $row->setSourceProperty('taxo_photographer', $tid);
-    }
+      // Photographer.
+      $src_photographer = $row->getSourceProperty('photographer');
 
-    // Subjects.
-    // Composite source file.
-    $src_file_comp = trim($row->getSourceProperty('source_file'));
+      if (!empty($src_photographer)) {
+        $tid = $this->findAddTerm('photographer', $src_photographer);
+        $row->setSourceProperty('taxo_photographer', $tid);
+      }
 
-    // Search for subjects with same source file.
-    if (!empty($src_file_comp)) {
-      $nids = \Drupal::entityQuery('node')
-        ->condition('type', 'subject')
-        ->condition('field_source_file', $src_file_comp)
-        ->execute();
-    }
+      // Subjects.
+      // Composite source file.
+      $src_file_comp = trim($row->getSourceProperty('source_file'));
 
-    $subjects = [];
+      // Search for subjects with same source file.
+      if (!empty($src_file_comp)) {
+        $nids = \Drupal::entityQuery('node')
+          ->condition('type', 'subject')
+          ->condition('field_source_file', $src_file_comp)
+          ->execute();
+      }
 
-    foreach ($nids as $nid) {
-      $subjects[] = ['target_id' => $nid];
-    }
+      $subjects = [];
 
-    if (!empty($subjects)) {
-      $row->setSourceProperty('entity_subjects', $subjects);
-    }
+      foreach ($nids as $nid) {
+        $subjects[] = ['target_id' => $nid];
+      }
 
-    // Image.
-    $src_filename = trim($row->getSourceProperty('source_file')) . ".jpg";
-    $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
-      . $src_filename;
-    $data = file_get_contents($src_path);
+      if (!empty($subjects)) {
+        $row->setSourceProperty('entity_subjects', $subjects);
+      }
 
-    if (!empty($data)) {
-      $file = file_save_data($data, "public://comp_images/" . $src_filename, FILE_EXISTS_REPLACE);
-      $fid = $file->id();
-
-      $field_image = [
-        'target_id' => $fid,
-        'alt' => $src_filename,
-        'title' => $src_filename,
-      ];
-
-      $row->setSourceProperty('drupal_image', $field_image);
-    }
-
-    // Related Image.
-    $src_filename = trim($row->getSourceProperty('related_image'));
-
-    // Checking for absence of related image prevents file_get_contents warning.
-    if (!empty($src_filename)) {
-      $src_filename .= ".jpg";
+      // Image.
+      $src_filename = trim($row->getSourceProperty('source_file')) . ".jpg";
       $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
         . $src_filename;
       $data = file_get_contents($src_path);
@@ -140,20 +120,44 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $file = file_save_data($data, "public://comp_images/" . $src_filename, FILE_EXISTS_REPLACE);
         $fid = $file->id();
 
-        $field_rel_image = [
+        $field_image = [
           'target_id' => $fid,
           'alt' => $src_filename,
           'title' => $src_filename,
         ];
 
-        $row->setSourceProperty('drupal_rel_image', $field_rel_image);
+        $row->setSourceProperty('drupal_image', $field_image);
       }
-    }
 
-    // Year.
-    $src_date = $row->getSourceProperty('date');
-    $year = empty($src_date) ? NULL : substr($src_date, 0, 4);
-    $row->setSourceProperty('comp_year', $year);
+      // Related Image.
+      $src_filename = trim($row->getSourceProperty('related_image'));
+
+      // Checking for absence of related image prevents file_get_contents warning.
+      if (!empty($src_filename)) {
+        $src_filename .= ".jpg";
+        $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
+          . $src_filename;
+        $data = file_get_contents($src_path);
+
+        if (!empty($data)) {
+          $file = file_save_data($data, "public://comp_images/" . $src_filename, FILE_EXISTS_REPLACE);
+          $fid = $file->id();
+
+          $field_rel_image = [
+            'target_id' => $fid,
+            'alt' => $src_filename,
+            'title' => $src_filename,
+          ];
+
+          $row->setSourceProperty('drupal_rel_image', $field_rel_image);
+        }
+      }
+
+      // Year.
+      $src_date = $row->getSourceProperty('date');
+      $year = empty($src_date) ? NULL : substr($src_date, 0, 4);
+      $row->setSourceProperty('comp_year', $year);
+    }
   }
 
   /**
