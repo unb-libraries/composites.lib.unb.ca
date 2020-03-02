@@ -53,7 +53,7 @@ comp_core.contact:
   description: 'Contact Us'
   parent: main
   menu_name: main
-  route_name: comp_core.contact
+  url: 'https://lib.unb.ca/contact-unb-libraries-staff?recipient=archives@unb.ca&subject=UNB'
   weight: 40
 comp_core.archives:
   title: 'Archives & Special Collections'

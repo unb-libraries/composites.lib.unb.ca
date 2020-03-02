@@ -6,6 +6,7 @@ use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigratePostRowSaveEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 
 /**
