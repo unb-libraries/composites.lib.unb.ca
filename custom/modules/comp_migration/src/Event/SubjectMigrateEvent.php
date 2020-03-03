@@ -44,14 +44,14 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
       // Top.
       $coord_top = explode(',', $row->getSourceProperty('coord_top'));
       $top_x = (float) $coord_top[0];
-      $top_y = (float) $coord_top[1];
+      $top_y = !empty($coord_top[1]) ? (float) $coord_top[1] : NULL;
 
       $row->setSourceProperty('top_x', $top_x);
       $row->setSourceProperty('top_y', $top_y);
       // Bottom.
       $coord_bottom = explode(',', $row->getSourceProperty('coord_bottom'));
       $bottom_x = (float) $coord_bottom[0];
-      $bottom_y = (float) $coord_bottom[1];
+      $bottom_y = !empty($coord_bottom[1]) ? (float) $coord_bottom[1] : NULL;
 
       $row->setSourceProperty('bottom_x', $bottom_x);
       $row->setSourceProperty('bottom_y', $bottom_y);
