@@ -21,7 +21,7 @@ input {
   box-shadow: none !important;
 
   &:focus {
-    border-color: $unb-halfaqua !important;
+    border-color: $unb-turquoise !important;
   }
 }
 // Round borders.
@@ -31,14 +31,14 @@ li {
 }
 // Primary buttons.
 input.btn-primary {
-  background-color: $unb-darkred;
-  border-color: $unb-darkred;
+  background-color: $unb-darkerred;
+  border-color: $unb-darkerred;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: $unb-red !important;
-    border-color: $unb-red !important;
+    background-color: $unb-darkred !important;
+    border-color: $unb-darkred !important;
   }
 }
 // Collapse links.
@@ -186,7 +186,7 @@ main[role="main"] {
       margin-top: 0.7em;
       // Links.
       & a {
-        color: $unb-halfaqua;
+        color: $unb-turquoise;
       }
       // Link status.
       & a:hover,
@@ -207,7 +207,7 @@ main[role="main"] {
       }
       // Links.
       & a {
-        color: $unb-red;
+        color: $unb-darkred;
       }
     }
     // Search and browse blocks.
@@ -301,7 +301,7 @@ main[role="main"] {
 
     & a:hover,
     & a:focus {
-      color: $unb-halfaqua !important;
+      color: $unb-turquoise !important;
     }
   }
 }
