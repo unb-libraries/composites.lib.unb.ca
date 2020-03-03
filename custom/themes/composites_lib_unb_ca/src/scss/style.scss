@@ -9,11 +9,6 @@
 // Include custom sub theme.
 @import 'custom/variables';
 
-// Temp, debug, REMOVE.
-div#seadragon-viewer {
-  height: 800px;
-}
-
 // Global (careful here).
 // All input.
 input {
@@ -75,19 +70,21 @@ a.comp-collapse {
 header {
   margin-left: auto;
   margin-right: auto;
-
-  // Branding link.
-  & a.navbar-brand {
-    &:active,
-    &:focus,
-    &:focus-within,
-    &:hover {
-      background-color: inherit !important;
-      color: $unb-darkerred;
-      box-shadow: none !important;
+  // Branding.
+  & div#block-sitebranding {
+    margin: 0 1em;
+    // Branding link.
+    & a.navbar-brand {
+      &:active,
+      &:focus,
+      &:focus-within,
+      &:hover {
+        background-color: inherit !important;
+        color: $unb-darkerred;
+        box-shadow: none !important;
+      }
     }
   }
-
   // Main navigation.
   & div.region-header + nav.navbar {
     padding: 0px;
@@ -197,7 +194,17 @@ main[role="main"] {
         transition: color 0.15s ease-in, border-color 0.15s ease-in;
         box-shadow: none !important;
       }
+
+      & div#seadragon-viewer {
+        height: 800px;
+      }
     }
+    // Main content block.
+    & div#block-mainpagecontent {
+      width: 95%;
+      margin: auto;
+    }
+
     // Blocks except main content.
     & div.block:not(#block-mainpagecontent) {
       background-color: $unb-halfgray;
@@ -269,7 +276,8 @@ main[role="main"] {
       }
     }
     // Views.
-    & div.view {
+    & div.view:not(.view-slideshow) {
+      margin-top: 2em;
       // Unordered lists.
       ul {
         list-style: none;
@@ -336,7 +344,7 @@ footer > div.container {
     width: 1110px;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px){
+@media (min-width: 992px) and (max-width: 1199px) {
   // Header.
   header {
     width: 930px;
@@ -347,11 +355,37 @@ footer > div.container {
   header {
     width: 690px;
   }
+  // Exposed search.
+  div#block-exposedformsearch-subjectspage-1 {
+    width: 70%;
+
+    & div.form-item-search-api-fulltext {
+      width: 87% !important;
+    }
+  }
 }
 @media (max-width: 767px) {
   // Header.
   header {
     width: 510px;
+  }
+  // Exposed search.
+  div#block-exposedformsearch-subjectspage-1 {
+    width: 70%;
+
+    & div.form-item-search-api-fulltext {
+      width: 78% !important;
+    }
+  }
+}
+@media (max-width: 767px) {
+  // Header.
+  header {
+    width: 490px;
+  }
+  // Branding.
+  & div#block-sitebranding {
+    display: none;
   }
 }
 // End Responsive.
