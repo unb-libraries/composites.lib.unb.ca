@@ -58,7 +58,11 @@ function comp_onsave_entity_presave($entity) {
       // Build name and save as title.
       // Retrieve name fields.
       $lname = $entity->get('field_last_name')->getValue()[0]['value'];
-      $gname = $entity->get('field_given_name')->getValue()[0]['value'];
+
+      if (!empty($entity->get('field_given_name')->getValue()[0]['value'])) {
+        $gname = $entity->get('field_given_name')->getValue()[0]['value'];
+      }
+
       $title = empty($gname) ? $lname : $lname . ', ' . $gname;
       $entity->set('title', $title);
 
@@ -101,7 +105,9 @@ function comp_onsave_entity_insert($entity) {
 
     // If the entity is a subject...
     case 'subject':
-      $cid = $entity->get('field_composite')->getValue()[0]['target_id'];
+      if (!empty($entity->get('field_composite')->getValue()[0]['target_id'])) {
+        $cid = $entity->get('field_composite')->getValue()[0]['target_id'];
+      }
 
       if (!empty($cid)) {
         $composite = Node::load($cid);
