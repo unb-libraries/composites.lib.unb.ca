@@ -137,7 +137,8 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $src_filename .= ".jpg";
         $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
           . $src_filename;
-        $data = file_get_contents($src_path);
+
+        $data = file_exists($src_path) ? file_get_contents($src_path) : NULL;
 
         if (!empty($data)) {
           $file = file_save_data($data, "public://comp_images/" . $src_filename, FILE_EXISTS_REPLACE);
