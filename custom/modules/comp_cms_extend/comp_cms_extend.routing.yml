@@ -20,5 +20,5 @@ comp_cms_extend.hi_res_img:
   defaults:
     _form: '\Drupal\comp_cms_extend\Form\HiResImgForm'
   requirements:
-    _role: 'authenticated'
+    _permission: 'access content'
     _custom_access: \Drupal\comp_cms_extend\Controller\CompCMSExtendController::onlyComposites
