@@ -203,6 +203,7 @@ main[role="main"] {
     & div#block-mainpagecontent {
       width: 95%;
       margin: auto;
+      text-align: justify;
     }
 
     // Blocks except main content.
@@ -278,8 +279,15 @@ main[role="main"] {
     // Views.
     & div.view:not(.view-slideshow) {
       margin-top: 2em;
+      // View header.
+      div.view-header {
+        padding-bottom: 0.5em;
+        border-bottom: 1px solid $unb-halfgray;
+        color: $unb-gray;
+      }
       // Unordered lists.
       ul {
+        margin-top: 1.5em;
         list-style: none;
       }
     }
@@ -364,7 +372,7 @@ footer > div.container {
     }
   }
 }
-@media (max-width: 767px) {
+@media (min-width: 500px) and (max-width: 767px) {
   // Header.
   header {
     width: 510px;
@@ -378,7 +386,7 @@ footer > div.container {
     }
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 520px) {
   // Header.
   header {
     width: 490px;
