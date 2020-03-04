@@ -132,43 +132,30 @@
 
           {% if content.field_awards|field_value %}
             {{ 'Recipient of: '}}{{ content.field_awards|field_value }}
-            <br>
-            <br>
           {% endif %}
+          <br>
 
           <dl>
-            <div>
-              <dt>{{ content.field_subject_tile|field_label }}</dt>
-              <dd>{{ content.field_subject_tile|field_value }}</dd>
-            </div>
-            <div>
-              <dt>{{ content.field_class|field_label }}</dt>
-              <dd>{{ content.field_class|field_value }}</dd>
-            </div>
-            <div>
-              <dt>{{ content.field_valedictorian|field_label }}</dt>
-              <dd>{{ content.field_valedictorian|field_value }}</dd>
-            </div>
-            <div>
-              <dt>{{ content.field_awards|field_label }}</dt>
-              <dd>{{ content.field_awards|field_value }}</dd>
-            </div>
-            <div>
-              <dt>{{ content.field_gender|field_label }}</dt>
-              <dd>{{ content.field_gender|field_value[0]['#title'] }}</dd>
-            </div>
-            <div>
-              <dt>{{ content.field_alt_name|field_label }}</dt>
-              <dd>{{ content.field_alt_name|field_value }}</dd>
-            </div>
-            <div>
-              <dt>{{ content.field_alt_name_source|field_label }}</dt>
-              <dd>{{ content.field_alt_name_source|field_value }}</dd>
-            </div>
-            <div>
-              <dt>{{ content.field_subject_notes|field_label }}</dt>
-              <dd>{{ content.field_subject_notes|field_value }}</dd>
-            </div>
+            {% set skip = [
+                'field_given_name',
+                'field_last_name',
+                'field_initials',
+                'field_type',
+                'field_composite',
+                'field_comp_year',
+                'field_image',
+              ]
+            %}
+
+            {% for field in content %}
+              {% if field|field_value is not null
+              and field|field_value[0]['#markup'] != "0"
+              and field['#field_name'] not in skip %}
+                <dt>{{ field|field_label }}</dt>
+                <dd>{{ field|field_value }}</dd>
+                <br>
+              {% endif %}
+          {% endfor %}
           </dl>
         </div>
       </div>
