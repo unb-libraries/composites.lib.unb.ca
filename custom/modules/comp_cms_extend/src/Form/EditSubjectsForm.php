@@ -36,12 +36,13 @@ class EditSubjectsForm extends FormBase {
     // Add new subject.
     $form['add_subject_button'] = [
       '#type' => 'link',
-      '#title' => t('Add Subject'),
+      '#title' => t('Add New Subject'),
       '#url' => Url::fromRoute('comp_cms_extend.add_comp_subject', ['cid' => $node]),
       '#attributes' => [
-        'class' => ['button'],
+        'id' => ['add-subject-link'],
       ],
     ];
+
     return $form;
   }
 

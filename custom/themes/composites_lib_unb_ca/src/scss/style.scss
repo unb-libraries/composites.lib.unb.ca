@@ -216,8 +216,13 @@ main[role="main"] {
       div.node__content {
         margin-top: 1em;
       }
+      // Edit subjects tab.
+      div.view-edit-composite-subjects {
+        margin-bottom: 1em;
+        padding-bottom: 0.5em;
+        border-bottom: 1px solid $unb-halfgray;
+      }
     }
-
     // Blocks except main content.
     & div.block:not(#block-mainpagecontent) {
       background-color: $unb-halfgray;

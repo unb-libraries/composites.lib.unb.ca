@@ -23,16 +23,8 @@ class HiResImgForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $node = NULL) {
     $form = [];
 
-    $title = [
-      "#type" => "processed_text",
-      "#text" => t("High Resolution Image"),
-      "#format" => "full_html",
-      "#langcode" => "en",
-    ];
-
-    $form['sample_view']['title'] = $title;
     $form['sample_view']['zoom'] = [
-      '#markup' => '<div id="seadragon-viewer"></div>',
+      '#markup' => '<br><br><div id="seadragon-viewer"></div><br>',
     ];
 
     $form['#attached'] = [
