@@ -204,6 +204,10 @@ main[role="main"] {
       width: 95%;
       margin: auto;
       text-align: justify;
+
+      div.node__content {
+        margin-top: 1em;
+      }
     }
 
     // Blocks except main content.
