@@ -99,6 +99,7 @@ header {
       color: white !important;
 
       &:active,
+      &.is-active,
       &:focus,
       &:focus-within,
       &:hover {
