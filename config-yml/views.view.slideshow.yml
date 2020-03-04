@@ -351,7 +351,19 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-      sorts: {  }
+      sorts:
+        field_sort_order_value:
+          id: field_sort_order_value
+          table: node__field_sort_order
+          field: field_sort_order_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: Slideshow
       header: {  }
       footer: {  }

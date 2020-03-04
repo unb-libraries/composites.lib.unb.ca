@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: slideshow_slide_1110x200_
-label: 'Slideshow Slide (1110x200)'
+label: 'Slideshow Slide (1110x300)'
 effects:
   3b0f1d53-f5d9-4279-9802-3e1eda61737b:
     uuid: 3b0f1d53-f5d9-4279-9802-3e1eda61737b
@@ -19,5 +19,5 @@ effects:
     weight: 2
     data:
       width: 1010
-      height: 200
+      height: 300
       anchor: center-center
