@@ -10,6 +10,10 @@
 @import 'custom/variables';
 
 // Global (careful here).
+// All links.
+a {
+  box-shadow: none !important;
+}
 // All input.
 input {
   border-radius: .1rem !important;
@@ -38,7 +42,6 @@ input.btn-primary {
 }
 // Collapse links.
 a.comp-collapse {
-  color: initial !important;
   border: none !important;
 
   // Adjust.
@@ -93,14 +96,13 @@ header {
 
     & a,
     & span {
-      color: $unb-25gray;
+      color: white !important;
 
       &:active,
       &:focus,
       &:focus-within,
       &:hover {
-        background-color: $unb-darkred !important;
-        color: white !important;
+        background-color: $unb-darkerred !important;
         box-shadow: none !important;
         cursor: pointer;
       }
@@ -182,12 +184,17 @@ main[role="main"] {
     & div.block {
       margin-top: 0.7em;
       // Links.
-      & a {
+      & a,
+      & a:focus {
         color: $unb-turquoise;
+        background: initial;
+      }
+      // Collapse subjects.
+      & a.comp-collapse {
+        border: initial !important;
       }
       // Link status.
-      & a:hover,
-      & a:focus {
+      & a:hover {
         border-bottom: 1px solid;
         background-color: initial;
         color: $unb-darkerred;
