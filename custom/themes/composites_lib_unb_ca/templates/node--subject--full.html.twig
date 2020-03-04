@@ -133,29 +133,19 @@
           {% if content.field_awards|field_value %}
             {{ 'Recipient of: '}}{{ content.field_awards|field_value }}
           {% endif %}
-          <br>
 
           <dl>
-            {% set skip = [
-                'field_given_name',
-                'field_last_name',
-                'field_initials',
-                'field_type',
-                'field_composite',
-                'field_comp_year',
-                'field_image',
-              ]
-            %}
-
-            {% for field in content %}
-              {% if field|field_value is not null
-              and field|field_value[0]['#markup'] != "0"
-              and field['#field_name'] not in skip %}
-                <dt>{{ field|field_label }}</dt>
-                <dd>{{ field|field_value }}</dd>
-                <br>
-              {% endif %}
-          {% endfor %}
+            <br>
+            <div>
+              <dt>{{ content.field_gender|field_label }}</dt>
+              <dd>{{ content.field_gender|field_value }}</dd>
+              <br>
+            </div>
+            <div>
+              <dt>{{ content.field_valedictorian|field_label }}</dt>
+              <dd>{{ content.field_valedictorian|field_value }}</dd>
+              <br>
+            </div>
           </dl>
         </div>
       </div>
