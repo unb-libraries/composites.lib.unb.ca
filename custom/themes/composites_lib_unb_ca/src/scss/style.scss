@@ -176,6 +176,9 @@ main[role="main"] {
     }
     // Give images in content region an instant photo look.
     & img {
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
       -webkit-box-shadow: 4px 4px 8px lightgrey;
       -moz-box-shadow: 4px 4px 8px lightgrey;
       box-shadow: 4px 4px 8px lightgrey;
