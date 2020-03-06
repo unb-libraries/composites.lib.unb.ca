@@ -1,0 +1,135 @@
+<?php
+
+use Drupal\node\Entity\Node;
+use \Drupal\image\Entity\ImageStyle;
+
+/**
+* @file
+* Contains comp_cms_extend.module.
+*/
+
+/**
+ * Implements hook_form_alter().
+ * Alter subject node form.
+ */
+function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
+  // Add cropped composite preview only to ADD and EDIT subject forms.
+  $scope_forms = [
+    'node_subject_form',
+    'node_subject_edit_form',
+  ];
+
+  // If it's a subject form.
+  if (in_array($form_id, $scope_forms)) {
+    $subject = $form_state->getFormObject()->getEntity();
+    $sid = $subject->id();
+
+    $cid =
+      !empty($subject->get('field_composite')->getValue()[0]['target_id']) ?
+      $subject->get('field_composite')->getValue()[0]['target_id'] : NULL;
+
+    if (!empty($cid)) {
+      $composite = Node::load($cid);
+      $comp_img = $composite->field_image;
+
+      if (!empty($comp_img)) {
+        // Retrieve display resolution (dpi).
+        $dpi = intval($composite->get('field_disp_resolution')
+          ->getValue()[0]['value']);
+
+        // Create on-the-fly image style with cropping effect for composite.
+        $style_name = $sid . '_composite_crop_' . $dpi . 'dpi';
+
+        // Load style if already exists.
+        $style = empty(ImageStyle::load($style_name)) ? NULL
+          : ImageStyle::load($style_name);
+
+        if (empty($style)) {
+        // (Re)create style.
+        $style = ImageStyle::create([
+          'name' => $style_name,
+          'label' => $style_name
+        ]);
+
+        // Crop effect configuration.
+        // Retrieve coordinates from subject record.
+        $topX = floatval($subject->get('field_top_x')->getValue()[0]);
+        $topY = floatval($subject->get('field_top_y')->getValue()[0]);
+        $botX = floatval($subject->get('field_bottom_x')->getValue()[0]);
+        $botY = floatval($subject->get('field_bottom_y')->getValue()[0]);
+
+        // Calculate anchor, width, height using resolution (dpi).
+        $anchorX = $topX * $dpi;
+        $anchorY = $topY * $dpi;
+        $anchor = strval($anchorX) . "-" . strval($anchorY);
+        $width = ($botX * $dpi) - $anchorX;
+        $height = ($botY * $dpi) - $anchorY;
+
+        // Configuration for cropping effect.
+        $config = [
+          'uuid' => NULL,
+          'id' => 'image_crop',
+          'weight' => 0,
+          'data' => [
+            'width' => $width,
+            'height' => $height,
+            'anchor' => $anchor,
+          ],
+        ];
+
+        // Create effect, add to style.
+        $effect = \Drupal::service('plugin.manager.image.effect')->
+          createInstance($config['id'], $config);
+
+        $style->addImageEffect($effect->getConfiguration());
+
+        // Configuration for scaling effect.
+        $config = [
+          'uuid' => NULL,
+          'id' => 'image_scale',
+          'weight' => 0,
+          'data' => [
+            'width' => 400,
+            'upscale' => 1,
+          ],
+        ];
+
+        // Create effect, add to style.
+        $effect = \Drupal::service('plugin.manager.image.effect')->
+          createInstance($config['id'], $config);
+
+        $style->addImageEffect($effect->getConfiguration());
+
+        // Configuration for conversion effect.
+        $config = [
+          'uuid' => NULL,
+          'id' => 'image_convert',
+          'weight' => 100,
+          'data' => [
+            'extension' => 'jpg',
+          ],
+        ];
+
+        // Create effect, add to style.
+        $effect = \Drupal::service('plugin.manager.image.effect')->
+          createInstance($config['id'], $config);
+
+        $style->addImageEffect($effect->getConfiguration());
+
+        // Save style.
+        $style->save();
+        }
+
+        // Add styled image to form.
+        $styled_image_url = $style->buildUrl($composite->field_image->entity->getFileUri());
+
+        $form['subject_img'] = [
+          '#type' => 'markup',
+          '#prefix' => '<div id="box" class="image_class">',
+          '#suffix' => '</div>',
+          '#markup' => "<img src='$styled_image_url'>",
+        ];
+      }
+    }
+  }
+}
