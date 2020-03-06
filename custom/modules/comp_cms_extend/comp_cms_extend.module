@@ -122,12 +122,15 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
         // Add styled image to form.
         $styled_image_url = $style->buildUrl($composite->field_image->entity->getFileUri());
+        $div_classes = 'js-form-item form-item';
 
         $form['subject_img'] = [
           '#type' => 'markup',
-          '#prefix' => '<div id="box" class="image_class">',
+          '#prefix' => "<div id='subject-img' class='$div_classes'>" .
+            '<label>Composite Crop</label><br>',
           '#suffix' => '</div>',
           '#markup' => "<img src='$styled_image_url'>",
+          '#weight' => -100,
         ];
       }
     }
