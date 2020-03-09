@@ -214,7 +214,10 @@ main[role="main"] {
     & div#block-mainpagecontent {
       width: 95%;
       margin: auto;
-      text-align: justify;
+
+      & p {
+        text-align: justify;
+      }
 
       div.node__content {
         margin-top: 1em;

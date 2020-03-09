@@ -21,6 +21,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
   // If it's a subject form.
   if (in_array($form_id, $scope_forms)) {
+    // Retrieve subject node, id, composite id.
     $subject = $form_state->getFormObject()->getEntity();
     $sid = $subject->id();
 
@@ -28,6 +29,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
       !empty($subject->get('field_composite')->getValue()[0]['target_id']) ?
       $subject->get('field_composite')->getValue()[0]['target_id'] : NULL;
 
+    // If a composite is linked to the subject, add cropped image to form.
     if (!empty($cid)) {
       $composite = Node::load($cid);
       $comp_img = $composite->field_image;
@@ -44,6 +46,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $style = empty(ImageStyle::load($style_name)) ? NULL
           : ImageStyle::load($style_name);
 
+        // If the style doesn't exist, create it.
         if (empty($style)) {
         // (Re)create style.
         $style = ImageStyle::create([
@@ -131,6 +134,24 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           '#suffix' => '</div>',
           '#markup' => "<img src='$styled_image_url'>",
           '#weight' => -100,
+        ];
+
+        // Add refresh image button.
+        $form['refresh_subject_img'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'input',
+          '#attributes' => [
+            'type' => 'button',
+            'value' => t("Refresh"),
+            'class' => 'button btn btn-primary',
+            'name' => 'refresh_subject_img',
+          ],
+          '#attached' => [
+            'library' => [
+              'mylibrary',
+            ],
+          ],
+          '#weight' => -99,
         ];
       }
     }
