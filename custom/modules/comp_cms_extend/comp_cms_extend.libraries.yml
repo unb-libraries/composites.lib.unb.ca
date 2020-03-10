@@ -13,6 +13,14 @@ openseadragon:
 openseadragon_viewer:
   js:
     js/openseadragon_viewer.js: {}
+    js/refresh_subject_img.js: {}
   dependencies:
     - comp_cms_extend/openseadragon
+    - core/drupalSettings
+
+refresh_subject_img:
+  js:
+    js/refresh_subject_img.js: {}
+  dependencies:
+    - core/jquery
     - core/drupalSettings
