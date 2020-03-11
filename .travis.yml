@@ -11,6 +11,8 @@ git:
 
 before_install:
   - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - pecl channel-update pecl.php.net
+  - (CFLAGS="-O1 -g3 -fno-strict-aliasing"; pecl install yaml < /dev/null &)
   - composer install
   - vendor/unb-libraries/dockworker/scripts/travis/init.sh
 
