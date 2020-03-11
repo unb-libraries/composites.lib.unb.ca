@@ -7,9 +7,9 @@ module:
   comment: 0
   comp_cms_extend: 0
   comp_core: 0
+  comp_crud: 0
   comp_install: 0
-  comp_onsave: 0
-  comp_subject_img: 0
+  comp_migration: 0
   config: 0
   contact: 0
   contextual: 0

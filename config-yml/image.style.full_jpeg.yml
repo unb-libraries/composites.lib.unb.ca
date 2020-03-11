@@ -1,0 +1,13 @@
+uuid: 0372483f-2ead-4f25-991e-aa241eeb3fdc
+langcode: en
+status: true
+dependencies: {  }
+name: full_jpeg
+label: 'Full JPEG'
+effects:
+  361a242a-62bd-4a4b-912e-c4e5288fa1d5:
+    uuid: 361a242a-62bd-4a4b-912e-c4e5288fa1d5
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg

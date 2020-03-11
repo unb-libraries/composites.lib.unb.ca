@@ -1,5 +1,0 @@
-name: Content onsave processing for composites.lib.unb.ca
-type: module
-description: Content onsave processing for composites.lib.unb.ca
-core: 8.x
-package: composites_lib_unb_ca

@@ -1,7 +1,7 @@
 <?php
 
 use Drupal\node\Entity\Node;
-use \Drupal\image\Entity\ImageStyle;
+use Drupal\image\Entity\ImageStyle;
 
 /**
 * @file
@@ -47,8 +47,9 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $botX = floatval($subject->get('field_bottom_x')->getValue()[0]['value']);
         $botY = floatval($subject->get('field_bottom_y')->getValue()[0]['value']);
 
-        // Update style if necessary, don't pverride.
-        $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, FALSE);
+        // Load image style with cropping effect for subject.
+        $style_name = $sid . 'pv_composite_crop_' . $dpi . 'dpi';
+        $style = ImageStyle::load($style_name);
 
         // Add styled image to form.
         $styled_image_url = $style->buildUrl($composite->field_image->entity->getFileUri());
@@ -57,7 +58,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $form['subject_img'] = [
           '#type' => 'markup',
           '#prefix' => "<div id='subject-img-div' class='$div_classes'>" .
-            '<label>Composite Crop</label><br>',
+            '<label>Image Preview</label><br>',
           '#suffix' => '</div>',
           '#markup' => "<img id='subject-img' src='$styled_image_url'>",
           '#weight' => -100,
@@ -91,94 +92,6 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
   }
 }
 
-function update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, $override) {
-  // Calculate anchor, width, height using resolution (dpi).
-  $anchorX = intval($topX * $dpi);
-  $anchorY = intval($topY * $dpi);
-  $anchor = strval($anchorX) . "-" . strval($anchorY);
-  $width = intval($botX * $dpi) - $anchorX;
-  $height = intval($botY * $dpi) - $anchorY;
-
-  // Subject image style name.
-  $style_name = $sid . '_composite_crop_' . $dpi . 'dpi';
-
-  // Null style reference if it doesn't exist, otherwise load it.
-  $style = empty(ImageStyle::load($style_name)) ? NULL
-    : ImageStyle::load($style_name);
-
-  // If the style needs override.
-  if ($style && $override) {
-    $style->delete();
-    $style->flush();
-    $style = NULL;
-  }
-
-  // If the style doesn't exist at this point, create it.
-  if (empty($style)) {
-    // (Re)create style.
-    $style = ImageStyle::create([
-      'name' => $style_name,
-      'label' => $style_name
-    ]);
-
-    // Configuration for cropping effect.
-    $config = [
-      'uuid' => NULL,
-      'id' => 'image_crop',
-      'weight' => 0,
-      'data' => [
-        'width' => $width,
-        'height' => $height,
-        'anchor' => $anchor,
-      ],
-    ];
-
-    // Create effect, add to style.
-    $effect = \Drupal::service('plugin.manager.image.effect')->
-      createInstance($config['id'], $config);
-
-    $style->addImageEffect($effect->getConfiguration());
-
-    // Configuration for scaling effect.
-    $config = [
-      'uuid' => NULL,
-      'id' => 'image_scale',
-      'weight' => 0,
-      'data' => [
-        'width' => 400,
-        'upscale' => 1,
-      ],
-    ];
-
-    // Create effect, add to style.
-    $effect = \Drupal::service('plugin.manager.image.effect')->
-      createInstance($config['id'], $config);
-
-    $style->addImageEffect($effect->getConfiguration());
-
-    // Configuration for conversion effect.
-    $config = [
-      'uuid' => NULL,
-      'id' => 'image_convert',
-      'weight' => 100,
-      'data' => [
-        'extension' => 'jpg',
-      ],
-    ];
-
-    // Create effect, add to style.
-    $effect = \Drupal::service('plugin.manager.image.effect')->
-      createInstance($config['id'], $config);
-
-    $style->addImageEffect($effect->getConfiguration());
-
-    // Save style.
-    $style->save();
-  }
-
-  return $style;
-}
-
 function refresh_subject_img($form, &$form_state) {
 
   // Retrieve subject node, id, composite id.
@@ -207,21 +120,8 @@ function refresh_subject_img($form, &$form_state) {
       $botY = floatval($form_state->getValue('field_bottom_y')[0]['value']);
 
       // Update style, override existing.
-      $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
-
-      // Add styled image to form.
-      $styled_image_url = $style->buildUrl($composite->field_image->entity->getFileUri());
-      $div_classes = 'js-form-item form-item';
-
-      $form_state->set('subject_img', [
-        '#type' => 'markup',
-        '#prefix' => "<div id='subject-img-div' class='$div_classes'>" .
-          '<label>Composite Crop</label><br>',
-        '#suffix' => '</div>',
-        '#markup' => "<img id='subject-img' src='$styled_image_url'>",
-        '#weight' => -100,
-      ]);
-
+      $style = update_crop_style($sid . 'pv', $topX, $topY, $botX, $botY, $dpi, TRUE);
+      
       $form_state->setRebuild(TRUE);
     }
   }

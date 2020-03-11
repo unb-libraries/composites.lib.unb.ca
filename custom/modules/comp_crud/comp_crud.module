@@ -1,0 +1,401 @@
+<?php
+
+/**
+ * @file
+ * Contains comp_crud.module.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * Implements hook_entity_presave().
+ */
+function comp_crud_entity_presave($entity) {
+  // Process for different content types.
+  switch($entity->bundle()) {
+
+    // If the entity is a composite...
+    case 'composite':
+      // Process and add decade value.
+      // Retrieve year.
+      $year = $entity->get('field_comp_year')->getValue()[0]['value'];
+      $decade = intdiv($year, 10) * 10;
+      $decade = $decade >= 1870 ? $decade : NULL;
+      $entity->set('field_comp_decade', $decade);
+
+      // Sort subjects by last name.
+      // Retrieve subject node ids associated to composite.
+      $sids = $entity->get('field_subjects')->getValue();
+
+      // Retrieve title (name) for each id.
+      foreach ($sids as $k=>$sid) {
+        $subject = Node::load($sid['target_id']);
+        $sid['name'] = $subject->getTitle();
+        $sids[$k] = $sid;
+        // Since we have the subject, add a reference back to the composite.
+        $comp_ref = ['target_id' => $entity->id()];
+        $subject->set('field_composite', $comp_ref);
+        $subject->save();
+      }
+
+      // Sort multidimensional array by name column.
+      array_multisort(array_column($sids, 'name'), SORT_ASC, $sids);
+
+      // Create array with only the new sorted 'target_id'.
+      $sorted_sids = [];
+
+      foreach ($sids as $k=>$sid) {
+        $sorted_sids[$k] = ['target_id' => $sid['target_id']];
+      }
+
+      // Update field value with the sorted ids.
+      $entity->get('field_subjects')->setValue($sorted_sids);
+    break;
+
+    // If the entity is a subject...
+    case 'subject':
+      // Build name and save as title.
+      // Retrieve name fields.
+      $lname = $entity->get('field_last_name')->getValue()[0]['value'];
+
+      if (!empty($entity->get('field_given_name')->getValue()[0]['value'])) {
+        $gname = $entity->get('field_given_name')->getValue()[0]['value'];
+      }
+
+      $title = empty($gname) ? $lname : $lname . ', ' . $gname;
+      $entity->set('title', $title);
+
+      // Process and populate sort initial field.
+      // Get first title character and classify.
+      $leading = strtoupper(substr($title, 0, 1));
+
+      if (ctype_alnum($leading)) {
+
+        if (ctype_digit($leading)) {
+            $leading = '#';
+        }
+      }
+      else {
+        $leading = '@';
+      }
+
+      $entity->set('field_sort_initial', $leading);
+    break;
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function comp_crud_entity_insert($entity) {
+  // Process for different content types.
+  switch($entity->bundle()) {
+
+    // If the entity is a composite...
+    case 'composite':
+      // Generate DZI file and tiles.
+      $fid = $entity->get('field_image')->getValue()[0]['target_id'];
+      $cid = $entity->id();
+
+      if (!empty($fid)) {
+        prepare_dzi_batch($fid, $cid);
+      }
+    break;
+
+    // If the entity is a subject...
+    case 'subject':
+      // Get subject node id.
+      $sid = $entity->id();
+
+      // Add subject reference to linked composite if absent.
+      if (!empty($entity->get('field_composite')->getValue()[0]['target_id'])) {
+        $cid = $entity->get('field_composite')->getValue()[0]['target_id'];
+      }
+
+      if (!empty($cid)) {
+        $composite = Node::load($cid);
+        $subjects = $composite->get('field_subjects')->getValue();
+        $sid = $entity->id();
+
+        if (!in_array($sid, $subjects)) {
+          $subjects[] = [ 'target_id' => $sid ];
+          $composite->set('field_subjects', $subjects);
+          $composite->save();
+        }
+
+        // Generate subject image crop style.
+        // Retrieve coordinates from subject record.
+        $topX = floatval($entity->get('field_top_x')->getValue()[0]['value']);
+        $topY = floatval($entity->get('field_top_y')->getValue()[0]['value']);
+        $botX = floatval($entity->get('field_bottom_x')->getValue()[0]['value']);
+        $botY = floatval($entity->get('field_bottom_y')->getValue()[0]['value']);
+
+        // Retrieve display resolution (dpi).
+        $dpi = intval($composite->get('field_disp_resolution')
+          ->getValue()[0]['value']);
+
+        $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
+      }
+    break;
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function comp_crud_entity_update($entity) {
+  // Process for different content types.
+  switch($entity->bundle()) {
+
+    // If the entity is a composite...
+    case 'composite':
+    // Generate DZI file and tiles.
+    $fid = $entity->get('field_image')->getValue()[0]['target_id'];
+    $nid = $entity->id();
+
+    if (!empty($fid)) {
+      prepare_dzi_batch($fid, $nid);
+    }
+    break;
+
+    // If the entity is a subject...
+    case 'subject':
+      $sid = $entity->id();
+
+      // Add subject reference to linked composite if absent.
+      if (!empty($entity->get('field_composite')->getValue()[0]['target_id'])) {
+        $cid = $entity->get('field_composite')->getValue()[0]['target_id'];
+      }
+
+      if (!empty($cid)) {
+        $composite = Node::load($cid);
+        $sid = $entity->id();
+
+        // Generate subject image crop style.
+        // Retrieve coordinates from subject record.
+        $topX = floatval($entity->get('field_top_x')->getValue()[0]['value']);
+        $topY = floatval($entity->get('field_top_y')->getValue()[0]['value']);
+        $botX = floatval($entity->get('field_bottom_x')->getValue()[0]['value']);
+        $botY = floatval($entity->get('field_bottom_y')->getValue()[0]['value']);
+
+        // Retrieve display resolution (dpi).
+        $dpi = intval($composite->get('field_disp_resolution')
+          ->getValue()[0]['value']);
+
+        // Update base and preview crop styles.
+        $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
+        update_crop_style($sid . "pv", $topX, $topY, $botX, $botY, $dpi, TRUE);
+      }
+
+    break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ * Creates image field for subject node and add as renderable content with the
+ * correct image style to crop the composite.
+ */
+function comp_crud_preprocess_node__subject(&$variables) {
+  // Get subject id.
+  $sid = $variables['node']->id();
+  $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
+
+  if (!empty($variables['content']['field_composite'])) {
+    $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
+
+    if (!empty($cid)) {
+      // Pass composite year field as content to templates.
+      $variables['content']['cid'] = $cid;
+
+      // Retrieve composite node and additional fields.
+      $composite = Node::load($cid);
+      $comp_year = $composite->field_comp_year;
+      $comp_type = $composite->field_type;
+      $comp_img = $composite->field_image;
+    }
+  }
+  else {
+    $comp_img = $comp_type = $comp_year = NULL;
+  }
+
+  if (!empty($comp_year)) {
+    // Pass composite year field as content to templates.
+    $variables['content']['composite_year'] = $comp_year->view();
+    $variables['content']['composite_year']['#title'] = 'Composite Year';
+  }
+
+  if (!empty($comp_type)) {
+    // Pass composite type field as content to templates.
+    $variables['content']['composite_type'] = $comp_type->view();
+    $variables['content']['composite_type']['#title'] = 'Composite Type';
+  }
+
+  if (!empty($comp_img)) {
+    // Pass composite image field as renderable content to templates.
+    $variables['content']['composite_image'] = $comp_img->view();
+    $variables['content']['composite_image']['#title'] = 'Composite Image';
+
+    // Retrieve display resolution (dpi).
+    $dpi = intval($composite->get('field_disp_resolution')
+      ->getValue()[0]['value']);
+
+    // Load image style with cropping effect for subject.
+    $style_name = $sid . '_composite_crop_' . $dpi . 'dpi';
+    $style = ImageStyle::load($style_name);
+
+    if (!empty($style)) {
+      // Save styled image as renederable field to content.
+      $variables['content']['subject_image'] = $comp_img->view([
+        'type' => 'image',
+        'label' => 'above',
+        'settings' => [
+          'image_style' => $style_name,
+        ],
+      ]);
+
+      $variables['content']['subject_image']['#title'] = 'Subject Image';
+      $variables['content']['subject_image']['#weight'] = -1;
+    }
+  }
+}
+
+function update_crop_style($id, $topX, $topY, $botX, $botY, $dpi, $override) {
+  // Calculate anchor, width, height using resolution (dpi).
+  $anchorX = intval($topX * $dpi);
+  $anchorY = intval($topY * $dpi);
+  $anchor = strval($anchorX) . "-" . strval($anchorY);
+  $width = intval($botX * $dpi) - $anchorX;
+  $height = intval($botY * $dpi) - $anchorY;
+
+  // Crop image style name.
+  $style_name = $id . '_composite_crop_' . $dpi . 'dpi';
+
+  // Null style reference if it doesn't exist, otherwise load it.
+  $style = empty(ImageStyle::load($style_name)) ? NULL
+    : ImageStyle::load($style_name);
+
+  // If the style needs override.
+  if ($style && $override) {
+    $style->delete();
+    $style->flush();
+    $style = NULL;
+  }
+
+  // If the style doesn't exist at this point, create it.
+  if (empty($style)) {
+    // (Re)create style.
+    $style = ImageStyle::create([
+      'name' => $style_name,
+      'label' => $style_name
+    ]);
+
+    // Configuration for cropping effect.
+    $config = [
+      'uuid' => NULL,
+      'id' => 'image_crop',
+      'weight' => 0,
+      'data' => [
+        'width' => $width,
+        'height' => $height,
+        'anchor' => $anchor,
+      ],
+    ];
+
+    // Create effect, add to style.
+    $effect = \Drupal::service('plugin.manager.image.effect')->
+      createInstance($config['id'], $config);
+
+    $style->addImageEffect($effect->getConfiguration());
+
+    // Configuration for scaling effect.
+    $config = [
+      'uuid' => NULL,
+      'id' => 'image_scale',
+      'weight' => 0,
+      'data' => [
+        'width' => 400,
+        'upscale' => 1,
+      ],
+    ];
+
+    // Create effect, add to style.
+    $effect = \Drupal::service('plugin.manager.image.effect')->
+      createInstance($config['id'], $config);
+
+    $style->addImageEffect($effect->getConfiguration());
+
+    // Configuration for conversion effect.
+    $config = [
+      'uuid' => NULL,
+      'id' => 'image_convert',
+      'weight' => 100,
+      'data' => [
+        'extension' => 'jpg',
+      ],
+    ];
+
+    // Create effect, add to style.
+    $effect = \Drupal::service('plugin.manager.image.effect')->
+      createInstance($config['id'], $config);
+
+    $style->addImageEffect($effect->getConfiguration());
+
+    // Save style.
+    $style->save();
+  }
+
+  return $style;
+}
+
+/**
+ * Prepare batch process for DZI tile generation.
+ */
+function prepare_dzi_batch($fid, $nid) {
+  // Prepare batch processing.
+  $batch = array(
+    'title' => t('Updating high-resolution DZI tiles for file ID [' .
+      $fid . ']...'),
+    'operations' => [],
+    'init_message'     => t('Starting...'),
+    'progress_message' => t('Processed @current out of @total.'),
+    'error_message'    => t('An error occurred during processing.'),
+    'finished' => t('Done.'),
+  );
+
+  // Add generation of DZI tiles for file to batch operations.
+  $batch['operations'][] = ['generate_dzi_tiles', [$fid, $nid]];
+
+  // Add batch.
+  batch_set($batch);
+}
+
+/**
+ * Generates DZI tiles for the given image file.
+ */
+function generate_dzi_tiles($fid, $nid) {
+  $file = File::load($fid);
+  $filename = $file->getFilename();
+  // Cut extension from filename.
+  $fn_plain = substr($filename, 0, -4);
+  // Get image path.
+  $img_location = \Drupal::service('file_system')->realpath(file_default_scheme() . "://") . "/comp_images";
+  $img_path = $img_location . "/$filename";
+  $dzi_path = $img_location . "/dzi/composite_$nid";
+
+  $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
+   " -o \"{$dzi_path}\"";
+
+  // Run command in shell.
+  exec($command, $output, $return);
+
+  // For batch process.
+  $context['message'] = t(
+    'Generated DZI tiles for high-resolution composite file @file',
+    [
+     '@file' => $fn_plain,
+    ]
+  );
+}

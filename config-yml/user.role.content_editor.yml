@@ -1,0 +1,18 @@
+uuid: 6e425a65-5edb-4c15-b616-1427354db409
+langcode: en
+status: true
+dependencies: {  }
+id: content_editor
+label: 'Content Editor'
+weight: 2
+is_admin: null
+permissions:
+  - 'create composite content'
+  - 'create slideshow_image content'
+  - 'create subject content'
+  - 'delete any composite content'
+  - 'delete any slideshow_image content'
+  - 'delete any subject content'
+  - 'edit any composite content'
+  - 'edit any slideshow_image content'
+  - 'edit any subject content'
