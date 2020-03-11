@@ -9,7 +9,6 @@ module:
   comp_core: 0
   comp_crud: 0
   comp_install: 0
-  comp_migration: 0
   config: 0
   contact: 0
   contextual: 0
