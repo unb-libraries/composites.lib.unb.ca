@@ -75,7 +75,10 @@ header {
   margin-right: auto;
   // Branding.
   & div#block-sitebranding {
-    margin: 0 1em;
+    & a > span {
+      font-size: 1.5rem !important;
+    }
+
     // Branding link.
     & a.navbar-brand {
       &:active,
@@ -413,10 +416,6 @@ footer > div.container {
   // Header.
   header {
     width: 490px;
-  }
-  // Branding.
-  & div#block-sitebranding {
-    display: none;
   }
 }
 // End Responsive.
