@@ -136,7 +136,20 @@
           {% endif %}
 
           <dl>
-            <br>
+            {% if content.field_subject_title %}
+            <div>
+              <dt>{{ content.field_subject_title|field_label }}</dt>
+              <dd>{{ content.field_subject_title|field_value }}</dd>
+              <br>
+            </div>
+            {% endif %}
+            {% if content.field_initials %}
+            <div>
+              <dt>{{ content.field_initials|field_label }}</dt>
+              <dd>{{ content.field_initials|field_value }}</dd>
+              <br>
+            </div>
+            {% endif %}
             <div>
               <dt>{{ content.field_gender|field_label }}</dt>
               <dd>{{ content.field_gender|field_value }}</dd>
@@ -147,6 +160,13 @@
               <dd>{{ content.field_valedictorian|field_value }}</dd>
               <br>
             </div>
+            {% if content.field_subject_notes %}
+            <div>
+              <dt>{{ content.field_subject_notes|field_label }}</dt>
+              <dd>{{ content.field_subject_notes|field_value }}</dd>
+              <br>
+            </div>
+            {% endif %}
           </dl>
         </div>
       </div>
