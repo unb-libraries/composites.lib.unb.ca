@@ -5,6 +5,6 @@ comp_cms_extend.edit_subjects:
   weight: 1
 comp_cms_extend.hi_res_img:
   route_name: comp_cms_extend.hi_res_img
-  title: 'High Resolution'
+  title: 'High Resolution Image'
   base_route: entity.node.canonical
   weight: 0

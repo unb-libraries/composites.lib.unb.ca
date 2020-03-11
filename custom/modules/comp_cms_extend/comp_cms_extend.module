@@ -92,6 +92,15 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
   }
 }
 
+/**
+ * Implements hook_local_tasks_alter().
+ *
+ * @inheritdoc
+*/
+function comp_cms_extend_local_tasks_alter(&$local_tasks) {
+  $local_tasks['entity.node.canonical']['title'] = 'Image and Details';
+}
+
 function refresh_subject_img($form, &$form_state) {
 
   // Retrieve subject node, id, composite id.
@@ -121,7 +130,7 @@ function refresh_subject_img($form, &$form_state) {
 
       // Update style, override existing.
       $style = update_crop_style($sid . 'pv', $topX, $topY, $botX, $botY, $dpi, TRUE);
-      
+
       $form_state->setRebuild(TRUE);
     }
   }
