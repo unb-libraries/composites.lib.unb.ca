@@ -115,9 +115,18 @@
     <br>
     <br>
 
-    {% if content.field_photographer|field_value %}
-      <p>{{ 'Image by: ' }}{{ content.field_photographer|field_value }}</p>
-    {% endif %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          {% if content.field_photographer|field_value %}
+          <p>{{ 'Image by: ' }}{{ content.field_photographer|field_value }}</p>
+          {% endif %}
+        </div>
+        <div class="col-sm-6">
+          <a href="{{ path('entity.node.canonical', {'node': node.id}) }}{{ '/hires' }}">View high resolution image</a>
+        </div>
+      </div>
+    </div>
     <br>
 
     <dl>
