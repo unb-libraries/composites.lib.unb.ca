@@ -25,6 +25,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
     // Retrieve subject node, id, composite id.
     $subject = $form_state->getFormObject()->getEntity();
     $sid = $subject->id();
+    $preview =  FALSE;
 
     $cid =
       !empty($subject->get('field_composite')->getValue()[0]['target_id']) ?
@@ -47,10 +48,20 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $botX = floatval($subject->get('field_bottom_x')->getValue()[0]['value']);
         $botY = floatval($subject->get('field_bottom_y')->getValue()[0]['value']);
 
-        // Load image style with cropping effect for subject.
-        $style_name = $sid . 'pv_composite_crop_' . $dpi . 'dpi';
+        // Load image style with preview cropping effect.
+        $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
         $style = ImageStyle::load($style_name);
 
+        if (empty($style)) {
+          // If preview style not available, load default image crop style.
+          $style_name = $sid . '_composite_crop_' . $dpi . 'dpi';
+          $style = ImageStyle::load($style_name);
+        }
+        else {
+          $preview = TRUE;
+        }
+
+        if (!empty($style)) {
         // Add styled image to form.
         $styled_image_url = $style->buildUrl($composite->field_image->entity->getFileUri());
         $div_classes = 'js-form-item form-item';
@@ -63,6 +74,13 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           '#markup' => "<img id='subject-img' src='$styled_image_url'>",
           '#weight' => -100,
         ];
+        }
+
+        // Delete preview style once image is loaded.
+        if ($preview) {
+          $style->delete();
+          $style->flush();
+        }
 
         // Add refresh image button.
         // Get composite image URL with a base style.
@@ -128,8 +146,8 @@ function refresh_subject_img($form, &$form_state) {
       $botX = floatval($form_state->getValue('field_bottom_x')[0]['value']);
       $botY = floatval($form_state->getValue('field_bottom_y')[0]['value']);
 
-      // Update style, override existing.
-      $style = update_crop_style($sid . 'pv', $topX, $topY, $botX, $botY, $dpi, TRUE);
+      // Create preview style.
+      $style = update_crop_style('pv', $topX, $topY, $botX, $botY, $dpi, TRUE);
 
       $form_state->setRebuild(TRUE);
     }

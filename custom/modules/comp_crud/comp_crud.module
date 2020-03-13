@@ -159,37 +159,6 @@ function comp_crud_entity_update($entity) {
       prepare_dzi_batch($fid, $nid);
     }
     break;
-
-    // If the entity is a subject...
-    case 'subject':
-      $sid = $entity->id();
-
-      // Add subject reference to linked composite if absent.
-      if (!empty($entity->get('field_composite')->getValue()[0]['target_id'])) {
-        $cid = $entity->get('field_composite')->getValue()[0]['target_id'];
-      }
-
-      if (!empty($cid)) {
-        $composite = Node::load($cid);
-        $sid = $entity->id();
-
-        // Generate subject image crop style.
-        // Retrieve coordinates from subject record.
-        $topX = floatval($entity->get('field_top_x')->getValue()[0]['value']);
-        $topY = floatval($entity->get('field_top_y')->getValue()[0]['value']);
-        $botX = floatval($entity->get('field_bottom_x')->getValue()[0]['value']);
-        $botY = floatval($entity->get('field_bottom_y')->getValue()[0]['value']);
-
-        // Retrieve display resolution (dpi).
-        $dpi = intval($composite->get('field_disp_resolution')
-          ->getValue()[0]['value']);
-
-        // Update base and preview crop styles.
-        $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
-        update_crop_style($sid . "pv", $topX, $topY, $botX, $botY, $dpi, TRUE);
-      }
-
-    break;
   }
 }
 
@@ -242,9 +211,17 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $dpi = intval($composite->get('field_disp_resolution')
       ->getValue()[0]['value']);
 
-    // Load image style with cropping effect for subject.
-    $style_name = $sid . '_composite_crop_' . $dpi . 'dpi';
-    $style = ImageStyle::load($style_name);
+    // Crop effect configuration.
+    // Retrieve coordinates from subject record.
+    $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
+    $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
+    $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
+    $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
+
+    // Call style updating method. Don't override.
+    $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, FALSE);
+
+    $style_name = $style->getName();
 
     if (!empty($style)) {
       // Save styled image as renederable field to content.
