@@ -152,13 +152,18 @@ function comp_crud_entity_update($entity) {
     // If the entity is a composite...
     case 'composite':
     // Generate DZI file and tiles.
-    $fid = $entity->get('field_image')->getValue()[0]['target_id'];
-    $nid = $entity->id();
+    $old_img = $entity->original->get('field_image')->getValue()[0]['target_id'];
+    $new_img = $entity->get('field_image')->getValue()[0]['target_id'];
 
-    if (!empty($fid)) {
-      prepare_dzi_batch($fid, $nid);
+    if ($new_img != $old_img) {
+      $fid = $new_img;
+      $nid = $entity->id();
+
+      if (!empty($fid)) {
+        prepare_dzi_batch($fid, $nid);
+      }
+      break;
     }
-    break;
   }
 }
 
@@ -355,6 +360,7 @@ function prepare_dzi_batch($fid, $nid) {
 function generate_dzi_tiles($fid, $nid) {
   $file = File::load($fid);
   $filename = $file->getFilename();
+
   // Cut extension from filename.
   $fn_plain = substr($filename, 0, -4);
   // Get image path.
@@ -362,6 +368,7 @@ function generate_dzi_tiles($fid, $nid) {
   $img_path = $img_location . "/$filename";
   $dzi_path = $img_location . "/dzi/composite_$nid";
 
+  // Generate or update DZI tiles.
   $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
    " -o \"{$dzi_path}\"";
 
