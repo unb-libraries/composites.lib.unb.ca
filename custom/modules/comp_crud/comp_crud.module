@@ -223,8 +223,8 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
     $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
 
-    // Call style updating method. Don't override.
-    $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, FALSE);
+    // Call style updating method. Override existing.
+    $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
 
     $style_name = $style->getName();
 
@@ -241,6 +241,15 @@ function comp_crud_preprocess_node__subject(&$variables) {
       $variables['content']['subject_image']['#title'] = 'Subject Image';
       $variables['content']['subject_image']['#weight'] = -1;
     }
+  }
+
+  // Delete preview image crop style.
+  $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
+  $style = ImageStyle::load($style_name);
+
+  if (!empty($style)) {
+    $style->delete();
+    $style->flush();
   }
 }
 

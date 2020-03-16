@@ -57,9 +57,6 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           $style_name = $sid . '_composite_crop_' . $dpi . 'dpi';
           $style = ImageStyle::load($style_name);
         }
-        else {
-          $preview = TRUE;
-        }
 
         if (!empty($style)) {
         // Add styled image to form.
@@ -76,11 +73,8 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         ];
         }
 
-        // Delete preview style once image is loaded.
-        if ($preview) {
-          $style->delete();
-          $style->flush();
-        }
+        // Flush cache to trigger node preprocess on refresh.
+        drupal_flush_all_caches();
 
         // Add refresh image button.
         // Get composite image URL with a base style.
@@ -147,7 +141,7 @@ function refresh_subject_img($form, &$form_state) {
       $botY = floatval($form_state->getValue('field_bottom_y')[0]['value']);
 
       // Create preview style.
-      $style = update_crop_style('pv', $topX, $topY, $botX, $botY, $dpi, TRUE);
+      update_crop_style('pv', $topX, $topY, $botX, $botY, $dpi, TRUE);
 
       $form_state->setRebuild(TRUE);
     }
