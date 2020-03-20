@@ -1,27 +1,26 @@
-uuid: a41c2bee-78f0-416d-8b97-c31167cc0473
+uuid: 56a1e721-f80e-4514-a3d2-40341e9a84e7
 langcode: en
 status: true
 dependencies:
   module:
+    - comp_core
     - system
   theme:
     - composites_lib_unb_ca
-id: tabs
+id: custombranding
 theme: composites_lib_unb_ca
-region: content
-weight: -4
+region: header
+weight: 0
 provider: null
-plugin: local_tasks_block
+plugin: comp_branding
 settings:
-  id: local_tasks_block
-  label: Tabs
-  provider: core
+  id: comp_branding
+  label: 'Custom Branding'
+  provider: comp_core
   label_display: '0'
-  primary: true
-  secondary: true
 visibility:
   request_path:
     id: request_path
-    pages: "/introduction\r\n/about\r\n/acknowledgements\r\n"
+    pages: '<front>'
     negate: true
     context_mapping: {  }

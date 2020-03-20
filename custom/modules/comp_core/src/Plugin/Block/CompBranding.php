@@ -20,7 +20,13 @@ class CompBranding extends BlockBase {
    */
   public function build() {
     $text = '
-      <a href="/"><h1>UNB Class Composite & Group Photographs</h1></a>
+      <div class="block-system-branding-block">
+        <h1>
+          <a href="/" class="navbar-brand">
+            <span class="site-name">UNB Class Composite & Group Photographs</span>
+          </a>
+        </h1>
+      </div>
     ';
 
     return [
