@@ -2,12 +2,14 @@ uuid: a41c2bee-78f0-416d-8b97-c31167cc0473
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - composites_lib_unb_ca
 id: tabs
 theme: composites_lib_unb_ca
 region: content
-weight: -3
+weight: -4
 provider: null
 plugin: local_tasks_block
 settings:
@@ -17,4 +19,9 @@ settings:
   label_display: '0'
   primary: true
   secondary: true
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/about\r\n/acknowledgements"
+    negate: true
+    context_mapping: {  }

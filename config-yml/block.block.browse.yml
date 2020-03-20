@@ -10,7 +10,7 @@ dependencies:
 id: browse
 theme: composites_lib_unb_ca
 region: content
-weight: -1
+weight: -2
 provider: null
 plugin: comp_browse
 settings:

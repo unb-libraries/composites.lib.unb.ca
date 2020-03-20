@@ -39,14 +39,14 @@ comp_core.about:
   description: 'About'
   parent: main
   menu_name: main
-  route_name: comp_core.about
+  url: internal:/about
   weight: 20
 comp_core.ack:
   title: 'Acknowledgements'
   description: 'Acknowledgements'
   parent: main
   menu_name: main
-  route_name: comp_core.ack
+  url: internal:/acknowledgements
   weight: 30
 comp_core.contact:
   title: 'Contact Us'

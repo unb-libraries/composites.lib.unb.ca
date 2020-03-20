@@ -4,18 +4,6 @@ comp_core.home:
     _controller: '\Drupal\comp_core\Controller\CompCoreController:home'
   requirements:
     _permission: 'access content'
-comp_core.about:
-  path: '/about'
-  defaults:
-    _controller: '\Drupal\comp_core\Controller\CompCoreController:about'
-  requirements:
-    _permission: 'access content'
-comp_core.ack:
-  path: '/ack'
-  defaults:
-    _controller: '\Drupal\comp_core\Controller\CompCoreController:ack'
-  requirements:
-    _permission: 'access content'
 comp_core.contact:
   path: '/contact'
   requirements:
