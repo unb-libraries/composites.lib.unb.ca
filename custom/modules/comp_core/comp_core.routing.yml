@@ -1,0 +1,6 @@
+comp_core.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\comp_core\Controller\CompCoreController:home'
+  requirements:
+    _permission: 'access content'

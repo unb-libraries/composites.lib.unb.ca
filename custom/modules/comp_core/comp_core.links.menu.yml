@@ -3,7 +3,7 @@ comp_core.home:
   description: 'Home'
   parent: main
   menu_name: main
-  url: internal:/
+  url: internal:/introduction
   weight: 10
 comp_core.browse_search:
   title: 'Browse/Search'
