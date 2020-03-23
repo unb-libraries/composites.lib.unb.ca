@@ -241,7 +241,8 @@ main[role="main"] {
     // Blocks except main content.
     & div.block:not(#block-mainpagecontent) {
       background-color: $unb-halfgray;
-      // Header 2.
+      // Headers.
+      & h1,
       & h2 {
         font-size: 1.4em;
       }
@@ -251,13 +252,13 @@ main[role="main"] {
       }
     }
     // Search and browse blocks.
-    & div#block-exposedformsearch-subjectspage-1,
+    & div[id*="block-exposedformsearch-subjectspage-1"],
     & div#block-browse {
       display: inline-block;
       padding: 1em 1.4em;
     }
 
-    & div#block-exposedformsearch-subjectspage-1 {
+    & div[id*="block-exposedformsearch-subjectspage-1"] {
       width: 70%;
 
       & div.form-item-search-api-fulltext {
@@ -396,7 +397,7 @@ footer > div.container {
     width: 690px;
   }
   // Exposed search.
-  div#block-exposedformsearch-subjectspage-1 {
+  div[id*="block-exposedformsearch-subjectspage-1"] {
     width: 70%;
 
     & div.form-item-search-api-fulltext {
@@ -410,7 +411,7 @@ footer > div.container {
     width: 510px;
   }
   // Exposed search.
-  div#block-exposedformsearch-subjectspage-1 {
+  div[id*="block-exposedformsearch-subjectspage-1"] {
     width: 70%;
 
     & div.form-item-search-api-fulltext {

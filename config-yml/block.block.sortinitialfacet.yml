@@ -11,7 +11,7 @@ dependencies:
 id: sortinitialfacet
 theme: composites_lib_unb_ca
 region: content
-weight: -1
+weight: 0
 provider: null
 plugin: 'facet_block:sort_initial_facet'
 settings:
