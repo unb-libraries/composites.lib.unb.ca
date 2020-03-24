@@ -1,0 +1,22 @@
+uuid: 1a38a208-8860-42a7-bae9-b24e0b310d6f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: subject_url_pattern
+label: 'Subject URL Pattern'
+type: 'canonical_entities:node'
+pattern: 'persons/[node:title]'
+selection_criteria:
+  aa0a3183-4885-4119-ae09-8879e8bb4a53:
+    id: node_type
+    bundles:
+      subject: subject
+    negate: false
+    context_mapping:
+      node: node
+    uuid: aa0a3183-4885-4119-ae09-8879e8bb4a53
+selection_logic: and
+weight: -5
+relationships: {  }

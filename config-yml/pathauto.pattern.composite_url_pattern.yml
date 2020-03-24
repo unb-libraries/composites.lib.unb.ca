@@ -1,0 +1,22 @@
+uuid: 97e36d25-9a89-4a66-b965-40280018aed8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: composite_url_pattern
+label: 'Composite URL Pattern'
+type: 'canonical_entities:node'
+pattern: 'composites/[node:title]'
+selection_criteria:
+  e42035ca-859f-490b-8bed-5bec935dbe63:
+    id: node_type
+    bundles:
+      composite: composite
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e42035ca-859f-490b-8bed-5bec935dbe63
+selection_logic: and
+weight: -5
+relationships: {  }
