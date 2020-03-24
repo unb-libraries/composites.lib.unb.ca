@@ -46,6 +46,7 @@ module:
   search: 0
   search_api: 0
   search_api_solr: 0
+  serial: 0
   sophron: 0
   system: 0
   taxonomy: 0

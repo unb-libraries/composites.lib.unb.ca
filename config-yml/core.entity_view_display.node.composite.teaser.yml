@@ -4,7 +4,29 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.composite.field_comp_decade
     - field.field.node.composite.field_comp_source_file
+    - field.field.node.composite.field_comp_year
+    - field.field.node.composite.field_composite_serial
+    - field.field.node.composite.field_contributors
+    - field.field.node.composite.field_current_buildings
+    - field.field.node.composite.field_disp_resolution
+    - field.field.node.composite.field_former_buildings
+    - field.field.node.composite.field_grad_ceremony
+    - field.field.node.composite.field_height
+    - field.field.node.composite.field_image
+    - field.field.node.composite.field_image_id
+    - field.field.node.composite.field_no_profs
+    - field.field.node.composite.field_no_students
+    - field.field.node.composite.field_notes
+    - field.field.node.composite.field_photographer
+    - field.field.node.composite.field_physical_size
+    - field.field.node.composite.field_related_image
+    - field.field.node.composite.field_resolution
+    - field.field.node.composite.field_source_number
+    - field.field.node.composite.field_subjects
+    - field.field.node.composite.field_type
+    - field.field.node.composite.field_width
     - node.type.composite
   module:
     - user
@@ -23,6 +45,7 @@ hidden:
   field_comp_decade: true
   field_comp_source_file: true
   field_comp_year: true
+  field_composite_serial: true
   field_contributors: true
   field_current_buildings: true
   field_date: true

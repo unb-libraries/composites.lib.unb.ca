@@ -1,0 +1,21 @@
+uuid: 8d12760c-d79c-4598-b885-7a6e560311ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject_serial
+    - node.type.subject
+  module:
+    - serial
+id: node.subject.field_subject_serial
+field_name: field_subject_serial
+entity_type: node
+bundle: subject
+label: 'Subject Serial'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: serial
