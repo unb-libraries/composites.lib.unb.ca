@@ -30,6 +30,7 @@ class EditSubjectsForm extends FormBase {
     $view = Views::getView('edit_composite_subjects');
     $view->setDisplay('block_1');
     $view->setArguments([$node]);
+    $view->execute();
     $render = $view->render();
     $form['edit_composite_subjects_view'] = $render;
 
