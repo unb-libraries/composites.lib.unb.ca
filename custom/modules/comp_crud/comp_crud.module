@@ -53,10 +53,19 @@ function comp_crud_entity_presave($entity) {
       // Update field value with the sorted ids.
       $entity->get('field_subjects')->setValue($sorted_sids);
 
-      // Generate/update node title.
+      // Update node title.
       $type = $entity->get('field_type')->getValue()[0]['value'];
       $title = "$year $type Photo";
       $entity->set('title', $title);
+
+      // Update image alt tag.
+      $image = $entity->get('field_image')->getValue();
+
+      if (!empty($image)) {
+        $image[0]['alt'] = $title;
+        $image[0]['title'] = $title;
+        $entity->get('field_image')->setValue($image);
+      }
     break;
 
     // If the entity is a subject...
@@ -247,6 +256,24 @@ function comp_crud_preprocess_node__subject(&$variables) {
       $variables['content']['subject_image']['#weight'] = -1;
     }
   }
+
+  // Update image alt tag.
+  $image = $variables['content']['subject_image']['0']['#item'];
+  // Build name and use as title.
+  // Retrieve name fields.
+  $lname = $variables['content']['field_last_name'][0]['#context']['value'];
+
+  $gname = empty($variables['content']['field_given_name'][0]['#context']['value']) ? NULL
+    : $variables['content']['field_given_name'][0]['#context']['value'];
+
+  $title = empty($gname) ? $lname : $lname . ', ' . $gname;
+
+  if (!empty($image)) {
+    $image->set('alt', $title);
+    $image->set('title', $title);
+  }
+
+  $variables['content']['subject_image']['0']['#item'] = $image;
 
   // Delete preview image crop style.
   $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
