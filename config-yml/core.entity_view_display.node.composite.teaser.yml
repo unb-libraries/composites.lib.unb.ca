@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.composite.field_comp_decade
     - field.field.node.composite.field_comp_source_file
     - field.field.node.composite.field_comp_year
-    - field.field.node.composite.field_composite_serial
     - field.field.node.composite.field_contributors
     - field.field.node.composite.field_current_buildings
     - field.field.node.composite.field_disp_resolution
@@ -45,7 +44,6 @@ hidden:
   field_comp_decade: true
   field_comp_source_file: true
   field_comp_year: true
-  field_composite_serial: true
   field_contributors: true
   field_current_buildings: true
   field_date: true
