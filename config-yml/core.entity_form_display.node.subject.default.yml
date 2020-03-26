@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.subject.field_last_name
     - field.field.node.subject.field_sort_initial
     - field.field.node.subject.field_source_file
+    - field.field.node.subject.field_subject_campus
     - field.field.node.subject.field_subject_notes
     - field.field.node.subject.field_subject_title
     - field.field.node.subject.field_top_x
@@ -117,6 +118,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_subject_campus:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_subject_notes:
     weight: 14

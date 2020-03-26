@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.subject.field_last_name
     - field.field.node.subject.field_sort_initial
     - field.field.node.subject.field_source_file
+    - field.field.node.subject.field_subject_campus
     - field.field.node.subject.field_subject_notes
     - field.field.node.subject.field_subject_title
     - field.field.node.subject.field_top_x
@@ -51,6 +52,7 @@ hidden:
   field_last_name: true
   field_sort_initial: true
   field_source_file: true
+  field_subject_campus: true
   field_subject_notes: true
   field_subject_title: true
   field_surname: true

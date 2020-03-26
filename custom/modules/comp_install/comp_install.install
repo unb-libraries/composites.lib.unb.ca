@@ -19,12 +19,16 @@ function comp_install_install() {
     'Male',
   ];
 
-  foreach ($genders as $gender) {
-    Term::create([
-      'vid' => 'gender',
-      'name' => $gender,
-    ])->save();
-  }
+  create_terms('gender', $genders);
+
+  // Campus.
+  $campi = [
+    'Fredericton',
+    'Saint John',
+    'Male',
+  ];
+
+  create_terms('campus', $campi);
 
   // Create image and DZI subfolders in public files.
   exec(
@@ -38,4 +42,16 @@ function comp_install_install() {
   exec(
     "chown -R nginx:nginx sites/default/files/comp_images"
   );
+}
+
+/**
+ * Creates taxonomy terms from array.
+ */
+function create_terms($vid, $terms) {
+  foreach ($terms as $term) {
+    Term::create([
+      'vid' => $vid,
+      'name' => $term,
+    ])->save();
+  }
 }

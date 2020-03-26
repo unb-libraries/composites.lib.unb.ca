@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.composite.field_comp_decade
     - field.field.node.composite.field_comp_source_file
     - field.field.node.composite.field_comp_year
+    - field.field.node.composite.field_composite_campus
     - field.field.node.composite.field_contributors
     - field.field.node.composite.field_current_buildings
     - field.field.node.composite.field_disp_resolution
@@ -49,6 +50,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_composite_campus:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_contributors:
     weight: 12

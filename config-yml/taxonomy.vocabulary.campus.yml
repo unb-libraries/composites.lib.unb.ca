@@ -1,0 +1,8 @@
+uuid: 0ed2e007-913f-4de2-a4a1-0ee011f7eb8c
+langcode: en
+status: true
+dependencies: {  }
+name: Campus
+vid: campus
+description: 'Controlled vocabulary for campus association for images and composites in composites.lib.unb.ca'
+weight: 0

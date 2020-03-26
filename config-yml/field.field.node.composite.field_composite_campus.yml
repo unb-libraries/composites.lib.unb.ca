@@ -1,0 +1,29 @@
+uuid: f8ce6d98-8cee-4021-8e6a-3bde060c36d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_composite_campus
+    - node.type.composite
+    - taxonomy.vocabulary.campus
+id: node.composite.field_composite_campus
+field_name: field_composite_campus
+entity_type: node
+bundle: composite
+label: 'Composite Campus'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      campus: campus
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
