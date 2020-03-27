@@ -100,15 +100,19 @@
   <div{{ content_attributes.addClass('node__content') }}>
 
     {% if content.field_comp_year|field_value %}
-      <h2>
+      <h1 class="d-inline">
         {{ content.field_comp_year|field_value }}
 
         {% if content.field_type|field_value %}
           {{ content.field_type|field_value }}{{ ' Photo' }}</h2>
         {% endif %}
-      </h2>
+      </h1>
+      <span class="d-inline node-subtitle">
+        {{ '(' }}{{ content.field_comp_campus|field_value }}{{ ')' }}
+      </span>
     {% endif %}
 
+    <br>
     {% if content.field_image|field_value %}
       {{ content.field_image|field_value }}
     {% endif %}
@@ -148,6 +152,7 @@
           'field_contributors',
           'field_current_buildings',
           'field_former_buildings',
+          'field_comp_campus',
         ]
       %}
 
