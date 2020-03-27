@@ -88,6 +88,12 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $row->setSourceProperty('taxo_photographer', $tid);
       }
 
+      // Campus.
+      // On migration, default to Fredericton.
+      $src_campus = 'Fredericton';
+      $tid = $this->findAddTerm('campus', $src_campus);
+      $row->setSourceProperty('taxo_campus', $tid);
+
       // Subjects.
       // Composite source file.
       $src_file_comp = trim($row->getSourceProperty('source_file'));

@@ -119,16 +119,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_subject_campus:
-    weight: 26
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_subject_notes:
     weight: 14
     settings:
@@ -171,6 +161,7 @@ hidden:
   field_graduate_id: true
   field_sort_initial: true
   field_source_file: true
+  field_subject_campus: true
   langcode: true
   path: true
   promote: true

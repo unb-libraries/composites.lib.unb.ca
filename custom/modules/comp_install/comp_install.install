@@ -25,7 +25,6 @@ function comp_install_install() {
   $campi = [
     'Fredericton',
     'Saint John',
-    'Male',
   ];
 
   create_terms('campus', $campi);

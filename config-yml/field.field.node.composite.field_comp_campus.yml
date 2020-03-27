@@ -1,16 +1,16 @@
-uuid: f8ce6d98-8cee-4021-8e6a-3bde060c36d4
+uuid: f45e2829-4270-4c74-8c32-f42dfab33c74
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_composite_campus
+    - field.storage.node.field_comp_campus
     - node.type.composite
     - taxonomy.vocabulary.campus
-id: node.composite.field_composite_campus
-field_name: field_composite_campus
+id: node.composite.field_comp_campus
+field_name: field_comp_campus
 entity_type: node
 bundle: composite
-label: 'Composite Campus'
+label: 'Comp. Campus'
 description: ''
 required: false
 translatable: false

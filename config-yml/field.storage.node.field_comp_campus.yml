@@ -1,12 +1,12 @@
-uuid: dad8c1af-f8a1-48b8-9e11-3c2e5e76a86f
+uuid: 7faadfbb-d0fa-4fac-a3c4-b65168bbe375
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_composite_campus
-field_name: field_composite_campus
+id: node.field_comp_campus
+field_name: field_comp_campus
 entity_type: node
 type: entity_reference
 settings:

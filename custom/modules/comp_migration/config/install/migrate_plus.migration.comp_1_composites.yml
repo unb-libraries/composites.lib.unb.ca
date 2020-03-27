@@ -79,6 +79,7 @@ process:
     default_value: 72
   field_width: width
   field_comp_year: comp_year
+  field_comp_campus: taxo_campus
 
 destination:
   plugin: entity:node
