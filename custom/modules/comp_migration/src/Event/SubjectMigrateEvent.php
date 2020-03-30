@@ -82,6 +82,16 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
       $tid = key($terms);
       $row->setSourceProperty('taxo_gender', $tid);
 
+      // Campus.
+      $terms = \Drupal::entityQuery('taxonomy_term')
+        ->condition('vid', 'campus')
+        ->condition('name', 'Fredericton')
+        ->execute();
+
+      reset($terms);
+      $tid = key($terms);
+      $row->setSourceProperty('field_subject_campus', $tid);
+
       // Awards.
       $src_awards = $row->getSourceProperty('awards');
       $awards_multi = explode(';', $src_awards);
