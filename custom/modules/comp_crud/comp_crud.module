@@ -291,7 +291,6 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $style->flush();
   }
 
-  kint($variables['content']);
 }
 
 function update_crop_style($id, $topX, $topY, $botX, $botY, $dpi, $override) {
