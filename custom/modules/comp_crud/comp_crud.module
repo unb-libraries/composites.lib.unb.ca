@@ -203,10 +203,17 @@ function comp_crud_preprocess_node__subject(&$variables) {
       $comp_year = $composite->field_comp_year;
       $comp_type = $composite->field_type;
       $comp_img = $composite->field_image;
+      $comp_campus = $composite->field_comp_campus;
     }
   }
   else {
-    $comp_img = $comp_type = $comp_year = NULL;
+    $comp_campus = $comp_img = $comp_type = $comp_year = NULL;
+  }
+
+  if (!empty($comp_campus)) {
+    // Pass composite year field as content to templates.
+    $variables['content']['composite_campus'] = $comp_campus->view();
+    $variables['content']['composite_campus']['#title'] = 'Composite Campus';
   }
 
   if (!empty($comp_year)) {
@@ -283,6 +290,8 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $style->delete();
     $style->flush();
   }
+
+  kint($variables['content']);
 }
 
 function update_crop_style($id, $topX, $topY, $botX, $botY, $dpi, $override) {
