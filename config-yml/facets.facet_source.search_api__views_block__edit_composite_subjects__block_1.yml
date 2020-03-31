@@ -1,0 +1,9 @@
+uuid: 8423363e-934a-4a96-b45b-f69c7cfbd13a
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_block__edit_composite_subjects__block_1
+name: 'search_api:views_block__edit_composite_subjects__block_1'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }

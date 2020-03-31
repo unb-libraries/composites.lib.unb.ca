@@ -8,7 +8,7 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Subject
+name: Person
 type: subject
 description: 'Photo subject content type for composites.lib.unb.ca'
 help: ''

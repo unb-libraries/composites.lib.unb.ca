@@ -367,7 +367,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'All Subjects by Name'
+      title: 'All People by Name'
       header:
         result:
           id: result

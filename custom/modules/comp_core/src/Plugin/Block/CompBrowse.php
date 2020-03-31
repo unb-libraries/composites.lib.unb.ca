@@ -23,7 +23,7 @@ class CompBrowse extends BlockBase {
       <p>
         <a href="/browse-composites">By Year</a>
         <br>
-        <a href="/browse-subjects">All Subjects</a>
+        <a href="/browse-subjects">All People</a>
       </p>
     ';
 

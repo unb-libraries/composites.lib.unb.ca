@@ -21,8 +21,8 @@ comp_core.browse_year:
   url: internal:/browse-composites
   weight: 10
 comp_core.browse_name:
-  title: 'All Subjects'
-  description: 'Browse all composite subjects by name'
+  title: 'All People'
+  description: 'Browse all composite persons by name'
   parent: comp_core.browse_search
   menu_name: main
   url: internal:/browse-subjects

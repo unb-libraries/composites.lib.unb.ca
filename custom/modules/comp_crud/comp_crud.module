@@ -255,7 +255,7 @@ function comp_crud_preprocess_node__subject(&$variables) {
         ],
       ]);
 
-      $variables['content']['subject_image']['#title'] = 'Subject Image';
+      $variables['content']['subject_image']['#title'] = 'Individual Portrait';
       $variables['content']['subject_image']['#weight'] = -1;
     }
   }
