@@ -53,13 +53,9 @@ function comp_crud_entity_presave($entity) {
       // Update field value with the sorted ids.
       $entity->get('field_subjects')->setValue($sorted_sids);
 
-      // Update node title.
-      $type = $entity->get('field_type')->getValue()[0]['value'];
-      $title = "$year $type Photo";
-      $entity->set('title', $title);
-
       // Update image alt tag.
       $image = $entity->get('field_image')->getValue();
+      $title = $entity->getTitle();
 
       if (!empty($image)) {
         $image[0]['alt'] = $title;
@@ -195,7 +191,7 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
 
     if (!empty($cid)) {
-      // Pass composite year field as content to templates.
+      // Pass composite id as content to templates.
       $variables['content']['cid'] = $cid;
 
       // Retrieve composite node and additional fields.

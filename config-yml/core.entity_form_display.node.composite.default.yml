@@ -37,13 +37,13 @@ bundle: composite
 mode: default
 content:
   field_comp_campus:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_comp_source_file:
-    weight: 6
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -51,23 +51,13 @@ content:
     type: string_textfield
     region: content
   field_comp_year:
-    weight: 2
+    weight: 3
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_contributors:
-    weight: 13
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_current_buildings:
     weight: 14
     settings:
       match_operator: CONTAINS
@@ -77,14 +67,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_disp_resolution:
-    weight: 11
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_former_buildings:
+  field_current_buildings:
     weight: 15
     settings:
       match_operator: CONTAINS
@@ -94,8 +77,25 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_disp_resolution:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_former_buildings:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_grad_ceremony:
-    weight: 5
+    weight: 6
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -103,14 +103,14 @@ content:
     type: link_default
     region: content
   field_height:
-    weight: 8
+    weight: 9
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_image:
-    weight: 0
+    weight: 1
     settings:
       preview_image_style: large
       progress_indicator: throbber
@@ -118,21 +118,21 @@ content:
     type: image_image
     region: content
   field_no_profs:
-    weight: 16
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_no_students:
     weight: 17
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
-  field_notes:
+  field_no_students:
     weight: 18
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_notes:
+    weight: 19
     settings:
       rows: 5
       placeholder: ''
@@ -140,7 +140,7 @@ content:
     type: string_textarea
     region: content
   field_photographer:
-    weight: 12
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60
@@ -150,7 +150,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_physical_size:
-    weight: 7
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -158,7 +158,7 @@ content:
     type: string_textfield
     region: content
   field_related_image:
-    weight: 1
+    weight: 2
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -166,14 +166,14 @@ content:
     type: image_image
     region: content
   field_resolution:
-    weight: 10
+    weight: 11
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_type:
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -181,12 +181,20 @@ content:
     type: string_textfield
     region: content
   field_width:
-    weight: 9
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
   field_comp_decade: true
@@ -198,5 +206,4 @@ hidden:
   promote: true
   status: true
   sticky: true
-  title: true
   uid: true

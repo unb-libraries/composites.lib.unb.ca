@@ -40,8 +40,13 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
     if ($migration_id == 'comp_1_composites') {
       $destination_ids = $event->getDestinationIdValues();
       $cid = $destination_ids[0];
-      // Load and save migrated node (to apply "onsave" operations).
+      // Generate title and save node (to apply entity update operations).
       $composite = Node::load($cid);
+      $year = $composite->get('field_comp_year')->getValue()[0]['value'];
+      $type = $composite->get('field_type')->getValue()[0]['value'];
+      $title = "$year $type Photo";
+
+      $composite->set('title', $title);
       $composite->save();
 
       // Generate high resolution DZI tiles.

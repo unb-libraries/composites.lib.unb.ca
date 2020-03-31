@@ -101,11 +101,7 @@
 
     {% if content.field_comp_year|field_value %}
       <h1 class="d-inline">
-        {{ content.field_comp_year|field_value }}
-
-        {% if content.field_type|field_value %}
-          {{ content.field_type|field_value }}{{ ' Photo' }}</h2>
-        {% endif %}
+        {{ label }}
       </h1>
       <span class="d-inline node-subtitle">
         {{ '(' }}{{ content.field_comp_campus|field_value }}{{ ')' }}
