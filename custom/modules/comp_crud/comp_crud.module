@@ -67,11 +67,15 @@ function comp_crud_entity_presave($entity) {
     // If the entity is a subject...
     case 'subject':
       // Build name and save as title.
-      // Retrieve name fields.
+      // Retrieve name fields. Use first name, then initials, if available.
       $lname = $entity->get('field_last_name')->getValue()[0]['value'];
+      $initials = $entity->get('field_initials')->getValue()[0]['value'];
 
       if (!empty($entity->get('field_given_name')->getValue()[0]['value'])) {
         $gname = $entity->get('field_given_name')->getValue()[0]['value'];
+      }
+      elseif (!empty($entity->get('field_initials')->getValue()[0]['value'])) {
+        $gname = $entity->get('field_initials')->getValue()[0]['value'];
       }
 
       $title = empty($gname) ? $lname : $lname . ', ' . $gname;

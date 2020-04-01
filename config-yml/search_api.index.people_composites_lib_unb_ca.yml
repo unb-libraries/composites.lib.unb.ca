@@ -11,6 +11,7 @@ dependencies:
     - field.storage.node.field_composite
     - field.storage.node.field_comp_year
     - field.storage.node.field_type
+    - field.storage.node.field_initials
     - field.storage.node.field_sort_initial
     - search_api.server.subjects_composites_lib_unb_ca
 third_party_settings:
@@ -84,6 +85,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_composite
+  field_initials:
+    label: Initials
+    datasource_id: 'entity:node'
+    property_path: field_initials
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_initials
   field_sort_initial:
     label: 'Sort Initial'
     datasource_id: 'entity:node'
