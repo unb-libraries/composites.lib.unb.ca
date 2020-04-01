@@ -200,6 +200,7 @@ function comp_crud_preprocess_node__subject(&$variables) {
 
       // Retrieve composite node and additional fields.
       $composite = Node::load($cid);
+      $comp_title = $composite->title;
       $comp_year = $composite->field_comp_year;
       $comp_type = $composite->field_type;
       $comp_img = $composite->field_image;
@@ -208,6 +209,12 @@ function comp_crud_preprocess_node__subject(&$variables) {
   }
   else {
     $comp_campus = $comp_img = $comp_type = $comp_year = NULL;
+  }
+
+  if (!empty($comp_title)) {
+    // Pass composite year field as content to templates.
+    $variables['content']['composite_title'] = $comp_title->view();
+    $variables['content']['composite_title']['#title'] = 'Composite Title';
   }
 
   if (!empty($comp_campus)) {
