@@ -140,16 +140,17 @@
 
           {% if content.field_subject_title|field_value %}
             {{ content.field_subject_title|field_value }}
+            <br>
           {% endif %}
 
           {% if content.field_valedictorian|field_value[0]['#markup'] == 'Yes' %}
-            <br>
             <b>{{ content.field_valedictorian|field_label }}</b>
+            <br>
           {% endif %}
 
           {% if content.field_awards|field_value %}
-            <br>
             {{ 'Recipient of: '}}{{ content.field_awards|field_value }}
+            <br>
           {% endif %}
 
           <dl>
