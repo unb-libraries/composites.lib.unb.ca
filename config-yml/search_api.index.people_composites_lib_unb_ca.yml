@@ -7,6 +7,7 @@ dependencies:
     - node
     - search_api
   config:
+    - field.storage.node.field_alt_name
     - field.storage.node.field_composite
     - field.storage.node.field_comp_year
     - field.storage.node.field_type
@@ -55,6 +56,14 @@ name: people.composites.lib.unb.ca
 description: ''
 read_only: false
 field_settings:
+  field_alt_name:
+    label: 'Alt. Name'
+    datasource_id: 'entity:node'
+    property_path: field_alt_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_alt_name
   field_comp_year:
     label: 'Composite » Content » Comp. Year'
     datasource_id: 'entity:node'

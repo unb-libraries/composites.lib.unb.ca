@@ -123,6 +123,12 @@
               {{ content.field_last_name|field_value }}
             </h1>
 
+            <span class="node-subtitle">
+              {%- if content.field_alt_name|field_value -%}
+                {{- '(' }}{{ content.field_alt_name|field_value }}{{ ')' -}}
+              {%- endif -%}
+            </span>
+
             <div class="node-subtitle">
               {{- ' (' -}}
               <a href="/node/{{ content.cid }}">
@@ -134,6 +140,7 @@
           {% endif %}
 
           {% if content.field_awards|field_value %}
+            <br>
             {{ 'Recipient of: '}}{{ content.field_awards|field_value }}
           {% endif %}
 
