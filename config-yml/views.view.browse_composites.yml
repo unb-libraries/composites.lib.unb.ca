@@ -591,7 +591,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'Browse Composites'
+      title: 'Browse by Year'
       header: {  }
       footer: {  }
       empty: {  }
@@ -616,7 +616,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: browse-composites
+      path: browse-by-year
       cache:
         type: none
       defaults:
