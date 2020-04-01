@@ -21,11 +21,11 @@ comp_core.browse_year:
   url: internal:/browse-composites
   weight: 10
 comp_core.browse_name:
-  title: 'All People'
+  title: 'By Name'
   description: 'Browse all composite persons by name'
   parent: comp_core.browse_search
   menu_name: main
-  url: internal:/browse-subjects
+  url: internal:/browse-by-name
   weight: 20
 comp_core.search:
   title: 'Search'
