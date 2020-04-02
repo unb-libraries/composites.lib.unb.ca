@@ -24,7 +24,7 @@ class HiResImgForm extends FormBase {
     $form = [];
 
     $form['sample_view']['zoom'] = [
-      '#markup' => '<br><br><div id="seadragon-viewer"></div><br>',
+      '#markup' => '<div id="seadragon-viewer"></div>',
     ];
 
     $form['#attached'] = [

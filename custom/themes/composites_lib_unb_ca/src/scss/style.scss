@@ -215,7 +215,9 @@ main[role="main"] {
         box-shadow: none !important;
       }
 
+      // OpenSeadragon viewer.
       & div#seadragon-viewer {
+        margin-top: 2em;
         height: 800px;
       }
     }
@@ -224,20 +226,24 @@ main[role="main"] {
       width: 95%;
       margin: auto;
 
+      // Titles.
       & h1 {
         display: inline-table;
         margin-bottom: 0 !important;
         font-size: 2.2rem;
       }
 
+      // Subtitles.
       .node-subtitle {
         font-size: 1.4rem;
       }
 
+      // Paragraph.
       & p {
         text-align: justify;
       }
 
+      // Nodes.
       div.node__content {
         margin-top: 1em;
       }

@@ -84,6 +84,11 @@ display:
           class: ''
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: true
       fields:
         nid:
           id: nid
@@ -275,7 +280,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: h3
+          element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -554,7 +559,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"container\">\r\n<div class=\"row\">\r\n<div class=\"col-sm-8\">\r\n{{ title }}\r\n<br>\r\n<a href=\"#\" class=\"comp-collapse\" data-toggle=\"collapse\" data-target=\"#subjects-collapse-{{ nid }}\">\r\nIn this photo \r\n</a>\r\n<i class=\"material-icons subs-collapsed\">arrow_right</i>\r\n<i class=\"material-icons subs-expanded\">arrow_drop_down</i><div id=\"subjects-collapse-{{ nid }}\" class=\"collapse\">\r\n{{ field_subjects }}\r\n</div>\r\n</div>\r\n<div class=\"col-sm-4\">\r\n{{ field_image }}\r\n</div>\r\n</div>"
+            text: "<div class=\"container\">\r\n<div class=\"row\">\r\n<div class=\"col-sm-8\">\r\n<h4>{{ title }}</h4>\r\n<a href=\"#\" class=\"comp-collapse\" data-toggle=\"collapse\" data-target=\"#subjects-collapse-{{ nid }}\">\r\nIn this photo \r\n</a>\r\n<i class=\"material-icons subs-collapsed\">arrow_right</i>\r\n<i class=\"material-icons subs-expanded\">arrow_drop_down</i><div id=\"subjects-collapse-{{ nid }}\" class=\"collapse\">\r\n{{ field_subjects }}\r\n</div>\r\n</div>\r\n<div class=\"col-sm-4\">\r\n{{ field_image }}\r\n</div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false

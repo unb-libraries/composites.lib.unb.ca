@@ -122,18 +122,16 @@
               {{ label }}
             </h1>
 
-            <span class="node-subtitle">
+            <div class="node-subtitle">
               {%- if content.field_alt_name|field_value -%}
                 {{- '(' }}{{ content.field_alt_name|field_value }}{{ ')' -}}
               {%- endif -%}
-            </span>
+            </div>
 
             <div class="node-subtitle">
-              {{- ' (' -}}
               <a href="/node/{{ content.cid }}">
                 {{- content.composite_title|field_value -}}
               </a>
-              {{- ')' -}}
             </div>
           {% endif %}
 

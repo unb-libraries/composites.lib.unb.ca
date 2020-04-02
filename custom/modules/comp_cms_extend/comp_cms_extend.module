@@ -66,9 +66,9 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $form['subject_img'] = [
           '#type' => 'markup',
           '#prefix' => "<div id='subject-img-div' class='$div_classes'>" .
-            '<label>Image Preview</label><br>',
+            '<label>Image Preview</label>',
           '#suffix' => '</div>',
-          '#markup' => "<img id='subject-img' src='$styled_image_url'>",
+          '#markup' => "<img id='subject-img' class='d-block' src='$styled_image_url'>",
           '#weight' => -100,
         ];
         }
