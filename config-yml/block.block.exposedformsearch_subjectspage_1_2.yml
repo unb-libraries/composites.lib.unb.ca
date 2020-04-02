@@ -20,10 +20,10 @@ settings:
   label: ''
   provider: views
   label_display: visible
-  views_label: ''
+  views_label: Search
 visibility:
   request_path:
     id: request_path
-    pages: /search-subjects
+    pages: /introduction
     negate: false
     context_mapping: {  }
