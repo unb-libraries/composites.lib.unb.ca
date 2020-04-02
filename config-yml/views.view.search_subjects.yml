@@ -418,7 +418,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: Search
+      title: 'Search by Person or Name'
       header:
         result:
           id: result

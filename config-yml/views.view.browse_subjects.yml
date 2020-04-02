@@ -367,7 +367,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'Browse by Name'
+      title: 'Browse by Person or Name'
       header:
         result:
           id: result
@@ -411,7 +411,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: browse-by-name
+      path: browse-persons
       cache:
         type: none
       defaults:

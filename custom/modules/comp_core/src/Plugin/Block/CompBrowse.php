@@ -21,9 +21,9 @@ class CompBrowse extends BlockBase {
   public function build() {
     $text = '
       <p>
-        <a href="/browse-by-year">By Year</a>
+        <a href="/browse-composites">By Year</a>
         <br>
-        <a href="/browse-by-name">By Name</a>
+        <a href="/browse-persons">By Person or Name</a>
       </p>
     ';
 

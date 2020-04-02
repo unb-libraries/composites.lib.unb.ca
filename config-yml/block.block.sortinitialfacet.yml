@@ -16,7 +16,7 @@ provider: null
 plugin: 'facet_block:sort_initial_facet'
 settings:
   id: 'facet_block:sort_initial_facet'
-  label: 'Browse by Name'
+  label: 'Browse by Person or Name'
   provider: facets
   label_display: visible
   block_id: sortinitialfacet
