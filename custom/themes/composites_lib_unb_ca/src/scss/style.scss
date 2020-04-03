@@ -180,7 +180,7 @@ main[role="main"] {
       }
     }
     // Display subjects multi-value field as columns.
-    & dl > div > dd > ul.comp-subject {
+    & dl > dd > ul.comp-subjects {
       columns: 3;
     }
     // Give images in content region an instant photo look.

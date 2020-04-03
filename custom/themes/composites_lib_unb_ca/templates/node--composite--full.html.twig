@@ -108,12 +108,9 @@
       </span>
     {% endif %}
 
-    <br>
     {% if content.field_image|field_value %}
       {{ content.field_image|field_value }}
     {% endif %}
-    <br>
-    <br>
 
     <div class="container">
       <div class="row">
@@ -127,78 +124,60 @@
         </div>
       </div>
     </div>
-    <br>
 
     <dl>
-      <div>
-        <dt>{{ content.field_subjects|field_label }}</dt>
-        <dd>
-          <ul class="comp-subject">
-          {% for subject in content.field_subjects|field_value %}
-            <li>{{ subject }}</li>
-          {% endfor %}
-          </ul>
-        </dd>
-      </div>
-      <br>
-
-      {% set skip = [
-          'field_image',
-          'field_subjects',
-          'field_contributors',
-          'field_current_buildings',
-          'field_former_buildings',
-          'field_comp_campus',
-        ]
-      %}
-
-      {% for field in content %}
-        {% if field|field_value is not null
-        and field|field_value[0]['#markup'] != "0"
-        and field['#field_name'] not in skip %}
-          <div>
-            <dt>{{ field|field_label }}</dt>
-            <dd>{{ field|field_value }}</dd>
-          </div>
-          <br>
-        {% endif %}
-      {% endfor %}
-
-      <div>
-        <dt>{{ content.field_contributors|field_label }}</dt>
-        <dd>
-          <ul>
-          {% for contributor in content.field_contributors|field_value %}
-            <li>{{ contributor }}</li>
-          {% endfor %}
-          </ul>
-        </dd>
-      </div>
-
-      <br>
-      <div>
-        <dt>{{ content.field_current_buildings|field_label }}</dt>
-        <dd>
-          <ul>
-          {% for current_building in content.field_current_buildings|field_value %}
-            <li>{{ current_building }}</li>
-          {% endfor %}
-          </ul>
-        </dd>
-      </div>
-
-      <br>
-      <div>
-        <dt>{{ content.field_former_buildings|field_label }}</dt>
-        <dd>
-          <ul>
-          {% for former_building in content.field_former_buildings|field_value %}
-            <li>{{ former_building }}</li>
-          {% endfor %}
-          </ul>
-        </dd>
-      </div>
-    <br>
+      <dt>{{ 'People' }}</dt>
+      <dd>
+        <ul class="comp-subjects">
+        {% for subject in content.field_subjects|field_value %}
+          <li>{{ subject }}</li>
+        {% endfor %}
+        </ul>
+      </dd>
     </dl>
+
+    {% set skip = [
+        'field_image',
+        'field_subjects',
+        'field_contributors',
+        'field_current_buildings',
+        'field_former_buildings',
+        'field_comp_campus',
+      ]
+    %}
+
+    {% for field in content %}
+      {% if field|field_value is not null
+      and field|field_value[0]['#markup'] != "0"
+      and field['#field_name'] not in skip %}
+        <dl>
+          <dt>{{ field|field_label }}</dt>
+          <dd>{{ field|field_value }}</dd>
+        </dl>
+      {% endif %}
+    {% endfor %}
+
+    <dl>
+      <dt>{{ content.field_contributors|field_label }}</dt>
+      {% for contributor in content.field_contributors|field_value %}
+        <dd>{{ contributor }}</dd>
+      {% endfor %}
+    </dl>
+
+    <div>
+      <dt>{{ content.field_current_buildings|field_label }}</dt>
+      {% for current_building in content.field_current_buildings|field_value %}
+        <dd>{{ current_building }}</dd>
+      {% endfor %}
+    </div>
+
+    <div>
+      <dt>{{ content.field_former_buildings|field_label }}</dt>
+      <dd>
+        {% for former_building in content.field_former_buildings|field_value %}
+          <dd>{{ former_building }}</dd>
+        {% endfor %}
+      </dd>
+    </div>
   </div>
 </article>
