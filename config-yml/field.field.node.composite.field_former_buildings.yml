@@ -10,7 +10,7 @@ id: node.composite.field_former_buildings
 field_name: field_former_buildings
 entity_type: node
 bundle: composite
-label: 'Former Buildings'
+label: 'Buldings (former names)'
 description: ''
 required: false
 translatable: false

@@ -57,21 +57,17 @@ process:
     plugin: default_value
     default_value: composite
   title: source_file
-  field_comp_source_file: source_file
   field_contributors: taxo_contributors
   field_current_buildings: taxo_buildings_current
   field_former_buildings: taxo_buildings_former
   field_height: height
   field_image: drupal_image
   field_related_image: drupal_rel_image
-  field_image_id: image_id
   field_no_profs: no_profs
   field_no_students: no_students
   field_notes: notes
   field_photographer: taxo_photographer
   field_physical_size: physical_size
-  field_resolution: resolution
-  field_source_number: source_number
   field_subjects: entity_subjects
   field_type: type
   field_disp_resolution:

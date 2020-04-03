@@ -9,7 +9,7 @@ id: node.composite.field_disp_resolution
 field_name: field_disp_resolution
 entity_type: node
 bundle: composite
-label: 'Display Resolution'
+label: 'Display Resolution (dpi)'
 description: ''
 required: false
 translatable: false

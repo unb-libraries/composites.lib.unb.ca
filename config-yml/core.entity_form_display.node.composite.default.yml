@@ -14,15 +14,12 @@ dependencies:
     - field.field.node.composite.field_grad_ceremony
     - field.field.node.composite.field_height
     - field.field.node.composite.field_image
-    - field.field.node.composite.field_image_id
     - field.field.node.composite.field_no_profs
     - field.field.node.composite.field_no_students
     - field.field.node.composite.field_notes
     - field.field.node.composite.field_photographer
     - field.field.node.composite.field_physical_size
     - field.field.node.composite.field_related_image
-    - field.field.node.composite.field_resolution
-    - field.field.node.composite.field_source_number
     - field.field.node.composite.field_subjects
     - field.field.node.composite.field_type
     - field.field.node.composite.field_width
@@ -165,13 +162,6 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
-  field_resolution:
-    weight: 11
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_type:
     weight: 4
     settings:
@@ -198,8 +188,6 @@ content:
 hidden:
   created: true
   field_comp_decade: true
-  field_image_id: true
-  field_source_number: true
   field_subjects: true
   langcode: true
   path: true

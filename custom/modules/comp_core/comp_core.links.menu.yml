@@ -15,21 +15,21 @@ comp_core.browse_search:
   weight: 15
 comp_core.browse_year:
   title: 'Browse by Year'
-  description: 'Browse composites and subjects by year'
+  description: 'Browse by Year'
   parent: comp_core.browse_search
   menu_name: main
   url: internal:/browse-composites
   weight: 10
 comp_core.browse_name:
-  title: Browse by Person or Name
-  description: 'Browse all composite persons by name'
+  title: 'Browse by Person or Name'
+  description: 'Browse by Person or Name'
   parent: comp_core.browse_search
   menu_name: main
   url: internal:/browse-persons
   weight: 20
 comp_core.search:
-  title: 'Search by Person or Name'
-  description: 'Search subjects'
+  title: 'Search'
+  description: 'Search'
   parent: comp_core.browse_search
   menu_name: main
   url: internal:/search-persons

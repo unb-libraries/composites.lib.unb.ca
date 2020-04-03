@@ -238,6 +238,11 @@ main[role="main"] {
         font-size: 1.4rem;
       }
 
+      // Description lists.
+      & dl {
+        margin-bottom: 1.5rem;
+      }
+
       // Paragraph.
       & p {
         text-align: justify;

@@ -10,7 +10,7 @@ id: node.composite.field_current_buildings
 field_name: field_current_buildings
 entity_type: node
 bundle: composite
-label: 'Current Buildings'
+label: 'Buildings (current names)'
 description: ''
 required: false
 translatable: false
