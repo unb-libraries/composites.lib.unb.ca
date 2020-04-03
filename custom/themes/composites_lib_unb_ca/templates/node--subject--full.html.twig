@@ -121,9 +121,11 @@
                 <p class="mb-0 node-subtitle">{{- '(' }}{{ content.field_alt_name|field_value }}{{ ')' -}}</p>
               {%- endif -%}
 
-              <a href="/node/{{ content.cid }}" class="node-subtitle d-table">
-                {{- content.composite_title|field_value -}}
-              </a>
+              <p>
+                <a href="/node/{{ content.cid }}" class="node-subtitle">
+                  {{- content.composite_title|field_value -}}
+                </a>
+              </p>
             {% endif %}
 
             {% if content.field_subject_title|field_value %}
@@ -144,7 +146,7 @@
             </dl>
           {% endif %}
 
-          {% if content.field_subject_notes %}
+          {% if content.field_subject_notes|field_value %}
             <dl>
               <dt>{{ 'Notes' }}</dt>
               <dd>{{ content.field_subject_notes|field_value }}</dd>
