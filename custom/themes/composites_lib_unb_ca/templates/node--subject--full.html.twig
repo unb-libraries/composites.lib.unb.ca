@@ -102,66 +102,56 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-sm-6">
+        <div class="col-sm-5">
 
           {% if content.subject_image|field_value %}
             {{ content.subject_image|field_value }}
           {% endif %}
-          <br>
-          <br>
 
-          {#
-          {{ content }}
-          #}
         </div>
 
-        <div class="col-sm-6">
-          <br>
-          {% if content.field_last_name|field_value %}
-            <h1>
-              {{ label }}
-            </h1>
+        <div class="col-sm-7">
+          <div>
+            {% if content.field_last_name|field_value %}
+              <h1>
+                {{ label }}
+              </h1>
 
-            <div class="node-subtitle">
               {%- if content.field_alt_name|field_value -%}
-                {{- '(' }}{{ content.field_alt_name|field_value }}{{ ')' -}}
+                <p class="mb-0 node-subtitle">{{- '(' }}{{ content.field_alt_name|field_value }}{{ ')' -}}</p>
               {%- endif -%}
-            </div>
 
-            <div class="node-subtitle">
-              <a href="/node/{{ content.cid }}">
+              <a href="/node/{{ content.cid }}" class="node-subtitle d-table">
                 {{- content.composite_title|field_value -}}
               </a>
-            </div>
-          {% endif %}
+            {% endif %}
 
-          {% if content.field_subject_title|field_value %}
-            {{ content.field_subject_title|field_value }}
-            <br>
-          {% endif %}
+            {% if content.field_subject_title|field_value %}
+              <p class="mb-0">{{ content.field_subject_title|field_value }}</p>
+            {% endif %}
 
-          {% if content.field_valedictorian|field_value[0]['#markup'] == 'Yes' %}
-            <b>{{ content.field_valedictorian|field_label }}</b>
-            <br>
-          {% endif %}
+            {% if content.field_valedictorian|field_value[0]['#markup'] == 'Yes' %}
+              <p>{{ content.field_valedictorian|field_label }}</p>
+            {% endif %}
+          </div>
 
           {% if content.field_awards|field_value %}
-            {{ 'Recipient of: '}}{{ content.field_awards|field_value }}
-            <br>
+            <dl>
+              <dt>{{ 'Recipient of'}}
+                {% for award in content.field_awards|field_value %}
+                  <dd>{{ award }}</dd>
+                {% endfor %}
+            </dl>
           {% endif %}
 
-          <dl>
-            {% if content.field_subject_notes %}
-            <br>
-            <div>
-              <dt>{{ content.field_subject_notes|field_label }}</dt>
+          {% if content.field_subject_notes %}
+            <dl>
+              <dt>{{ 'Notes' }}</dt>
               <dd>{{ content.field_subject_notes|field_value }}</dd>
-            </div>
-            {% endif %}
-          </dl>
+            </dl>
+          {% endif %}
         </div>
       </div>
     </div>
   </div>
-
 </article>
