@@ -164,20 +164,16 @@
       {% endfor %}
     </dl>
 
-    <div>
       <dt>{{ content.field_current_buildings|field_label }}</dt>
       {% for current_building in content.field_current_buildings|field_value %}
         <dd>{{ current_building }}</dd>
       {% endfor %}
-    </div>
 
-    <div>
       <dt>{{ content.field_former_buildings|field_label }}</dt>
       <dd>
         {% for former_building in content.field_former_buildings|field_value %}
           <dd>{{ former_building }}</dd>
         {% endfor %}
       </dd>
-    </div>
   </div>
 </article>

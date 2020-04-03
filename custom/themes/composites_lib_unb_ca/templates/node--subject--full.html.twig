@@ -121,7 +121,7 @@
                 <p class="mb-0 node-subtitle">{{- '(' }}{{ content.field_alt_name|field_value }}{{ ')' -}}</p>
               {%- endif -%}
 
-              <p>
+              <p class="mb-0">
                 <a href="/node/{{ content.cid }}" class="node-subtitle">
                   {{- content.composite_title|field_value -}}
                 </a>
@@ -141,7 +141,7 @@
             <dl>
               <dt>{{ 'Recipient of'}}
                 {% for award in content.field_awards|field_value %}
-                  <dd>{{ award }}</dd>
+                  <dd class="ml-3">{{ award }}</dd>
                 {% endfor %}
             </dl>
           {% endif %}
@@ -149,7 +149,7 @@
           {% if content.field_subject_notes|field_value %}
             <dl>
               <dt>{{ 'Notes' }}</dt>
-              <dd>{{ content.field_subject_notes|field_value }}</dd>
+              <dd class="ml-3">{{ content.field_subject_notes|field_value }}</dd>
             </dl>
           {% endif %}
         </div>
