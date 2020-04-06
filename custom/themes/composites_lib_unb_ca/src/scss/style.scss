@@ -179,6 +179,69 @@ main[role="main"] {
         border: 1px solid $unb-darkgray;
       }
     }
+    // Slideshow controls.
+    #views_slideshow_controls_text_slideshow-block_1 {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 50;
+      height: 100%;
+      width: 100%;
+    }
+
+    #views_slideshow_controls_text_pause_slideshow-block_1 a {
+      display: none;
+    }
+
+    #views_slideshow_controls_text_previous_slideshow-block_1 a {
+      position: absolute;
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+    }
+
+    #views_slideshow_controls_text_previous_slideshow-block_1 a:after {
+      visibility: visible !important;
+      position: absolute;
+      z-index: 100;
+      top: 45%;
+      left: 1%;
+      font-size: 2em;
+      content: '<';
+      color: white;
+      opacity: .7;
+    }
+
+    #views_slideshow_controls_text_previous_slideshow-block_1 a:hover:after {
+      opacity: 1;
+    }
+
+    #views_slideshow_controls_text_next_slideshow-block_1 a {
+      position: absolute;
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+    }
+
+    #views_slideshow_controls_text_next_slideshow-block_1 a:after {
+      visibility: visible !important;
+      position: absolute;
+      z-index: 100;
+      top: 45%;
+      right: 1%;
+      font-size: 2em;
+      content: '>';
+      color: white;
+      opacity: .7;
+    }
+
+    #views_slideshow_controls_text_next_slideshow-block_1 a:hover:after {
+      opacity: 1;
+    }
+
+    #views_slideshow_cycle_main_slideshow-block_1 {
+      margin-bottom: 10px;
+    }
     // Display subjects multi-value field as columns.
     & dl > dd > ul.comp-subjects {
       columns: 3;
