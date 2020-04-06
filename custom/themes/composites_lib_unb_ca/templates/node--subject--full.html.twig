@@ -122,7 +122,8 @@
               {%- endif -%}
 
               <p class="mb-0">
-                <a href="/node/{{ content.cid }}" class="node-subtitle">
+                {% set comp_path = path('entity.node.canonical', { 'node' : content.cid }) %}
+                <a href="{{ comp_path }}" class="node-subtitle">
                   {{- content.composite_title|field_value -}}
                 </a>
               </p>
