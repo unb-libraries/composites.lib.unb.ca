@@ -99,6 +99,7 @@ display:
                   views_slideshow_pager_fields_fields:
                     title: 0
                     field_image_ss: 0
+                    field_sort_order: 0
                   views_slideshow_pager_fields_hover: 0
               views_slideshow_slide_counter:
                 enable: false
@@ -119,13 +120,14 @@ display:
                   views_slideshow_pager_fields_fields:
                     title: 0
                     field_image_ss: 0
+                    field_sort_order: 0
                   views_slideshow_pager_fields_hover: 0
               views_slideshow_slide_counter:
                 enable: false
                 weight: '1'
                 hide_on_single_slide: '0'
               views_slideshow_controls:
-                enable: false
+                enable: true
                 weight: '1'
                 hide_on_single_slide: '0'
                 type: views_slideshow_controls_text
