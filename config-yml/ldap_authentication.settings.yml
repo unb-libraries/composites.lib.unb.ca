@@ -1,5 +1,5 @@
 sids:
-  unb_libraries_ldap: '0'
+  unb_libraries_ldap: unb_libraries_ldap
 authenticationMode: 1
 loginUIUsernameTxt: 'Enter your UNB login ID'
 loginUIPasswordTxt: ''

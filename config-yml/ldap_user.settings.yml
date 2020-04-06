@@ -15,7 +15,7 @@ orphanedCheckQty: 100
 orphanedAccountCheckInterval: weekly
 userConflictResolve: resolve
 manualAccountConflict: conflict_show_option
-acctCreation: ldap_behaviour
+acctCreation: user_settings_for_ldap
 ldapUserSyncMappings:
   drupal: {  }
   ldap: {  }
