@@ -1,7 +1,6 @@
 comp_cms_extend.edit_subjects:
   path: '/node/{node}/subjects/edit'
   defaults:
-    _title: 'People'
     _form: '\Drupal\comp_cms_extend\Form\EditSubjectsForm'
   requirements:
     _role: 'authenticated'

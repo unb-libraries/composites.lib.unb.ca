@@ -4,6 +4,7 @@ namespace Drupal\comp_cms_extend\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * EditSubjectsForm class.
@@ -23,6 +24,12 @@ class HiResImgForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $node = NULL) {
     $form = [];
 
+    // Generate dynamic title.
+    $composite = Node::load($node);
+    $comp_title = $composite->getTitle();
+    $form['#title'] = "High Resolution Image for $comp_title";
+
+    // OpenSeadragon viewer div.
     $form['sample_view']['zoom'] = [
       '#markup' => '<div id="seadragon-viewer"></div>',
     ];

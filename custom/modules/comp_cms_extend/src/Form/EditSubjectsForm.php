@@ -6,6 +6,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Views;
 use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
 
 /**
  * EditSubjectsForm class.
@@ -24,6 +25,11 @@ class EditSubjectsForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $node = NULL) {
     $form = [];
+
+    // Generate dynamic title.
+    $composite = Node::load($node);
+    $comp_title = $composite->getTitle();
+    $form['#title'] = "Edit People in $comp_title";
 
     // List current subjects.
     $view = Views::getView('edit_composite_subjects');
