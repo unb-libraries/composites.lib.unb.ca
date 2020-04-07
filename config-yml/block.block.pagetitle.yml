@@ -1,0 +1,28 @@
+uuid: f7ea5e2c-1adb-43ef-8327-2f2f50e114df
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+  theme:
+    - composites_lib_unb_ca
+id: pagetitle
+theme: composites_lib_unb_ca
+region: content
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      composite: composite
+      subject: subject
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

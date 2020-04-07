@@ -1,6 +1,7 @@
 comp_cms_extend.edit_subjects:
   path: '/node/{node}/subjects/edit'
   defaults:
+    _title: 'People'
     _form: '\Drupal\comp_cms_extend\Form\EditSubjectsForm'
   requirements:
     _role: 'authenticated'
@@ -18,6 +19,7 @@ comp_cms_extend.add_comp_subject:
 comp_cms_extend.hi_res_img:
   path: '/node/{node}/hires'
   defaults:
+    _title: 'High Resolution Image'
     _form: '\Drupal\comp_cms_extend\Form\HiResImgForm'
   requirements:
     _permission: 'access content'
