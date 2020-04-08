@@ -408,9 +408,13 @@ main[role="main"] {
         color: $unb-gray;
       }
       // Unordered lists.
-      ul {
+      ul:not(.composite-subjects) {
         margin-top: 1.5em;
         list-style: none;
+      }
+
+      ul.composite-subjects {
+        columns: 3;
       }
     }
     // Browse by year.
