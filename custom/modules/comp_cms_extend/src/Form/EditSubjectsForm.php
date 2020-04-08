@@ -38,10 +38,17 @@ class EditSubjectsForm extends FormBase {
     $render = $view->render();
     $form['edit_composite_subjects_view'] = $render;
 
-    // Add new subject.
+    // Add new subject button.
+    $url = Url::fromRoute('comp_cms_extend.add_comp_subject', ['cid' => $node]);
+    $url_str = $url->toString();
+
     $form['add_subject_button'] = [
-      '#type' => 'link',
-      '#title' => t('Add New Person'),
+      '#type' => 'item',
+      '#markup' =>
+        "<a class='btn btn-primary' href=$url_str>
+            <i class='material-icons'>add</i>
+            <span>Add New Person</span>
+          </a>",
       '#url' => Url::fromRoute('comp_cms_extend.add_comp_subject', ['cid' => $node]),
       '#attributes' => [
         'id' => ['add-subject-link'],

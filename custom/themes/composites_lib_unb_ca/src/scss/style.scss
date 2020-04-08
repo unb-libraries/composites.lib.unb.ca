@@ -25,11 +25,12 @@ input {
 }
 // Round borders.
 input,
-li {
+li,
+a {
   border-radius: .1rem !important;
 }
 // Primary buttons.
-input.btn-primary {
+.btn-primary {
   background-color: $unb-darkerred;
   border-color: $unb-darkerred;
 
@@ -39,6 +40,10 @@ input.btn-primary {
     background-color: $unb-darkred !important;
     border-color: $unb-darkred !important;
   }
+}
+// All material-icons,
+.material-icons {
+  font-size: inherit !important;
 }
 // Collapse links.
 a.comp-collapse {
@@ -260,8 +265,8 @@ main[role="main"] {
     & div.block {
       margin-top: 0.7em;
       // Links.
-      & a,
-      & a:focus {
+      & a:not(.btn),
+      & a:not(.btn):focus {
         color: $unb-turquoise;
         background: initial;
       }
@@ -270,7 +275,7 @@ main[role="main"] {
         border: initial !important;
       }
       // Link status.
-      & a:hover {
+      & a:not(.btn):hover {
         border-bottom: 1px solid;
         background-color: initial;
         color: $unb-darkerred;
