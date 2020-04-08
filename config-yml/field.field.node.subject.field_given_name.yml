@@ -9,7 +9,7 @@ id: node.subject.field_given_name
 field_name: field_given_name
 entity_type: node
 bundle: subject
-label: 'Given Name'
+label: 'Given Name(s)'
 description: ''
 required: false
 translatable: false

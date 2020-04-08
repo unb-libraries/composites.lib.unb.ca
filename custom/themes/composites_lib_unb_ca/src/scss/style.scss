@@ -340,6 +340,17 @@ main[role="main"] {
         color: $unb-darkred;
       }
     }
+    // Node forms.
+    & .node-form {
+      .field--name-field-top-x,
+      .field--name-field-top-y,
+      .field--name-field-bottom-x,
+      .field--name-field-bottom-y {
+        width: 20%;
+        display: inline-block;
+      }
+    }
+
     // Search and browse blocks.
     & div[id*="block-exposedformsearch-subjectspage-1"],
     & div#block-browse {

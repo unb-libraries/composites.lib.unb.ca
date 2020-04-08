@@ -10,7 +10,7 @@ field_name: field_initials
 entity_type: node
 bundle: subject
 label: Initials
-description: ''
+description: 'First and middle initials ONLY. Will be displayed if middle name is missing.'
 required: false
 translatable: false
 default_value: {  }
