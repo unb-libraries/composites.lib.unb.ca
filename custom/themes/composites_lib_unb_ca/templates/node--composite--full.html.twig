@@ -109,7 +109,9 @@
     {% endif %}
 
     {% if content.field_image|field_value %}
-      {{ content.field_image|field_value }}
+      <div class="mt-5">
+        {{ content.field_image|field_value }}
+      </div>
     {% endif %}
 
     <div class="container mt-2 mb-4 pl-0">

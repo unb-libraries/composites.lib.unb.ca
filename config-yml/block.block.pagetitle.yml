@@ -20,6 +20,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/*edit*\r\n/node/*hires*\r\n/node/*delete*"
+    pages: "/node/*edit*\r\n/node/*hires*\r\n/node/*delete*\r\n"
     negate: false
     context_mapping: {  }

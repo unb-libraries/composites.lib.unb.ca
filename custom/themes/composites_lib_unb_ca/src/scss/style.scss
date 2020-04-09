@@ -327,8 +327,24 @@ main[role="main"] {
         border-bottom: 1px solid $unb-halfgray;
       }
     }
-    // Blocks except main content.
-    & div.block:not(#block-mainpagecontent) {
+    // Titles.
+    & div.block#block-pagetitle {
+
+      & em {
+        font-style: normal !important;
+      }
+
+      & h1 {
+        padding-left: 2rem;
+        text-align: left !important;
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+    }
+
+    // Blocks except main content and titles.
+    & div.block:not(#block-mainpagecontent):not(#block-pagetitle) {
       background-color: $unb-halfgray;
       // Headers.
       & h1,
@@ -367,6 +383,16 @@ main[role="main"] {
       }
 
       #edit-field-grad-ceremony-0-uri--description ul li:last-of-type {
+        display: none;
+      }
+
+      #edit-field-composite {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        pointer-events: none;
+      }
+
+      #edit-delete {
         display: none;
       }
     }

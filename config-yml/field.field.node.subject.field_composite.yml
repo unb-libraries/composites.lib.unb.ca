@@ -11,7 +11,7 @@ field_name: field_composite
 entity_type: node
 bundle: subject
 label: Composite
-description: ''
+description: 'This value is inherited from the originating composite and cannot be altered. Displayed for reference.'
 required: false
 translatable: false
 default_value: {  }
