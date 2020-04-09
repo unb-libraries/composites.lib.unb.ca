@@ -12,8 +12,8 @@ field_name: field_image
 entity_type: node
 bundle: composite
 label: Image
-description: ''
-required: false
+description: 'This is the full composite image. All of the individual person portraits will be cropped from this image.  '
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -24,7 +24,7 @@ settings:
   max_resolution: ''
   min_resolution: ''
   alt_field: true
-  alt_field_required: false
+  alt_field_required: true
   title_field: false
   title_field_required: false
   default_image:

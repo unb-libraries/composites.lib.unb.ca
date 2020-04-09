@@ -10,8 +10,8 @@ field_name: field_disp_resolution
 entity_type: node
 bundle: composite
 label: 'Display Resolution (dpi)'
-description: ''
-required: false
+description: 'This value helps determine how the coordinates for each person crop the composite and may require adjustments.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

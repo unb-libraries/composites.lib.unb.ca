@@ -12,7 +12,7 @@ field_name: field_grad_ceremony
 entity_type: node
 bundle: composite
 label: 'Graduation Ceremony'
-description: ''
+description: 'Enter full URL. Eg. https://graduations.lib.unb.ca/ceremony/188'
 required: false
 translatable: false
 default_value: {  }

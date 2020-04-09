@@ -349,6 +349,26 @@ main[role="main"] {
         width: 20%;
         display: inline-block;
       }
+
+      .form-item-field-image-0-alt {
+        display: none;
+      }
+
+      .image-preview {
+        margin-bottom: 1rem;
+      }
+
+      #edit-field-image-0--description {
+        margin-top: 1rem;
+      }
+
+      .js-form-file {
+        min-height: 3rem;
+      }
+
+      #edit-field-grad-ceremony-0-uri--description ul li:last-of-type {
+        display: none;
+      }
     }
 
     // Search and browse blocks.
