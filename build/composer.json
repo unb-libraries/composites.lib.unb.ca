@@ -128,7 +128,7 @@
         "drupal/redis": "1.4",
         "drupal/require_login": "2.1",
         "drupal/restui": "1.17",
-        "drupal/search_api": "1.15",
+        "drupal/search_api": "1.16",
         "drupal/search_api_solr": "3.9",
         "drupal/timepicker-timepicker": "1.11",
         "drupal/token": "1.6",
