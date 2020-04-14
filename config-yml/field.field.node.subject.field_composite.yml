@@ -10,7 +10,7 @@ id: node.subject.field_composite
 field_name: field_composite
 entity_type: node
 bundle: subject
-label: Composite
+label: 'Composite Source Image'
 description: 'This value is inherited from the originating composite and cannot be altered. Displayed for reference.'
 required: false
 translatable: false
