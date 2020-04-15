@@ -297,7 +297,12 @@ main[role="main"] {
       // Titles/headers.
       & h1 {
         display: inline-table;
+        margin-bottom: 1rem;
         font-size: 2.4rem;
+      }
+
+      & h2 {
+        font-size: 1.8rem;
       }
 
       // Subtitles.
