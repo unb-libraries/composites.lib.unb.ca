@@ -14,7 +14,7 @@ use Drupal\node\Entity\Node;
 $cids = Drupal::entityQuery('node')
   ->condition('type', 'composite')->execute();
 
-// Load and save alll composites.
+// Load and save all composites.
 foreach ($cids as $cid) {
   $composite = Node::load($cid);
   $composite->save();

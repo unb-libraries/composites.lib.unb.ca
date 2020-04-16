@@ -7,6 +7,19 @@
 
 use Drupal\node\Entity\Node;
 
+// Delete static pages.
+// Search for all static pages node ids.
+$pids = Drupal::entityQuery('node')
+  ->condition('type', 'static_page')->execute();
+
+// Delete all.
+foreach ($pids as $pid) {
+  echo "Processing: $pid\n";
+  $page = Node::load($pid);
+  $page->delete();
+  echo "Done: $pid\n";
+}
+
 // Create default nodes.
 // static pages.
 // Introduction.
