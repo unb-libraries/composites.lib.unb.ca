@@ -10,7 +10,7 @@ id: node.composite.field_former_buildings
 field_name: field_former_buildings
 entity_type: node
 bundle: composite
-label: 'Buldings (former names)'
+label: 'Buildings (former names)'
 description: ''
 required: false
 translatable: false
@@ -24,6 +24,6 @@ settings:
     sort:
       field: name
       direction: asc
-    auto_create: false
+    auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference
