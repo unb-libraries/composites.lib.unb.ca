@@ -15,8 +15,8 @@ trait CompMigrationTrait {
    */
   public function getMigrations() {
     return [
-      'comp_0_subjects',
-      'comp_1_composites',
+      'comp_1_subjects',
+      'comp_2_composites',
     ];
   }
 

@@ -1,5 +1,5 @@
-id: comp_1_composites
-label: Composite photo subjects from source for composites.lib.unb.ca
+id: comp_2_composites
+label: Composite photos from source for composites.lib.unb.ca
 
 migration_tags:
   - CSV

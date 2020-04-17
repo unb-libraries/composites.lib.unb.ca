@@ -1,0 +1,55 @@
+id: comp_0_pages
+label: Initial static pages for composites.lib.unb.ca
+
+migration_tags:
+  - CSV
+
+source:
+  plugin: csv
+  path: "/app/html/modules/custom/comp_migration/data/csv/pages.csv"
+  delimiter: "|"
+  enclosure: '"'
+  header_row_count: 1
+
+  keys:
+    - nid
+
+  column_names:
+    0:
+      nid: NID
+    1:
+      alias: Alias
+    2:
+      title: Title
+    3:
+      body: Body
+
+  constants:
+    slash: "/"
+
+process:
+  type:
+    plugin: default_value
+    default_value: static_page
+  nid: nid
+  title: title
+
+  body/value: body
+  body/format:
+    plugin: default_value
+    default_value: "full_html"
+
+  path/pathauto:
+   plugin: default_value
+   default_value: 0 # Disable pathauto
+  path/alias: alias
+
+destination:
+  plugin: entity:node
+
+dependencies:
+  module:
+    - comp_migration
+  enforced:
+    module:
+      - comp_migration

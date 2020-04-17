@@ -37,7 +37,7 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
     $row = $event->getRow();
 
     // Only act on rows for this migration.
-    if ($migration_id == 'comp_1_composites') {
+    if ($migration_id == 'comp_2_composites') {
       $destination_ids = $event->getDestinationIdValues();
       $cid = $destination_ids[0];
       // Generate title and save node (to apply entity update operations).

@@ -38,7 +38,7 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
     $migration_id = $migration->id();
 
     // Only act on rows for this migration.
-    if ($migration_id == 'comp_0_subjects') {
+    if ($migration_id == 'comp_1_subjects') {
 
       // Subject photo coordinates.
       // Top.

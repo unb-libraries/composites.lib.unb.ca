@@ -39,7 +39,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     $migration_id = $migration->id();
 
     // Only act on rows for this migration.
-    if ($migration_id == 'comp_1_composites') {
+    if ($migration_id == 'comp_2_composites') {
 
       // Contributors.
       $src_contribs = $row->getSourceProperty('contributor');
