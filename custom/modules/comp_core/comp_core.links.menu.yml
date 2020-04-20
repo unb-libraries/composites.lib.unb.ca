@@ -1,3 +1,4 @@
+# Main menu.
 comp_core.home:
   title: 'Home'
   description: 'Home'
@@ -62,3 +63,17 @@ comp_core.archives:
   menu_name: main
   url: 'https://lib.unb.ca/archives'
   weight: 50
+
+# Admin toolbar.
+comp_core.editor:
+  title: 'UNB Class Composite & Group Photographs'
+  description: 'Manage UNB Composites editor features.'
+  route_name: <front>
+  parent: system.admin
+  weight: -100
+comp_core.editor.add_comp:
+  title: 'Add New Composite'
+  description: 'Add a new composite to the database.'
+  url: internal:/node/add/composite
+  parent: comp_core.editor
+  weight: 10
