@@ -24,7 +24,7 @@ input {
   }
 }
 // Hide all alt-text form input fields.
-div[class^="form-item-field-image-"][class$="-alt"] {
+div[class*="form-item-field-image-"][class*="-alt"] {
   display: none;
 }
 // Round borders.
