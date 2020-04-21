@@ -26,7 +26,7 @@ function comp_core_theme($existing, $type, $theme, $path) {
  * Implements hook_page_attachments().
  */
 function comp_core_page_attachments(array &$attachments) {
-  if (!\Drupal::currentUser()->hasPermission('use the toolbar')) {
+  if (!\Drupal::currentUser()->hasPermission('access toolbar')) {
     return;
   }
 
