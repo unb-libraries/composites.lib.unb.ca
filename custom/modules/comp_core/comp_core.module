@@ -25,11 +25,12 @@ function comp_core_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements hook_preprocess_HOOK().
+ * Implements hook_page_attachments().
  */
-function comp_crud_preprocess_node__static_page(&$variables) {
-  $user = \Drupal::currentUser();
-  $user_roles = $user->getRoles();
-  $roles_permissions = user_role_permissions($user_roles);
-  kint($roles_permissions);
+function comp_core_page_attachments(array &$attachments) {
+  if (!\Drupal::currentUser()->hasPermission('access toolbar')) {
+    return;
+  }
+
+  $attachments['#attached']['library'][] = 'comp_core/toolbar-overrides';
 }
