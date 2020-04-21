@@ -1,0 +1,36 @@
+/* Toolbar Menu Item Styling w/ Bootstrap4 */
+.toolbar {
+  .toolbar-tray {
+    a {
+      &:focus,
+      &:hover {
+        /* Improve hover/focus background/foreground contrast */
+        color: $white;
+      }
+    }
+    .menu-item {
+      a {
+        &:focus {
+          /* Override Admin Toolbar light blue focus bg-color */
+          background-color: $blue;
+        }
+      }
+    }
+  }
+  .custom-editor-menu {
+    &:before {
+      /* Add custom menu item icon (eg. site theme favicon) */
+      background-image: url(/themes/custom/composites_lib_unb_ca/images/favicon-16x16.png);
+      background-repeat: no-repeat;
+      background-position: 100% 40%;
+    }
+  }
+}
+
+/* Toolbar Vertical Orientation */
+.toolbar-tray-vertical {
+  .custom-editor-menu {
+    /* Add space between long menu title text and toggle icon */
+    margin-right: .25rem;
+  }
+}

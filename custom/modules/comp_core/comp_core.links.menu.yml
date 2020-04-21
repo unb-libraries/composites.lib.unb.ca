@@ -71,6 +71,10 @@ comp_core.editor:
   route_name: <front>
   parent: system.admin
   weight: -100
+  options:
+    attributes:
+      class:
+        - custom-editor-menu
 comp_core.editor.add_comp:
   title: 'Add New Composite'
   description: 'Add a new composite to the database.'
