@@ -41,21 +41,6 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $dpi = intval($composite->get('field_disp_resolution')
           ->getValue()[0]['value']);
 
-        // Crop effect configuration.
-        // Retrieve coordinates from subject record.
-        if(!empty($subject->get('field_top_x')->getValue()[0])) {
-          $topX = floatval($subject->get('field_top_x')->getValue()[0]['value']);
-        }
-        if(!empty($subject->get('field_bottom_x')->getValue()[0])) {
-          $botX = floatval($subject->get('field_bottom_x')->getValue()[0]['value']);
-        }
-        if(!empty($subject->get('field_top_y')->getValue()[0])) {
-          $topY = floatval($subject->get('field_top_y')->getValue()[0]['value']);
-        }
-        if(!empty($subject->get('field_bottom_y')->getValue()[0])) {
-          $botY = floatval($subject->get('field_bottom_y')->getValue()[0]['value']);
-        }
-
         // Load image style with preview cropping effect.
         $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
         $style = ImageStyle::load($style_name);
@@ -66,19 +51,24 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           $style = ImageStyle::load($style_name);
         }
 
-        if (!empty($style)) {
-        // Add styled image to form.
-        $styled_image_url = $style->buildUrl($composite->field_image->entity->getFileUri());
-        $div_classes = 'js-form-item form-item';
+        if (empty($style)) {
+          // If default style is also not available, load 'large' style.
+          $style = ImageStyle::load('large');
+        }
 
-        $form['subject_img'] = [
-          '#type' => 'markup',
-          '#prefix' => "<div id='subject-img-div' class='$div_classes'>" .
-            '<label>Composite Crop Preview</label>',
-          '#suffix' => '</div>',
-          '#markup' => "<img id='subject-img' class='d-block' src='$styled_image_url'>",
-          '#weight' => -100,
-        ];
+        if (!empty($style)) {
+          // Add styled image to form.
+          $styled_image_url = $style->buildUrl($composite->field_image->entity->getFileUri());
+          $div_classes = 'js-form-item form-item';
+
+          $form['subject_img'] = [
+            '#type' => 'markup',
+            '#prefix' => "<div id='subject-img-div' class='$div_classes'>" .
+              '<label>Composite Crop Preview</label>',
+            '#suffix' => '</div>',
+            '#markup' => "<img id='subject-img' class='d-block' src='$styled_image_url'>",
+            '#weight' => -100,
+          ];
         }
 
         // Flush cache to trigger node preprocess on refresh.
