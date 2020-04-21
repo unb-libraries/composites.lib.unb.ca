@@ -21,3 +21,14 @@ function comp_core_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
+
+/**
+ * Implements hook_page_attachments().
+ */
+function comp_core_page_attachments(array &$attachments) {
+  if (!\Drupal::currentUser()->hasPermission('use the toolbar')) {
+    return;
+  }
+
+  $attachments['#attached']['library'][] = 'comp_core/toolbar-overrides';
+}
