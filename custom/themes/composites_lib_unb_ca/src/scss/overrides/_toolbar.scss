@@ -1,5 +1,13 @@
 /* Toolbar Menu Item Styling w/ Bootstrap4 */
 .toolbar {
+  .toolbar-bar .toolbar-tab,
+  .toolbar-bar .toolbar-tab {
+    & > .toolbar-item:focus,
+    & > .toolbar-item:hover {
+      /* Improve top-level menu item contrast */
+      background-image: inherit;
+    }
+  }
   .toolbar-tray {
     a {
       &:focus,
