@@ -538,6 +538,22 @@ footer > div.container {
     }
   }
 }
+@media (max-width: 991px) {
+  // Browse block.
+  & div#block-browse {
+    height: 9.75em;
+    width: 100% !important;
+    float: none !important;
+  }
+  // Exposed search.
+  div[id*="block-exposedformsearch-subjectspage-1"] {
+    width: 100% !important;
+
+    & div.form-item-search-api-fulltext {
+      width: 78% !important;
+    }
+  }
+}
 @media (min-width: 500px) and (max-width: 767px) {
   // Header.
   header {
