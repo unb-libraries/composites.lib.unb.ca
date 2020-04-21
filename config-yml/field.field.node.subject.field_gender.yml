@@ -6,15 +6,19 @@ dependencies:
     - field.storage.node.field_gender
     - node.type.subject
     - taxonomy.vocabulary.gender
+  content:
+    - 'taxonomy_term:gender:08d06bdc-2131-47c8-8929-c4d31a8289f5'
 id: node.subject.field_gender
 field_name: field_gender
 entity_type: node
 bundle: subject
 label: Gender
 description: ''
-required: false
+required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 08d06bdc-2131-47c8-8929-c4d31a8289f5
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
