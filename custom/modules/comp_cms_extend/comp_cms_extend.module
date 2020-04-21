@@ -43,10 +43,18 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
         // Crop effect configuration.
         // Retrieve coordinates from subject record.
-        $topX = floatval($subject->get('field_top_x')->getValue()[0]['value']);
-        $topY = floatval($subject->get('field_top_y')->getValue()[0]['value']);
-        $botX = floatval($subject->get('field_bottom_x')->getValue()[0]['value']);
-        $botY = floatval($subject->get('field_bottom_y')->getValue()[0]['value']);
+        if(!empty($subject->get('field_top_x')->getValue()[0])) {
+          $topX = floatval($subject->get('field_top_x')->getValue()[0]['value']);
+        }
+        if(!empty($subject->get('field_bottom_x')->getValue()[0])) {
+          $botX = floatval($subject->get('field_bottom_x')->getValue()[0]['value']);
+        }
+        if(!empty($subject->get('field_top_y')->getValue()[0])) {
+          $topY = floatval($subject->get('field_top_y')->getValue()[0]['value']);
+        }
+        if(!empty($subject->get('field_bottom_y')->getValue()[0])) {
+          $botY = floatval($subject->get('field_bottom_y')->getValue()[0]['value']);
+        }
 
         // Load image style with preview cropping effect.
         $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
