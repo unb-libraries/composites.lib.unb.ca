@@ -2,8 +2,6 @@ uuid: a41c2bee-78f0-416d-8b97-c31167cc0473
 langcode: en
 status: true
 dependencies:
-  module:
-    - system
   theme:
     - composites_lib_unb_ca
 id: tabs
@@ -19,9 +17,4 @@ settings:
   label_display: '0'
   primary: true
   secondary: true
-visibility:
-  request_path:
-    id: request_path
-    pages: "/introduction\r\n/about\r\n/acknowledgements\r\n"
-    negate: true
-    context_mapping: {  }
+visibility: {  }

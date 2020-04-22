@@ -19,7 +19,6 @@ class RouteSubscriber extends RouteSubscriberBase {
       'user.pass',
       'user.register',
       'user.reset.form',
-      'entity.user.edit_form',
     ];
 
     foreach ($halt_routes as $halt_route) {
@@ -27,7 +26,7 @@ class RouteSubscriber extends RouteSubscriberBase {
       $usr = \Drupal::currentUser();
 
       // Deny route access if user is visitor or content editor.
-      if (!$usr->isAuthenticated() or $usr->hasRole('content_editor')) {
+      if (!$usr->isAuthenticated() or in_array('content_editor', $usr->getRoles())) {
         $route->setRequirement('_access', 'FALSE');
       }
     }

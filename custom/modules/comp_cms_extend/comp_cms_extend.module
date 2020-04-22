@@ -71,7 +71,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           ];
         }
 
-        // Flush cache to trigger node preprocess on refresh.
+        // Flush caches to trigger node preprocess on refresh.
         drupal_flush_all_caches();
 
         // Add composite cropping label.
@@ -117,7 +117,13 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
  * @inheritdoc
 */
 function comp_cms_extend_local_tasks_alter(&$local_tasks) {
-  $local_tasks['entity.node.canonical']['title'] = 'Image and Details';
+  $node = \Drupal::request()->attributes->get('node');
+  $bundle = is_object($node) ? $node->bundle() : NULL;
+
+  if ($bundle and in_array($bundle, ['composite', 'subject'])) {
+    $local_tasks['entity.node.canonical']['title'] = 'Image and Details';
+  }
+
 }
 
 function refresh_subject_img($form, &$form_state) {
