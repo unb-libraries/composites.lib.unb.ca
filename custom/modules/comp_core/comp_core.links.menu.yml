@@ -81,3 +81,9 @@ comp_core.editor.add_comp:
   url: internal:/node/add/composite
   parent: comp_core.editor
   weight: 10
+comp_core.editor.content:
+  title: 'Content'
+  description: 'Browse site content.'
+  url: internal:/admin/content
+  parent: comp_core.editor
+  weight: 20

@@ -37,3 +37,9 @@
   /* Add space between long menu title text and toggle icon */
   margin-right: .25rem;
 }
+
+/* Hide user profile view ande edit links */
+.toolbar-menu .account,
+.toolbar-menu .account-edit {
+  display: none;
+}
