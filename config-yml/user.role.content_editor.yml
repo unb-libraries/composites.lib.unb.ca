@@ -7,13 +7,18 @@ label: 'Content Editor'
 weight: 2
 is_admin: null
 permissions:
+  - 'access content overview'
   - 'access toolbar'
   - 'create composite content'
   - 'create slideshow_image content'
+  - 'create static_page content'
   - 'create subject content'
   - 'delete any composite content'
   - 'delete any slideshow_image content'
+  - 'delete any static_page content'
   - 'delete any subject content'
   - 'edit any composite content'
   - 'edit any slideshow_image content'
+  - 'edit any static_page content'
   - 'edit any subject content'
+  - 'use text format full_html'
