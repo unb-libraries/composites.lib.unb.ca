@@ -5,5 +5,17 @@ definitions:
     parent: ''
     expanded: false
     weight: -10
+  system__admin_content:
+    enabled: false
+    menu_name: admin
+    parent: system.admin
+    expanded: false
+    weight: -10
+  comment__admin:
+    enabled: false
+    menu_name: admin
+    parent: system.admin_content
+    weight: 0
+    expanded: false
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM
