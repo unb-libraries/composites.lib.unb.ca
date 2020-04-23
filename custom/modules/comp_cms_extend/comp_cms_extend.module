@@ -111,21 +111,6 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
   }
 }
 
-/**
- * Implements hook_local_tasks_alter().
- *
- * @inheritdoc
-*/
-function comp_cms_extend_local_tasks_alter(&$local_tasks) {
-  $node = \Drupal::request()->attributes->get('node');
-  $bundle = is_object($node) ? $node->bundle() : NULL;
-
-  if ($bundle and in_array($bundle, ['composite', 'subject'])) {
-    $local_tasks['entity.node.canonical']['title'] = 'Image and Details';
-  }
-
-}
-
 function refresh_subject_img($form, &$form_state) {
 
   // Retrieve subject node, id, composite id.

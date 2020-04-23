@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function composites_lib_unb_ca_preprocess_menu_local_task(&$variables) {
+
+  if (isset($variables['element']['#link']['title']) && $variables['element']['#link']['title'] == 'View') {
+    $node_id = \Drupal::routeMatch()->getRawParameter('node');
+
+    // Override the tab label ('View') for nodes of type composite and subject.
+    $content_types = ['composite', 'subject'];
+
+    $query = \Drupal::entityQuery('node')
+      ->condition('nid', $node_id)
+      ->condition('type', $content_types, 'IN')
+      ->execute();
+
+    if (!empty($query)) {
+      $variables['link']['#title'] = t('Image and Details');
+    }
+  }
+}
