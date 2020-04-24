@@ -51,6 +51,8 @@ source:
       no_profs: Number of Professors
     19:
       related_image: Related Image
+    20:
+      display_dpi: Display DPI
 
 process:
   type:
@@ -70,9 +72,7 @@ process:
   field_physical_size: physical_size
   field_subjects: entity_subjects
   field_type: type
-  field_disp_resolution:
-    plugin: default_value
-    default_value: 72
+  field_disp_resolution: display_dpi
   field_width: width
   field_comp_year: comp_year
   field_comp_campus: taxo_campus
