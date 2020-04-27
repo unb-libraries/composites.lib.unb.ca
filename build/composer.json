@@ -132,7 +132,7 @@
         "drupal/search_api": "1.16",
         "drupal/search_api_solr": "3.9",
         "drupal/timepicker-timepicker": "1.11",
-        "drupal/token": "1.6",
+        "drupal/token": "1.7",
         "drupal/twig_field_value": "1.2",
         "drupal/twig_tweak": "2.5",
         "drupal/views_slideshow": "4.7",
