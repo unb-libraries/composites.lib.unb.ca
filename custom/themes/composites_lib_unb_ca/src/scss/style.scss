@@ -346,6 +346,10 @@ main[role="main"] {
     }
     // Node forms.
     & .node-form {
+      & label:not(.option) {
+        font-weight: bold;
+      }
+
       .field--name-field-top-x,
       .field--name-field-top-y,
       .field--name-field-bottom-x,
