@@ -16,12 +16,12 @@ spec:
   selector:
     matchLabels:
       uri: composites.lib.unb.ca
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 2
+      maxSurge: 1
       maxUnavailable: 0
   template:
     metadata:
