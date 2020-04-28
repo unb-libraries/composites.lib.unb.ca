@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -13,12 +13,15 @@ metadata:
   name: composites-lib-unb-ca
   namespace: prod
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      uri: composites.lib.unb.ca
+  replicas: 2
   revisionHistoryLimit: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 1
+      maxSurge: 2
       maxUnavailable: 0
   template:
     metadata:
