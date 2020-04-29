@@ -509,9 +509,14 @@ footer > div.container {
     }
   }
 
-  & a, a:hover, a:focus {
+  & a {
     background-color: initial;
+    color: $unb-darkred;
     box-shadow: none;
+  }
+
+  & a:hover, a:focus {
+    text-decoration: underline;
   }
 
   // Copyright.
