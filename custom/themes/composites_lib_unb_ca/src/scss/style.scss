@@ -513,6 +513,11 @@ footer > div.container {
     background-color: initial;
     box-shadow: none;
   }
+
+  // Copyright.
+  & #footer-copy p {
+    text-align: right;
+  }
 }
 //End footer.
 
