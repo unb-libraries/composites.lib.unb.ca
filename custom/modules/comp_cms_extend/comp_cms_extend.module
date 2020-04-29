@@ -64,7 +64,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           $form['subject_img'] = [
             '#type' => 'markup',
             '#prefix' => "<div id='subject-img-div' class='$div_classes'>" .
-              '<label>Composite Crop Preview</label>',
+              '<p class="font-weight-bold mb-2">Composite Crop Preview</p>',
             '#suffix' => '</div>',
             '#markup' => "<img id='subject-img' class='d-block' src='$styled_image_url'>",
             '#weight' => -100,
@@ -77,7 +77,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         // Add composite cropping label.
         $form['composite_cropping'] = [
           '#type' => 'markup',
-          '#prefix' => '<p class="mt-5 mb-0">',
+          '#prefix' => '<p class="font-weight-bold mt-5 mb-n4">',
           '#markup' => t('Composite Crop Coordinates'),
           '#suffix' => '</p>',
           '#weight' => -99,
