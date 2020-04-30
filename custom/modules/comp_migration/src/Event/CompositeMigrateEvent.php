@@ -117,13 +117,20 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       }
 
       // Image.
-      $src_filename = trim($row->getSourceProperty('source_file')) . ".jpg";
-      $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
-        . $src_filename;
-      $data = file_get_contents($src_path);
+      $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/';
+      $src_filename = trim($row->getSourceProperty('source_file'));
+      $src_ext = '.tif';
+
+      // If no TIFF is found, try JPEG.
+      if (!file_exists($src_path . $src_filename . $src_ext)) {
+        $src_ext = '.jpg';
+      }
+
+      $full_path .= $src_path . $src_filename . $src_ext;
+      $data = file_exists($full_path) ? file_get_contents($full_path) : NULL;
 
       if (!empty($data)) {
-        $file = file_save_data($data, "public://comp_images/" . $src_filename, FILE_EXISTS_REPLACE);
+        $file = file_save_data($data, "public://comp_images/" . $src_filename . $src_ext, FILE_EXISTS_REPLACE);
         $fid = $file->id();
 
         $field_image = [
