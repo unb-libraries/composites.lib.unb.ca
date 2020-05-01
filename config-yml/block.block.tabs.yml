@@ -7,7 +7,7 @@ dependencies:
 id: tabs
 theme: composites_lib_unb_ca
 region: content
-weight: -4
+weight: -1
 provider: null
 plugin: local_tasks_block
 settings:
