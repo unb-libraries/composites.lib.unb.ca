@@ -9,7 +9,7 @@ id: node.composite.field_comp_source_file
 field_name: field_comp_source_file
 entity_type: node
 bundle: composite
-label: 'Comp. Source File'
+label: 'Composite Source File'
 description: ''
 required: false
 translatable: false

@@ -10,7 +10,7 @@ id: node.composite.field_comp_campus
 field_name: field_comp_campus
 entity_type: node
 bundle: composite
-label: 'Comp. Campus'
+label: 'Composite Campus'
 description: ''
 required: true
 translatable: false

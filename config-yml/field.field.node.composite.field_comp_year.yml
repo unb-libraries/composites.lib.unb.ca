@@ -9,7 +9,7 @@ id: node.composite.field_comp_year
 field_name: field_comp_year
 entity_type: node
 bundle: composite
-label: 'Comp. Year'
+label: 'Composite Year'
 description: ''
 required: true
 translatable: false

@@ -9,7 +9,7 @@ id: node.subject.field_alt_name_source
 field_name: field_alt_name_source
 entity_type: node
 bundle: subject
-label: 'Alt. Name Source'
+label: 'Alternate Name Source'
 description: ''
 required: false
 translatable: false

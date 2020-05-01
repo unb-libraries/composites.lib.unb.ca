@@ -21,3 +21,9 @@ effects:
       width: 300
       height: 200
       anchor: center-center
+  07846483-ab3a-4060-bb44-2a9f2feacf9a:
+    uuid: 07846483-ab3a-4060-bb44-2a9f2feacf9a
+    id: image_convert
+    weight: 3
+    data:
+      extension: jpg
