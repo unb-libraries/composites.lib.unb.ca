@@ -459,7 +459,7 @@ main[role="main"] {
         color: $unb-gray;
       }
       // Unordered lists.
-      ul:not(.composite-subjects) {
+      ul:not(.composite-subjects):not(.dropbutton) {
         margin-top: 1.5em;
         list-style: none;
       }
