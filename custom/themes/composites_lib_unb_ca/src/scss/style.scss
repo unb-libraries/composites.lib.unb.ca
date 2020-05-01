@@ -10,6 +10,12 @@
 @import 'custom/variables';
 
 // Global (careful here).
+// Global font.
+body,
+.font-regular {
+    font-family: 'ProximaNovaA-Regular', 'Century Gothic', AppleGothic, Arial, sans-serif;
+}
+
 // All links.
 a {
   box-shadow: none !important;
