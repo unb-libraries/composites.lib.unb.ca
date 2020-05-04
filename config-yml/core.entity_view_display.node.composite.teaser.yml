@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.composite.field_physical_size
     - field.field.node.composite.field_related_image
     - field.field.node.composite.field_subjects
+    - field.field.node.composite.field_surrogate
     - field.field.node.composite.field_type
     - field.field.node.composite.field_width
     - node.type.composite
@@ -60,6 +61,7 @@ hidden:
   field_physical_size: true
   field_related_image: true
   field_subjects: true
+  field_surrogate: true
   field_tiff_location: true
   field_type: true
   field_width: true

@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.composite.field_physical_size
     - field.field.node.composite.field_related_image
     - field.field.node.composite.field_subjects
+    - field.field.node.composite.field_surrogate
     - field.field.node.composite.field_type
     - field.field.node.composite.field_width
     - node.type.composite
@@ -118,6 +119,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_surrogate:
+    weight: 10
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
 hidden:
   field_comp_decade: true

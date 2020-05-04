@@ -1,0 +1,38 @@
+uuid: 4a46c05c-095e-438c-a551-0e4d0d2af48b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_surrogate
+    - node.type.composite
+  module:
+    - image
+id: node.composite.field_surrogate
+field_name: field_surrogate
+entity_type: node
+bundle: composite
+label: 'Surrogate Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
