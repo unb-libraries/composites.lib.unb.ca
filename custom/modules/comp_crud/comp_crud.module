@@ -61,6 +61,24 @@ function comp_crud_entity_presave($entity) {
         $image[0]['alt'] = $title;
         $image[0]['title'] = $title;
         $entity->get('field_image')->setValue($image);
+
+        // Generate surrogate image using center-wide image style.
+        $fid = $image[0]['target_id'];
+        $file = File::load($fid);
+        $image_uri = $file->getFileUri();
+        $style = ImageStyle::load('center_wide');
+        $destination_uri = $style->buildUri($file->uri->value);
+        $style->createDerivative($image_uri, $destination_uri);
+
+        $destination_file = \Drupal::entityTypeManager()
+          ->getStorage('file')
+          ->loadByProperties(['uri' => $destination_uri]);
+
+        $surrogate = $entity->get('field_surrogate')->getValue();
+        $surrogate[0]['target_id'] = strval(key($destination_file));
+        $surrogate[0]['alt'] = $title;
+        $surrogate[0]['title'] = $title;
+        $entity->get('field_surrogate')->setValue($surrogate);
       }
     break;
 
@@ -165,15 +183,16 @@ function comp_crud_entity_update($entity) {
 
     // If the entity is a composite...
     case 'composite':
-    // Generate DZI file and tiles.
     $old_img = $entity->original->get('field_image')->getValue()[0]['target_id'];
     $new_img = $entity->get('field_image')->getValue()[0]['target_id'];
 
+    // If the image was changed...
     if ($new_img != $old_img) {
       $fid = $new_img;
       $nid = $entity->id();
 
       if (!empty($fid)) {
+        // Generate DZI file and tiles.
         prepare_dzi_batch($fid, $nid);
       }
       break;
