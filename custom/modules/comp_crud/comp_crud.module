@@ -79,6 +79,9 @@ function comp_crud_entity_presave($entity) {
         $surrogate[0]['alt'] = $title;
         $surrogate[0]['title'] = $title;
         $entity->get('field_surrogate')->setValue($surrogate);
+
+        kint($entity->get('field_surrogate')->getValue());
+        sleep(5);
       }
     break;
 
@@ -90,7 +93,7 @@ function comp_crud_entity_presave($entity) {
         $lname = $entity->get('field_last_name')->getValue()[0]['value'];
       }
 
-      if (!empty($entity->get('field_initials')->getValue()[0]['value'])) {      
+      if (!empty($entity->get('field_initials')->getValue()[0]['value'])) {
         $initials = $entity->get('field_initials')->getValue()[0]['value'];
       }
 
@@ -270,28 +273,35 @@ function comp_crud_preprocess_node__subject(&$variables) {
 
     // Crop effect configuration.
     // Retrieve coordinates from subject record.
-    $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
-    $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
-    $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
-    $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
 
-    // Call style updating method. Override existing.
-    $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
+    if (!empty(floatval($variables['content']['field_top_x'][0]['#markup'])
+    and !empty(floatval($variables['content']['field_top_y'][0]['#markup'])
+    and !empty(floatval($variables['content']['field_bottom_x'][0]['#markup'])
+    and !empty(floatval($variables['content']['field_bottom_y'][0]['#markup'])
+    ) {
+      $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
+      $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
+      $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
+      $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
 
-    $style_name = $style->getName();
+      // Call style updating method. Override existing.
+      $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
 
-    if (!empty($style)) {
-      // Save styled image as renederable field to content.
-      $variables['content']['subject_image'] = $comp_img->view([
-        'type' => 'image',
-        'label' => 'above',
-        'settings' => [
-          'image_style' => $style_name,
-        ],
-      ]);
+      $style_name = $style->getName();
 
-      $variables['content']['subject_image']['#title'] = 'Individual Portrait';
-      $variables['content']['subject_image']['#weight'] = -1;
+      if (!empty($style)) {
+        // Save styled image as renederable field to content.
+        $variables['content']['subject_image'] = $comp_img->view([
+          'type' => 'image',
+          'label' => 'above',
+          'settings' => [
+            'image_style' => $style_name,
+          ],
+        ]);
+
+        $variables['content']['subject_image']['#title'] = 'Individual Portrait';
+        $variables['content']['subject_image']['#weight'] = -1;
+      }
     }
   }
 
