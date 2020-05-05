@@ -2,7 +2,7 @@ uuid: 512fdfb7-3491-46fe-b42a-ea685e32c19b
 langcode: en
 status: true
 dependencies: {  }
-name: center_wide_300x200_
+name: center_wide
 label: 'Center Wide (300x200)'
 effects:
   15c84bc7-2fa2-4a00-a035-05e91daad094:

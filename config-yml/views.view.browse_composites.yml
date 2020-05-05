@@ -7,7 +7,7 @@ dependencies:
     - field.storage.node.field_image
     - field.storage.node.field_subjects
     - field.storage.node.field_type
-    - image.style.center_wide_300x200_
+    - image.style.center_wide
     - search_api.index.images_composites_lib_unb_ca
   module:
     - image
@@ -378,7 +378,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: center_wide_300x200_
+            image_style: center_wide
             image_link: content
           group_column: ''
           group_columns: {  }
@@ -680,11 +680,13 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.field_comp_year'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_subjects'
         - 'config:field.storage.node.field_type'
+        - 'config:search_api.index.images_composites_lib_unb_ca'
   page_1:
     display_plugin: page
     id: page_1
@@ -703,8 +705,10 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.field_comp_year'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_subjects'
         - 'config:field.storage.node.field_type'
+        - 'config:search_api.index.images_composites_lib_unb_ca'
