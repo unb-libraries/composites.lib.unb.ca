@@ -68,7 +68,7 @@ function comp_crud_entity_presave($entity) {
         $image_uri = $file->getFileUri();
         $style = ImageStyle::load('center_wide');
         $destination_uri = $style->buildUri($file->uri->value);
-        $style->createDerivative($image_uri, $destination_uri);
+        $success = $style->createDerivative($image_uri, $destination_uri);
 
         $destination_file = \Drupal::entityTypeManager()
           ->getStorage('file')
@@ -79,9 +79,6 @@ function comp_crud_entity_presave($entity) {
         $surrogate[0]['alt'] = $title;
         $surrogate[0]['title'] = $title;
         $entity->get('field_surrogate')->setValue($surrogate);
-
-        kint($entity->get('field_surrogate')->getValue());
-        sleep(5);
       }
     break;
 
