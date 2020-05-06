@@ -569,6 +569,12 @@ footer > div.container {
     }
   }
 }
+@media (max-width: 768px) {
+  #footer-copy p {
+    padding-top: 1rem;
+    text-align: left !important;
+  }
+}
 @media (max-width: 991px) {
   // Browse block.
   & div#block-browse {
