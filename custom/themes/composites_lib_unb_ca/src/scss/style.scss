@@ -480,8 +480,9 @@ main[role="main"] {
           border-bottom: 1px solid $unb-halfgray;
         }
 
-        & div.collapse > div.item-list > ul {
-          columns: 2;
+        & div.collapse > div.item-list > ul,
+        & div.subjects-top > div.item-list > ul {
+          columns: 3;
         }
       }
     }
