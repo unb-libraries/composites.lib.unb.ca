@@ -555,6 +555,15 @@ footer > div.container {
     width: 930px;
   }
 }
+@media (min-width: 992px) {
+  #navbarSupportedContent {
+    justify-content: flex-start !important;
+  }
+
+  nav > div > div.col.p-0 {
+    display: none;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px) {
   // Header.
   header {
@@ -570,6 +579,7 @@ footer > div.container {
   }
 }
 @media (max-width: 768px) {
+  // Footer.
   #footer-copy p {
     padding-top: 1rem;
     text-align: left !important;
