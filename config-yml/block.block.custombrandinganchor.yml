@@ -1,25 +1,23 @@
-uuid: 4677489b-7f7f-44b4-85da-7b8824d5fafb
+uuid: 62466145-2c83-4e8b-b876-ca137a4b600f
 langcode: en
 status: true
 dependencies:
   module:
+    - comp_core
     - system
   theme:
     - composites_lib_unb_ca
-id: sitebranding
+id: custombrandinganchor
 theme: composites_lib_unb_ca
 region: header
 weight: 0
 provider: null
-plugin: system_branding_block
+plugin: comp_branding_anchor
 settings:
-  id: system_branding_block
-  label: 'Site branding'
-  provider: system
+  id: comp_branding_anchor
+  label: 'Custom Branding Anchor'
+  provider: comp_core
   label_display: '0'
-  use_site_logo: false
-  use_site_name: true
-  use_site_slogan: false
 visibility:
   request_path:
     id: request_path
