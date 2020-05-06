@@ -90,7 +90,7 @@ header {
   margin-right: auto;
   // Branding.
   & div.block-system-branding-block {
-    & a > span {
+    & a {
       font-size: 1.5rem !important;
       font-weight: 400;
     }
@@ -98,6 +98,7 @@ header {
     & h1 {
       font-size: 1.5rem !important;
       font-weight: 400;
+      line-height: 1.5;
       color: $unb-darkred;
     }
 

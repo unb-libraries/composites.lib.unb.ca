@@ -8,12 +8,12 @@ use Drupal\Core\Block\BlockBase;
  * Provides a custom block for site branding.
  *
  * @Block(
- *   id = "comp_branding",
- *   admin_label = @Translation("Custom Branding"),
+ *   id = "comp_branding_anchor",
+ *   admin_label = @Translation("Custom Branding Anchor"),
  *   category = @Translation("Misc"),
  * )
  */
-class CompBranding extends BlockBase {
+class CompBrandingAnchor extends BlockBase {
 
   /**
    * {@inheritdoc}
@@ -21,7 +21,9 @@ class CompBranding extends BlockBase {
   public function build() {
     $text = '
       <div class="block-system-branding-block mt-2 mb-2">
-        <h1 class="mb-0">UNB Class Composite & Group Photographs</h1>
+        <a href="/" class="navbar-brand pt-0 pb-0">
+          UNB Class Composite & Group Photographs
+        </a>
       </div>
     ';
 
