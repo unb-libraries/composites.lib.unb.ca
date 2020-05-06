@@ -508,11 +508,17 @@ footer > div.container {
   border-top: 1px solid $unb-halfgray;
   padding-top: 1em;
 
+  & .row.clearfix {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
   & div#footer-logo-div, div#footer-menu-div {
-    padding-left: 0;
 
     & img#footer-logo-img {
       max-width: 260px;
+      padding-right: 0 !important
     }
   }
 
@@ -527,8 +533,11 @@ footer > div.container {
   }
 
   // Copyright.
-  & #footer-copy p {
+  & #footer-copy {
+
+    & p {
     text-align: right;
+    }
   }
 }
 //End footer.
