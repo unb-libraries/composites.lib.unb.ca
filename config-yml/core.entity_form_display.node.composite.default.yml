@@ -21,7 +21,6 @@ dependencies:
     - field.field.node.composite.field_physical_size
     - field.field.node.composite.field_related_image
     - field.field.node.composite.field_subjects
-    - field.field.node.composite.field_surrogate
     - field.field.node.composite.field_type
     - field.field.node.composite.field_width
     - image.style.thumbnail
@@ -155,14 +154,6 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
-  field_surrogate:
-    type: image_image
-    weight: 18
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
   field_type:
     weight: 5
     settings:

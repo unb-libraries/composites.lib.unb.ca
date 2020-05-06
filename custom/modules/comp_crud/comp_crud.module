@@ -8,6 +8,7 @@
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\file\FileInterface;
 
 /**
  * Implements hook_entity_presave().
@@ -61,24 +62,6 @@ function comp_crud_entity_presave($entity) {
         $image[0]['alt'] = $title;
         $image[0]['title'] = $title;
         $entity->get('field_image')->setValue($image);
-
-        // Generate surrogate image using center-wide image style.
-        $fid = $image[0]['target_id'];
-        $file = File::load($fid);
-        $image_uri = $file->getFileUri();
-        $style = ImageStyle::load('center_wide');
-        $destination_uri = $style->buildUri($file->uri->value);
-        $success = $style->createDerivative($image_uri, $destination_uri);
-
-        $destination_file = \Drupal::entityTypeManager()
-          ->getStorage('file')
-          ->loadByProperties(['uri' => $destination_uri]);
-
-        $surrogate = $entity->get('field_surrogate')->getValue();
-        $surrogate[0]['target_id'] = strval(key($destination_file));
-        $surrogate[0]['alt'] = $title;
-        $surrogate[0]['title'] = $title;
-        $entity->get('field_surrogate')->setValue($surrogate);
       }
     break;
 
@@ -127,6 +110,21 @@ function comp_crud_entity_presave($entity) {
  * Implements hook_entity_insert().
  */
 function comp_crud_entity_insert($entity) {
+  // Create all appicable image styles on file upload.
+  if ($entity instanceof FileInterface) {
+    $image = \Drupal::service('image.factory')->get($entity->getFileUri());
+
+    if ($image->isValid()) {
+      $styles = ImageStyle::loadMultiple();
+      $image_uri = $entity->getFileUri();
+
+      foreach ($styles as $style) {
+        $destination = $style->buildUri($image_uri);
+        $style->createDerivative($image_uri, $destination);
+      }
+    }
+  }
+
   // Process for different content types.
   switch($entity->bundle()) {
 
