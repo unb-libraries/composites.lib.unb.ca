@@ -235,9 +235,6 @@ main[role="main"] {
       border: 0;
     }
 
-    #views_slideshow_cycle_main_slideshow-block_1 {
-      margin-bottom: 10px;
-    }
     // Display subjects multi-value field as columns.
     & dl > dd > ul.comp-subjects {
       columns: 3;
@@ -284,6 +281,7 @@ main[role="main"] {
     & div#block-mainpagecontent {
       width: 95%;
       margin: auto;
+      margin-bottom: 1rem;
 
       // Titles/headers.
       & h1 {
