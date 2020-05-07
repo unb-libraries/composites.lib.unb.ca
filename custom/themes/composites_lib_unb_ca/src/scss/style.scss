@@ -18,6 +18,7 @@ body,
 
 // All links.
 a {
+  border: 1px solid transparent;
   box-shadow: none !important;
 }
 // All input.
@@ -36,7 +37,7 @@ div[class*="form-item-field-image-"][class*="-alt"] {
 // Round borders.
 input,
 li,
-a {
+a.btn {
   border-radius: .1rem !important;
 }
 // Primary buttons.
@@ -178,6 +179,10 @@ header {
 
 // Main.
 main[role="main"] {
+  // Odd useless anchor?
+  & a#main-content {
+    display: none;
+  }
   // Content.
   & div.region.region-content {
     // Slideshow.
@@ -451,6 +456,10 @@ main[role="main"] {
     // Views.
     & div.view:not(.view-slideshow) {
       margin-top: 2em;
+
+      & h4 {
+        margin-top: .5rem;
+      }
       // View header.
       div.view-header {
         padding-bottom: 0.5em;
@@ -459,12 +468,12 @@ main[role="main"] {
       }
       // Unordered lists.
       ul:not(.composite-subjects):not(.dropbutton) {
-        margin-top: 1.5em;
+        margin-top: 1em;
         list-style: none;
       }
 
       ul.composite-subjects {
-        columns: 3;
+        columns: 2;
       }
     }
     // Browse by year.
@@ -482,7 +491,7 @@ main[role="main"] {
 
         & div.collapse > div.item-list > ul,
         & div.subjects-top > div.item-list > ul {
-          columns: 3;
+          columns: 2;
         }
       }
     }
