@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.slideshow_image.field_image_ss
     - field.field.node.slideshow_image.field_link_path
     - field.field.node.slideshow_image.field_sort_order
-    - image.style.slideshow_slide_1110x200_
+    - image.style.slideshow_slide
     - node.type.slideshow_image
   module:
     - image
@@ -20,7 +20,7 @@ content:
     weight: 102
     label: above
     settings:
-      image_style: slideshow_slide_1110x200_
+      image_style: slideshow_slide
       image_link: ''
     third_party_settings: {  }
     type: image

@@ -2,7 +2,7 @@ uuid: 89dd6058-0d3c-44b6-ab6a-e0287625ce8b
 langcode: en
 status: true
 dependencies: {  }
-name: slideshow_slide_1110x200_
+name: slideshow_slide
 label: 'Slideshow Slide (1110x300)'
 effects:
   3b0f1d53-f5d9-4279-9802-3e1eda61737b:
@@ -21,3 +21,9 @@ effects:
       width: 1010
       height: 300
       anchor: center-center
+  a910aa8d-07ce-48c1-b1c3-095ed34102f9:
+    uuid: a910aa8d-07ce-48c1-b1c3-095ed34102f9
+    id: image_convert
+    weight: 3
+    data:
+      extension: jpg
