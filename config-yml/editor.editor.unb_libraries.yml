@@ -1,12 +1,12 @@
-uuid: a84d4d75-8edf-42cd-9902-1c438d3294ce
+uuid: 0ad5d2eb-f8a8-4e3a-9250-68a9c872396f
 langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.full_html
+    - filter.format.unb_libraries
   module:
     - ckeditor
-format: full_html
+format: unb_libraries
 editor: ckeditor
 settings:
   toolbar:
@@ -17,8 +17,13 @@ settings:
           items:
             - Bold
             - Italic
+            - Strike
+            - Superscript
+            - Subscript
+            - '-'
+            - RemoveFormat
         -
-          name: Links
+          name: Linking
           items:
             - DrupalLink
             - DrupalUnlink
@@ -32,9 +37,16 @@ settings:
           items:
             - Blockquote
             - DrupalImage
+            - Table
+            - HorizontalRule
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
         -
           name: Tools
           items:
+            - ShowBlocks
             - Source
   plugins:
     language:
@@ -42,7 +54,7 @@ settings:
     stylescombo:
       styles: ''
 image_upload:
-  status: false
+  status: true
   scheme: public
   directory: inline-images
   max_size: ''

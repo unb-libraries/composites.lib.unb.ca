@@ -37,7 +37,7 @@ process:
   body/value: body
   body/format:
     plugin: default_value
-    default_value: "full_html"
+    default_value: "unb_libraries"
 
   path/pathauto:
    plugin: default_value

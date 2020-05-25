@@ -21,4 +21,4 @@ permissions:
   - 'edit any slideshow_image content'
   - 'edit any static_page content'
   - 'edit any subject content'
-  - 'use text format full_html'
+  - 'use text format unb_libraries'
