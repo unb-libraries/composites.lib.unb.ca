@@ -22,7 +22,7 @@ class CompBrowse extends BlockBase {
     $text = '
       <p>
         <a href="/browse-composites" class="d-table">By Year</a>
-        <a href="/browse-persons">By Person or Name</a>
+        <a href="/browse-persons" class="d-table">By Person or Name</a>
       </p>
     ';
 
