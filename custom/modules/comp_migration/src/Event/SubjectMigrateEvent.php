@@ -42,7 +42,7 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
 
       // Subject photo coordinates.
       if (strtolower($row->getSourceProperty('coord_top')) == 'absent') {
-        $row->setSourceProperty('field_absent', TRUE);
+        $row->setSourceProperty('absent', TRUE);
         $row->setSourceProperty('top_x', 0);
         $row->setSourceProperty('top_y', 0);
         $row->setSourceProperty('bottom_x', 0);

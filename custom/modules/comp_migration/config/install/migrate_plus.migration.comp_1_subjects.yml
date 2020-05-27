@@ -66,6 +66,7 @@ process:
   field_alt_name_source: alt_name_source
   field_valedictorian: valedictorian
   field_subject_notes: notes
+  field_absent: absent
 
 destination:
   plugin: entity:node
