@@ -41,20 +41,29 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
     if ($migration_id == 'comp_1_subjects') {
 
       // Subject photo coordinates.
-      // Top.
-      $coord_top = explode(',', $row->getSourceProperty('coord_top'));
-      $top_x = (float) $coord_top[0];
-      $top_y = !empty($coord_top[1]) ? (float) $coord_top[1] : NULL;
+      if (strtolower($row->getSourceProperty('coord_top')) == 'absent') {
+        $row->setSourceProperty('field_absent', TRUE);
+        $row->setSourceProperty('top_x', 0);
+        $row->setSourceProperty('top_y', 0);
+        $row->setSourceProperty('bottom_x', 0);
+        $row->setSourceProperty('bottom_y', 0);
+      }
+      else {
+        // Top.
+        $coord_top = explode(',', $row->getSourceProperty('coord_top'));
+        $top_x = !empty(floatval($coord_top[0])) ? floatval($coord_top[0]) : 0;
+        $top_y = !empty(floatval($coord_top[1])) ? floatval($coord_top[1]) : 0;
 
-      $row->setSourceProperty('top_x', $top_x);
-      $row->setSourceProperty('top_y', $top_y);
-      // Bottom.
-      $coord_bottom = explode(',', $row->getSourceProperty('coord_bottom'));
-      $bottom_x = (float) $coord_bottom[0];
-      $bottom_y = !empty($coord_bottom[1]) ? (float) $coord_bottom[1] : NULL;
+        $row->setSourceProperty('top_x', $top_x);
+        $row->setSourceProperty('top_y', $top_y);
+        // Bottom.
+        $coord_bottom = explode(',', $row->getSourceProperty('coord_bottom'));
+        $bottom_x = !empty(floatval($coord_bottom[0])) ? floatval($coord_bottom[0]) : 0;
+        $bottom_y = !empty(floatval($coord_bottom[1])) ? floatval($coord_bottom[1]) : 0;
 
-      $row->setSourceProperty('bottom_x', $bottom_x);
-      $row->setSourceProperty('bottom_y', $bottom_y);
+        $row->setSourceProperty('bottom_x', $bottom_x);
+        $row->setSourceProperty('bottom_y', $bottom_y);
+      }
 
       // Gender.
       $src_gender = strtoupper($row->getSourceProperty('gender'));
