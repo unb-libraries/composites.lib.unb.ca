@@ -17,6 +17,7 @@ dependencies:
     - field.storage.node.field_sort_initial
     - field.storage.node.field_subject_notes
     - field.storage.node.field_subject_title
+    - field.storage.node.field_valedictorian
     - search_api.server.subjects_composites_lib_unb_ca
 third_party_settings:
   search_api_solr:
@@ -85,8 +86,8 @@ field_settings:
     boost: !!float 2
     dependencies:
       config:
-        - field.storage.node.field_composite
         - field.storage.node.field_comp_year
+        - field.storage.node.field_composite
       module:
         - node
   field_composite:
@@ -151,6 +152,14 @@ field_settings:
         - field.storage.node.field_type
       module:
         - node
+  field_valedictorian:
+    label: Valedictorian
+    datasource_id: 'entity:node'
+    property_path: field_valedictorian
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_valedictorian
   title:
     label: Title
     datasource_id: 'entity:node'
