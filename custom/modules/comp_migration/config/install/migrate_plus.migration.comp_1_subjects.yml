@@ -60,7 +60,7 @@ process:
   field_last_name: last_name
   field_source_file: source_file
   field_given_name: surname
-  field_title: title
+  field_subject_title: title
   field_top_x: top_x
   field_top_y: top_y
   field_alt_name_source: alt_name_source

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.subject.field_absent
     - field.field.node.subject.field_alt_name
     - field.field.node.subject.field_alt_name_source
     - field.field.node.subject.field_awards
@@ -31,6 +32,16 @@ targetEntityType: node
 bundle: subject
 mode: default
 content:
+  field_absent:
+    weight: 15
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_alt_name:
     weight: 7
     label: above

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.subject.field_absent
     - field.field.node.subject.field_alt_name
     - field.field.node.subject.field_alt_name_source
     - field.field.node.subject.field_awards
@@ -38,6 +39,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_absent: true
   field_alt_name: true
   field_alt_name_source: true
   field_awards: true
