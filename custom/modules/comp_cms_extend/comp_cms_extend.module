@@ -80,7 +80,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           '#prefix' => '<p class="font-weight-bold mt-5 mb-n4">',
           '#markup' => t('Composite Crop Coordinates'),
           '#suffix' => '</p>',
-          '#weight' => -99,
+          '#weight' => -10,
         ];
 
         // Add refresh image button.
@@ -103,7 +103,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
               ],
             ],
           ],
-          '#weight' => 3,
+          '#weight' => 4,
         ];
 
       }
