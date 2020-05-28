@@ -269,10 +269,10 @@ function comp_crud_preprocess_node__subject(&$variables) {
     // Crop effect configuration.
     // Retrieve coordinates from subject record.
 
-    if (!empty(floatval($variables['content']['field_top_x'][0]['#markup']))
-    and !empty(floatval($variables['content']['field_top_y'][0]['#markup']))
-    and !empty(floatval($variables['content']['field_bottom_x'][0]['#markup']))
-    and !empty(floatval($variables['content']['field_bottom_y'][0]['#markup']))
+    if (!empty(floatval($variables['content']['field_top_x'][0]))
+    and !empty(floatval($variables['content']['field_top_y'][0]))
+    and !empty(floatval($variables['content']['field_bottom_x']))
+    and !empty(floatval($variables['content']['field_bottom_y'][0]))
     ) {
       $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
       $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
