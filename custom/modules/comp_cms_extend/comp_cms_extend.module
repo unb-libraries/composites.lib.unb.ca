@@ -64,7 +64,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           $form['subject_img'] = [
             '#type' => 'markup',
             '#prefix' => "<div id='subject-img-div' class='$div_classes'>" .
-              '<p class="font-weight-bold mb-2">Composite Crop Preview</p>',
+              '<label>Composite Crop Preview</label>',
             '#suffix' => '</div>',
             '#markup' => "<img id='subject-img' class='d-block' src='$styled_image_url'>",
             '#weight' => -100,
@@ -75,11 +75,16 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         drupal_flush_all_caches();
 
         // Add composite cropping label.
+        $crop_help = "Check the box below if the person is absent from the
+          composite. Enter coordinates otherwise. Top coordinates correspond to
+          the top-left corner where the composite should be cropped, and bottom
+          correspond to the bottom-right.";
+
         $form['composite_cropping'] = [
           '#type' => 'markup',
-          '#prefix' => '<p class="font-weight-bold mt-5 mb-n4">',
+          '#prefix' => "<div class='$div_classes'><p class='font-weight-bold mt-5 mb-1'>",
           '#markup' => t('Composite Crop Coordinates'),
-          '#suffix' => '</p>',
+          '#suffix' => "</p><div class='description'>$crop_help</div></div>",
           '#weight' => -10,
         ];
 
@@ -91,7 +96,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
         $form['refresh_subject_img'] = [
           '#type' => 'submit',
-          '#value' => 'Refresh',
+          '#value' => 'Refresh Preview',
           '#submit' => ['refresh_subject_img'],
           '#attached' => [
             'library' => [
@@ -108,9 +113,33 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
       }
     }
+
+    // Set coordinate fields' states to hide them when 'absent' is checked.
+    $form['composite_cropping']['#states']['invisible'][':input[name="field_absent[value]"]']
+      = $form['field_top_x']['#states']['invisible'][':input[name="field_absent[value]"]']
+      = $form['field_top_y']['#states']['invisible'][':input[name="field_absent[value]"]']
+      = $form['field_bottom_x']['#states']['invisible'][':input[name="field_absent[value]"]']
+      = $form['field_bottom_y']['#states']['invisible'][':input[name="field_absent[value]"]']
+      = $form['refresh_subject_img']['#states']['invisible'][':input[name="field_absent[value]"]']
+      = ['checked' => TRUE];
+
+    // Add top-most custom validation handler to deal with 'absent',
+    array_unshift($form['#validate'], 'form_subject_validate_absent');
   }
 }
 
+// Custom form validation for 'absent' subjects.
+function form_subject_validate_absent(&$form, &$form_state) {
+  // If 'absent' is checked.
+  if ($form_state->getValue('field_absent')['value']) {
+    $form['field_top_x']['#validated'] == FALSE;
+    $form['field_top_y']['#validated'] == FALSE;
+    $form['field_bottom_x']['#validated'] == FALSE;
+    $form['field_bottom_y']['#validated'] == FALSE;
+  }
+}
+
+// Refresh subject image preview.
 function refresh_subject_img($form, &$form_state) {
 
   // Retrieve subject node, id, composite id.
