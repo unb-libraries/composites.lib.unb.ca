@@ -3,3 +3,10 @@ toolbar-overrides:
   css:
     theme:
       css/custom-toolbar.css: {}
+
+absent-on-click:
+  version: VERSION
+  js:
+    js/absent-on-click.js: {}
+  dependencies:
+    - core/jquery

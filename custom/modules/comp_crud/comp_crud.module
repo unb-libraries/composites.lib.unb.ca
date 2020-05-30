@@ -102,6 +102,31 @@ function comp_crud_entity_presave($entity) {
       }
 
       $entity->set('field_sort_initial', $leading);
+
+      // Zero out coordinates if 'absent' is checked.
+      if ($entity->get('field_absent')->getValue()[0]['value']) {
+        $entity->set('field_top_x', 0);
+        $entity->set('field_top_y', 0);
+        $entity->set('field_bottom_x', 0);
+        $entity->set('field_bottom_y', 0);
+
+        // Delete image style if existing.
+        $nid = $entity->id();
+        // Load all styles.
+        $styles = \Drupal::entityQuery('image_style')
+        ->execute();
+
+        // Run through styles.
+        foreach ($styles as $style_name) {
+          // If the style correponds to the subject id...
+          if (strpos($style_name, $nid) !== FALSE) {
+            // Load, delete, and flush style.
+            $style = ImageStyle::load($style_name);
+            $style->delete();
+            $style->flush();
+          }
+        }
+      }
     break;
   }
 }

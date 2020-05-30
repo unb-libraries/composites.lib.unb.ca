@@ -21,6 +21,8 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
   // If it's a subject form.
   if (in_array($form_id, $scope_forms)) {
+    // Attach JS.
+    $form['#attached']['library'][] = 'comp_core/absent-on-click';
 
     // Retrieve subject node, id, composite id.
     $subject = $form_state->getFormObject()->getEntity();
@@ -122,20 +124,6 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
       = $form['field_bottom_y']['#states']['invisible'][':input[name="field_absent[value]"]']
       = $form['refresh_subject_img']['#states']['invisible'][':input[name="field_absent[value]"]']
       = ['checked' => TRUE];
-
-    // Add top-most custom validation handler to deal with 'absent',
-    array_unshift($form['#validate'], 'form_subject_validate_absent');
-  }
-}
-
-// Custom form validation for 'absent' subjects.
-function form_subject_validate_absent(&$form, &$form_state) {
-  // If 'absent' is checked.
-  if ($form_state->getValue('field_absent')['value']) {
-    $form['field_top_x']['#validated'] == FALSE;
-    $form['field_top_y']['#validated'] == FALSE;
-    $form['field_bottom_x']['#validated'] == FALSE;
-    $form['field_bottom_y']['#validated'] == FALSE;
   }
 }
 
