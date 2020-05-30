@@ -10,7 +10,7 @@ field_name: field_absent
 entity_type: node
 bundle: subject
 label: 'Absent From Composite Photo'
-description: 'This box should be checked if the person is absent from the composite photo. Use zero for all coordinates to avoid form errors.'
+description: ''
 required: false
 translatable: false
 default_value:

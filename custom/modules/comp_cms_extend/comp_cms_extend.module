@@ -80,7 +80,10 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $crop_help = "Check the box below if the person is absent from the
           composite. Enter coordinates otherwise. Top coordinates correspond to
           the top-left corner where the composite should be cropped, and bottom
-          correspond to the bottom-right.";
+          coordinates correspond to the bottom-right. Coordinates should be entered as a
+          factor of the composite's resolution. E.g. for a 1000x1000 pixels
+          composite at 100dpi, the coordinates to crop the full image would be:
+          Top X: 0, Top Y: 0, Bottom X: 10, Bottom Y: 10.";
 
         $form['composite_cropping'] = [
           '#type' => 'markup',

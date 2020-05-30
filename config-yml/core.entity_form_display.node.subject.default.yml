@@ -31,7 +31,7 @@ bundle: subject
 mode: default
 content:
   field_absent:
-    weight: -20
+    weight: -5
     settings:
       display_label: true
     third_party_settings: {  }
