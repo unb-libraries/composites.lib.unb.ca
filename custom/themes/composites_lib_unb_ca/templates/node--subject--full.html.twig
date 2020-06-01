@@ -113,7 +113,7 @@
         <div class="col-sm-7">
           <div>
             {% if content.field_last_name|field_value %}
-              <h1>
+              <h1 class="mb-0">
                 {{ label }}
               </h1>
 
@@ -135,6 +135,10 @@
 
             {% if content.field_valedictorian|field_value[0]['#markup'] == 'Yes' %}
               <p>{{ content.field_valedictorian|field_label }}</p>
+            {% endif %}
+
+            {% if content.field_absent|field_value[0]['#markup'] == 'Yes' %}
+              <p>Not in class photo. Student was absent that day.</p>
             {% endif %}
           </div>
 
