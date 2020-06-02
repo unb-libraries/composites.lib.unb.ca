@@ -12,6 +12,6 @@ name: 'Static Page'
 type: static_page
 description: 'A basic static page content type for composites.lib.unb.ca'
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 0
 display_submitted: false
