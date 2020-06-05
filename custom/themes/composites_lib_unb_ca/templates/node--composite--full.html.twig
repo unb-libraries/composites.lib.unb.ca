@@ -140,7 +140,7 @@
 
     {% if content.field_grad_ceremony|field_value %}
       <div class="mb-4">
-        <a href="{{ content.field_grad_ceremony|field_value|striptags }}">
+        <a href="{{ content.field_grad_ceremony|field_value['#title'] }}">
           View relevant graduation ceremony
         </a>
       </div>
