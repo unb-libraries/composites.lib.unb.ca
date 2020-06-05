@@ -138,28 +138,30 @@
       </dd>
     </dl>
 
-    <dl>
-      <dt>{{ content.field_disp_resolution|field_label }}</dt>
-      <dd>{{ content.field_disp_resolution|field_value }}</dd>
-    </dl>
+    {% if content.field_notes|field_value %}
+      <dl>
+        <dt>{{ content.field_notes|field_label }}</dt>
+        <dd>{{ content.field_notes|field_value }}</dd>
+      </dl>
+    {% endif %}
 
-    <dl>
-      <dt>{{ content.field_notes|field_label }}</dt>
-      <dd>{{ content.field_notes|field_value }}</dd>
-    </dl>
+    {% if content.field_notes|field_value %}
+      <dl>
+        <dt>{{ content.field_current_buildings|field_label }}</dt>
+        {% for current_building in content.field_current_buildings|field_value %}
+          <dd>{{ current_building }}</dd>
+        {% endfor %}
+      </dl>
+    {% endif %}
 
-    <dl>
-      <dt>{{ content.field_current_buildings|field_label }}</dt>
-      {% for current_building in content.field_current_buildings|field_value %}
-        <dd>{{ current_building }}</dd>
-      {% endfor %}
-    </dl>
+    {% if content.field_notes|field_value %}
+      <dl>
+        <dt>{{ content.field_former_buildings|field_label }}</dt>
+        {% for former_building in content.field_former_buildings|field_value %}
+          <dd>{{ former_building }}</dd>
+        {% endfor %}
+      </dl>
+    {% endif %}
 
-    <dl>
-      <dt>{{ content.field_former_buildings|field_label }}</dt>
-      {% for former_building in content.field_former_buildings|field_value %}
-        <dd>{{ former_building }}</dd>
-      {% endfor %}
-    </dl>
   </div>
 </article>
