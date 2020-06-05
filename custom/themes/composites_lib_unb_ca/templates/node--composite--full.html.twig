@@ -138,6 +138,14 @@
       </dd>
     </dl>
 
+    {% if content.field_grad_ceremony|field_value %}
+      <div class="mb-4">
+        <a href="{{ content.field_grad_ceremony|field_value|striptags }}">
+          View relevant graduation ceremony
+        </a>
+      </div>
+    {% endif %}
+
     {% if content.field_notes|field_value %}
       <dl>
         <dt>{{ content.field_notes|field_label }}</dt>
