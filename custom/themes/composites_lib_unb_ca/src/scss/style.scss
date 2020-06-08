@@ -57,20 +57,13 @@ a.btn {
     border-color: $unb-darkred !important;
   }
 }
-// All material-icons,
-.material-icons {
-  font-size: inherit !important;
-}
 // Collapse links.
 a.comp-collapse {
   border: none !important;
 
   // Adjust.
-  & ~ i {
-    position: relative;
-    top: 4px;
-    left: -.2em;
-
+  & ~ svg {
+    
     // Hide expanded arrow when collapsed.
     &.subs-expanded {
       display: none;
@@ -89,12 +82,12 @@ a.comp-collapse {
   // Show expanded arrow, hide collpased arrow when expanded.
   &[aria-expanded="true"] {
 
-    & ~ i.subs-expanded,
+    & ~ svg.subs-expanded,
     & > span.subs-expanded {
       display:inline-block;
     }
 
-    & ~ i.subs-collapsed,
+    & ~ svg.subs-collapsed,
     & > span.subs-collapsed {
       display: none;
     }
