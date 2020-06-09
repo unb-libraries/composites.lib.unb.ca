@@ -150,6 +150,7 @@ header {
       &:focus-within,
       &:hover {
         background-color: $unb-darkerred !important;
+        border: 1px solid $unb-darkerred;
         box-shadow: none !important;
         cursor: pointer;
       }
