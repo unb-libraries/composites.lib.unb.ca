@@ -35,6 +35,8 @@ spec:
         vcsRepository: composites.lib.unb.ca
         vcsRef: dev
     spec:
+      nodeSelector:
+        deployenv: dev
       containers:
         -
           name: composites-lib-unb-ca
