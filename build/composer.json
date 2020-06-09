@@ -135,7 +135,7 @@
         "drupal/timepicker-timepicker": "1.11",
         "drupal/token": "1.7",
         "drupal/twig_field_value": "1.2",
-        "drupal/twig_tweak": "2.5",
+        "drupal/twig_tweak": "2.6",
         "drupal/views_slideshow": "4.7",
         "google/apiclient": "^2.0",
         "jonthornton/jquery-timepicker": "~1.11.15",
