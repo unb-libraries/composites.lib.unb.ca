@@ -63,7 +63,7 @@ a.comp-collapse {
 
   // Adjust.
   & ~ svg {
-    
+
     // Hide expanded arrow when collapsed.
     &.subs-expanded {
       display: none;
@@ -98,6 +98,10 @@ a.comp-collapse {
   -webkit-transition: none;
   transition: none;
   display: none;
+}
+// Composite links.
+#composite-links {
+  width: 960px;
 }
 
 // Header.
