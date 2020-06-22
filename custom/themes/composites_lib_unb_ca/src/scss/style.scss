@@ -175,7 +175,8 @@ header {
       border-radius: .1rem;
       border: none;
 
-      & > a {
+      & a {
+        white-space: nowrap;
         color: $unb-halfgray;
       }
     }
