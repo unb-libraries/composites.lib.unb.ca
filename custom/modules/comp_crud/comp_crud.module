@@ -235,25 +235,22 @@ function comp_crud_entity_update($entity) {
  */
 function comp_crud_preprocess_node__subject(&$variables) {
   // Get subject id.
-  $sid = $variables['node'] ? $variables['node']->id() : NULL;
-  $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
+  $sid = $variables['node']->id();
+  $cid = $variables['node']->get('field_composite')->getValue()[0]['target_id'];
 
-  if (!empty($variables['content']['field_composite'])) {
-    $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
+  if (!empty($cid)) {
+    // Pass composite id as content to templates.
+    $variables['content']['cid'] = $cid;
 
-    if (!empty($cid)) {
-      // Pass composite id as content to templates.
-      $variables['content']['cid'] = $cid;
-
-      // Retrieve composite node and additional fields.
-      $composite = Node::load($cid);
-      $comp_title = $composite->title;
-      $comp_year = $composite->field_comp_year;
-      $comp_type = $composite->field_type;
-      $comp_img = $composite->field_image;
-      $comp_campus = $composite->field_comp_campus;
-    }
+    // Retrieve composite node and additional fields.
+    $composite = Node::load($cid);
+    $comp_title = $composite->title;
+    $comp_year = $composite->field_comp_year;
+    $comp_type = $composite->field_type;
+    $comp_img = $composite->field_image;
+    $comp_campus = $composite->field_comp_campus;
   }
+
   else {
     $comp_campus = $comp_img = $comp_type = $comp_year = NULL;
   }
