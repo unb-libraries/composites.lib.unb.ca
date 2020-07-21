@@ -235,7 +235,7 @@ function comp_crud_entity_update($entity) {
  */
 function comp_crud_preprocess_node__subject(&$variables) {
   // Get subject id.
-  $sid = $variables['node']->id();
+  $sid = $variables['node'] ? $variables['node']->id() : NULL;
   $cid = $variables['content']['field_composite'][0]['#options']['entity']->id();
 
   if (!empty($variables['content']['field_composite'])) {
