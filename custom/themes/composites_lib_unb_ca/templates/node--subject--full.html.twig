@@ -159,6 +159,8 @@
               <dd class="ml-3">{{ content.field_subject_notes|field_value }}</dd>
             </dl>
           {% endif %}
+
+          {{ drupal_view('subjects_by_shared_name', 'block_1', node.id, node.label) }}
         </div>
       </div>
     </div>
