@@ -1,7 +1,6 @@
 FROM unblibraries/drupal:dockworker-2.x
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
-ARG COMPOSER_DEPLOY_DEV=no-dev
 ENV DRUPAL_SITE_ID comp
 ENV DRUPAL_SITE_URI composites.lib.unb.ca
 ENV DRUPAL_SITE_UUID 022dab87-328e-494c-b8f8-ebde1e1a0162
@@ -23,10 +22,9 @@ RUN /scripts/setupStandardConf.sh && \
   chmod +x /usr/local/bin/magick-slicer && \
   /scripts/InstallGitLFS.sh
 COPY ./build /build
-RUN /scripts/build.sh ${COMPOSER_DEPLOY_DEV} ${DRUPAL_BASE_PROFILE}
+RUN /scripts/build.sh ${DRUPAL_BASE_PROFILE}
 
 # Deploy repository assets.
-COPY ./tests/ ${DRUPAL_TESTING_ROOT}/
 COPY ./config-yml ${DRUPAL_CONFIGURATION_DIR}
 COPY ./custom/themes ${DRUPAL_ROOT}/themes/custom
 COPY ./custom/modules ${DRUPAL_ROOT}/modules/custom
