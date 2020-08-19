@@ -21,7 +21,7 @@ class CompBrandingAnchor extends BlockBase {
   public function build() {
     $text = '
       <div class="block-system-branding-block mt-2 mb-2">
-        <a href="/" class="navbar-brand pt-0 pb-0">
+        <a href="/" class="pt-0 pb-0">
           UNB Class Composite & Group Photographs
         </a>
       </div>
