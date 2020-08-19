@@ -475,7 +475,7 @@ main[role="main"] {
       }
     }
     // Views.
-    & div.view:not(.view-slideshow) {
+    & div.view:not(.view-slideshow):not(.view-subjects-by-shared-name) {
       margin-top: 2em;
 
       // View header.
@@ -512,11 +512,18 @@ main[role="main"] {
           columns: 2;
         }
       }
-
+      // Subjects by shared name.
+      & div.view-subjects-by-shared-name ul {
+        list-style: none;
+      }
       // Row.
       .views-field.views-field-nothing {
         margin-top: 1rem;
       }
+    }
+    // Subjects by shared name.
+    & div.view-subjects-by-shared-name ul {
+      list-style: none;
     }
   }
   // Nav pager.
