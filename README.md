@@ -1,4 +1,4 @@
-![composites.lib.unb.ca screenshot](https://github.com/unb-libraries/composites.lib.unb.ca/raw/prod/screenshot.png "composites.lib.unb.ca screenshot")
+![composites.lib.unb.ca screenshot](https://github.com/unb-libraries/composites.lib.unb.ca/raw/prod/.dockworker/screenshot.png "composites.lib.unb.ca screenshot")
 # [composites.lib.unb.ca](https://composites.lib.unb.ca/) : Instance Repository
 [![Build Status](https://travis-ci.com/unb-libraries/composites.lib.unb.ca.svg?branch=prod)](https://travis-ci.com/unb-libraries/composites.lib.unb.ca) [![GitHub license](https://img.shields.io/github/license/unb-libraries/composites.lib.unb.ca)](https://github.com/unb-libraries/composites.lib.unb.ca/blob/dev/LICENSE) ![GitHub repo size](https://img.shields.io/github/repo-size/unb-libraries/composites.lib.unb.ca)
 
