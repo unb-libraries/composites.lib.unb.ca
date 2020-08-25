@@ -430,7 +430,7 @@ main[role="main"] {
         width: 90%;
       }
 
-      & div#edit-actions {
+      & div[id^="edit-actions"] {
         display: inline-block;
 
         & input#edit-submit-search-subjects {
