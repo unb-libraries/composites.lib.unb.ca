@@ -203,6 +203,27 @@ function comp_crud_entity_insert($entity) {
 }
 
 /**
+ * Implements hook_entity_delete().
+ */
+function comp_crud_entity_delete($entity) {
+  // Process for different content types.
+  switch($entity->bundle()) {
+
+    // If the entity is a composite...
+    case 'composite':
+    // Retrieve subject node ids associated to composite.
+    $sids = $entity->get('field_subjects')->getValue();
+    // Delete all associated subjects.
+    foreach ($sids as $k=>$sid) {
+      $subject = Node::load($sid['target_id']);
+      $subject->delete();
+    }
+
+    break;
+  }
+}
+
+/**
  * Implements hook_entity_update().
  */
 function comp_crud_entity_update($entity) {
@@ -223,8 +244,9 @@ function comp_crud_entity_update($entity) {
         // Generate DZI file and tiles.
         prepare_dzi_batch($fid, $nid);
       }
-      break;
     }
+
+    break;
   }
 }
 
