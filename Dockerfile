@@ -1,4 +1,4 @@
-FROM unblibraries/drupal:8.x-2.x-slim-unblib
+FROM unblibraries/drupal:8.x-3.x-unblib
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick bash rsyslog postfix php7-ldap php7-xmlreader php7-zip php7-redis
