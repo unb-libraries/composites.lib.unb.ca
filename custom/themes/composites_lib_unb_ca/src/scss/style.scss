@@ -140,6 +140,10 @@ header {
     background-color: $unb-darkgray;
     font-weight: 500;
 
+    & .container.main.mx-auto {
+      padding: 0;
+    }
+
     & a,
     & span {
       color: white !important;
@@ -206,6 +210,8 @@ main[role="main"] {
   }
   // Content.
   & div.region.region-content {
+    padding: 0;
+
     // Slideshow.
     & div.views_slideshow_slide,
     & div.views_slideshow_cycle_teaser_section {
