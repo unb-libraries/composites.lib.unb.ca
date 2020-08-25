@@ -1,4 +1,4 @@
-FROM unblibraries/drupal:dockworker-2.x
+FROM unblibraries/drupal:8.x-2.x-slim-unblib
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV DRUPAL_SITE_ID comp

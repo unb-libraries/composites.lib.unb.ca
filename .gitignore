@@ -1,6 +1,6 @@
 .gitkeep
-vendor
+build/scripts/local
 composer.lock
-tests/features/bootstrap
-scripts/local
 custom/modules/comp_migration/data/img
+tests/features/bootstrap
+vendor
