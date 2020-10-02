@@ -136,7 +136,7 @@
         "drupal/token": "1.7",
         "drupal/twig_field_value": "1.2",
         "drupal/twig_tweak": "2.7",
-        "drupal/views_slideshow": "4.7",
+        "drupal/views_slideshow": "4.8",
         "google/apiclient": "^2.0",
         "jonthornton/jquery-timepicker": "~1.11.15",
         "malsup/jquery.cycle": "1.0",
