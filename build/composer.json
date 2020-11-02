@@ -104,7 +104,7 @@
         }
     ],
     "require": {
-        "drupal/admin_toolbar": "2.3",
+        "drupal/admin_toolbar": "2.4",
         "drupal/bootstrap4": "2.1.0",
         "drupal/conditional_fields": "1.0-alpha6",
         "drupal/config_update": "1.5",
