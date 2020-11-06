@@ -1,7 +1,7 @@
 FROM unblibraries/drupal:8.x-3.x-unblib
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
-ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick bash rsyslog postfix php7-ldap php7-xmlreader php7-zip php7-redis
+ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick bash postfix php7-ldap php7-xmlreader php7-zip php7-redis
 ENV DRUPAL_SITE_ID comp
 ENV DRUPAL_SITE_URI composites.lib.unb.ca
 ENV DRUPAL_SITE_UUID 022dab87-328e-494c-b8f8-ebde1e1a0162
@@ -11,7 +11,6 @@ COPY ./build/ /build/
 RUN ${RSYNC_MOVE} /build/scripts/container/ /scripts/ && \
   /scripts/addOsPackages.sh && \
   /scripts/initOpenLdap.sh && \
-  /scripts/initRsyslog.sh && \
   /scripts/setupStandardConf.sh && \
   curl -O https://raw.githubusercontent.com/VoidVolker/MagickSlicer/master/magick-slicer.sh && \
   mv magick-slicer.sh /usr/local/bin/magick-slicer && \
