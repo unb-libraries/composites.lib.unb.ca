@@ -146,9 +146,10 @@
         "malsup/jquery.cycle": "1.0",
         "oomphinc/composer-installers-extender": "1.1.2",
         "trentrichardson/jquery-timepicker-addon": "^1.6.3",
+        "unb-libraries/alert_scheduler": "dev-8.x-1.x",
         "unb-libraries/drupal-builder": "^8.0.0",
         "unb-libraries/calendar_hours": "dev-8.x-1.x",
-        "unb-libraries/alert_scheduler": "dev-8.x-1.x"
+        "unb-libraries/saml_features": "dev-8.x-1.x"
     },
     "require-dev": {
         "unb-libraries/drupal-development-libraries": "8.0.6"
