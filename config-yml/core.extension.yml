@@ -30,10 +30,6 @@ module:
   image: 0
   imagemagick: 0
   language: 0
-  ldap: 0
-  ldap_authentication: 0
-  ldap_servers: 0
-  ldap_user: 0
   link: 0
   menu_ui: 0
   node: 0
@@ -44,7 +40,7 @@ module:
   quickedit: 0
   rdf: 0
   redis: 0
-  saml_features: 15
+  saml_features: 0
   samlauth: 0
   search: 0
   search_api: 0

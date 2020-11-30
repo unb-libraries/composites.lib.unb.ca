@@ -125,7 +125,6 @@
         "drupal/health_check": "1.2",
         "drupal/imagemagick": "3.1",
         "drupal/key": "1.10",
-        "drupal/ldap": "3.0-beta7",
         "drupal/optional_end_date": "1.0-beta1",
         "drupal/paragraphs": "1.10",
         "drupal/pathauto": "1.8",
