@@ -130,7 +130,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       $data = file_exists($full_path) ? file_get_contents($full_path) : NULL;
 
       if (!empty($data)) {
-        $file = file_save_data($data, "public://comp_images/" . $src_filename . $src_ext, FILE_EXISTS_REPLACE);
+        $file = file_save_data($data, "public://comp_images/" . $src_filename . $src_ext, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
         $fid = $file->id();
 
         $field_image = [
@@ -154,7 +154,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $data = file_exists($src_path) ? file_get_contents($src_path) : NULL;
 
         if (!empty($data)) {
-          $file = file_save_data($data, "public://comp_images/" . $src_filename, FILE_EXISTS_REPLACE);
+          $file = file_save_data($data, "public://comp_images/" . $src_filename, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
           $fid = $file->id();
 
           $field_rel_image = [
