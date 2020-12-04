@@ -65,7 +65,8 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
     // Cut extension from filename.
     $fn_plain = substr($filename, 0, -4);
     // Get image path.
-    $img_location = \Drupal::service('file_system')->realpath(file_default_scheme() . "://") . "/comp_images";
+    $scheme = \Drupal::config('system.file')->get('default_scheme');
+    $img_location = \Drupal::service('file_system')->realpath($scheme . "://") . "/comp_images";
     $img_path = $img_location . "/$filename";
     $dzi_path = $img_location . "/dzi/composite_$nid";
 
