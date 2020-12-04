@@ -13,9 +13,10 @@ $vids = [
   'photographer',
 ];
 
+$storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
 foreach ($vids as $vid) {
-  entity_delete_multiple('taxonomy_term',
+  $storage->delete($storage->loadMultiple(
     \Drupal::entityQuery('taxonomy_term')
       ->condition('vid', $vid)
-      ->execute());
+      ->execute()));
 }
