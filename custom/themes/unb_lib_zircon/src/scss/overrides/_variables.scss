@@ -1,0 +1,24 @@
+// Override bootstrap framework variables.
+
+// Import custom variables.
+@import 'custom/variables';
+
+// Spacers.
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: ($spacer * .75),
+    4: $spacer,
+    5: ($spacer * 1.5),
+    6: ($spacer * 3)
+  ),
+  $spacers
+);
+
+// Colours.
+$link-color: $unb-darkred;

@@ -1,0 +1,6 @@
+global-styling:
+  css:
+    base:
+      '//unb.ca/webcomps/_css/myfontswebfontskit.css': { type: external }
+    theme:
+      dist/css/style.css: {}

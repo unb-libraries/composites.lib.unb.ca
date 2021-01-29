@@ -1,0 +1,20 @@
+core: 8.x
+type: theme
+name: 'unb_lib_zircon'
+package: 'unb_lib_zircon'
+description: 'UNB Libraries red + gray colour theme'
+base theme: bootstrap4
+
+libraries:
+  - unb_lib_zircon/global-styling
+
+regions:
+  header: Header
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  breadcrumb: Breadcrumbs
+  content: 'Main content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer

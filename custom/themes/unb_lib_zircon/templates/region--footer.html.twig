@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row clearfix">
+
+    <div id="footer-logo-div" class="col-md-6">
+      <a href="https://lib.unb.ca">
+        <img id="footer-logo-img" class="footer-logo left-block"
+        src="/themes/custom/composites_lib_unb_ca/images/UNB_Lib_Black_Red.png">
+      </a>
+    </div>
+
+    <div id="footer-copy" class="col-md-6">
+      <p>
+        All contents © 2020 <a href="https://lib.unb.ca/archives">
+        Archives & Special Collections</a>
+        and <a href="https://lib.unb.ca">UNB Libraries</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% if content %}
+<div id="{{ id }}-wrapper"><footer id="{{ id }}" class="row" role="contentinfo">
+  <div{{ attributes }}>
+    {{ content }}
+  </div>
+</footer><div><!-- /#{{ id }}, /#{{ id }}-wrapper -->
+{% endif %}

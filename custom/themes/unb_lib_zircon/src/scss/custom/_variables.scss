@@ -1,0 +1,25 @@
+// Define new variables.
+
+// UNB colours (2016).
+$unb-red: #f00000;
+$unb-purple: #573393;
+$unb-pink: #ea368e;
+$unb-cherry: #d30c55;
+$unb-orange: #ec692f;
+$unb-mango: #ed8b00;
+$unb-honey: #ffc709;
+$unb-citrus: #f5eb00;
+$unb-green: #84bd00;
+$unb-aqua: #78cbc4;
+$unb-sky: #0085ef;
+$unb-turquoise: #007fa3;
+$unb-denim: #0044a5;
+$unb-gray: #586770;
+
+// Custom colours.
+$unb-darkred: darken($unb-red, 5%);
+$unb-darkerred: darken($unb-red, 15%);
+$unb-darkgray: darken($unb-gray, 10%);
+$unb-halfgray: #ececeb;
+$unb-25gray: lighten($unb-gray, 25%);
+$unb-halfaqua: darken($unb-aqua, 25%);
