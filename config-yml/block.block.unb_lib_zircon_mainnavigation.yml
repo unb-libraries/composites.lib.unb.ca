@@ -1,0 +1,25 @@
+uuid: 3f9412e4-c008-446a-9cd3-b6613ad90fee
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_mainnavigation
+theme: unb_lib_zircon
+region: nav_main
+weight: -5
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

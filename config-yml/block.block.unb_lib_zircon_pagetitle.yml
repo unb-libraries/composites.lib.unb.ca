@@ -1,0 +1,25 @@
+uuid: 2784abc9-a17e-4427-ad94-efaed2318033
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_pagetitle
+theme: unb_lib_zircon
+region: content
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/*edit*\r\n/node/*hires*\r\n/node/*delete*\r\n/about\r\n/acknowledgements"
+    negate: false
+    context_mapping: {  }

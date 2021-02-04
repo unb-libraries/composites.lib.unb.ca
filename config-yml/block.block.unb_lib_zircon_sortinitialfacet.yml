@@ -1,0 +1,23 @@
+uuid: 159ac478-ef67-44d4-9431-172065d29cb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sort_initial_facet
+  module:
+    - facets
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_sortinitialfacet
+theme: unb_lib_zircon
+region: content
+weight: -2
+provider: null
+plugin: 'facet_block:sort_initial_facet'
+settings:
+  id: 'facet_block:sort_initial_facet'
+  label: 'Browse by Person or Name'
+  provider: facets
+  label_display: visible
+  block_id: sortinitialfacet
+visibility: {  }

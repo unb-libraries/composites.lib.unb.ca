@@ -1,0 +1,26 @@
+uuid: 681e7ef7-a7ee-4f70-bf00-06850deaf29c
+langcode: en
+status: true
+dependencies:
+  module:
+    - comp_core
+    - system
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_browse
+theme: unb_lib_zircon
+region: content
+weight: -3
+provider: null
+plugin: comp_browse
+settings:
+  id: comp_browse
+  label: Browse
+  provider: comp_core
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/search-persons*"
+    negate: false
+    context_mapping: {  }

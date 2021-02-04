@@ -1,0 +1,23 @@
+uuid: 82d66975-04ec-480c-8f3c-39b4630d15e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.comp_decade_facet
+  module:
+    - facets
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_comp.decadefacet
+theme: unb_lib_zircon
+region: content
+weight: 1
+provider: null
+plugin: 'facet_block:comp_decade_facet'
+settings:
+  id: 'facet_block:comp_decade_facet'
+  label: 'Browse by Year'
+  provider: facets
+  label_display: visible
+  block_id: comp.decadefacet
+visibility: {  }

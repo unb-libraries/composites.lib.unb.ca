@@ -1,0 +1,26 @@
+uuid: 28a5ed52-b4c3-4c5e-8efa-a4213af0b959
+langcode: en
+status: true
+dependencies:
+  module:
+    - comp_core
+    - system
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_custombrandinganchor
+theme: unb_lib_zircon
+region: header
+weight: 0
+provider: null
+plugin: comp_branding_anchor
+settings:
+  id: comp_branding_anchor
+  label: 'Custom Branding Anchor'
+  provider: comp_core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

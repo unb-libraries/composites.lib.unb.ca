@@ -1,0 +1,29 @@
+uuid: 52e93883-2132-4643-9798-9b5f25f21229
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search_subjects
+  module:
+    - system
+    - views
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_exposedformsearch_subjectspage_1
+theme: unb_lib_zircon
+region: content
+weight: -4
+provider: null
+plugin: 'views_exposed_filter_block:search_subjects-page_1'
+settings:
+  id: 'views_exposed_filter_block:search_subjects-page_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search-persons*'
+    negate: false
+    context_mapping: {  }

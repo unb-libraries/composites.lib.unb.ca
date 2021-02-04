@@ -1,0 +1,26 @@
+uuid: 17bab732-0bb2-4922-a5f7-12413252e61e
+langcode: en
+status: true
+dependencies:
+  module:
+    - comp_core
+    - system
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_custombranding
+theme: unb_lib_zircon
+region: header
+weight: 0
+provider: null
+plugin: comp_branding
+settings:
+  id: comp_branding
+  label: 'Custom Branding'
+  provider: comp_core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

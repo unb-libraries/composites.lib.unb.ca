@@ -1,0 +1,30 @@
+uuid: c194de1f-9a38-4042-af7b-b5566049d1bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.slideshow
+  module:
+    - system
+    - views
+  theme:
+    - unb_lib_zircon
+id: unb_lib_zircon_views_block__slideshow_block_1
+theme: unb_lib_zircon
+region: content
+weight: -6
+provider: null
+plugin: 'views_block:slideshow-block_1'
+settings:
+  id: 'views_block:slideshow-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/about\r\n/acknowledgements"
+    negate: false
+    context_mapping: {  }

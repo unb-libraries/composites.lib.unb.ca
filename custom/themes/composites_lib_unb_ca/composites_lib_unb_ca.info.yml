@@ -3,7 +3,7 @@ type: theme
 name: 'composites_lib_unb_ca'
 package: 'composites_lib_unb_ca'
 description: 'For composites_lib_unb_ca'
-base theme: bootstrap4
+base theme: unb_lib_zircon
 
 libraries:
   - composites_lib_unb_ca/global-styling
