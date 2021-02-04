@@ -27,10 +27,6 @@ input {
     border-color: $unb-turquoise !important;
   }
 }
-// Hide all alt-text form input fields.
-div[class*="form-item-field-image-"][class*="-alt"] {
-  display: none;
-}
 // Round borders.
 input,
 li,
@@ -48,52 +44,6 @@ a.btn {
     background-color: $unb-darkred !important;
     border-color: $unb-darkred !important;
   }
-}
-// Collapse links.
-a.comp-collapse {
-  border: none !important;
-
-  // Adjust.
-  & ~ svg {
-
-    // Hide expanded arrow when collapsed.
-    &.subs-expanded {
-      display: none;
-    }
-  }
-
-  & > span {
-    &.subs-expanded {
-      display: none;
-    }
-    &.subs-collapsed {
-      display: inline-block;
-    }
-  }
-
-  // Show expanded arrow, hide collpased arrow when expanded.
-  &[aria-expanded="true"] {
-
-    & ~ svg.subs-expanded,
-    & > span.subs-expanded {
-      display:inline-block;
-    }
-
-    & ~ svg.subs-collapsed,
-    & > span.subs-collapsed {
-      display: none;
-    }
-  }
-}
-// Top subjects.
-[id^="subjects-top-"].collapsing {
-  -webkit-transition: none;
-  transition: none;
-  display: none;
-}
-// Composite links.
-#composite-links {
-  width: 960px;
 }
 
 // Header.
@@ -259,10 +209,6 @@ main[role="main"] {
       border: 0;
     }
 
-    // Display subjects multi-value field as columns.
-    & dl > dd > ul.comp-subjects {
-      columns: 3;
-    }
     // Give images in content region an instant photo look.
     & img {
       max-width: 100%;
@@ -294,12 +240,6 @@ main[role="main"] {
         transition: color 0.15s ease-in, border-color 0.15s ease-in;
         box-shadow: none !important;
       }
-
-      // OpenSeadragon viewer.
-      & div#seadragon-viewer {
-        margin-top: 2em;
-        height: 800px;
-      }
     }
     // Main content block.
     & div#block-mainpagecontent {
@@ -318,11 +258,6 @@ main[role="main"] {
         font-size: 1.2rem;
       }
 
-      // Subtitles.
-      .node-subtitle {
-        font-size: 1.4rem;
-      }
-
       // Description lists.
       & dl {
         margin-bottom: 1.5rem;
@@ -336,12 +271,6 @@ main[role="main"] {
       // Nodes.
       div.node__content {
         margin-top: 1em;
-      }
-      // Edit subjects tab.
-      div.view-edit-composite-subjects {
-        margin-bottom: 1em;
-        padding-bottom: 0.5em;
-        border-bottom: 1px solid $unb-halfgray;
       }
     }
     // Titles.
@@ -361,7 +290,7 @@ main[role="main"] {
     }
 
     // Blocks except main content and titles.
-    & div.block:not(#block-mainpagecontent):not(#block-pagetitle) {
+    & div.block:not(#block-mainpagecontent) {
       background-color: $unb-halfgray;
       // Headers.
       & h1,
@@ -379,69 +308,11 @@ main[role="main"] {
         font-weight: bold;
       }
 
-      .field--name-field-top-x,
-      .field--name-field-top-y,
-      .field--name-field-bottom-x,
-      .field--name-field-bottom-y {
-        width: 20%;
-        display: inline-block;
-      }
-
-      .image-preview {
-        margin-bottom: 1rem;
-      }
-
-      #edit-field-image-0--description {
-        margin-top: 1rem;
-      }
-
       .js-form-file {
         min-height: 3rem;
       }
-
-      #edit-field-grad-ceremony-0-uri--description ul li:last-of-type {
-        display: none;
-      }
-
-      #edit-field-composite {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        pointer-events: none;
-      }
-
-      #edit-delete {
-        display: none;
-      }
     }
 
-    // Search and browse blocks.
-    & div[id*="block-exposedformsearch-subjectspage-1"],
-    & div#block-browse {
-      display: inline-block;
-      padding: 1em 1.4em;
-    }
-
-    & div[id*="block-exposedformsearch-subjectspage-1"] {
-      width: 70%;
-
-      & div.form-item-search-api-fulltext {
-        width: 90%;
-      }
-
-      & div[id^="edit-actions"] {
-        display: inline-block;
-
-        & input#edit-submit-search-subjects {
-          height: calc(1.5em + 0.75rem + 2px);
-        }
-      }
-    }
-    // Browse block.
-    & div#block-browse {
-      height: 9.75em;
-      width: 29%;
-      float: right;
-    }
     // Facet blocks.
     & div.block.block-facets {
       padding: 1em 1.4em;
@@ -472,59 +343,6 @@ main[role="main"] {
         }
       }
     }
-    // Views.
-    & div.view:not(.view-slideshow):not(.view-subjects-by-shared-name) {
-      margin-top: 2em;
-
-      // View header.
-      div.view-header {
-        padding-bottom: 0.5em;
-        border-bottom: 1px solid $unb-halfgray;
-        color: $unb-gray;
-      }
-      // Unordered lists.
-      ul:not(.composite-subjects):not(.dropbutton) {
-        margin-top: 1rem;
-        list-style: none;
-      }
-
-      ul.composite-subjects {
-        columns: 2;
-      }
-    }
-    // Browse by year.
-    & div.view-browse-composites {
-      // Item list.
-      & > div.view-content > div.item-list {
-        margin-top: 2em;
-        margin-left: 1.5em;
-
-        &:not(:last-of-type) > ul > li,
-        & > ul > li:not(:last-of-type) {
-          padding-bottom: 1em;
-          border-bottom: 1px solid $unb-halfgray;
-        }
-
-        & div.collapse > div.item-list > ul,
-        & div.subjects-top > div.item-list > ul {
-          columns: 2;
-        }
-      }
-      // Row.
-      .views-field.views-field-nothing {
-        margin-top: 1rem;
-      }
-    }
-    // Subjects by shared name.
-    & div.view-subjects-by-shared-name {
-      & ul {
-        list-style: none;
-      }
-
-      & .view-header #subject-full-additional {
-        font-size: 1rem;
-      }
-    }
   }
   // Nav pager.
   & nav.pager {
@@ -552,14 +370,6 @@ footer > div.container {
     width: 100%;
   }
 
-  & div#footer-logo-div, div#footer-menu-div {
-
-    & img#footer-logo-img {
-      max-width: 260px;
-      padding-right: 0 !important
-    }
-  }
-
   & a {
     background-color: initial;
     color: $unb-darkred;
@@ -568,14 +378,6 @@ footer > div.container {
 
   & a:hover, a:focus {
     text-decoration: underline;
-  }
-
-  // Copyright.
-  & #footer-copy {
-
-    & p {
-    text-align: right;
-    }
   }
 }
 //End footer.
@@ -607,50 +409,11 @@ footer > div.container {
   header {
     width: 690px;
   }
-  // Exposed search.
-  div[id*="block-exposedformsearch-subjectspage-1"] {
-    width: 70%;
-
-    & div.form-item-search-api-fulltext {
-      width: 87% !important;
-    }
-  }
-}
-@media (max-width: 768px) {
-  // Footer.
-  #footer-copy p {
-    padding-top: 1rem;
-    text-align: left !important;
-  }
-}
-@media (max-width: 991px) {
-  // Browse block.
-  & div#block-browse {
-    height: 9.75em;
-    width: 100% !important;
-    float: none !important;
-  }
-  // Exposed search.
-  div[id*="block-exposedformsearch-subjectspage-1"] {
-    width: 100% !important;
-
-    & div.form-item-search-api-fulltext {
-      width: 78% !important;
-    }
-  }
 }
 @media (min-width: 500px) and (max-width: 767px) {
   // Header.
   header {
     width: 510px;
-  }
-  // Exposed search.
-  div[id*="block-exposedformsearch-subjectspage-1"] {
-    width: 70%;
-
-    & div.form-item-search-api-fulltext {
-      width: 78% !important;
-    }
   }
 }
 @media (max-width: 520px) {

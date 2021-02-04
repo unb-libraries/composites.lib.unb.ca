@@ -92,6 +92,14 @@ main[role="main"] {
     }
     // Node forms.
     & .node-form {
+      .field--name-field-top-x,
+      .field--name-field-top-y,
+      .field--name-field-bottom-x,
+      .field--name-field-bottom-y {
+        width: 20%;
+        display: inline-block;
+      }
+
       .image-preview {
         margin-bottom: 1rem;
       }
