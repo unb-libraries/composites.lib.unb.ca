@@ -44,11 +44,7 @@ class EditSubjectsForm extends FormBase {
 
     $form['add_subject_button'] = [
       '#type' => 'item',
-      '#markup' =>
-        "<a class='btn btn-primary' href=$url_str>
-            <i class='fa fa-plus mr-2'></i>
-            <span>Add New Person</span>
-          </a>",
+      '#markup' => "<a class='btn btn-primary' href=$url_str><i class='fa fa-plus mr-2'></i><span>Add New Person</span></a>",
       '#url' => Url::fromRoute('comp_cms_extend.add_comp_subject', ['cid' => $node]),
       '#attributes' => [
         'id' => ['add-subject-link'],

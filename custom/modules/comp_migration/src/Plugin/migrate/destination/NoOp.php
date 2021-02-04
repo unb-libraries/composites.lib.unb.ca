@@ -1,6 +1,7 @@
 <?php
 
 namespace Drupal\comp_migration\Plugin\migrate\destination;
+
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Plugin\migrate\destination\DestinationBase;
 use Drupal\migrate\Plugin\MigrateIdMapInterface;
@@ -23,7 +24,6 @@ use Drupal\migrate\Row;
  *   id = "noop"
  * )
  */
-
 class NoOp extends DestinationBase {
 
   /**
@@ -63,4 +63,5 @@ class NoOp extends DestinationBase {
   public function saveIdMapping(Row $row, array $destination_id_values, $source_row_status = MigrateIdMapInterface::STATUS_IMPORTED, $rollback_action = MigrateIdMapInterface::ROLLBACK_DELETE) {
     // Do nothing.
   }
+
 }

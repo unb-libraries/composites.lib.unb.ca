@@ -1,10 +1,9 @@
 <?php
 
 /**
-* @file
-* Contains clrterms.php.
-* Deletes taxonomy terms created by migration.
-*/
+ * @file
+ * Contains clrterms.php. Deletes taxonomy terms created by migration.
+ */
 
 // The vocabularies being cleared of terms.
 $vids = [
