@@ -128,6 +128,7 @@ header {
     }
 
     & button.navbar-toggler {
+      width: max-content;
       border: none;
 
       &:before {
@@ -209,6 +210,8 @@ main[role="main"] {
       border: 0;
     }
 
+
+
     // Give images in content region an instant photo look.
     & img {
       max-width: 100%;
@@ -241,23 +244,66 @@ main[role="main"] {
         box-shadow: none !important;
       }
     }
+    // Search and browse blocks.
+    & div.views-exposed-form.block-views,
+    & div.views-exposed-form.block-views + div.block {
+      display: inline-block;
+      padding: 1em 1.4em;
+    }
+
+    & div.views-exposed-form.block-views {
+      width: 70%;
+
+      & div.form-type-textfield {
+        width: 90%;
+
+        & > input.form-text {
+          margin-top: 0;
+        }
+      }
+
+      & div[id^="edit-actions"] {
+        display: inline-block;
+
+        & input[id^="edit-submit"] {
+          height: calc(1.5em + 0.75rem + 2px);
+        }
+      }
+    }
+    // Browse block.
+    & div.views-exposed-form.block-views + div.block {
+      height: 9.75em;
+      width: 29%;
+      float: right;
+    }
+    // View header.
+    div.view-header {
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid $unb-halfgray;
+      color: $unb-gray;
+    }
     // Main content block.
     & div#block-mainpagecontent {
       width: 95%;
       margin: auto;
       margin-bottom: 1rem;
-
       // Titles/headers.
       & h1 {
         display: inline-table;
         margin-bottom: 1rem;
         font-size: 1.5rem;
       }
-
       & h2 {
         font-size: 1.2rem;
       }
-
+      // Subtitles.
+      .node-subtitle {
+        font-size: 1.4rem;
+      }
+      // Paragraph.
+      & .field--name-body p {
+        text-align: justify;
+      }
       // Description lists.
       & dl {
         margin-bottom: 1.5rem;
@@ -379,6 +425,13 @@ footer > div.container {
   & a:hover, a:focus {
     text-decoration: underline;
   }
+
+  & div#footer-logo-div, div#footer-menu-div {
+    & img#footer-logo-img {
+      max-width: 260px;
+      padding-right: 0 !important
+    }
+  }
 }
 //End footer.
 
@@ -387,6 +440,22 @@ footer > div.container {
   // Header.
   header {
     width: 1110px;
+  }
+}
+@media (max-width: 991px) {
+  // Browse block.
+  div.views-exposed-form.block-views + div.block  {
+    height: 9.75em;
+    width: 100% !important;
+    float: none !important;
+  }
+  // Exposed search.
+  div.views-exposed-form.block-views {
+    width: 100% !important;
+
+    & & div.form-type-textfield {
+      width: 78% !important;
+    }
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -409,11 +478,34 @@ footer > div.container {
   header {
     width: 690px;
   }
+  // Exposed search.
+  div.views-exposed-form.block-views {
+    width: 70%;
+
+    & div.form-item-search-api-fulltext {
+      width: 87% !important;
+    }
+  }
+}
+@media (max-width: 768px) {
+  // Footer.
+  #footer-copy p {
+    padding-top: 1rem;
+    text-align: left !important;
+  }
 }
 @media (min-width: 500px) and (max-width: 767px) {
   // Header.
   header {
     width: 510px;
+  }
+  // Exposed search.
+  div.views-exposed-form.block-views {
+    width: 70%;
+
+    & & div.form-type-textfield {
+      width: 78% !important;
+    }
   }
 }
 @media (max-width: 520px) {

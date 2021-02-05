@@ -79,17 +79,6 @@ main[role="main"] {
         height: 800px;
       }
     }
-    // Main content block.
-    & div#block-mainpagecontent {
-      // Subtitles.
-      .node-subtitle {
-        font-size: 1.4rem;
-      }
-      // Paragraph.
-      & .field--name-body p {
-        text-align: justify;
-      }
-    }
     // Node forms.
     & .node-form {
       .field--name-field-top-x,
@@ -118,50 +107,14 @@ main[role="main"] {
         display: none;
       }
     }
-    // Search and browse blocks.
-    & div[id*="block-exposedformsearch-subjectspage-1"],
-    & div#block-browse {
-      display: inline-block;
-      padding: 1em 1.4em;
-    }
-
-    & div[id*="block-exposedformsearch-subjectspage-1"] {
-      width: 70%;
-
-      & div.form-item-search-api-fulltext {
-        width: 90%;
-      }
-
-      & div[id^="edit-actions"] {
-        display: inline-block;
-
-        & input#edit-submit-search-subjects {
-          height: calc(1.5em + 0.75rem + 2px);
-        }
-      }
-    }
-    // Browse block.
-    & div#block-browse {
-      height: 9.75em;
-      width: 29%;
-      float: right;
-    }
     // Views.
     & div.view:not(.view-slideshow):not(.view-subjects-by-shared-name) {
       margin-top: 2em;
-
-      // View header.
-      div.view-header {
-        padding-bottom: 0.5em;
-        border-bottom: 1px solid $unb-halfgray;
-        color: $unb-gray;
-      }
       // Unordered lists.
       ul:not(.composite-subjects):not(.dropbutton) {
         margin-top: 1rem;
         list-style: none;
       }
-
       ul.composite-subjects {
         columns: 2;
       }
@@ -202,61 +155,3 @@ main[role="main"] {
   }
 }
 // End Main.
-
-// Footer.
-footer > div.container {
-  & div#footer-logo-div, div#footer-menu-div {
-
-    & img#footer-logo-img {
-      max-width: 260px;
-      padding-right: 0 !important
-    }
-  }
-}
-//End footer.
-
-// Responsive.
-@media (min-width: 768px) and (max-width: 991px) {
-  // Exposed search.
-  div[id*="block-exposedformsearch-subjectspage-1"] {
-    width: 70%;
-
-    & div.form-item-search-api-fulltext {
-      width: 87% !important;
-    }
-  }
-}
-@media (max-width: 768px) {
-  // Footer.
-  #footer-copy p {
-    padding-top: 1rem;
-    text-align: left !important;
-  }
-}
-@media (max-width: 991px) {
-  // Browse block.
-  & div#block-browse {
-    height: 9.75em;
-    width: 100% !important;
-    float: none !important;
-  }
-  // Exposed search.
-  div[id*="block-exposedformsearch-subjectspage-1"] {
-    width: 100% !important;
-
-    & div.form-item-search-api-fulltext {
-      width: 78% !important;
-    }
-  }
-}
-@media (min-width: 500px) and (max-width: 767px) {
-  // Exposed search.
-  div[id*="block-exposedformsearch-subjectspage-1"] {
-    width: 70%;
-
-    & div.form-item-search-api-fulltext {
-      width: 78% !important;
-    }
-  }
-}
-// End Responsive.
