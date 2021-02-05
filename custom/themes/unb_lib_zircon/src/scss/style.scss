@@ -508,9 +508,10 @@ footer > div.container {
     }
   }
 }
-@media (max-width: 520px) {
+@media (max-width: 540px) {
   // Header.
   header {
+    margin: 0 .5rem;
     width: 100%;
   }
 }
