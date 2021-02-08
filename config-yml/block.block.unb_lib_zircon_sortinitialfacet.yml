@@ -1,6 +1,6 @@
 uuid: 159ac478-ef67-44d4-9431-172065d29cb7
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.sort_initial_facet
@@ -10,7 +10,7 @@ dependencies:
     - unb_lib_zircon
 id: unb_lib_zircon_sortinitialfacet
 theme: unb_lib_zircon
-region: content
+region: header
 weight: -2
 provider: null
 plugin: 'facet_block:sort_initial_facet'

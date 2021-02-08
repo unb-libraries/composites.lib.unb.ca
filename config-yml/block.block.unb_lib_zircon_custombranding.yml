@@ -1,6 +1,6 @@
 uuid: 17bab732-0bb2-4922-a5f7-12413252e61e
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - comp_core

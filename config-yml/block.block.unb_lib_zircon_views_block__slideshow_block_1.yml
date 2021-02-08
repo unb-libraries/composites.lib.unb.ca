@@ -1,6 +1,6 @@
 uuid: c194de1f-9a38-4042-af7b-b5566049d1bb
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.slideshow
@@ -11,7 +11,7 @@ dependencies:
     - unb_lib_zircon
 id: unb_lib_zircon_views_block__slideshow_block_1
 theme: unb_lib_zircon
-region: content
+region: header
 weight: -6
 provider: null
 plugin: 'views_block:slideshow-block_1'

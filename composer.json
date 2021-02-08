@@ -15,6 +15,9 @@
       "url": "https://packages.drupal.org/8"
     }
   ],
+  "require": {
+    "unb-libraries/unb_lib_zircon": "dev-8.x-bootstrap-4.x"
+  },
   "require-dev": {
     "twbs/bootstrap": "~4.5.3",
     "unb-libraries/dockworker-drupal": "~3.0.21"
