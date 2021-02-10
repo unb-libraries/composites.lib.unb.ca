@@ -63,7 +63,7 @@ services:
       - "1025"
       - "8025"
     ports:
-      - "4096:8025"
+      - "4105:8025"
     networks:
       - composites.lib.unb.ca
 
