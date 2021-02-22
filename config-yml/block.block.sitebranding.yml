@@ -1,0 +1,23 @@
+uuid: 1e6ba626-8f7b-47e9-b622-252e6a54b245
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - composites_lib_unb_ca
+id: sitebranding
+theme: composites_lib_unb_ca
+region: header
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: false
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

@@ -1,6 +1,6 @@
 uuid: 56a1e721-f80e-4514-a3d2-40341e9a84e7
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - comp_core
@@ -10,7 +10,7 @@ dependencies:
 id: custombranding
 theme: composites_lib_unb_ca
 region: header
-weight: 0
+weight: -5
 provider: null
 plugin: comp_branding
 settings:
