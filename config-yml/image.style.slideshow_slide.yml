@@ -10,7 +10,7 @@ effects:
     id: image_scale
     weight: 1
     data:
-      width: 1010
+      width: 1110
       height: null
       upscale: false
   ba5ccd71-3151-4382-a19e-8ff6ad9ac11e:
@@ -18,7 +18,7 @@ effects:
     id: image_crop
     weight: 2
     data:
-      width: 1010
+      width: 1110
       height: 300
       anchor: center-center
   a910aa8d-07ce-48c1-b1c3-095ed34102f9:

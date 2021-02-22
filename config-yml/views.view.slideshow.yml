@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_image_ss
     - field.storage.node.field_sort_order
+    - image.style.slideshow_slide
     - node.type.slideshow_image
   module:
     - image
@@ -250,7 +251,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: ''
+            image_style: slideshow_slide
             image_link: ''
           group_column: ''
           group_columns: {  }
