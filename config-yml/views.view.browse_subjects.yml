@@ -70,7 +70,7 @@ display:
         type: html_list
         options:
           grouping: {  }
-          row_class: ''
+          row_class: browse-subjects-row
           default_row_class: true
           type: ul
           wrapper_class: item-list
