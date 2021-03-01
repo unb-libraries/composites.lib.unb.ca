@@ -131,7 +131,7 @@ main[role="main"] {
         }
 
         &:not(:last-of-type) > ul > li,
-        & > ul > li:not(.browse-subjects-row):not(:last-of-type) {
+        & > ul > li:not(.browse-subjects-row):not(.shared-name-row):not(:last-of-type) {
           padding-bottom: 1em;
           border-bottom: 1px solid $unb-halfgray;
         }

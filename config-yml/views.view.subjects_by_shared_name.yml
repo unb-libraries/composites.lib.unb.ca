@@ -70,7 +70,7 @@ display:
         type: html_list
         options:
           grouping: {  }
-          row_class: ''
+          row_class: shared-name-row
           default_row_class: true
           type: ul
           wrapper_class: item-list
@@ -426,7 +426,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<h2 id="subject-full-additional" class="font-weight-bold text-dark mt-4 mb-3">Additional records of interest with the same name:</h2>'
+          content: '<h2 id="subject-full-additional" class="h6 font-weight-bold text-dark mt-4 mb-0">Additional records of interest with the same name:</h2>'
           plugin_id: text_custom
       footer: {  }
       empty: {  }
