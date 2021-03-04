@@ -4,7 +4,7 @@
   // Set empty coordinate controls to zero if 'absent' is checked.
   Drupal.behaviors.absentOnClick = {
     attach: function (context, settings) {
-      // On documeny ready.
+      // On document ready.
       $(document).ready( function() {
         // When 'absent' checkbox is clicked.
         $('#edit-field-absent-value').click( function() {
