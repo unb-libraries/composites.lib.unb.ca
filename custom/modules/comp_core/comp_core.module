@@ -10,6 +10,14 @@ use Drupal\user\Entity\User;
 /**
  * Implements hook_form_FORM_ID_alter().
  */
+function comp_core_form_node_composite_form_alter(&$form, $form_state, $form_id) {
+  // Add validation for graduation ceremony link.
+  $form['#validate'][] = 'val_grad_link';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function comp_core_form_node_composite_edit_form_alter(&$form, $form_state, $form_id) {
   // Add validation for graduation ceremony link.
   $form['#validate'][] = 'val_grad_link';
