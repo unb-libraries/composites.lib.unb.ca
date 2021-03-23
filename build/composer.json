@@ -149,7 +149,7 @@
         "drupal/field_formatter_class": "1.1",
         "drupal/field_group": "3.0-rc1",
         "drupal/fixed_block_content": "1.0",
-        "drupal/fontawesome": "2.17",
+        "drupal/fontawesome": "2.18",
         "drupal/gapi": "1.x-dev",
         "drupal/google_analytics": "2.5",
         "drupal/health_check": "1.3",
