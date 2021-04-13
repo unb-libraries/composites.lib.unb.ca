@@ -45,9 +45,6 @@
             "drupal/bootstrap_barrio": {
                 "Fix CSS library 404": "https://www.drupal.org/files/issues/2019-02-19/3033946-6.patch",
                 "Fix Layout Builder": "https://www.drupal.org/files/issues/2018-06-01/2976934-3.patch"
-            },
-            "drupal/samlauth": {
-                "samlauth nocache metadata": "/build/patches/samlauth_nocache_metadata.patch"
             }
         }
     },
