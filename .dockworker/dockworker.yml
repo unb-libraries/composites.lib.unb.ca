@@ -7,6 +7,9 @@ dockworker:
     upstream_images:
       - ghcr.io/unb-libraries/drupal:8.x-3.x-unblib
     uuid: 3105
+  drupal:
+    persistent_config:
+      'image.style.*composite_crop*': 'Composite Image Crop Styles'
   deployment:
     environments:
       - dev
