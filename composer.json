@@ -18,6 +18,11 @@
   "require": {
     "unb-libraries/unb_lib_zircon": "dev-8.x-bootstrap-4.x"
   },
+  "autoload": {
+    "psr-4": {
+      "Dockworker\\": ".dockworker/src"
+    }
+  },
   "require-dev": {
     "twbs/bootstrap": "~4.5.3",
     "unb-libraries/dockworker-drupal": "~4"
