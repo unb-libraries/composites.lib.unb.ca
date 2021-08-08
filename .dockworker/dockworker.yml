@@ -9,7 +9,7 @@ dockworker:
     uuid: 3105
   drupal:
     persistent_config:
-      'image.style.*composite_crop*': 'Composite Image Crop Styles'
+      'image\.style\.[0-9]+_composite_crop_[0-9]+dpi': 'Composite Image Crop Styles'
   deployment:
     environments:
       - dev
