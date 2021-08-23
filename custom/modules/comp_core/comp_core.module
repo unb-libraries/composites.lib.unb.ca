@@ -28,10 +28,12 @@ function comp_core_form_node_composite_edit_form_alter(&$form, $form_state, $for
  */
 function comp_core_preprocess_node__composite(&$variables) {
   // Get graduation ceremony url and validate.
-  $url = $variables['content']['field_grad_ceremony']['0']['#title'];
+  $url = !empty($variables['content']['field_grad_ceremony']['0']['#title']) ?
+    $variables['content']['field_grad_ceremony']['0']['#title'] :
+    NULL;
 
   // Don't pass ceremony link value if the URL is not valid.
-  if (!url_valid($url)) {
+  if (!$url or $url and !url_valid($url)) {
     unset($variables['content']['field_grad_ceremony']['0']);
   }
 }
@@ -80,10 +82,15 @@ function val_grad_link(&$form, $form_state) {
 /**
  * Returns true if URL header contains status OK, false otherwise.
  */
-function url_valid($url) {
-  // Get URL headers.
-  $headers = get_headers($url);
-  // Return header evaluated agains status OK (200).
-  $valid = strpos($headers[0], '200') ? TRUE : FALSE;
-  return $valid;
+function url_valid($url = NULL) {
+  if ($url) {
+    // Get URL headers.
+    $headers = get_headers($url);
+    // Return header evaluated agains status OK (200).
+    $valid = strpos($headers[0], '200') ? TRUE : FALSE;
+    return $valid;
+  }
+  else {
+    return FALSE;
+  }
 }
