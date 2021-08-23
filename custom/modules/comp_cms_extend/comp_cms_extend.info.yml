@@ -2,4 +2,5 @@ name: Extended CMS functionality module for composites.lib.unb.ca
 type: module
 description: Extends Drupal CMS functionality for composites.lib.unb.ca
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: composites_lib_unb_ca
