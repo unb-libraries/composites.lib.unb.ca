@@ -165,7 +165,7 @@
         "unb-libraries/alert_scheduler": "dev-8.x-1.x",
         "unb-libraries/drupal-builder": "^9",
         "unb-libraries/saml_features": "dev-8.x-1.x",
-        "unb-libraries/unb_lib_zircon": "dev-8.x-bootstrap-4.x"
+        "unb-libraries/unb_lib_zircon": "dev-9.x-bootstrap-4.x"
     },
     "require-dev": {
         "unb-libraries/drupal-development-libraries": "^9"
