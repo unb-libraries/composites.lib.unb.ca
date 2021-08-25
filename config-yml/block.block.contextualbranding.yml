@@ -1,0 +1,20 @@
+uuid: 0e9a697b-5721-4478-a579-af086fc29587
+langcode: en
+status: true
+dependencies:
+  module:
+    - unb_lib_context_branding
+  theme:
+    - composites_lib_unb_ca
+id: contextualbranding
+theme: composites_lib_unb_ca
+region: header
+weight: 0
+provider: null
+plugin: context_branding_block
+settings:
+  id: context_branding_block
+  label: 'Contextual Branding'
+  provider: unb_lib_context_branding
+  label_display: '0'
+visibility: {  }
