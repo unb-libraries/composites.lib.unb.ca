@@ -1,0 +1,29 @@
+uuid: 4f3d3906-f1a6-4e2b-8929-58cc90803cbb
+langcode: en
+status: true
+dependencies: {  }
+name: 446_composite_crop_72dpi
+label: 446_composite_crop_72dpi
+effects:
+  ab8cf982-30c8-48c4-9726-82e4787d0970:
+    uuid: ab8cf982-30c8-48c4-9726-82e4787d0970
+    id: image_crop
+    weight: 0
+    data:
+      width: 216
+      height: 382
+      anchor: 1908-100
+  5068f015-7373-4402-a528-54f024933652:
+    uuid: 5068f015-7373-4402-a528-54f024933652
+    id: image_scale
+    weight: 0
+    data:
+      width: 400
+      upscale: true
+      height: null
+  396c3e7d-dd85-4edb-8e0c-48735ec34c21:
+    uuid: 396c3e7d-dd85-4edb-8e0c-48735ec34c21
+    id: image_convert
+    weight: 100
+    data:
+      extension: jpg
