@@ -41,6 +41,11 @@ a.comp-collapse {
       display: none;
     }
   }
+
+  // Site tile.
+  h1.site-title {
+    margin-bottom: 0;
+  }
 }
 // Top subjects.
 [id^="subjects-top-"].collapsing {

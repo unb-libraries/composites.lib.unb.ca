@@ -12,6 +12,7 @@ module:
   comp_install: 0
   config: 0
   contact: 0
+  context_branding: 0
   contextual: 0
   ctools: 0
   datetime: 0
@@ -54,7 +55,6 @@ module:
   toolbar: 0
   twig_field_value: 0
   twig_tweak: 0
-  unb_lib_context_branding: 0
   update: 0
   user: 0
   views_slideshow: 0
