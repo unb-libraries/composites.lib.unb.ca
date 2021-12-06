@@ -153,7 +153,7 @@
         "drupal/samlauth": "3.3",
         "drupal/search_api": "1.21",
         "drupal/search_api_solr": "4.2.2",
-        "drupal/token": "1.9",
+        "drupal/token": "1.10",
         "drupal/twig_field_value": "^2",
         "drupal/twig_tweak": "2.9",
         "drupal/views_slideshow": "4.8",
