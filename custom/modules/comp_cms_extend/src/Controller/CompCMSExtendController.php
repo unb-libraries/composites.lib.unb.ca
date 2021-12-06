@@ -81,7 +81,7 @@ class CompCMSExtendController extends ControllerBase implements ContainerInjecti
   public function onlyComposites($node) {
     // Grants custom access to composite nodes only.
     return AccessResult::allowedIf(
-      $this->entityTypeManager->load($node)->bundle() == 'composite');
+      $this->entityTypeManager->getStorage('node')->load($node)->bundle() == 'composite');
   }
 
 }
