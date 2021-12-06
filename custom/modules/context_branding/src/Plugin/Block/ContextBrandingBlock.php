@@ -5,6 +5,8 @@ namespace Drupal\context_branding\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Path\PathMatcher;
+use Drupal\Core\Config\ConfigFactory;
 
 /**
  * A custom dynamic block for site branding w/ non-link H1 frontpage title.
@@ -17,11 +19,18 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class ContextBrandingBlock extends BlockBase implements ContainerFactoryPluginInterface {
   /**
-   * For services dependency injection.
+   * For service dependency injection.
    *
-   * @var Symfony\Component\DependencyInjection\ContainerInterface
+   * @var Drupal\Core\Path\PathMatcher
    */
-  protected $service;
+  protected $pathMatcher;
+
+  /**
+   * For service dependency injection.
+   *
+   * @var Drupal\Core\Config\ConfigFactory
+   */
+  protected $configFactory;
 
   /**
    * Class constructor.
@@ -32,15 +41,20 @@ class ContextBrandingBlock extends BlockBase implements ContainerFactoryPluginIn
    *   The plugin identifier.
    * @param mixed $plugin_definition
    *   The plugin definition.
-   * @param \Symfony\Component\DependencyInjection\ContainerInterface $service_container
-   *   The container interface for using services via dependency injection.
+   * @param Drupal\Core\Path\PathMatcher $path_matcher
+   *   Path matcher service dependency injection.
+   * @param Drupal\Core\Config\ConfigFactory $config_factory
+   *   Config factory service dependency injection.
    */
-  public function __construct(array $configuration,
-  $plugin_id,
-  $plugin_definition,
-  ContainerInterface $service_container) {
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    PathMatcher $path_matcher,
+    ConfigFactory $config_factory) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->service = $service_container;
+    $this->pathMatcher = $path_matcher;
+    $this->configFactory = $config_factory;
   }
 
   /**
@@ -57,12 +71,17 @@ class ContextBrandingBlock extends BlockBase implements ContainerFactoryPluginIn
    *
    * @return static
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+  public static function create(
+    ContainerInterface $container,
+    array $configuration,
+    $plugin_id,
+    $plugin_definition) {
     return new static(
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('service_container')
+      $container->get('path.matcher'),
+      $container->get('config.factory')
     );
   }
 
@@ -70,8 +89,8 @@ class ContextBrandingBlock extends BlockBase implements ContainerFactoryPluginIn
    * {@inheritdoc}
    */
   public function build() {
-    $is_front = $this->service->get('path.matcher')->isFrontPage();
-    $site_config = $this->service->get('config.factory')->get('system.site');
+    $is_front = $this->pathMatcher->isFrontPage();
+    $site_config = $this->configFactory->get('system.site');
     $site_name = $site_config->get('name');
     $site_slogan = $site_config->get('slogan');
 

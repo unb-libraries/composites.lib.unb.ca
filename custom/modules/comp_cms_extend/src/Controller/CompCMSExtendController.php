@@ -3,30 +3,76 @@
 namespace Drupal\comp_cms_extend\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\node\Entity\Node;
 use Drupal\Core\Access\AccessResult;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Form\FormBuilder;
 
 /**
  * Routing controller for comp_cms_extend.
  */
-class CompCMSExtendController extends ControllerBase {
+class CompCMSExtendController extends ControllerBase implements ContainerInjectionInterface {
+  /**
+   * For services dependency injection.
+   *
+   * @var Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $entityTypeManager;
+
+  /**
+   * For services dependency injection.
+   *
+   * @var Drupal\Core\Form\FormBuilder
+   */
+  protected $formBuilder;
+
+  /**
+   * Class constructor.
+   *
+   * @param Drupal\Core\Entity\EntityTypeManager $entity_type_manager
+   *   For services dependency injection.
+   * @param Drupal\Core\Form\FormBuilder $form_builder
+   *   For services dependency injection.
+   */
+  public function __construct(
+    EntityTypeManager $entity_type_manager,
+    FormBuilder $form_builder) {
+    $this->entityTypeManager = $entity_type_manager;
+    $this->formBuilder = $form_builder;
+  }
+
+  /**
+   * Object create method.
+   *
+   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+   *   Container interface.
+   *
+   * @return static
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager'),
+      $container->get('form_builder')
+    );
+  }
 
   /**
    * {@inheritdoc}
    */
   public function addCompSubject($cid) {
-    $node = \Drupal::entityTypeManager()
+    $node = $this->entityTypeManager
       ->getStorage('node')
       ->create([
         'type' => 'subject',
         'field_composite' => $cid,
       ]);
 
-    $form = \Drupal::entityTypeManager()
+    $form = $this->entityTypeManager
       ->getFormObject('node', 'default')
       ->setEntity($node);
 
-    return \Drupal::formBuilder()->getForm($form);
+    return $this->formBuilder->getForm($form);
   }
 
   /**
@@ -34,7 +80,8 @@ class CompCMSExtendController extends ControllerBase {
    */
   public function onlyComposites($node) {
     // Grants custom access to composite nodes only.
-    return AccessResult::allowedIf(Node::load($node)->bundle() == 'composite');
+    return AccessResult::allowedIf(
+      $this->entityTypeManager->load($node)->bundle() == 'composite');
   }
 
 }
