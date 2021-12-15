@@ -123,8 +123,8 @@ function comp_crud_entity_presave($entity) {
             if (strpos($style_name, $nid) !== FALSE) {
               // Load, delete, and flush style.
               $style = ImageStyle::load($style_name);
-              $style->delete();
               $style->flush();
+              $style->delete();
             }
           }
         }

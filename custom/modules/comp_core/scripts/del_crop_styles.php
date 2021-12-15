@@ -19,8 +19,8 @@ foreach ($styles as $style_name) {
   if (strpos($style_name, 'composite_crop') !== FALSE) {
     // Load, delete, and flush style.
     $style = ImageStyle::load($style_name);
-    $style->delete();
     $style->flush();
-    echo "Deleted image style [$style_name]";
+    $style->delete();
+    echo "\nDeleted image style [$style_name]";
   }
 }
