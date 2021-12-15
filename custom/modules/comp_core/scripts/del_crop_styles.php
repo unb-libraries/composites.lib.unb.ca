@@ -21,5 +21,6 @@ foreach ($styles as $style_name) {
     $style = ImageStyle::load($style_name);
     $style->delete();
     $style->flush();
+    echo "Deleted image style [$style_name]";
   }
 }
