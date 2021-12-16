@@ -94,3 +94,23 @@ function url_valid($url = NULL) {
     return FALSE;
   }
 }
+
+/**
+ * Implements hook_cron().
+ */
+function comp_core_cron() {
+  // Delete all composite crop styles.
+  $styles = \Drupal::entityQuery('image_style')
+    ->execute();
+
+  // Run through styles.
+  foreach ($styles as $style_name) {
+    // If the style correponds to a composite crop...
+    if (strpos($style_name, 'composite_crop') !== FALSE) {
+      // Load, delete, and flush style.
+      $style = ImageStyle::load($style_name);
+      $style->flush();
+      $style->delete();
+    }
+  }
+}
