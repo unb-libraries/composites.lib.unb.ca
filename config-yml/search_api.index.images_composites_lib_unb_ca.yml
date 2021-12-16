@@ -2,33 +2,30 @@ uuid: 06b484b7-2fcd-4564-8397-7e95c394dff6
 langcode: en
 status: true
 dependencies:
-  module:
-    - search_api_solr
-    - search_api
-    - node
   config:
     - field.storage.node.field_comp_decade
     - field.storage.node.field_comp_year
     - field.storage.node.field_type
     - search_api.server.drupal_solr_lib_unb_ca
+  module:
+    - search_api_solr
+    - search_api
+    - node
 third_party_settings:
   search_api_solr:
     finalize: false
     commit_before_finalize: false
     commit_after_finalize: false
-    multilingual:
-      limit_to_content_language: false
-      include_language_independent: true
     highlighter:
       maxAnalyzedChars: 51200
       fragmenter: gap
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
       regex:
         slop: 0.5
         pattern: blank
         maxAnalyzedChars: 10000
-      usePhraseHighlighter: true
-      highlightMultiTerm: true
-      preserveMulti: false
       highlight:
         mergeContiguous: false
         requireFieldMatch: false
@@ -49,6 +46,9 @@ third_party_settings:
       index_prefix: ''
       collection: ''
       timezone: ''
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
 id: images_composites_lib_unb_ca
 name: images.composites.lib.unb.ca
 description: ''
@@ -98,6 +98,6 @@ tracker_settings:
   default:
     indexing_order: lifo
 options:
-  index_directly: true
   cron_limit: 400
+  index_directly: true
 server: drupal_solr_lib_unb_ca

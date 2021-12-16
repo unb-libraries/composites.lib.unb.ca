@@ -17,7 +17,7 @@ plugin: 'facet_block:comp_decade_facet'
 settings:
   id: 'facet_block:comp_decade_facet'
   label: 'Browse by Year'
-  provider: facets
   label_display: visible
+  provider: facets
   block_id: comp.decadefacet
 visibility: {  }

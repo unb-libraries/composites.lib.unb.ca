@@ -15,11 +15,11 @@ plugin: page_title_block
 settings:
   id: page_title_block
   label: 'Page title'
-  provider: core
   label_display: '0'
+  provider: core
 visibility:
   request_path:
     id: request_path
-    pages: "/node/*edit*\r\n/node/*hires*\r\n/node/*delete*\r\n/about\r\n/acknowledgements"
     negate: false
     context_mapping: {  }
+    pages: "/node/*edit*\r\n/node/*hires*\r\n/node/*delete*\r\n/about\r\n/acknowledgements"

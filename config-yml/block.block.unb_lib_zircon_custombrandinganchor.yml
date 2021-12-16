@@ -16,11 +16,11 @@ plugin: comp_branding_anchor
 settings:
   id: comp_branding_anchor
   label: 'Custom Branding Anchor'
-  provider: comp_core
   label_display: '0'
+  provider: comp_core
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
     negate: true
     context_mapping: {  }
+    pages: '<front>'

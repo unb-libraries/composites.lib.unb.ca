@@ -16,11 +16,11 @@ plugin: comp_browse
 settings:
   id: comp_browse
   label: Browse
-  provider: comp_core
   label_display: visible
+  provider: comp_core
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/search-persons*"
     negate: false
     context_mapping: {  }
+    pages: "<front>\r\n/search-persons*"

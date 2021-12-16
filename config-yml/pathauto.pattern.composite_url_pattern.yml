@@ -11,12 +11,12 @@ pattern: 'composites/[node:title]'
 selection_criteria:
   e42035ca-859f-490b-8bed-5bec935dbe63:
     id: node_type
-    bundles:
-      composite: composite
     negate: false
+    uuid: e42035ca-859f-490b-8bed-5bec935dbe63
     context_mapping:
       node: node
-    uuid: e42035ca-859f-490b-8bed-5bec935dbe63
+    bundles:
+      composite: composite
 selection_logic: and
 weight: -5
 relationships: {  }

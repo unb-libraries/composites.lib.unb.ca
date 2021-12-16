@@ -17,35 +17,35 @@ bundle: slideshow_image
 mode: default
 content:
   field_image_ss:
-    weight: 102
+    type: image
     label: above
     settings:
-      image_style: slideshow_slide
       image_link: ''
+      image_style: slideshow_slide
     third_party_settings: {  }
-    type: image
+    weight: 102
     region: content
   field_link_path:
-    weight: 103
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 103
     region: content
   field_sort_order:
-    weight: 104
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    weight: 104
     region: content
   links:
-    weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 100
+    region: content
 hidden:
   langcode: true
   search_api_excerpt: true
