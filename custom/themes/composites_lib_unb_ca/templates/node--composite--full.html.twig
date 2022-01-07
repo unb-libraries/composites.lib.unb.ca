@@ -157,7 +157,7 @@
       </dl>
     {% endif %}
 
-    {% if content.field_notes|field_value %}
+    {% if content.field_current_buildings|field_value %}
       <dl>
         <dt>{{ content.field_current_buildings|field_label }}</dt>
         {% for current_building in content.field_current_buildings|field_value %}
@@ -166,7 +166,7 @@
       </dl>
     {% endif %}
 
-    {% if content.field_notes|field_value %}
+    {% if content.field_former_buildings|field_value %}
       <dl>
         <dt>{{ content.field_former_buildings|field_label }}</dt>
         {% for former_building in content.field_former_buildings|field_value %}
