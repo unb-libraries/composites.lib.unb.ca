@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: drupal
-    appMajor: "8"
+    appMajor: "9"
     instance: composites.lib.unb.ca
     tier: frontend
     uri: dev-composites.lib.unb.ca
@@ -18,6 +18,7 @@ spec:
       uri: dev-composites.lib.unb.ca
   replicas: 1
   revisionHistoryLimit: 2
+  minReadySeconds: 30
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -27,7 +28,7 @@ spec:
     metadata:
       labels:
         app: drupal
-        appMajor: "8"
+        appMajor: "9"
         instance: composites.lib.unb.ca
         tier: frontend
         uri: dev-composites.lib.unb.ca
