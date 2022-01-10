@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: drupal
-    appMajor: "8"
+    appMajor: "9"
     instance: composites.lib.unb.ca
     tier: frontend
     uri: composites.lib.unb.ca
