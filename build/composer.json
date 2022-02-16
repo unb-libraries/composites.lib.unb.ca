@@ -148,7 +148,7 @@
         "drupal/imagemagick": "3.3",
         "jquery/hover_intent": "1.10.0",
         "jquery/json2": "dev-master",
-        "drupal/pathauto": "1.8",
+        "drupal/pathauto": "1.9",
         "drupal/redis": "1.5",
         "drupal/samlauth": "3.4",
         "drupal/search_api": "1.23",
