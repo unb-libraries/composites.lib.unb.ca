@@ -1,4 +1,4 @@
-FROM ghcr.io/unb-libraries/drupal:9.x-1.x-unblib
+FROM ghcr.io/unb-libraries/drupal:9.x-2.x-unblib
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick bash postfix php7-ldap php7-xmlreader php7-zip php7-redis
