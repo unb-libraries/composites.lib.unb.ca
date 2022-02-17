@@ -1,17 +1,22 @@
 {
-  "license": "MIT",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "name": "unb-libraries/composites.lib.unb.ca",
-  "description": "Scaffold and provision local development for composites.lib.unb.ca",
-  "config": {
-    "preferred-install": {
-      "*": "dist"
-    },
-    "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
+  "autoload": {
+    "psr-4": {
+      "Dockworker\\": ".dockworker/src"
     }
   },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
+  "description": "Scaffold and provision local development for composites.lib.unb.ca",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "name": "unb-libraries/composites.lib.unb.ca",
+  "prefer-stable": true,
   "repositories": [
     {
       "type": "composer",
@@ -20,11 +25,6 @@
   ],
   "require": {
     "unb-libraries/unb_lib_zircon": "dev-9.x-bootstrap-4.x"
-  },
-  "autoload": {
-    "psr-4": {
-      "Dockworker\\": ".dockworker/src"
-    }
   },
   "require-dev": {
     "twbs/bootstrap": "~4.5.3",
