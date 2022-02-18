@@ -1,6 +1,6 @@
 ![composites.lib.unb.ca screenshot](https://github.com/unb-libraries/composites.lib.unb.ca/raw/prod/.dockworker/screenshot.png "composites.lib.unb.ca screenshot")
 # [composites.lib.unb.ca](https://composites.lib.unb.ca/) : Lean Instance Repository
-[![Build Status](https://github.com/unb-libraries/composites.lib.unb.ca/actions/workflows/test-suite.yaml/badge.svg?branch=prod)](https://github.com/unb-libraries/composites.lib.unb.ca/actions/workflows/test-suite.yaml)
+[![Build Status](https://github.com/unb-libraries/composites.lib.unb.ca/actions/workflows/deployment-workflow.yaml/badge.svg?branch=prod)](https://github.com/unb-libraries/composites.lib.unb.ca/actions/workflows/deployment-workflow.yaml)
 [![GitHub license](https://img.shields.io/github/license/unb-libraries/composites.lib.unb.ca)](https://github.com/unb-libraries/composites.lib.unb.ca/blob/prod/LICENSE)
 ![GitHub repo size](https://img.shields.io/github/repo-size/unb-libraries/composites.lib.unb.ca?label=lean%20repo%20size)
 
