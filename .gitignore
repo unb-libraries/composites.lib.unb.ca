@@ -4,3 +4,4 @@ composer.lock
 custom/modules/comp_migration/data/img
 tests/features/bootstrap
 vendor
+config-yml/.htaccess
