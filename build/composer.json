@@ -148,7 +148,7 @@
     "drupal/bootstrap4": "2.1.14",
     "drupal/core": "9.3.9",
     "drupal/externalauth": "1.4",
-    "drupal/facets": "2.0.1",
+    "drupal/facets": "2.0.2",
     "drupal/fontawesome": "2.21",
     "drupal/google_analytics": "2.5",
     "drupal/health_check": "1.3",
