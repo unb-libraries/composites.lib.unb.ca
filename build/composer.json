@@ -146,7 +146,7 @@
   "require": {
     "drupal/admin_toolbar": "2.5",
     "drupal/bootstrap4": "2.1.14",
-    "drupal/core": "9.3.9",
+    "drupal/core": "9.3.11",
     "drupal/externalauth": "1.4",
     "drupal/facets": "2.0.2",
     "drupal/fontawesome": "2.22",
