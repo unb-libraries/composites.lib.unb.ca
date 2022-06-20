@@ -21,6 +21,7 @@ module:
   datetime: 0
   dynamic_page_cache: 0
   editor: 0
+  externalauth: 10
   facets: 0
   field: 0
   field_ui: 0
@@ -36,12 +37,16 @@ module:
   imagemagick: 0
   language: 0
   link: 0
+  menu_link_content: 1
   menu_ui: 0
+  minimal: 1000
+  mysql: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
   path_alias: 0
+  pathauto: 1
   quickedit: 0
   rdf: 0
   redis: 0
@@ -60,14 +65,10 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  views: 10
   views_slideshow: 0
   views_slideshow_cycle: 0
   views_ui: 0
-  menu_link_content: 1
-  pathauto: 1
-  externalauth: 10
-  views: 10
-  minimal: 1000
 theme:
   stark: 0
   stable: 0
