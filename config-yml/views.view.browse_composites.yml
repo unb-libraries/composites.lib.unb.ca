@@ -744,7 +744,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       empty: {  }
       sorts:
@@ -841,7 +841,7 @@ display:
           separator: ''
           hide_empty: true
       query:
-        type: views_query
+        type: search_api_query
         options:
           bypass_access: false
           skip_access: false

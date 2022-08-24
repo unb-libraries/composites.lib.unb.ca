@@ -11,6 +11,8 @@ id: sort_initial_facet
 name: 'Select a last name initial from the list below. ''#'' for digits and ''@'' for other.'
 weight: 0
 min_count: 1
+missing: false
+missing_label: others
 url_alias: sort_initial_facet
 facet_source_id: 'search_api:views_page__browse_subjects__page_1'
 field_identifier: field_sort_initial
@@ -19,6 +21,9 @@ hard_limit: 0
 exclude: false
 use_hierarchy: false
 keep_hierarchy_parents_active: false
+hierarchy:
+  type: taxonomy
+  config: {  }
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 widget:
