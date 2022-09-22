@@ -1,7 +1,18 @@
 uuid: 6e425a65-5edb-4c15-b616-1427354db409
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.unb_libraries
+    - node.type.composite
+    - node.type.slideshow_image
+    - node.type.static_page
+    - node.type.subject
+  module:
+    - filter
+    - node
+    - system
+    - toolbar
 id: content_editor
 label: 'Content Editor'
 weight: 2
@@ -34,3 +45,4 @@ permissions:
   - 'view all revisions'
   - 'view composite revisions'
   - 'view static_page revisions'
+  - 'view the administration theme'
