@@ -160,7 +160,7 @@
     "drupal/search_api_solr": "4.2.8",
     "drupal/token": "1.11",
     "drupal/twig_field_value": "^2",
-    "drupal/twig_tweak": "2.9",
+    "drupal/twig_tweak": "2.10",
     "drupal/views_slideshow": "4.8",
     "google/apiclient": "^2.0",
     "jonthornton/jquery-timepicker": "~1.11.15",
