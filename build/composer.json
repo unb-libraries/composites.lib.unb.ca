@@ -52,9 +52,6 @@
       "drupal/bootstrap_barrio": {
         "Fix CSS library 404": "https://www.drupal.org/files/issues/2019-02-19/3033946-6.patch",
         "Fix Layout Builder": "https://www.drupal.org/files/issues/2018-06-01/2976934-3.patch"
-      },
-      "drupal/samlauth": {
-        "Ignore Role Restrictions": "/build/patches/samlauth_rolematch.patch"
       }
     }
   },
@@ -171,7 +168,7 @@
     "trentrichardson/jquery-timepicker-addon": "^1.6.3",
     "unb-libraries/alert_scheduler": "dev-8.x-1.x",
     "unb-libraries/drupal-builder": "^9",
-    "unb-libraries/saml_features": "dev-8.x-1.x",
+    "unb-libraries/saml_features": "dev-9.x-1.x",
     "unb-libraries/unb_lib_zircon": "dev-9.x-bootstrap-4.x"
   },
   "require-dev": {
