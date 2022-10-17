@@ -505,7 +505,7 @@ function generate_dzi_tiles($fid, $nid) {
    " -o \"{$dzi_path}\"";
 
   // Run command in shell.
-  exec($command, $output, $return);
+  shell_exec("$command >/dev/null 2>/dev/null &");
 
   // For batch process.
   $context['message'] = t(
