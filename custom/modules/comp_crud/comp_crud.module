@@ -468,15 +468,18 @@ function update_crop_style($id, $topX, $topY, $botX, $botY, $dpi, $override) {
  */
 function prepare_dzi_batch($fid, $nid) {
   // Prepare batch processing.
-  $batch = array(
+  $batch = [
     'title' => t('Updating high-resolution DZI tiles for file ID [' .
       $fid . ']...'),
-    'operations' => [],
+    'operations' => [
+      ['generate_dzi_tiles', [$fid, $nid]],
+      ['check_dzi_done', []],
+    ],
     'init_message'     => t('Starting...'),
     'progress_message' => t('Processed @current out of @total.'),
     'error_message'    => t('An error occurred during processing.'),
     'finished' => t('Done.'),
-  );
+  ];
 
   // Add generation of DZI tiles for file to batch operations.
   $batch['operations'][] = ['generate_dzi_tiles', [$fid, $nid]];
@@ -505,8 +508,8 @@ function generate_dzi_tiles($fid, $nid) {
    " -o \"{$dzi_path}\"";
 
   // Run command in shell.
-  shell_exec("$command >/dev/null 2>/dev/null &");
-
+  $pid = shell_exec("$command >/dev/null 2>/dev/null & echo $!");
+  $context['sandbox']['pid'] = $pid;
   // For batch process.
   $context['message'] = t(
     'Generated DZI tiles for high-resolution composite file @file',
@@ -514,4 +517,34 @@ function generate_dzi_tiles($fid, $nid) {
      '@file' => $fn_plain,
     ]
   );
+}
+
+/**
+ * Check if DZI tile generation is complete to end batch.
+ */
+function check_dzi_done() {
+
+  if (isRunning($context['sandbox']['pid'])) {
+    $context['finished'] = 0;
+  }
+  else {
+    $context['finished'] = 1;
+  }
+}
+
+/**
+ * Checks if a given process is running.
+ */
+
+function isRunning($pid){
+  try {
+    $result = shell_exec(sprintf("ps %d", $pid));
+
+    if(count(preg_split("/\n/", $result)) > 2) {
+      return true;
+    }
+  }
+  catch(Exception $e) {}
+
+  return false;
 }
