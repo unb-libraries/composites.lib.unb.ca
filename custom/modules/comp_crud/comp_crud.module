@@ -473,7 +473,6 @@ function prepare_dzi_batch($fid, $nid) {
       $fid . ']...'),
     'operations' => [
       ['generate_dzi_tiles', [$fid, $nid]],
-      ['check_dzi_done', []],
     ],
     'init_message'     => t('Starting...'),
     'progress_message' => t('Processed @current out of @total.'),
@@ -491,44 +490,45 @@ function prepare_dzi_batch($fid, $nid) {
 /**
  * Generates DZI tiles for the given image file.
  */
-function generate_dzi_tiles($fid, $nid) {
-  $file = File::load($fid);
-  $filename = $file->getFilename();
+function generate_dzi_tiles($fid, $nid, $context) {
+  if (empty($context['sandbox']['dzi_started'])) {
+    $file = File::load($fid);
+    $filename = $file->getFilename();
 
-  // Cut extension from filename.
-  $fn_plain = substr($filename, 0, -4);
-  // Get image path.
-  $scheme = \Drupal::config('system.file')->get('default_scheme');
-  $img_location = \Drupal::service('file_system')->realpath($scheme . "://") . "/comp_images";
-  $img_path = $img_location . "/$filename";
-  $dzi_path = $img_location . "/dzi/composite_$nid";
+    // Cut extension from filename.
+    $fn_plain = substr($filename, 0, -4);
+    // Get image path.
+    $scheme = \Drupal::config('system.file')->get('default_scheme');
+    $img_location = \Drupal::service('file_system')->realpath($scheme . "://") . "/comp_images";
+    $img_path = $img_location . "/$filename";
+    $dzi_path = $img_location . "/dzi/composite_$nid";
 
-  // Generate or update DZI tiles.
-  $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
-   " -o \"{$dzi_path}\"";
+    // Generate or update DZI tiles.
+    $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
+     " -o \"{$dzi_path}\"";
 
-  // Run command in shell.
-  $pid = shell_exec("$command >/dev/null 2>/dev/null & echo $!");
-  $context['sandbox']['pid'] = $pid;
-  // For batch process.
-  $context['message'] = t(
-    'Generated DZI tiles for high-resolution composite file @file',
-    [
-     '@file' => $fn_plain,
-    ]
-  );
-}
-
-/**
- * Check if DZI tile generation is complete to end batch.
- */
-function check_dzi_done() {
-
-  if (isRunning($context['sandbox']['pid'])) {
+    // Run command in shell, capture pid, mark DZI generation as started.
+    $pid = shell_exec("$command >/dev/null 2>/dev/null & echo $!");
+    $context['sandbox']['pid'] = $pid;
+    $context['sandbox']['dzi_started'] = TRUE;
     $context['finished'] = 0;
   }
-  else {
-    $context['finished'] = 1;
+  elseif ($context['sandbox']['dzi_started'] == TRUE) {
+    \Drupal::logger('comp_crud')->info(isRunning($context['sandbox']['pid']));
+    \Drupal::logger('comp_crud')->info($context['sandbox']['pid']);
+    if (isRunning($context['sandbox']['pid'])) {
+      $context['finished'] = 0;
+    }
+    else {
+      $context['finished'] = 1;
+      // For batch process.
+      $context['message'] = t(
+        'Generated DZI tiles for high-resolution composite file @file',
+        [
+          '@file' => $fn_plain,
+        ]
+      );
+    }
   }
 }
 
@@ -537,6 +537,7 @@ function check_dzi_done() {
  */
 
 function isRunning($pid){
+  /* Current implementation not working, always returns TRUE.
   try {
     $result = shell_exec(sprintf("ps %d", $pid));
 
@@ -545,6 +546,6 @@ function isRunning($pid){
     }
   }
   catch(Exception $e) {}
-
+  */
   return false;
 }
