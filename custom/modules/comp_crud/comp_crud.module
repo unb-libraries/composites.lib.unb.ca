@@ -469,8 +469,7 @@ function update_crop_style($id, $topX, $topY, $botX, $botY, $dpi, $override) {
 function prepare_dzi_batch($fid, $nid) {
   // Prepare batch processing.
   $batch = [
-    'title' => t('Updating high-resolution DZI tiles for file ID [' .
-      $fid . ']...'),
+    'title' => t('Updating high-resolution DZI tiles. This will take a minute...'),
     'operations' => [
       ['generate_dzi_tiles', [$fid, $nid]],
     ],
@@ -491,9 +490,10 @@ function prepare_dzi_batch($fid, $nid) {
  * Generates DZI tiles for the given image file.
  */
 function generate_dzi_tiles($fid, $nid, $context) {
+  $file = File::load($fid);
+  $filename = $file->getFilename();
+
   if (empty($context['sandbox']['dzi_started'])) {
-    $file = File::load($fid);
-    $filename = $file->getFilename();
 
     // Cut extension from filename.
     $fn_plain = substr($filename, 0, -4);
@@ -514,8 +514,6 @@ function generate_dzi_tiles($fid, $nid, $context) {
     $context['finished'] = 0;
   }
   elseif ($context['sandbox']['dzi_started'] == TRUE) {
-    \Drupal::logger('comp_crud')->info(isRunning($context['sandbox']['pid']));
-    \Drupal::logger('comp_crud')->info($context['sandbox']['pid']);
     if (isRunning($context['sandbox']['pid'])) {
       $context['finished'] = 0;
     }
@@ -523,9 +521,9 @@ function generate_dzi_tiles($fid, $nid, $context) {
       $context['finished'] = 1;
       // For batch process.
       $context['message'] = t(
-        'Generated DZI tiles for high-resolution composite file @file',
+        'Generated DZI tiles for high-resolution composite file [@file]',
         [
-          '@file' => $fn_plain,
+          '@file' => $filename,
         ]
       );
     }
@@ -537,15 +535,14 @@ function generate_dzi_tiles($fid, $nid, $context) {
  */
 
 function isRunning($pid){
-  /* Current implementation not working, always returns TRUE.
   try {
-    $result = shell_exec(sprintf("ps %d", $pid));
+    $result = shell_exec(sprintf("ps -o pid | grep %d", $pid));
 
-    if(count(preg_split("/\n/", $result)) > 2) {
+    if($result) {
       return true;
     }
   }
   catch(Exception $e) {}
-  */
+
   return false;
 }
