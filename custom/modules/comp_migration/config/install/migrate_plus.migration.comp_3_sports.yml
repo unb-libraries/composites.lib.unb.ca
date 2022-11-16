@@ -1,0 +1,87 @@
+id: comp_3_sports
+label: Sports photos from source for composites.lib.unb.ca
+
+migration_tags:
+  - CSV
+
+source:
+  plugin: csv
+  path: "/app/html/modules/custom/comp_migration/data/csv/sports.csv"
+  delimiter: "|"
+  header_row_count: 1
+  keys:
+    - image_id
+  column_names:
+    0:
+      image_id: Graduate ID
+    1:
+      source_file: Source File
+    2:
+      source_number: Source Number
+    3:
+      type: Type
+    5:
+      contributor: Contributor
+    6:
+      buildings_current: Current Buildings
+    7:
+      buildings_former: Former Buildings
+    8:
+      date: Date
+    9:
+      photographer: Photographer
+    10:
+      width: Width
+    11:
+      height: Height
+    12:
+      resolution: Resolution (dpi)
+    13:
+      physical_size: Physical Size
+    14:
+      cd_location: CD Location
+    15:
+      tiff_location: TIFF Location
+    16:
+      notes: Notes
+    17:
+      no_students: Number of Students
+    18:
+      no_profs: Number of Professors
+    19:
+      related_image: Related Image
+    20:
+      display_dpi: Display DPI
+
+process:
+  type:
+    plugin: default_value
+    default_value: composite
+  title: source_file
+  field_contributors: taxo_contributors
+  field_current_buildings: taxo_buildings_current
+  field_former_buildings: taxo_buildings_former
+  field_height: height
+  field_image: drupal_image
+  field_related_image: drupal_rel_image
+  field_no_profs: no_profs
+  field_no_students: no_students
+  field_notes: notes
+  field_photographer: taxo_photographer
+  field_physical_size: physical_size
+  field_subjects: entity_subjects
+  field_type: type
+  field_disp_resolution: display_dpi
+  field_width: width
+  field_comp_year: comp_year
+  field_comp_campus: taxo_campus
+
+destination:
+  plugin: entity:node
+
+dependencies:
+  module:
+    - comp_migration
+  enforced:
+    module:
+      - comp_migration
