@@ -44,5 +44,6 @@ permissions:
   - 'use text format unb_libraries'
   - 'view all revisions'
   - 'view composite revisions'
+  - 'view own unpublished content'
   - 'view static_page revisions'
   - 'view the administration theme'
