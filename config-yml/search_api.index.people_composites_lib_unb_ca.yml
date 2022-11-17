@@ -56,6 +56,7 @@ third_party_settings:
     multilingual:
       limit_to_content_language: false
       include_language_independent: true
+      specific_languages: { }
 id: people_composites_lib_unb_ca
 name: people.composites.lib.unb.ca
 description: ''
@@ -188,4 +189,3 @@ options:
   cron_limit: 400
   index_directly: true
 server: subjects_composites_lib_unb_ca
-specific_languages: { }
