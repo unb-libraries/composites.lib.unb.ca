@@ -101,3 +101,4 @@ options:
   cron_limit: 400
   index_directly: true
 server: drupal_solr_lib_unb_ca
+specific_languages: { }
