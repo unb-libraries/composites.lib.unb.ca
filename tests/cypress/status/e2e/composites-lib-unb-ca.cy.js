@@ -1,5 +1,5 @@
 const host = 'https://composites.lib.unb.ca'
-describe('UNB Class Composite & Group Photographs', {baseUrl: host, groups: ['sites']}, () => {
+describe('Class Composite & Group Photographs', {baseUrl: host, groups: ['sites']}, () => {
 
   context('Front page', {baseUrl: host}, () => {
     beforeEach(() => {
