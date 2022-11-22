@@ -17,6 +17,23 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
   use CompMigrationTrait;
 
   /**
+   * Entity type manager.
+   *
+   * @var Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $typeManager;
+
+  /**
+   * Constructs a new EventSubscriberInterface object.
+   *
+   * @param Drupal\Core\Entity\EntityTypeManager $type_manager
+   *   The entity type manager service class.
+   */
+  public function __construct(EntityTypeManager $type_manager) {
+    $this->typeManager = $type_manager;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public static function getSubscribedEvents() {
@@ -146,7 +163,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       // Related Image.
       $src_filename = trim($row->getSourceProperty('related_image'));
 
-      // Checking for absence of related image prevents file_get_contents warning.
+      // Checking for absence of related img prevents file_get_contents warning.
       if (!empty($src_filename)) {
         $src_filename .= ".jpg";
         $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'

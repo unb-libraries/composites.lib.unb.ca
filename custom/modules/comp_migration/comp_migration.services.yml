@@ -1,6 +1,7 @@
 services:
   comp_migration.0_composite_migrate_subscriber:
     class: Drupal\comp_migration\Event\CompositeMigrateEvent
+    arguments: ['@entity_type.manager']
     tags:
       - { name: event_subscriber }
   comp_migration.1_composite_migrate_subscriber:
