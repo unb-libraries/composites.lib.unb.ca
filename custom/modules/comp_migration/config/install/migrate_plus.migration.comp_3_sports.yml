@@ -9,72 +9,65 @@ source:
   path: "/app/html/modules/custom/comp_migration/data/csv/sports.csv"
   delimiter: "|"
   header_row_count: 1
-  keys:
-    - image_id
-  column_names:
+
+  fields:
     0:
-      image_id: Graduate ID
+      name: src_title
+      label: Title
     1:
-      source_file: Source File
+      name: contrib1_name
+      label: Contributor 1 Name
     2:
-      source_number: Source Number
+      name: contrib1_type
+      label: Contributor 1 Type
     3:
-      type: Type
+      name: contrib1_role
+      label: Contributor 1 Role
+    4:
+      name: contrib2_name
+      label: Contributor 2 Name
     5:
-      contributor: Contributor
+      name: contrib2_type
+      label: Contributor 2 Type
     6:
-      buildings_current: Current Buildings
+      name: contrib2_role
+      label: Contributor 2 Role
     7:
-      buildings_former: Former Buildings
+      name: contrib3_name
+      label: Contributor 3 Name
     8:
-      date: Date
+      name: contrib3_type
+      label: Contributor 3 Type
     9:
-      photographer: Photographer
+      name: contrib3_role
+      label: Contributor 3 Role
     10:
-      width: Width
+      name: src_descripton
+      label: Description
     11:
-      height: Height
+      name: src_subjects
+      label: Subjects
     12:
-      resolution: Resolution (dpi)
+      name: src_filename
+      label: Filename
     13:
-      physical_size: Physical Size
+      name: src_notes
+      label: Notes
     14:
-      cd_location: CD Location
+      name: src_dimensions
+      label: Dimensions
     15:
-      tiff_location: TIFF Location
+      name: src_source
+      label: Source
     16:
-      notes: Notes
-    17:
-      no_students: Number of Students
-    18:
-      no_profs: Number of Professors
-    19:
-      related_image: Related Image
-    20:
-      display_dpi: Display DPI
+      name: src_period
+      label: Period
 
 process:
   type:
     plugin: default_value
     default_value: composite
-  title: source_file
-  field_contributors: taxo_contributors
-  field_current_buildings: taxo_buildings_current
-  field_former_buildings: taxo_buildings_former
-  field_height: height
-  field_image: drupal_image
-  field_related_image: drupal_rel_image
-  field_no_profs: no_profs
-  field_no_students: no_students
-  field_notes: notes
-  field_photographer: taxo_photographer
-  field_physical_size: physical_size
-  field_subjects: entity_subjects
-  field_type: type
-  field_disp_resolution: display_dpi
-  field_width: width
-  field_comp_year: comp_year
-  field_comp_campus: taxo_campus
+  title: src_title
 
 destination:
   plugin: entity:node
@@ -83,5 +76,5 @@ dependencies:
   module:
     - comp_migration
   enforced:
-    module:
-      - comp_migration
+      module:
+        - comp_migration

@@ -39,7 +39,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     $migration = $event->getMigration();
     $migration_id = $migration->id();
 
-    // Only act on rows for this migration.
+    // Only act on rows for legacy composite migration.
     if ($migration_id == 'comp_2_composites') {
 
       // Contributors.
@@ -172,6 +172,10 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       $src_date = $row->getSourceProperty('date');
       $year = empty($src_date) ? NULL : substr($src_date, 0, 4);
       $row->setSourceProperty('comp_year', $year);
+    }
+
+    // Only act on rows for legacy sports photos migration.
+    if ($migration_id == 'comp_3_sports') {
     }
   }
 
