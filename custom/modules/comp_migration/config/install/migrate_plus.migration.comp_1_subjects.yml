@@ -10,8 +10,8 @@ source:
   delimiter: "|"
   enclosure: '"'
   header_row_count: 1
-  keys:
-    - graduate_id
+  ids: [graduate_id]
+
   column_names:
     0:
       graduate_id: Graduate ID

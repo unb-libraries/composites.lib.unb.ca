@@ -10,9 +10,7 @@ source:
   delimiter: "|"
   enclosure: '"'
   header_row_count: 1
-
-  keys:
-    - nid
+  ids: [nid]
 
   column_names:
     0:

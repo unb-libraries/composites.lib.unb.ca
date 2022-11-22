@@ -9,6 +9,7 @@ source:
   path: "/app/html/modules/custom/comp_migration/data/csv/sports.csv"
   delimiter: "|"
   header_row_count: 1
+  ids: [src_filename]
 
   fields:
     0:
