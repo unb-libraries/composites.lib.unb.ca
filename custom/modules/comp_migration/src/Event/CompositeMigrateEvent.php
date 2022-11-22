@@ -118,7 +118,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       // Search for subjects with same source file.
       if (!empty($src_file_comp)) {
-        $nids = \Drupal::entityQuery('node')
+        $nids = $this->typeManager->getStorage('node')->getQuery()
           ->condition('type', 'subject')
           ->condition('field_source_file', $src_file_comp)
           ->execute();
@@ -210,7 +210,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
   public function findAddTerm(string $vid, string $name) {
     $name = trim($name);
 
-    $terms = \Drupal::entityQuery('taxonomy_term')
+    $terms = $this->typeManager->getStorage('taxonomy_term')->getQuery()
       ->condition('vid', $vid)
       ->condition('name', $name)
       ->execute();
