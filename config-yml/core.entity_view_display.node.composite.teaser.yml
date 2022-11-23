@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.composite.field_photographer
     - field.field.node.composite.field_physical_size
     - field.field.node.composite.field_related_image
+    - field.field.node.composite.field_staff_notes
     - field.field.node.composite.field_subjects
     - field.field.node.composite.field_type
     - field.field.node.composite.field_width
@@ -59,6 +60,7 @@ hidden:
   field_physical_s: true
   field_physical_size: true
   field_related_image: true
+  field_staff_notes: true
   field_subjects: true
   field_tiff_location: true
   field_type: true

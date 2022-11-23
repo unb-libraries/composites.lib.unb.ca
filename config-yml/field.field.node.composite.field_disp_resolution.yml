@@ -10,8 +10,8 @@ field_name: field_disp_resolution
 entity_type: node
 bundle: composite
 label: 'Display Resolution (dpi)'
-description: 'This value helps determine how the coordinates for each person crop the composite and may require adjustments.'
-required: true
+description: '<b>Notice: </b>This value is required to properly crop individual subjects out of the composite. Without the correct value, corresponding to the resolution of the original composite image, cropped subject images might not display correctly. '
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

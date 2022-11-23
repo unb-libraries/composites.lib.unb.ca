@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.composite.field_photographer
     - field.field.node.composite.field_physical_size
     - field.field.node.composite.field_related_image
+    - field.field.node.composite.field_staff_notes
     - field.field.node.composite.field_subjects
     - field.field.node.composite.field_type
     - field.field.node.composite.field_width
@@ -114,6 +115,13 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_staff_notes:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_subjects:
     type: entity_reference_label

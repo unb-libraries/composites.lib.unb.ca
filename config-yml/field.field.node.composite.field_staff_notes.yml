@@ -1,0 +1,19 @@
+uuid: 248bd3f5-c5a3-4ed2-80a4-3e5d09356b6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_staff_notes
+    - node.type.composite
+id: node.composite.field_staff_notes
+field_name: field_staff_notes
+entity_type: node
+bundle: composite
+label: 'Staff Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
