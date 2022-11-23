@@ -2,12 +2,13 @@
 
 namespace Drupal\comp_migration\Event;
 
+use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\Core\File\FileSystemInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Defines the migrate event subscriber.
@@ -187,12 +188,37 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       // Year.
       $src_date = $row->getSourceProperty('date');
-      $year = empty($src_date) ? NULL : substr($src_date, 0, 4);
+      $src_period = empty($src_date) ? NULL : substr($src_date, 0, 4);
       $row->setSourceProperty('comp_year', $year);
     }
 
     // Only act on rows for legacy sports photos migration.
     if ($migration_id == 'comp_3_sports') {
+      // Title.
+      $src_title = $row->getSourceProperty('src_title');
+      $src_period = $row->getSourceProperty('src_period');
+      // Split on dash.
+      $parts = explode('-', $src_title);
+
+      // Title case and trim space.
+      foreach ($parts as $key => $part) {
+        $parts[$key] = trim(ucfirst(strtolower($part)));
+      }
+
+      $sport = trim(ucfirst(strtolower($parts[0])));
+      $division = trim(ucfirst(strtolower($parts[1])));
+
+      // Extract 4-digit numbers (years) from period.
+      preg_match('/\d{4}/', $src_period, $matches);
+
+      if (!empty($matches)) {
+        $year = min($matches);
+      }
+      else {
+        $year = "n.d.";
+      }
+
+      $row->setSourceProperty('post_title', "$year $sport ($division) Sports Photo");
     }
   }
 

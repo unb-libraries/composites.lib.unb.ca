@@ -68,7 +68,7 @@ process:
   type:
     plugin: default_value
     default_value: composite
-  title: src_title
+  title: post_title
 
 destination:
   plugin: entity:node
