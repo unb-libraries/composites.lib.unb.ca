@@ -72,7 +72,6 @@ process:
     plugin: default_value
     default_value: composite
   title: post_title
-  field_contributors: taxo_contributors
   field_photographer: taxo_photographer
 
 destination:
