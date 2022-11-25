@@ -9,7 +9,7 @@ source:
   path: "/app/html/modules/custom/comp_migration/data/csv/sports.csv"
   delimiter: "|"
   header_row_count: 1
-  ids: [src_filename]
+  ids: [src_id]
 
   fields:
     0:
@@ -63,12 +63,17 @@ source:
     16:
       name: src_period
       label: Period
+    17:
+      name: src_id
+      label: ID
 
 process:
   type:
     plugin: default_value
     default_value: composite
   title: post_title
+  field_contributors: taxo_contributors
+  field_photographer: taxo_photographer
 
 destination:
   plugin: entity:node
@@ -77,5 +82,5 @@ dependencies:
   module:
     - comp_migration
   enforced:
-      module:
-        - comp_migration
+    module:
+      - comp_migration

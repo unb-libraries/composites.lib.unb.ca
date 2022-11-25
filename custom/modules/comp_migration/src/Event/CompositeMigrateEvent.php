@@ -57,7 +57,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     $migration = $event->getMigration();
     $migration_id = $migration->id();
 
-    // Only act on rows for legacy composite migration.
+    // LEGACY COMPOSITES MIGRATION.
     if ($migration_id == 'comp_2_composites') {
 
       // Contributors.
@@ -192,7 +192,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       $row->setSourceProperty('comp_year', $year);
     }
 
-    // Only act on rows for legacy sports photos migration.
+    // SPORTS PHOTOS MIGRATION.
     if ($migration_id == 'comp_3_sports') {
       // Title.
       $src_title = $row->getSourceProperty('src_title');
@@ -202,23 +202,61 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       // Title case and trim space.
       foreach ($parts as $key => $part) {
-        $parts[$key] = trim(ucfirst(strtolower($part)));
+        $parts[$key] = trim(ucwords(strtolower($part)));
       }
 
-      $sport = trim(ucfirst(strtolower($parts[0])));
-      $division = trim(ucfirst(strtolower($parts[1])));
+      $sport = !empty($parts[0]) ? trim(ucwords(strtolower($parts[0]))) . ' ' :
+        NULL;
+      $division = !empty($parts[1]) ? '(' .
+        trim(ucfirst(strtolower($parts[1]))) . ') ' : NULL;
 
       // Extract 4-digit numbers (years) from period.
       preg_match('/\d{4}/', $src_period, $matches);
 
       if (!empty($matches)) {
-        $year = min($matches);
+        $year = min($matches) . ' ';
       }
       else {
-        $year = "n.d.";
+        $year = "n.d. ";
       }
 
-      $row->setSourceProperty('post_title', "$year $sport ($division) Sports Photo");
+      $row->setSourceProperty('post_title', "$year$sport$division" . 'Sports Photo');
+
+      // Contributors and photographers.
+      $contribs = [
+        [
+          'name' => $row->getSourceProperty('contrib1_name'),
+          'role' => strtolower(trim($row->getSourceProperty('contrib1_role'))),
+        ],
+        [
+          'name' => $row->getSourceProperty('contrib2_name'),
+          'role' => strtolower(trim($row->getSourceProperty('contrib2_role'))),
+        ],
+        [
+          'name' => $row->getSourceProperty('contrib3_name'),
+          'role' => strtolower(trim($row->getSourceProperty('contrib3_role'))),
+        ],
+      ];
+
+      // Contributor IDs.
+      $cids = [];
+
+      foreach ($contribs as $contrib) {
+        echo print_r("\n$year$sport$division\n");
+        echo print_r("\n" . $contrib['role'] . "\n");
+        if ($contrib['role'] == 'photographer') {
+          $pid = $this->findAddTerm('photographer', $contrib['name']);
+          echo print_r($pid);
+        }
+        elseif ($contrib['role'] != 'scanner' and $contrib['role'] != 'illustrator') {
+          $cid = $this->findAddTerm('contributor', $contrib['name']);
+          echo print_r("\n$cid\n");
+          $cids[] = $cid ? $cid : NULL;
+        }
+      }
+
+      $row->setSourceProperty('taxo_contributors', $cids);
+      $row->setSourceProperty('taxo_photographer', $pid);
     }
   }
 
