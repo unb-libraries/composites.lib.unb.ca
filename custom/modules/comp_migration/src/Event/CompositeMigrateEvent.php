@@ -222,7 +222,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       $row->setSourceProperty('post_title', "$year$sport$division" . 'Sports Photo');
 
-      // Contributors and photographers.
+      // Photographers.
       $contribs = [
         [
           'name' => $row->getSourceProperty('contrib1_name'),
@@ -238,25 +238,12 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         ],
       ];
 
-      // Contributor IDs.
-      $cids = [];
+      $key = array_search('photographer', array_column($contribs, 'role'));
 
-      foreach ($contribs as $contrib) {
-        echo print_r("\n$year$sport$division\n");
-        echo print_r("\n" . $contrib['role'] . "\n");
-        if ($contrib['role'] == 'photographer') {
-          $pid = $this->findAddTerm('photographer', $contrib['name']);
-          echo print_r($pid);
-        }
-        elseif ($contrib['role'] != 'scanner' and $contrib['role'] != 'illustrator') {
-          $cid = $this->findAddTerm('contributor', $contrib['name']);
-          echo print_r("\n$cid\n");
-          $cids[] = $cid ? $cid : NULL;
-        }
+      if (!empty($contribs[$key]['name'])) {
+        $pid = $this->findAddTerm('photographer', $contribs[$key]['name']);
+        $row->setSourceProperty('taxo_photographer', $pid);
       }
-
-      $row->setSourceProperty('taxo_contributors', $cids);
-      $row->setSourceProperty('taxo_photographer', $pid);
     }
   }
 
