@@ -244,6 +244,32 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $pid = $this->findAddTerm('photographer', $contribs[$key]['name']);
         $row->setSourceProperty('taxo_photographer', $pid);
       }
+
+      // Notes.
+      $src_desc = trim(
+        str_replace("$", "\n", $row->getSourceProperty('src_description'))
+      );
+      $scr_notes = trim(
+        str_replace("$", "\n", $row->getSourceProperty('src_notes'))
+      );
+      $src_dimensions = trim(
+        str_replace("$", "\n", $row->getSourceProperty('src_dimensions'))
+      );
+      $src_source = trim(
+        str_replace("$", "\n", $row->getSourceProperty('src_source'))
+      );
+      $src_id = $row->getSourceProperty('src_id');
+
+      $row->setSourceProperty(
+        'post_notes',
+        "$src_desc\n$src_source\n$src_dimensions\n$src_notes"
+      );
+
+      // Staff notes.
+      $src_id = $row->getSourceProperty('src_id');
+      $row->setSourceProperty('staff_notes', "Source ID: $src_id");
+
+      // Subjects.
     }
   }
 

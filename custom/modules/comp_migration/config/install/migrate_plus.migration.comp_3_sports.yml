@@ -43,7 +43,7 @@ source:
       name: contrib3_role
       label: Contributor 3 Role
     10:
-      name: src_descripton
+      name: src_description
       label: Description
     11:
       name: src_subjects
@@ -73,6 +73,8 @@ process:
     default_value: composite
   title: post_title
   field_photographer: taxo_photographer
+  field_notes: post_notes
+  field_staff_notes: staff_notes
 
 destination:
   plugin: entity:node
