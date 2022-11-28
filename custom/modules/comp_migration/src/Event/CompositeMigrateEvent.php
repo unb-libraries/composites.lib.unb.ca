@@ -205,6 +205,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $parts[$key] = trim(ucwords(strtolower($part)));
       }
 
+      // Extract sport, division, and make sentence case.
       $sport = !empty($parts[0]) ? trim(ucwords(strtolower($parts[0]))) . ' ' :
         NULL;
       $division = !empty($parts[1]) ? '(' .
@@ -213,6 +214,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       // Extract 4-digit numbers (years) from period.
       preg_match('/\d{4}/', $src_period, $matches);
 
+      // Replace year with "n.d." when unavailable.
       if (!empty($matches)) {
         $year = min($matches) . ' ';
       }
@@ -222,7 +224,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       $row->setSourceProperty('post_title', "$year$sport$division" . 'Sports Photo');
 
-      // Photographers.
+      // Photographers. Get names and roles, lowercase.
       $contribs = [
         [
           'name' => $row->getSourceProperty('contrib1_name'),
@@ -238,18 +240,20 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         ],
       ];
 
+      // Find photographers.
       $key = array_search('photographer', array_column($contribs, 'role'));
 
+      // Create and reference photographer.
       if (!empty($contribs[$key]['name'])) {
         $pid = $this->findAddTerm('photographer', $contribs[$key]['name']);
         $row->setSourceProperty('taxo_photographer', $pid);
       }
 
-      // Notes.
+      // Notes. Get text lowercase + restore "$" character to line breaks.
       $src_desc = trim(
         str_replace("$", "\n", $row->getSourceProperty('src_description'))
       );
-      $scr_notes = trim(
+      $src_notes = trim(
         str_replace("$", "\n", $row->getSourceProperty('src_notes'))
       );
       $src_dimensions = trim(
@@ -260,16 +264,49 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       );
       $src_id = $row->getSourceProperty('src_id');
 
+      // Concatenate items into notes.
       $row->setSourceProperty(
         'post_notes',
         "$src_desc\n$src_source\n$src_dimensions\n$src_notes"
       );
 
-      // Staff notes.
+      // Staff notes. Add label to ID and document in staff notes.
       $src_id = $row->getSourceProperty('src_id');
       $row->setSourceProperty('staff_notes', "Source ID: $src_id");
 
-      // Subjects.
+      // Subjects. Get original data.
+      $src_subjects = $row->getSourceProperty('src_subjects');
+      // Filter special values.
+      if (!str_contains(strtolower($src_subjects), 'complete') and !str_contains(strtolower($src_subjects), 'none')) {
+        // Get individual names exploding on "$" line break placeholder.
+        $names = explode('$', $src_subjects);
+        $subjects = [];
+
+        foreach ($names as $name) {
+          // Explode on comma to get  individual name parts.
+          $parts = explode(',', $name);
+          $lname = trim($parts[0]) ?? NULL;
+          $gnames = trim($parts[1]) ?? NULL;
+          // Explode on space to get individual given names and initials.
+          $given = explode(' ', $gnames);
+          $ginits = substr(trim($given[0]), 0, 1) .
+            substr(trim($given[1]), 0, 1);
+
+          // Create subject/person node.
+          $node = $this->typeManager->getStorage('node')->create([
+            'type'  => 'subject',
+            'field_last_name' => $lname,
+            'field_given_name' => $gnames,
+            'field_initials' => $ginits,
+          ]);
+          // Save subject and add reference ID.
+          $node->save();
+          $subjects[] = ['target_id' => $node->id()];
+        }
+
+        // Update source property.
+        $row->setSourceProperty('entity_subjects', $subjects);
+      }
     }
   }
 

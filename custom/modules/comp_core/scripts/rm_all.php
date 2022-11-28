@@ -8,6 +8,7 @@
  */
 
 rm_entities('taxonomy_term');
+rm_entities('node');
 
 /**
  * {@inheritdoc}

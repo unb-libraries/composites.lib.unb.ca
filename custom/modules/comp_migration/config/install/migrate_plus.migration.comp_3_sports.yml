@@ -75,6 +75,7 @@ process:
   field_photographer: taxo_photographer
   field_notes: post_notes
   field_staff_notes: staff_notes
+  field_subjects: entity_subjects
 
 destination:
   plugin: entity:node
