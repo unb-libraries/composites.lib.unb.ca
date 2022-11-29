@@ -24,7 +24,7 @@ function composites_lib_unb_ca_preprocess_menu_local_task(&$variables) {
       ->execute();
 
     if (!empty($query)) {
-      $variables['link']['#title'] = t('Image and Details');
+      $variables['link']['#title'] = t('Record and Details');
     }
   }
 }

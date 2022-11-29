@@ -218,7 +218,10 @@ function comp_crud_entity_delete($entity) {
     // Delete all associated subjects.
     foreach ($sids as $k=>$sid) {
       $subject = Node::load($sid['target_id']);
-      $subject->delete();
+
+      if (!empty($subject)) {
+        $subject->delete();
+      }
     }
 
     break;
@@ -309,16 +312,18 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $variables['content']['composite_image']['#title'] = 'Composite Image';
 
     // Retrieve display resolution (dpi).
-    $dpi = intval($composite->get('field_disp_resolution')
-      ->getValue()[0]['value']);
+    if (!empty($composite->get('field_disp_resolution')->getValue()[0])) {
+      $dpi = intval($composite->get('field_disp_resolution')
+        ->getValue()[0]['value']);
+    }
 
     // Crop effect configuration.
     // Retrieve coordinates from subject record.
 
-    if (!empty(floatval($variables['content']['field_top_x'][0]))
-    and !empty(floatval($variables['content']['field_top_y'][0]))
-    and !empty(floatval($variables['content']['field_bottom_x']))
-    and !empty(floatval($variables['content']['field_bottom_y'][0]))
+    if (!empty($variables['content']['field_top_x'][0])
+    and !empty($variables['content']['field_top_y'][0])
+    and !empty($variables['content']['field_bottom_x'])
+    and !empty($variables['content']['field_bottom_y'][0])
     ) {
       $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
       $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
@@ -346,31 +351,35 @@ function comp_crud_preprocess_node__subject(&$variables) {
     }
   }
 
-  // Update image alt tag.
-  $image = $variables['content']['subject_image']['0']['#item'];
-  // Build name and use as title.
-  // Retrieve name fields.
-  $lname = $variables['content']['field_last_name'][0]['#context']['value'];
+  if (!empty($variables['content']['subject_image']['0']['#item'])) {
+    // Update image alt tag.
+    $image = $variables['content']['subject_image']['0']['#item'];
+    // Build name and use as title.
+    // Retrieve name fields.
+    $lname = $variables['content']['field_last_name'][0]['#context']['value'];
 
-  $gname = empty($variables['content']['field_given_name'][0]['#context']['value']) ? NULL
-    : $variables['content']['field_given_name'][0]['#context']['value'];
+    $gname = empty($variables['content']['field_given_name'][0]['#context']['value']) ? NULL
+      : $variables['content']['field_given_name'][0]['#context']['value'];
 
-  $title = empty($gname) ? $lname : $lname . ', ' . $gname;
+    $title = empty($gname) ? $lname : $lname . ', ' . $gname;
 
-  if (!empty($image)) {
-    $image->set('alt', $title);
-    $image->set('title', $title);
+    if (!empty($image)) {
+      $image->set('alt', $title);
+      $image->set('title', $title);
+    }
+
+    $variables['content']['subject_image']['0']['#item'] = $image;
   }
 
-  $variables['content']['subject_image']['0']['#item'] = $image;
+  if (!empty($dpi)) {
+    // Delete preview image crop style.
+    $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
+    $style = ImageStyle::load($style_name);
 
-  // Delete preview image crop style.
-  $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
-  $style = ImageStyle::load($style_name);
-
-  if (!empty($style)) {
-    $style->delete();
-    $style->flush();
+    if (!empty($style)) {
+      $style->delete();
+      $style->flush();
+    }
   }
 
 }

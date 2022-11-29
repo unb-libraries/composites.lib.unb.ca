@@ -40,14 +40,16 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
       if (!empty($comp_img)) {
         // Retrieve display resolution (dpi).
-        $dpi = intval($composite->get('field_disp_resolution')
-          ->getValue()[0]['value']);
+        if (!empty($composite->get('field_disp_resolution')->getValue()[0])) {
+          $dpi = intval($composite->get('field_disp_resolution')
+            ->getValue()[0]['value']);
 
-        // Load image style with preview cropping effect.
-        $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
-        $style = ImageStyle::load($style_name);
+          // Load image style with preview cropping effect.
+          $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
+          $style = ImageStyle::load($style_name);
+        }
 
-        if (empty($style)) {
+        if (empty($style) and !empty($dpi)) {
           // If preview style not available, load default image crop style.
           $style_name = $sid . '_composite_crop_' . $dpi . 'dpi';
           $style = ImageStyle::load($style_name);

@@ -2,12 +2,11 @@
 
 namespace Drupal\comp_migration\Event;
 
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigratePostRowSaveEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Drupal\file\Entity\File;
-use Drupal\node\Entity\Node;
 
 /**
  * Defines the migrate event subscriber.
@@ -15,6 +14,23 @@ use Drupal\node\Entity\Node;
 class CompositeMigratePostEvent implements EventSubscriberInterface {
 
   use CompMigrationTrait;
+
+  /**
+   * Entity type manager.
+   *
+   * @var Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $typeManager;
+
+  /**
+   * Constructs a new EventSubscriberInterface object.
+   *
+   * @param Drupal\Core\Entity\EntityTypeManager $type_manager
+   *   The entity type manager service class.
+   */
+  public function __construct(EntityTypeManager $type_manager) {
+    $this->typeManager = $type_manager;
+  }
 
   /**
    * {@inheritdoc}
@@ -34,25 +50,65 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
   public function onPostRowSave(MigratePostRowSaveEvent $event) {
     $migration = $event->getMigration();
     $migration_id = $migration->id();
-    $row = $event->getRow();
 
-    // Only act on rows for this migration.
+    // Only act on rows for legacy composites migration.
     if ($migration_id == 'comp_2_composites') {
       $destination_ids = $event->getDestinationIdValues();
       $cid = $destination_ids[0];
       // Generate title and save node (to apply entity update operations).
-      $composite = Node::load($cid);
+      $composite = $this->typeManager->getStorage('node')->load($cid);
       $year = $composite->get('field_comp_year')->getValue()[0]['value'];
       $type = $composite->get('field_type')->getValue()[0]['value'];
       $title = "$year $type Photo";
 
       $composite->set('title', $title);
       $composite->save();
+    }
 
+    // Only act on rows for legacy spots photos migration.
+    if ($migration_id == 'comp_3_sports') {
+      $destination_ids = $event->getDestinationIdValues();
+      $cid = $destination_ids[0];
+      // Sort subjects by last name.
+      // Retrieve subject node ids associated to composite.
+      $composite = $this->typeManager->getStorage('node')->load($cid);
+      $sids = $composite->get('field_subjects')->getValue();
+
+      // Retrieve title (name) for each id.
+      foreach ($sids as $k => $sid) {
+        $subject =
+          $this->typeManager->getStorage('node')->load($sid['target_id']);
+        $sid['name'] = $subject->getTitle();
+        $sids[$k] = $sid;
+        // Since we have the subject, add a reference back to the composite.
+        $comp_ref = ['target_id' => $cid];
+        $subject->set('field_composite', $comp_ref);
+        $subject->save();
+      }
+
+      // Sort multidimensional array by name column.
+      array_multisort(array_column($sids, 'name'), SORT_ASC, $sids);
+
+      // Create array with only the new sorted 'target_id'.
+      $sorted_sids = [];
+
+      foreach ($sids as $k => $sid) {
+        $sorted_sids[$k] = ['target_id' => $sid['target_id']];
+      }
+
+      // Update field value with the sorted ids.
+      $composite->get('field_subjects')->setValue($sorted_sids);
+    }
+
+    if ($migration_id == 'comp_2_composites' or
+      $migration_id == 'comp_3_sports') {
       // Generate high resolution DZI tiles.
       $fid = $composite->get('field_image')->getValue()[0]['target_id'];
-      $nid = $composite->id();
-      $this->generateDziTiles($fid, $nid);
+
+      if ($fid) {
+        $nid = $composite->id();
+        $this->generateDziTiles($fid, $nid);
+      }
     }
   }
 
@@ -60,7 +116,7 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
    * Generates DZI tiles for the given image file.
    */
   public function generateDziTiles($fid, $nid) {
-    $file = File::load($fid);
+    $file = $this->typeManager->getStorage('file')->load($fid);
     $filename = $file->getFilename();
     // Cut extension from filename.
     $fn_plain = substr($filename, 0, -4);
@@ -77,7 +133,7 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
     exec($command, $output, $return);
 
     // For batch process.
-    $context['message'] = t(
+    $context['message'] = $this->t(
       'Generated DZI tiles for high-resolution composite file @file',
       [
         '@file' => $fn_plain,
