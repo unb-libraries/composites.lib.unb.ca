@@ -71,11 +71,15 @@ process:
   type:
     plugin: default_value
     default_value: composite
+  field_type:
+    plugin: default_value
+    default_value: Sports
   title: post_title
   field_photographer: taxo_photographer
   field_notes: post_notes
   field_staff_notes: staff_notes
   field_subjects: entity_subjects
+  field_comp_campus: taxo_campus
 
 destination:
   plugin: entity:node

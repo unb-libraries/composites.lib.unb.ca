@@ -306,6 +306,38 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
         // Update source property.
         $row->setSourceProperty('entity_subjects', $subjects);
+
+        // Campus. Fredericton is assumed for sports photos migration.
+        $row->setSourceProperty(
+          'taxo_campus',
+          ['target_id' => $this->findAddTerm('campus', 'Fredericton')]
+        );
+      }
+
+      // Image.
+      $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/';
+      $src_filename = trim($row->getSourceProperty('src_id'));
+      $src_ext = '.tif';
+
+      // If no TIFF is found, try JPEG.
+      if (!file_exists($src_path . $src_filename . $src_ext)) {
+        $src_ext = '.jpg';
+      }
+
+      $full_path .= $src_path . $src_filename . $src_ext;
+      $data = file_exists($full_path) ? file_get_contents($full_path) : NULL;
+
+      if (!empty($data)) {
+        $file = file_save_data($data, "public://comp_images/" . $src_filename . $src_ext, FileSystemInterface::EXISTS_REPLACE);
+        $fid = $file->id();
+
+        $field_image = [
+          'target_id' => $fid,
+          'alt' => $src_filename,
+          'title' => $src_filename,
+        ];
+
+        $row->setSourceProperty('drupal_image', $field_image);
       }
     }
   }
