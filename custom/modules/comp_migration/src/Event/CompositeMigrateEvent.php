@@ -223,6 +223,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       }
 
       $row->setSourceProperty('post_title', "$year$sport$division" . 'Sports Photo');
+      $row->setSourceProperty('post_year', intval($year));
 
       // Photographers. Get names and roles, lowercase.
       $contribs = [
@@ -316,27 +317,33 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       // Image.
       $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/';
-      $src_filename = trim($row->getSourceProperty('src_id'));
+      $src_id = trim($row->getSourceProperty('src_id'));
+      $src_pre = 'PE';
       $src_ext = '.tif';
 
       // If no TIFF is found, try JPEG.
-      if (!file_exists($src_path . $src_filename . $src_ext)) {
+      if (!file_exists("$src_path$src_pre$src_id$src_ext")) {
         $src_ext = '.jpg';
       }
+      // If no file still, try without preffix.
+      if (!file_exists("$src_path$src_pre$src_id$src_ext")) {
+        $src_pre = '';
+      }
 
-      $full_path .= $src_path . $src_filename . $src_ext;
+      $full_path .= "$src_path$src_pre$src_id$src_ext";
       $data = file_exists($full_path) ? file_get_contents($full_path) : NULL;
 
       if (!empty($data)) {
-        $file = file_save_data($data, "public://comp_images/" . $src_filename . $src_ext, FileSystemInterface::EXISTS_REPLACE);
+        $file = file_save_data($data, "public://comp_images/$src_pre$src_id$src_ext", FileSystemInterface::EXISTS_REPLACE);
         $fid = $file->id();
 
         $field_image = [
           'target_id' => $fid,
-          'alt' => $src_filename,
-          'title' => $src_filename,
+          'alt' => "$src_pre$src_id$src_ext",
+          'title' => "$src_pre$src_id$src_ext",
         ];
 
+        echo print_r($field_image);
         $row->setSourceProperty('drupal_image', $field_image);
       }
     }

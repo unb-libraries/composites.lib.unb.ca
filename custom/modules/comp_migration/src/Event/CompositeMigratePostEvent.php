@@ -3,6 +3,7 @@
 namespace Drupal\comp_migration\Event;
 
 use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigratePostRowSaveEvent;
@@ -14,6 +15,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class CompositeMigratePostEvent implements EventSubscriberInterface {
 
   use CompMigrationTrait;
+  use StringTranslationTrait;
 
   /**
    * Entity type manager.

@@ -73,7 +73,7 @@ function val_grad_link(&$form, $form_state) {
   // Retrieve graduation ceremony URL from form.
   $url = $form_state->getValue('field_grad_ceremony')[0]['uri'];
   // Validate URL and display error if failed.
-  if (!url_valid($url)) {
+  if (!empty($url) and !url_valid($url)) {
     $message = "The Graduation Ceremony URL is invalid";
     $form_state->setErrorByName('field_grad_ceremony', $message);
   }
