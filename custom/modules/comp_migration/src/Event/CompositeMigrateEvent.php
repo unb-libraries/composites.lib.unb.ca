@@ -136,7 +136,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       }
 
       // Image.
-      $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/';
+      $src_path = 'public://comp_migration/data/img/';
       $src_filename = trim($row->getSourceProperty('source_file'));
       $src_ext = '.tif';
 
@@ -167,8 +167,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       // Checking for absence of related img prevents file_get_contents warning.
       if (!empty($src_filename)) {
         $src_filename .= ".jpg";
-        $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/'
-          . $src_filename;
+        $src_path = 'public://comp_migration/data/img/';
 
         $data = file_exists($src_path) ? file_get_contents($src_path) : NULL;
 
@@ -316,7 +315,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       }
 
       // Image.
-      $src_path = drupal_get_path('module', 'comp_migration') . '/data/img/';
+      $src_path = 'public://comp_migration/data/img/';
       $src_id = trim($row->getSourceProperty('src_id'));
       $src_pre = 'PE';
       $src_ext = '.tif';
@@ -343,7 +342,6 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
           'title' => "$src_pre$src_id$src_ext",
         ];
 
-        echo print_r($field_image);
         $row->setSourceProperty('drupal_image', $field_image);
       }
     }
