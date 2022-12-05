@@ -283,35 +283,37 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $subjects = [];
 
         foreach ($names as $name) {
-          // Explode on comma to get  individual name parts.
-          $parts = explode(',', $name);
-          $lname = trim($parts[0]) ?? NULL;
-          $gnames = trim($parts[1]) ?? NULL;
-          // Explode on space to get individual given names and initials.
-          $given = explode(' ', $gnames);
-          $ginits = substr(trim($given[0]), 0, 1) .
-            substr(trim($given[1]), 0, 1);
+          if ($name) {
+            // Explode on comma to get  individual name parts.
+            $parts = explode(',', $name);
+            $lname = trim($parts[0]) ?? NULL;
+            $gnames = trim($parts[1]) ?? NULL;
+            // Explode on space to get individual given names and initials.
+            $given = explode(' ', $gnames);
+            $ginits = substr(trim($given[0]), 0, 1) .
+              substr(trim($given[1]), 0, 1);
 
-          // Create subject/person node.
-          $node = $this->typeManager->getStorage('node')->create([
-            'type'  => 'subject',
-            'field_last_name' => $lname,
-            'field_given_name' => $gnames,
-            'field_initials' => $ginits,
-          ]);
-          // Save subject and add reference ID.
-          $node->save();
-          $subjects[] = ['target_id' => $node->id()];
+            // Create subject/person node.
+            $node = $this->typeManager->getStorage('node')->create([
+              'type'  => 'subject',
+              'field_last_name' => $lname,
+              'field_given_name' => $gnames,
+              'field_initials' => $ginits,
+            ]);
+            // Save subject and add reference ID.
+            $node->save();
+            $subjects[] = ['target_id' => $node->id()];
+          }
+
+          // Update source property.
+          $row->setSourceProperty('entity_subjects', $subjects);
+
+          // Campus. Fredericton is assumed for sports photos migration.
+          $row->setSourceProperty(
+            'taxo_campus',
+            ['target_id' => $this->findAddTerm('campus', 'Fredericton')]
+          );
         }
-
-        // Update source property.
-        $row->setSourceProperty('entity_subjects', $subjects);
-
-        // Campus. Fredericton is assumed for sports photos migration.
-        $row->setSourceProperty(
-          'taxo_campus',
-          ['target_id' => $this->findAddTerm('campus', 'Fredericton')]
-        );
       }
 
       // Image.
