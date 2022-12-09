@@ -119,6 +119,7 @@ function comp_core_cron() {
  * Implements hook_preprocess_facets_item_list().
  */
 function comp_core_preprocess_facets_item_list(&$variables) {
+  /*
   // Only apply to facet comp_decade_facet.
   if ($variables['facet']->id() == 'comp_decade_facet') {
     // Get facet items and search through them.
@@ -126,4 +127,5 @@ function comp_core_preprocess_facets_item_list(&$variables) {
     $key = array_search('!', array_column($titles, '#value'));
     $variables['items'][$key]['title']['#value'] = 'n.d';
   }
+  */
 }
