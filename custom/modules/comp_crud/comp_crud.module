@@ -23,7 +23,7 @@ function comp_crud_entity_presave($entity) {
       // Retrieve year.
       $year = $entity->get('field_comp_year')->getValue()[0]['value'];
       $decade = intdiv($year, 10) * 10;
-      $decade = $decade >= 1870 ? $decade : NULL;
+      $decade = $decade >= 1870 ? $decade : 0;
       $entity->set('field_comp_decade', $decade);
 
       // Sort subjects by last name.
