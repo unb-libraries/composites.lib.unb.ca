@@ -154,7 +154,7 @@
     "drupal/redis": "1.6",
     "drupal/samlauth": "3.8",
     "drupal/search_api": "1.28",
-    "drupal/search_api_solr": "4.2.9",
+    "drupal/search_api_solr": "4.2.10",
     "drupal/token": "1.11",
     "drupal/twig_field_value": "^2",
     "drupal/twig_tweak": "2.10",
