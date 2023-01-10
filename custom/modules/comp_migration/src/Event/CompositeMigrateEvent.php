@@ -251,10 +251,10 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       // Notes. Get text lowercase + restore "$" character to line breaks.
       $src_desc = trim(
-        str_replace("$", "\n", $row->getSourceProperty('src_description'))
+        str_replace("$", "\n", $row->getSourceProperty('src_description')
       );
       $src_notes = trim(
-        str_replace("$", "\n", $row->getSourceProperty('src_notes'))
+        str_replace("$", "\n", $row->getSourceProperty('src_notes')
       );
       $src_dimensions = trim(
         str_replace("$", "\n", $row->getSourceProperty('src_dimensions'))
@@ -267,7 +267,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       // Concatenate items into notes.
       $row->setSourceProperty(
         'post_notes',
-        "$src_desc\n$src_source\n$src_dimensions\n$src_notes"
+        strip_tags("$src_desc\n$src_source\n$src_dimensions\n$src_notes")
       );
 
       // Staff notes. Add label to ID and document in staff notes.
@@ -346,8 +346,6 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
         $row->setSourceProperty('drupal_image', $field_image);
       }
-
-      // Status (default to unpublished).
     }
   }
 

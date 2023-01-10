@@ -11,8 +11,8 @@ id: comp_decade_facet
 name: 'Select a decade from the list below.'
 weight: 0
 min_count: 1
-missing: false
-missing_label: ''
+missing: true
+missing_label: n.d.
 url_alias: comp_decade_facet
 facet_source_id: 'search_api:views_page__browse_composites__page_1'
 field_identifier: field_comp_decade
