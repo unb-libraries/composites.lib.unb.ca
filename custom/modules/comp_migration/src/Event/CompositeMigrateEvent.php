@@ -346,6 +346,8 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
         $row->setSourceProperty('drupal_image', $field_image);
       }
+
+      // Status (default to unpublished).
     }
   }
 

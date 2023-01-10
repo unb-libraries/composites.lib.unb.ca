@@ -74,6 +74,9 @@ process:
   field_type:
     plugin: default_value
     default_value: Sports
+  status:
+    plugin: default_value
+    default_value: 0
   title: post_title
   field_comp_year: post_year
   field_photographer: taxo_photographer
