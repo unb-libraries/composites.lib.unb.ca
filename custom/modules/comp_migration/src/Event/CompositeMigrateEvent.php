@@ -251,10 +251,10 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
 
       // Notes. Get text lowercase + restore "$" character to line breaks.
       $src_desc = trim(
-        str_replace("$", "\n", $row->getSourceProperty('src_description')
+        str_replace("$", "\n", $row->getSourceProperty('src_description'))
       );
       $src_notes = trim(
-        str_replace("$", "\n", $row->getSourceProperty('src_notes')
+        str_replace("$", "\n", $row->getSourceProperty('src_notes'))
       );
       $src_dimensions = trim(
         str_replace("$", "\n", $row->getSourceProperty('src_dimensions'))
