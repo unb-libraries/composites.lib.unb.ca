@@ -157,6 +157,14 @@ field_settings:
     property_path: fulltext_valedictorian
     type: text
     boost: !!float 2
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
   title:
     label: Title
     datasource_id: 'entity:node'
@@ -179,6 +187,8 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  auto_aggregated_fulltext_field: {  }
+  entity_type: {  }
   language_with_fallback: {  }
   rendered_item: {  }
   solr_date_range: {  }
@@ -188,4 +198,5 @@ tracker_settings:
 options:
   cron_limit: 400
   index_directly: true
+  track_changes_in_references: true
 server: subjects_composites_lib_unb_ca
