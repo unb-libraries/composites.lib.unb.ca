@@ -308,13 +308,14 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
           // Update source property.
           $row->setSourceProperty('entity_subjects', $subjects);
 
-          // Campus. Fredericton is assumed for sports photos migration.
-          $row->setSourceProperty(
-            'taxo_campus',
-            ['target_id' => $this->findAddTerm('campus', 'Fredericton')]
-          );
         }
       }
+
+      // Campus. Fredericton is assumed for sports photos migration.
+      $row->setSourceProperty(
+        'taxo_campus',
+        ['target_id' => $this->findAddTerm('campus', 'Fredericton')]
+      );
 
       // Image.
       $src_path = 'public://comp_migration/data/img/';
