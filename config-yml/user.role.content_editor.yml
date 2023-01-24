@@ -21,6 +21,7 @@ permissions:
   - 'access content overview'
   - 'access toolbar'
   - 'administer nodes'
+  - 'bypass node access'
   - 'create composite content'
   - 'create slideshow_image content'
   - 'create static_page content'
