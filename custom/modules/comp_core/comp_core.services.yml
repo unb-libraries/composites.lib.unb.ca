@@ -1,6 +1,6 @@
 services:
-
     mymodule.route_subscriber:
         class: Drupal\comp_core\EventSubscriber\RouteSubscriber
+        arguments: ['@current_user']
         tags:
             - { name: event_subscriber }
