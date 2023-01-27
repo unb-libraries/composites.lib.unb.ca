@@ -33,18 +33,29 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
   protected $configFactory;
 
   /**
+   * File system.
+   *
+   * @var Drupal\Core\File\FileSystem
+   */
+  protected $fileSystem;
+
+  /**
    * Constructs a new EventSubscriberInterface object.
    *
    * @param Drupal\Core\Entity\EntityTypeManager $type_manager
-   *   The entity type manager service class.
+   *   The entity type manager service object.
    * @param Drupal\Core\Config\ConfigFactory $config_factory
-   *   The configuration factory service class.
+   *   The configuration factory service object.
+   * @param \Drupal\Core\File\FileSystem $file_system
+   *   The file system service object.
    */
   public function __construct(
     EntityTypeManager $type_manager,
-    ConfigFactory $config_factory) {
+    ConfigFactory $config_factory,
+    FileSystem $file_system) {
     $this->typeManager = $type_manager;
     $this->configFactory = $config_factory;
+    $this->fileSystem = $file_system;
   }
 
   /**
@@ -137,7 +148,7 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
     $fn_plain = substr($filename, 0, -4);
     // Get image path.
     $scheme = $this->configFactory->get('system.file')->get('default_scheme');
-    $img_location = \Drupal::service('file_system')->realpath($scheme . "://") . "/comp_images";
+    $img_location = $this->fileSystem->realpath($scheme . "://") . "/comp_images";
     $img_path = $img_location . "/$filename";
     $dzi_path = $img_location . "/dzi/composite_$nid";
 
