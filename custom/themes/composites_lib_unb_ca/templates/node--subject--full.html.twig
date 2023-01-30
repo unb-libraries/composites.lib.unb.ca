@@ -123,12 +123,14 @@
                 <p class="mb-0 node-subtitle">{{- '(' }}{{ content.field_alt_name|field_value }}{{ ')' -}}</p>
               {%- endif -%}
 
-              <p class="mb-0">
-                {% set comp_path = path('entity.node.canonical', { 'node' : content.cid }) %}
-                <a href="{{ comp_path }}" class="node-subtitle">
-                  {{- content.composite_title|field_value -}}
-                </a>
-              </p>
+              {% if content.cid %}
+                <p class="mb-0">
+                  {% set comp_path = path('entity.node.canonical', { 'node' : content.cid }) %}
+                  <a href="{{ comp_path }}" class="node-subtitle">
+                    {{- content.composite_title|field_value -}}
+                  </a>
+                </p>
+    ]         {% endif %}
             {% endif %}
 
             {% if content.field_subject_title|field_value %}

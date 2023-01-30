@@ -265,7 +265,7 @@ function comp_crud_entity_update($entity) {
 function comp_crud_preprocess_node__subject(&$variables) {
   // Get subject id.
   $sid = $variables['node']->id();
-  $cid = $variables['node']->get('field_composite')->getValue()[0]['target_id'];
+  $cid = $variables['node']->get('field_composite')->getValue()[0]['target_id'] ?? NULL;
 
   if (!empty($cid)) {
     // Pass composite id as content to templates.

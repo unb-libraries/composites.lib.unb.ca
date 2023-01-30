@@ -96,6 +96,9 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           '#weight' => -10,
         ];
 
+        $form['composite_cropping']['#states']['invisible'][':input[name="field_absent[value]"]']
+          = ['checked' => TRUE];
+
         // Add refresh image button.
         // Get composite image URL with a base style.
         $base_style_name = 'full_jpeg';
@@ -119,16 +122,17 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           '#weight' => 4,
         ];
 
+        $form['refresh_subject_img']['#states']['invisible'][':input[name="field_absent[value]"]']
+          = ['checked' => TRUE];
       }
     }
 
+
     // Set coordinate fields' states to hide them when 'absent' is checked.
-    $form['composite_cropping']['#states']['invisible'][':input[name="field_absent[value]"]']
-      = $form['field_top_x']['#states']['invisible'][':input[name="field_absent[value]"]']
+    $form['field_top_x']['#states']['invisible'][':input[name="field_absent[value]"]']
       = $form['field_top_y']['#states']['invisible'][':input[name="field_absent[value]"]']
       = $form['field_bottom_x']['#states']['invisible'][':input[name="field_absent[value]"]']
       = $form['field_bottom_y']['#states']['invisible'][':input[name="field_absent[value]"]']
-      = $form['refresh_subject_img']['#states']['invisible'][':input[name="field_absent[value]"]']
       = ['checked' => TRUE];
   }
 }
