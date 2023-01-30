@@ -2,6 +2,7 @@
 
 namespace Drupal\comp_migration\Event;
 
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
@@ -13,6 +14,23 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class SubjectMigrateEvent implements EventSubscriberInterface {
 
   use CompMigrationTrait;
+
+  /**
+   * Entity type manager.
+   *
+   * @var Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $typeManager;
+
+  /**
+   * Constructs a new EventSubscriberInterface object.
+   *
+   * @param Drupal\Core\Entity\EntityTypeManager $type_manager
+   *   The entity type manager service class.
+   */
+  public function __construct(EntityTypeManager $type_manager) {
+    $this->typeManager = $type_manager;
+  }
 
   /**
    * {@inheritdoc}
@@ -82,7 +100,7 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
           break;
       }
 
-      $terms = \Drupal::entityQuery('taxonomy_term')
+      $terms = $this->typeManager->getStorage('taxonomy_term')->getQuery()
         ->condition('vid', 'gender')
         ->condition('name', $gender)
         ->execute();
@@ -92,7 +110,7 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
       $row->setSourceProperty('taxo_gender', $tid);
 
       // Campus.
-      $terms = \Drupal::entityQuery('taxonomy_term')
+      $terms = $this->typeManager->getStorage('taxonomy_term')->getQuery()
         ->condition('vid', 'campus')
         ->condition('name', 'Fredericton')
         ->execute();
