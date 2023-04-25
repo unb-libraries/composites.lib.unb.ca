@@ -15,6 +15,7 @@
       "composer/installers": true,
       "cweagans/composer-patches": true,
       "oomphinc/composer-installers-extender": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
       "drupal/core-composer-scaffold": true
     },
     "discard-changes": true,
