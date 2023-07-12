@@ -3,10 +3,10 @@
 namespace Drupal\context_branding\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Path\PathMatcher;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Path\PathMatcher;
-use Drupal\Core\Config\ConfigFactory;
 
 /**
  * A custom dynamic block for site branding w/ non-link H1 frontpage title.
