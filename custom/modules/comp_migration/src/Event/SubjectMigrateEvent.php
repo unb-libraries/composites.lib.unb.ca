@@ -2,8 +2,8 @@
 
 namespace Drupal\comp_migration\Event;
 
-use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\comp_migration\CompMigrationTrait;
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

@@ -2,9 +2,9 @@
 
 namespace Drupal\comp_migration\Event;
 
+use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
 use Drupal\taxonomy\Entity\Term;

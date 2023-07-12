@@ -2,10 +2,10 @@
 
 namespace Drupal\comp_migration\Event;
 
+use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\comp_migration\CompMigrationTrait;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigratePostRowSaveEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
