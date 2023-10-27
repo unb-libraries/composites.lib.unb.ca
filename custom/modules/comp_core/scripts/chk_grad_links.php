@@ -12,7 +12,8 @@ use Drupal\node\Entity\Node;
 
 // Search for all composite node ids.
 $cids = Drupal::entityQuery('node')
-  ->condition('type', 'composite')->execute();
+  ->condition('type', 'composite')->accesscheck(false)
+  ->execute();
 
 // Load and process all composites.
 foreach ($cids as $cid) {

@@ -117,7 +117,8 @@ function comp_crud_entity_presave($entity) {
           $nid = $entity->id();
           // Load all styles.
           $styles = \Drupal::entityQuery('image_style')
-          ->execute();
+            ->accesscheck(false)
+            ->execute();
 
           // Run through styles.
           foreach ($styles as $style_name) {

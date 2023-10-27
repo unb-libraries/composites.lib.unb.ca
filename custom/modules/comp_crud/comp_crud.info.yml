@@ -2,5 +2,5 @@ name: Unified module for CRUD extended functionality in composites.lib.unb.ca
 type: module
 description: Contains hooks that extend Drupal's CRUD functionality.
 core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 package: composites_lib_unb_ca

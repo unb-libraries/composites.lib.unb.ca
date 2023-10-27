@@ -1,30 +1,72 @@
 dockworker:
-  version: '5'
+  version: '6'
   application:
-    name: composites.lib.unb.ca
-    finish_marker: '99_zz_notify_user_URI'
-    project_prefix: COMP
-    upstream_images:
-      - ghcr.io/unb-libraries/drupal:9.x-2.x-unblib
-    uuid: 3105
-  drupal:
-    version: 9
-    persistent_config:
-      'image\.style\.[0-9]+_composite_crop_[0-9]+dpi': 'Composite Image Crop Styles'
-  deployment:
-    environments:
+    name: UNB Class Composite and Group Photographs
+    uri: https://composites.lib.unb.ca
+    description: >
+      UNB Class Composite and Group Photographs is a digital collection of 
+      University of New Brunswick Archives & Special Collections’ extensive 
+      collection of class and group photographs, covering the period 1873-1975.
+    topics:
+      - university life
+      - history
+      - academia
+      - UNB
+    identifiers:
+      id: composites.lib.unb.ca
+      slug: composites-lib-unb-ca
+      short_slug: composites
+      uuid: 3105
+    framework:
+      name: Drupal
+      version: 10
+      startup_finished_marker: '99_startup_sequence_complete'
+      endpoint:
+        name: http
+        port: 80
+        readiness_timeout: 15
+    license:
+      license: MIT
+      holder: University of New Brunswick Libraries
+    shell:
+      path: /bin/sh
+  endpoints:
+    env:
       - dev
       - prod
-    workflow:
-      source: dockworker-drupal
-      type: deployment-workflow
-  github:
-    repo: composites.lib.unb.ca
-    owner: unb-libraries
-  image:
-    push_branches:
-      - dev
-      - prod
-    name: ghcr.io/unb-libraries/composites.lib.unb.ca
-    date_tag_image: true
-    repository: ghcr
+    deployments:
+      composites-lib-unb-ca:
+        default: true
+        managed: true
+        name: composites-lib-unb-ca
+      drupal-mysql-lib-unb-ca:
+        managed: false
+        name: mysql
+      drupal-redis-lib-unb-ca:
+        managed: false
+        name: redis
+      drupal-solr-lib-unb-ca:
+        managed: false
+        name: solr
+  workflows:
+    vcs:
+      type: github
+      owner: unb-libraries
+      name: composites.lib.unb.ca
+    jira:
+      project_keys:
+        - COMP
+    image:
+      name: ghcr.io/unb-libraries/composites.lib.unb.ca
+      parent: ghcr.io/unb-libraries/drupal:10.x-1.x-unblib
+      repository: GitHub
+      push-branches:
+        - dev
+        - prod
+    e2e_tests:
+        - id: core
+          frequency: '*/5 * * * *'
+          source_files:
+            - .dockworker/tests/e2e/composites.lib.unb.ca.yml
+          namespaces:
+            - prod

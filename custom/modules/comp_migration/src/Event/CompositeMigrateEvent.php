@@ -122,6 +122,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $nids = $this->typeManager->getStorage('node')->getQuery()
           ->condition('type', 'subject')
           ->condition('field_source_file', $src_file_comp)
+          ->accesscheck(false)
           ->execute();
       }
 
@@ -149,7 +150,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       $data = file_exists($full_path) ? file_get_contents($full_path) : NULL;
 
       if (!empty($data)) {
-        $file = file_save_data($data, "public://comp_images/" . $src_filename . $src_ext, FileSystemInterface::EXISTS_REPLACE);
+        $file = \Drupal::service('file.repository')->writeData($data, "public://comp_images/" . $src_filename . $src_ext, FileSystemInterface::EXISTS_REPLACE);
         $fid = $file->id();
 
         $field_image = [
@@ -172,7 +173,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
         $data = file_exists($src_path) ? file_get_contents($src_path) : NULL;
 
         if (!empty($data)) {
-          $file = file_save_data($data, "public://comp_images/" . $src_filename, FileSystemInterface::EXISTS_REPLACE);
+          $file = \Drupal::service('file.repository')->writeData($data, "public://comp_images/" . $src_filename, FileSystemInterface::EXISTS_REPLACE);
           $fid = $file->id();
 
           $field_rel_image = [
@@ -336,7 +337,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
       $data = file_exists($full_path) ? file_get_contents($full_path) : NULL;
 
       if (!empty($data)) {
-        $file = file_save_data($data, "public://comp_images/$src_pre$src_id$src_ext", FileSystemInterface::EXISTS_REPLACE);
+        $file = \Drupal::service('file.repository')->writeData($data, "public://comp_images/$src_pre$src_id$src_ext", FileSystemInterface::EXISTS_REPLACE);
         $fid = $file->id();
 
         $field_image = [
@@ -367,6 +368,7 @@ class CompositeMigrateEvent implements EventSubscriberInterface {
     $terms = $this->typeManager->getStorage('taxonomy_term')->getQuery()
       ->condition('vid', $vid)
       ->condition('name', $name)
+      ->accesscheck(false)
       ->execute();
 
     reset($terms);

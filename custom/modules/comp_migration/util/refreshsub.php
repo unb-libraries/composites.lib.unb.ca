@@ -12,7 +12,8 @@ use Drupal\node\Entity\Node;
 
 // Search for all subject node ids.
 $sids = Drupal::entityQuery('node')
-  ->condition('type', 'subject')->execute();
+  ->condition('type', 'subject')->accesscheck(false)
+  ->execute();
 
 // Load and save all subjects.
 foreach ($sids as $sid) {

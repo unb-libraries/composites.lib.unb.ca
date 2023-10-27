@@ -11,6 +11,7 @@ use Drupal\image\Entity\ImageStyle;
 
 // Load all styles.
 $styles = \Drupal::entityQuery('image_style')
+  ->accesscheck(false)
   ->execute();
 
 // Run through styles.

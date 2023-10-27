@@ -1,4 +1,27 @@
 services:
+  composites-lib-unb-ca:
+    build:
+      context: .
+    restart: unless-stopped
+    container_name: composites-lib-unb-ca
+    depends_on:
+      - drupal-mysql-lib-unb-ca
+      - drupal-redis-lib-unb-ca
+      - drupal-solr-lib-unb-ca
+    expose:
+      - "80"
+    networks:
+      - composites.lib.unb.ca
+    ports:
+      - "3105:80"
+    env_file:
+      - ./env/drupal.env
+    volumes:
+      - drupal-data:/app/html/sites/default
+      - ./configuration:/app/configuration
+      - ./custom/modules:/app/html/modules/custom
+      - ./custom/themes:/app/html/themes/custom
+      - ./tests:/app/tests
   drupal-mysql-lib-unb-ca:
     image: mysql:5.7
     restart: unless-stopped
@@ -12,7 +35,8 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
   drupal-redis-lib-unb-ca:
-    image: redis:5-alpine
+    image: redis:7-alpine
+    command: redis-server --maxmemory-policy allkeys-lru --maxmemory 128mb
     restart: unless-stopped
     expose:
       - "6379"
@@ -35,29 +59,6 @@ services:
       - people.composites.lib.unb.ca:/solr-conf
     volumes:
       - solr-data:/opt/solr/server/solr/mycores
-  composites.lib.unb.ca:
-    build:
-      context: .
-    restart: unless-stopped
-    container_name: composites.lib.unb.ca
-    depends_on:
-      - drupal-mysql-lib-unb-ca
-      - drupal-redis-lib-unb-ca
-      - drupal-solr-lib-unb-ca
-    expose:
-      - "80"
-    networks:
-      - composites.lib.unb.ca
-    ports:
-      - "3105:80"
-    env_file:
-      - ./env/drupal.env
-    volumes:
-      - drupal-data:/app/html/sites/default
-      - ./config-yml:/app/configuration
-      - ./custom/modules:/app/html/modules/custom
-      - ./custom/themes:/app/html/themes/custom
-      - ./tests:/app/tests
   mailhog:
     image: mailhog/mailhog
     restart: unless-stopped

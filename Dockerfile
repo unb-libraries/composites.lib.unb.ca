@@ -1,7 +1,7 @@
-FROM ghcr.io/unb-libraries/drupal:9.x-2.x-unblib
+FROM ghcr.io/unb-libraries/drupal:10.x-1.x-unblib
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
-ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick bash postfix php7-ldap php7-xmlreader php7-zip php7-redis
+ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick bash postfix php-ldap php-xmlreader php-zip php81-pecl-redis
 ENV DRUPAL_SITE_ID comp
 ENV DRUPAL_SITE_URI composites.lib.unb.ca
 ENV DRUPAL_SITE_UUID 022dab87-328e-494c-b8f8-ebde1e1a0162
@@ -18,7 +18,7 @@ RUN ${RSYNC_MOVE} /build/scripts/container/ /scripts/ && \
   /scripts/build.sh
 
 # Deploy configuration.
-COPY ./config-yml ${DRUPAL_CONFIGURATION_DIR}
+COPY ./configuration ${DRUPAL_CONFIGURATION_DIR}
 RUN /scripts/pre-init.d/72_secure_config_sync_dir.sh
 
 # Deploy custom modules, themes.

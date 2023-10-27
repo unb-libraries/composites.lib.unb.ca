@@ -103,6 +103,7 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
       $terms = $this->typeManager->getStorage('taxonomy_term')->getQuery()
         ->condition('vid', 'gender')
         ->condition('name', $gender)
+        ->accesscheck(false)
         ->execute();
 
       reset($terms);
@@ -113,6 +114,7 @@ class SubjectMigrateEvent implements EventSubscriberInterface {
       $terms = $this->typeManager->getStorage('taxonomy_term')->getQuery()
         ->condition('vid', 'campus')
         ->condition('name', 'Fredericton')
+        ->accesscheck(false)
         ->execute();
 
       reset($terms);

@@ -15,6 +15,7 @@ rm_entities('node');
  */
 function rm_entities($type) {
   $handler = \Drupal::entityTypeManager()->getStorage($type);
-  $entities = $handler->loadMultiple(\Drupal::entityQuery($type)->execute());
+  $entities = $handler->loadMultiple(\Drupal::entityQuery($type)->accesscheck(false)
+  ->execute());
   $handler->delete($entities);
 }

@@ -21,6 +21,7 @@ function composites_lib_unb_ca_preprocess_menu_local_task(&$variables) {
     $query = \Drupal::entityQuery('node')
       ->condition('nid', $node_id)
       ->condition('type', $content_types, 'IN')
+      ->accesscheck(false)
       ->execute();
 
     if (!empty($query)) {

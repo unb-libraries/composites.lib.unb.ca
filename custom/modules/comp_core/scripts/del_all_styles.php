@@ -9,6 +9,7 @@
 
 // Load all styles.
 $result = \Drupal::entityQuery("image_style")
+  ->accesscheck(false)
   ->execute();
 
 $storage_handler = \Drupal::entityTypeManager()->getStorage("image_style");

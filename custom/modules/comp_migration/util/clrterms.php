@@ -17,5 +17,8 @@ foreach ($vids as $vid) {
   $storage->delete($storage->loadMultiple(
     \Drupal::entityQuery('taxonomy_term')
       ->condition('vid', $vid)
-      ->execute()));
+      ->accesscheck(false)
+      ->execute()
+    
+  ));
 }
