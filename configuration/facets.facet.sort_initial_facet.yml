@@ -8,7 +8,7 @@ dependencies:
   module:
     - search_api
 id: sort_initial_facet
-name: 'Select a last name initial from the list below. ''#'' for digits and ''@'' for other.'
+name: "Select a last name initial from the list below. '#' for digits and '@' for other."
 weight: 0
 min_count: 1
 missing: false

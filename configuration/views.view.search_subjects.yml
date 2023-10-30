@@ -176,7 +176,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ title }}{{ '' ('' }}{{ title_1 }}{{- '')'' -}}'
+            text: "{{ title }}{{ ' (' }}{{ title_1 }}{{- ')' -}}"
             make_link: false
             path: ''
             absolute: false

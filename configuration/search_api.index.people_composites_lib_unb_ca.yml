@@ -83,7 +83,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: 'field_composite:entity:field_comp_year'
     type: text
-    boost: !!float 2
+    boost: 2.0
     dependencies:
       config:
         - field.storage.node.field_comp_year
@@ -156,7 +156,7 @@ field_settings:
     label: 'Fulltext Valedictorian'
     property_path: fulltext_valedictorian
     type: text
-    boost: !!float 2
+    boost: 2.0
   status:
     label: Published
     datasource_id: 'entity:node'
@@ -170,7 +170,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: text
-    boost: !!float 3
+    boost: 3.0
     dependencies:
       module:
         - node
