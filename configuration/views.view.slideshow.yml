@@ -226,7 +226,7 @@ display:
       pager:
         type: some
         options:
-          offset: null
+          offset: 0
           items_per_page: 5
       exposed_form:
         type: basic
