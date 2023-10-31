@@ -42,27 +42,20 @@ comp_core.about:
   menu_name: main
   url: internal:/about
   weight: 20
-comp_core.ack:
-  title: 'Acknowledgements'
-  description: 'Acknowledgements'
-  parent: main
-  menu_name: main
-  url: internal:/acknowledgements
-  weight: 30
 comp_core.contact:
   title: 'Contact Us'
   description: 'Contact Us'
   parent: main
   menu_name: main
   url: 'https://lib.unb.ca/contact-unb-libraries-staff?recipient=archives@unb.ca&subject=UNB%20Composites%20and%20Group%20Photographs'
-  weight: 40
+  weight: 30
 comp_core.archives:
   title: 'Archives & Special Collections'
   description: 'Archives & Special Collections'
   parent: main
   menu_name: main
   url: 'https://lib.unb.ca/archives'
-  weight: 50
+  weight: 40
 
 # Admin toolbar.
 comp_core.editor:
