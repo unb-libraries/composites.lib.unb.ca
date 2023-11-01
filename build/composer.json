@@ -135,7 +135,7 @@
         "extra": {
           "installer-name": "jquery.hoverIntent"
         },
-        "name": "jquery/hover_intent",
+        "name": "jquery/hoverIntent",
         "type": "drupal-library",
         "version": "1.10.2"
       },
