@@ -183,7 +183,7 @@
     "drupal/views_slideshow": "^5",
     "google/apiclient": "^2",
     "jonthornton/jquery-timepicker": "^1",
-    "jquery/hover_intent": "^1",
+    "jquery/hoverintent": "^1",
     "jquery/json2": "dev-master",
     "malsup/jquery.cycle": "^1",
     "oomphinc/composer-installers-extender": "^2",
