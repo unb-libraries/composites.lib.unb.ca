@@ -857,6 +857,7 @@ display:
         - 'config:field.storage.node.field_subjects'
         - 'config:field.storage.node.field_type'
         - 'config:search_api.index.images_composites_lib_unb_ca'
+        - 'search_api_list:images_composites_lib_unb_ca'
   page_1:
     id: page_1
     display_title: Page
@@ -867,7 +868,15 @@ display:
         type: none
       defaults:
         cache: false
-      display_extenders: {  }
+      display_extenders:
+        simple_sitemap_display_extender:
+          variants:
+            views-sitemap:
+              index: true
+              priority: '0.5'
+              changefreq: ''
+              arguments: {  }
+              max_links: 100
       path: browse-composites
     cache_metadata:
       max-age: -1
@@ -882,3 +891,4 @@ display:
         - 'config:field.storage.node.field_subjects'
         - 'config:field.storage.node.field_type'
         - 'config:search_api.index.images_composites_lib_unb_ca'
+        - 'search_api_list:images_composites_lib_unb_ca'

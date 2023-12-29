@@ -1,0 +1,10 @@
+uuid: f2d99b62-d07a-401a-b31a-626f3c962c28
+langcode: en
+status: true
+dependencies: {  }
+id: sitemap_viewa
+label: 'Sitemap Views'
+description: ''
+sitemap_generator: default
+url_generators:
+  views: views
