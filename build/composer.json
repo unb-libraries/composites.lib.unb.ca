@@ -133,7 +133,7 @@
           "url": "https://github.com/briancherne/jquery-hoverIntent/archive/v1.10.2.zip"
         },
         "extra": {
-          "installer-name": "hoverintent"
+          "installer-name": "jquery.hover-intent"
         },
         "name": "jquery/hoverintent",
         "type": "drupal-library",
