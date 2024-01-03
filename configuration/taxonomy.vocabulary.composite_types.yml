@@ -1,0 +1,8 @@
+uuid: ac72d363-245a-4625-a806-7456785495e0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Composite Types'
+vid: composite_types
+description: "Controlled vocabulary for composite types in composites.lib.unb.ca\t"
+weight: 0

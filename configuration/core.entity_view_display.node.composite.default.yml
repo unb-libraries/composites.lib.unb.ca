@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.composite.field_comp_decade
     - field.field.node.composite.field_comp_source_file
     - field.field.node.composite.field_comp_year
+    - field.field.node.composite.field_composite_type
     - field.field.node.composite.field_contributors
     - field.field.node.composite.field_current_buildings
     - field.field.node.composite.field_disp_resolution
@@ -50,6 +51,14 @@ content:
       prefix_suffix: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_composite_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_current_buildings:
     type: entity_reference_label

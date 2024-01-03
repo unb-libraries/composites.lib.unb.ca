@@ -1,0 +1,29 @@
+uuid: 815c4568-84f4-423c-b218-9f29dbf0b9da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_composite_type
+    - node.type.composite
+    - taxonomy.vocabulary.composite_types
+id: node.composite.field_composite_type
+field_name: field_composite_type
+entity_type: node
+bundle: composite
+label: 'Composite Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      composite_types: composite_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

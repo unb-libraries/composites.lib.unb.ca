@@ -1,0 +1,11 @@
+uuid: 5d95691f-fb9e-40d2-b5bf-801750c3d7cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.composite_types
+id: taxonomy_term.composite_types
+target_entity_type_id: taxonomy_term
+target_bundle: composite_types
+default_langcode: site_default
+language_alterable: false
