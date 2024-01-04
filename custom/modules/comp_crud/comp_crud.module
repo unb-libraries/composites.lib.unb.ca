@@ -33,7 +33,7 @@ function comp_crud_entity_presave($entity) {
       // Retrieve title (name) for each id.
       foreach ($sids as $k=>$sid) {
         $subject = Node::load($sid['target_id']);
-        $sid['name'] = $subject->getTitle();
+        $sid['name'] = $subject ? $subject->getTitle() : NULL;
         $sids[$k] = $sid;
         // Since we have the subject, add a reference back to the composite.
         $comp_ref = ['target_id' => $entity->id()];
