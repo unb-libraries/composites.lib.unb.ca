@@ -44,6 +44,9 @@ function comp_crud_entity_presave($entity) {
           $subject->set('status', $entity->isPublished());
           $subject->save();
         }
+        else {
+          unset($sids[$k]);
+        }
       }
 
       // Sort multidimensional array by name column.

@@ -32,7 +32,6 @@ function type2taxo() {
         $type = $type == "Canadian Officers Training Corps" ? 
           "Canadian Officers' Training Corps" : $type;
         $composite->field_composite_type->setvalue(find_add_term('composite_types', $type));
-        echo dump($composite->field_composite_type->getvalue());
         $composite->save();
         echo "[-] [$title]->[Processed]\n";
       }
