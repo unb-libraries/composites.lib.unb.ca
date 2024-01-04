@@ -6,8 +6,10 @@
  *
  * Copies Type field text to taxonomy for composites in for composites.lib.unb.ca.
  */
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 
- type2taxo();
+type2taxo();
 
 /**
  * Copy Type field text to taxonomy.
@@ -24,37 +26,57 @@ function type2taxo() {
       $composite = Node::load($id) ?? NULL;
 
       if ($composite) {
-        $title = $composite->getName();
+        $title = $composite->title->getValue()[0]['value'];
+        $type = $composite->field_type->getValue()[0]['value'];
+        $type = $type == "Encoenia" ? "Encaenia" : $type;
+        $type = $type == "Canadian Officers Training Corps" ? 
+          "Canadian Officers' Training Corps" : $type;
+        $composite->field_composite_type->setvalue(find_add_term('composite_types', $type));
+        echo dump($composite->field_composite_type->getvalue());
         $composite->save();
-        echo "[-] [$title]->[Updated]\n";
+        echo "[-] [$title]->[Processed]\n";
       }
     }
   }
 }
 
 /**
- * Add multiple terms to a given vocabulary.
+ * Find or create taxonomy term.
  *
  * @param string $vid
- *   A string indicating the id of the vocabulary to update.
- * @param array $terms
- *   An array containing the names of the terms to add.
- * @param int $parent_id
- *   The ID of the parent term, if any.
+ *   The ID of the vocabulary for the term.
+ * @param string $name
+ *   The name for the term.
+ *
+ * @return int
+ *   The ID of the term (int).
  */
-function add_terms(string $vid, array $terms, int $parent_id = NULL) {
+function find_add_term(string $vid, string $name) {
+  $name = trim($name);
 
-  foreach ($terms as $term) {
-    $new_term = Term::create([
-      'vid' => $vid,
-      'name' => $term,
-    ]);
+  $terms = Drupal::entityQuery('taxonomy_term')
+    ->condition('vid', $vid)
+    ->condition('name', $name, 'LIKE')
+    ->accesscheck(false)
+    ->execute();
 
-    $new_term->set('parent', $parent_id);
-    $new_term->save();
+  reset($terms);
+  $tid = key($terms);
 
-    echo "[+] [$term]->[$vid]\n";
-    $new_terms[] = $new_term->id();
+  if (empty($tid)) {
+    if ($name != NULL) {
+      $term = Term::create([
+        'name' => $name,
+        'vid' => $vid,
+      ]);
+
+      $term->save();
+      $tid = $term->id();
+    }
+    else {
+      $tid = NULL;
+    }
   }
 
-  return $new_terms;
+  return $tid;
+}
