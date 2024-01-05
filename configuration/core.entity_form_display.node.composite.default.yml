@@ -50,7 +50,7 @@ content:
     third_party_settings: {  }
   field_composite_type:
     type: entity_reference_autocomplete
-    weight: 27
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -60,7 +60,7 @@ content:
     third_party_settings: {  }
   field_contributors:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -70,7 +70,7 @@ content:
     third_party_settings: {  }
   field_current_buildings:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -80,14 +80,14 @@ content:
     third_party_settings: {  }
   field_disp_resolution:
     type: number
-    weight: 11
+    weight: 12
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_former_buildings:
     type: entity_reference_autocomplete
-    weight: 14
+    weight: 15
     region: content
     settings:
       match_operator: CONTAINS
@@ -120,21 +120,21 @@ content:
     third_party_settings: {  }
   field_no_profs:
     type: number
-    weight: 15
+    weight: 16
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_no_students:
     type: number
-    weight: 16
+    weight: 17
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_notes:
     type: string_textarea
-    weight: 17
+    weight: 18
     region: content
     settings:
       rows: 5
@@ -168,18 +168,10 @@ content:
     third_party_settings: {  }
   field_staff_notes:
     type: string_textarea
-    weight: 26
+    weight: 20
     region: content
     settings:
       rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_type:
-    type: string_textfield
-    weight: 5
-    region: content
-    settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_width:
@@ -190,13 +182,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 18
+    weight: 19
     region: content
     settings:
       display_label: true
@@ -214,6 +206,7 @@ hidden:
   field_comp_decade: true
   field_comp_source_file: true
   field_subjects: true
+  field_type: true
   langcode: true
   path: true
   promote: true

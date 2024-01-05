@@ -292,13 +292,13 @@ function comp_crud_preprocess_node__subject(&$variables) {
   }
 
   if (!empty($comp_title)) {
-    // Pass composite year field as content to templates.
+    // Pass composite title field as content to templates.
     $variables['content']['composite_title'] = $comp_title->view();
     $variables['content']['composite_title']['#title'] = 'Composite Title';
   }
 
   if (!empty($comp_campus)) {
-    // Pass composite year field as content to templates.
+    // Pass composite campus field as content to templates.
     $variables['content']['composite_campus'] = $comp_campus->view();
     $variables['content']['composite_campus']['#title'] = 'Composite Campus';
   }

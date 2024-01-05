@@ -84,6 +84,7 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
       // Generate title and save node (to apply entity update operations).
       $composite = $this->typeManager->getStorage('node')->load($cid);
       $year = $composite->get('field_comp_year')->getValue()[0]['value'];
+      $year = $year ?? 'n.d';
       $type = $composite->get('field_type')->getValue()[0]['value'];
       $title = "$year $type Photo";
 
@@ -91,7 +92,7 @@ class CompositeMigratePostEvent implements EventSubscriberInterface {
       $composite->save();
     }
 
-    // Only act on rows for legacy spots photos migration.
+    // Only act on rows for legacy sports photos migration.
     if ($migration_id == 'comp_3_sports') {
       $destination_ids = $event->getDestinationIdValues();
       $cid = $destination_ids[0];

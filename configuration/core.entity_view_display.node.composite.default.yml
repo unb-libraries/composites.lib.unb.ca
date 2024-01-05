@@ -52,14 +52,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_composite_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 11
-    region: content
   field_current_buildings:
     type: entity_reference_label
     label: above
@@ -143,6 +135,7 @@ content:
 hidden:
   field_comp_decade: true
   field_comp_source_file: true
+  field_composite_type: true
   field_contributors: true
   field_disp_resolution: true
   field_height: true
