@@ -4,6 +4,7 @@ openseadragon:
   license:
     name: BSD 3-clause
     gpl-compatible: true
+    url: https://raw.githubusercontent.com/openseadragon/openseadragon/master/LICENSE.txt
   js:
     https://openseadragon.github.io/openseadragon/openseadragon.min.js: { type: external, minified: true }
   dependencies:
