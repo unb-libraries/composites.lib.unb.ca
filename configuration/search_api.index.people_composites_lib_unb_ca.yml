@@ -8,7 +8,6 @@ dependencies:
     - field.storage.node.field_composite
     - field.storage.node.field_comp_year
     - field.storage.node.field_notes
-    - field.storage.node.field_type
     - field.storage.node.field_initials
     - field.storage.node.field_sort_initial
     - field.storage.node.field_subject_notes
@@ -141,17 +140,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_subject_title
-  field_type:
-    label: 'Composite » Content » Type'
-    datasource_id: 'entity:node'
-    property_path: 'field_composite:entity:field_type'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_composite
-        - field.storage.node.field_type
-      module:
-        - node
   fulltext_valedictorian:
     label: 'Fulltext Valedictorian'
     property_path: fulltext_valedictorian
@@ -174,6 +162,17 @@ field_settings:
     dependencies:
       module:
         - node
+  title_1:
+    label: 'Composite Source Image » Content » Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_composite:entity:title'
+    type: text
+    boost: 2.0
+    dependencies:
+      config:
+        - field.storage.node.field_composite
+      module:
+        - node
 datasource_settings:
   'entity:node':
     bundles:
@@ -188,6 +187,7 @@ processor_settings:
   add_url: {  }
   aggregated_field: {  }
   auto_aggregated_fulltext_field: {  }
+  custom_value: {  }
   entity_type: {  }
   language_with_fallback: {  }
   rendered_item: {  }
