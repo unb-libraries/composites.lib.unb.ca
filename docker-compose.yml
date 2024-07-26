@@ -69,6 +69,8 @@ services:
       - "4105:8025"
     networks:
       - composites.lib.unb.ca
+    profiles:
+      - mailhog
 networks:
   composites.lib.unb.ca:
     name: composites.lib.unb.ca
