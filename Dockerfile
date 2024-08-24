@@ -1,10 +1,10 @@
 FROM ghcr.io/unb-libraries/drupal:10.x-1.x-unblib
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
-ENV ADDITIONAL_OS_PACKAGES tiff-dev tiff postfix imagemagick bash postfix php-ldap php-xmlreader php-zip php81-pecl-redis
-ENV DRUPAL_SITE_ID comp
-ENV DRUPAL_SITE_URI composites.lib.unb.ca
-ENV DRUPAL_SITE_UUID 022dab87-328e-494c-b8f8-ebde1e1a0162
+ENV ADDITIONAL_OS_PACKAGES="tiff-dev tiff postfix imagemagick bash postfix php-ldap php-xmlreader php-zip php81-pecl-redis"
+ENV DRUPAL_SITE_ID="comp"
+ENV DRUPAL_SITE_URI="composites.lib.unb.ca"
+ENV DRUPAL_SITE_UUID="022dab87-328e-494c-b8f8-ebde1e1a0162"
 
 # Build application.
 COPY ./build/ /build/
