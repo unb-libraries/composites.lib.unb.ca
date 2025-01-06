@@ -59,7 +59,7 @@ comp_core.archives:
 
 # Admin toolbar.
 comp_core.editor:
-  title: 'UNB Class Composite & Group Photographs'
+  title: 'UNB Class Composite, Sports & Group Photographs'
   description: 'Manage UNB Composites editor features.'
   route_name: <front>
   parent: system.admin

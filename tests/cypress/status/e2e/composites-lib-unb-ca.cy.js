@@ -5,7 +5,7 @@ describe('Class Composite & Group Photographs', {baseUrl: host, groups: ['sites'
     beforeEach(() => {
       cy.visit('')
       cy.title()
-        .should('contain', 'UNB Class Composite & Group Photographs')
+        .should('contain', 'UNB Class Composite, Sports & Group Photographs')
     })
 
     specify('Search for "Max Aitken" should find 5+ results', () => {
