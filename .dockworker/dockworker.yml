@@ -1,10 +1,10 @@
 dockworker:
   version: '6'
   application:
-    name: UNB Class Composite and Group Photographs
+    name: UNB Class Composite, Sports and Group Photographs
     uri: https://composites.lib.unb.ca
     description: >
-      UNB Class Composite and Group Photographs is a digital collection of 
+      UNB Class Composite, Sports and Group Photographs is a digital collection of 
       University of New Brunswick Archives & Special Collections’ extensive 
       collection of class and group photographs, covering the period 1873-1975.
     topics:
