@@ -2294,11 +2294,11 @@
             ],
             "authors": [
                 {
-                    "name": "Berdir",
+                    "name": "berdir",
                     "homepage": "https://www.drupal.org/user/214652"
                 },
                 {
-                    "name": "Dave Reid",
+                    "name": "dave reid",
                     "homepage": "https://www.drupal.org/user/53892"
                 },
                 {
@@ -3670,16 +3670,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.390.0",
+            "version": "v0.391.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "2c1ff37aea15dd9e7a434c4fcbec777d9421385c"
+                "reference": "911ebf7a6b570780fb994c007344cf3da4187de6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/2c1ff37aea15dd9e7a434c4fcbec777d9421385c",
-                "reference": "2c1ff37aea15dd9e7a434c4fcbec777d9421385c",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/911ebf7a6b570780fb994c007344cf3da4187de6",
+                "reference": "911ebf7a6b570780fb994c007344cf3da4187de6",
                 "shasum": ""
             },
             "require": {
@@ -3708,9 +3708,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.390.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.391.0"
             },
-            "time": "2025-01-12T01:00:53+00:00"
+            "time": "2025-01-20T01:04:13+00:00"
         },
         {
             "name": "google/auth",
@@ -10315,16 +10315,16 @@
         },
         {
             "name": "drupal/coder",
-            "version": "8.3.27",
+            "version": "8.3.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfrenssen/coder.git",
-                "reference": "04a4563b82c419e43cc58393a78b21c44fcc29e2"
+                "reference": "d18eeb133f7da766f0341734aa983d05f2b317fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfrenssen/coder/zipball/04a4563b82c419e43cc58393a78b21c44fcc29e2",
-                "reference": "04a4563b82c419e43cc58393a78b21c44fcc29e2",
+                "url": "https://api.github.com/repos/pfrenssen/coder/zipball/d18eeb133f7da766f0341734aa983d05f2b317fd",
+                "reference": "d18eeb133f7da766f0341734aa983d05f2b317fd",
                 "shasum": ""
             },
             "require": {
@@ -10362,7 +10362,7 @@
                 "issues": "https://www.drupal.org/project/issues/coder",
                 "source": "https://www.drupal.org/project/coder"
             },
-            "time": "2025-01-06T09:46:24+00:00"
+            "time": "2025-01-18T17:05:53+00:00"
         },
         {
             "name": "drupal/core-dev",
@@ -11240,16 +11240,16 @@
         },
         {
             "name": "open-telemetry/gen-otlp-protobuf",
-            "version": "1.2.1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/gen-otlp-protobuf.git",
-                "reference": "66c3b98e998a726691c92e6405a82e6e7b8b169d"
+                "reference": "585bafddd4ae6565de154610b10a787a455c9ba0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/gen-otlp-protobuf/zipball/66c3b98e998a726691c92e6405a82e6e7b8b169d",
-                "reference": "66c3b98e998a726691c92e6405a82e6e7b8b169d",
+                "url": "https://api.github.com/repos/opentelemetry-php/gen-otlp-protobuf/zipball/585bafddd4ae6565de154610b10a787a455c9ba0",
+                "reference": "585bafddd4ae6565de154610b10a787a455c9ba0",
                 "shasum": ""
             },
             "require": {
@@ -11299,7 +11299,7 @@
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2024-10-30T11:49:49+00:00"
+            "time": "2025-01-15T23:07:07+00:00"
         },
         {
             "name": "open-telemetry/sdk",
