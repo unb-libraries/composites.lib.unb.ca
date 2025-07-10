@@ -3679,7 +3679,7 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.401.0",
+            "version": "v0.402.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
@@ -3717,22 +3717,22 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.401.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.402.0"
             },
             "time": "2025-06-04T17:28:44+00:00"
         },
         {
             "name": "google/auth",
-            "version": "v1.47.0",
+            "version": "v1.47.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "d6389aae7c009daceaa8da9b7942d8df6969f6d9"
+                "reference": "d7a0a215ec42ca0c8cb40e9ae0c5960aa9a024b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/d6389aae7c009daceaa8da9b7942d8df6969f6d9",
-                "reference": "d6389aae7c009daceaa8da9b7942d8df6969f6d9",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/d7a0a215ec42ca0c8cb40e9ae0c5960aa9a024b7",
+                "reference": "d7a0a215ec42ca0c8cb40e9ae0c5960aa9a024b7",
                 "shasum": ""
             },
             "require": {
@@ -3778,9 +3778,9 @@
             "support": {
                 "docs": "https://cloud.google.com/php/docs/reference/auth/latest",
                 "issues": "https://github.com/googleapis/google-auth-library-php/issues",
-                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.47.0"
+                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.47.1"
             },
-            "time": "2025-04-15T21:47:20+00:00"
+            "time": "2025-07-09T15:26:02+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -4217,16 +4217,16 @@
         },
         {
             "name": "halaxa/json-machine",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/halaxa/json-machine.git",
-                "reference": "ca1e2fc61d3596655e5480e192ef30ad67478ad4"
+                "reference": "d0f84abf79ac98145d478b66d2bcf363d706477c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/halaxa/json-machine/zipball/ca1e2fc61d3596655e5480e192ef30ad67478ad4",
-                "reference": "ca1e2fc61d3596655e5480e192ef30ad67478ad4",
+                "url": "https://api.github.com/repos/halaxa/json-machine/zipball/d0f84abf79ac98145d478b66d2bcf363d706477c",
+                "reference": "d0f84abf79ac98145d478b66d2bcf363d706477c",
                 "shasum": ""
             },
             "require": {
@@ -4267,7 +4267,7 @@
             "description": "Efficient, easy-to-use and fast JSON pull parser",
             "support": {
                 "issues": "https://github.com/halaxa/json-machine/issues",
-                "source": "https://github.com/halaxa/json-machine/tree/1.2.4"
+                "source": "https://github.com/halaxa/json-machine/tree/1.2.5"
             },
             "funding": [
                 {
@@ -4275,7 +4275,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2025-06-16T07:42:34+00:00"
+            "time": "2025-07-07T13:38:34+00:00"
         },
         {
             "name": "jonthornton/jquery-timepicker",
@@ -10448,17 +10448,17 @@
         },
         {
             "name": "drupal/devel",
-            "version": "5.3.1",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/devel.git",
-                "reference": "5.3.1"
+                "reference": "5.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/devel-5.3.1.zip",
-                "reference": "5.3.1",
-                "shasum": "6a5f13bdf93dc5f7f194b6af847589ae15e37b63"
+                "url": "https://ftp.drupal.org/files/projects/devel-5.4.0.zip",
+                "reference": "5.4.0",
+                "shasum": "fc14fe1c396dbff661f9d13e6e3171d9ab781a46"
             },
             "require": {
                 "doctrine/common": "^2.7 || ^3.4",
@@ -10468,22 +10468,21 @@
             },
             "conflict": {
                 "drupal/core": "<10.3",
-                "drush/drush": "<12.5.1",
-                "kint-php/kint": "<3"
+                "drush/drush": "<12.5.1"
             },
             "require-dev": {
+                "drupal/navigation_extra_tools": "1.0.x-dev",
                 "drush/drush": "^13",
-                "firephp/firephp-core": "^0.5.3",
-                "kint-php/kint": "^5.1"
+                "firephp/firephp-core": "^0.5.3"
             },
             "suggest": {
-                "kint-php/kint": "Kint provides an informative display of arrays/objects. Useful for debugging and developing."
+                "drupal/kint": "Kint provides an informative display of arrays/objects. Useful for debugging and developing."
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.3.1",
-                    "datestamp": "1723258446",
+                    "version": "5.4.0",
+                    "datestamp": "1751916158",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11030,16 +11029,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.13.1",
+            "version": "1.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c"
+                "reference": "faed855a7b5f4d4637717c2b3863e277116beb36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/1720ddd719e16cf0db4eb1c6eca108031636d46c",
-                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/faed855a7b5f4d4637717c2b3863e277116beb36",
+                "reference": "faed855a7b5f4d4637717c2b3863e277116beb36",
                 "shasum": ""
             },
             "require": {
@@ -11078,7 +11077,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.1"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.3"
             },
             "funding": [
                 {
@@ -11086,7 +11085,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-04-29T12:36:36+00:00"
+            "time": "2025-07-05T12:25:42+00:00"
         },
         {
             "name": "nyholm/psr7-server",
