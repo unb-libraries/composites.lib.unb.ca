@@ -6,3 +6,4 @@ name: Contributor
 vid: contributor
 description: 'Controlled vocabulary for contributors in composites.lib.unb.ca'
 weight: 0
+new_revision: false

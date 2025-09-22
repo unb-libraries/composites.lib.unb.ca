@@ -6,3 +6,4 @@ name: Campus
 vid: campus
 description: 'Controlled vocabulary for campus association for images and composites in composites.lib.unb.ca'
 weight: 0
+new_revision: false

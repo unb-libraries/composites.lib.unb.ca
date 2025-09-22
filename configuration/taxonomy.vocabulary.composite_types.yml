@@ -6,3 +6,4 @@ name: 'Composite Types'
 vid: composite_types
 description: "Controlled vocabulary for composite types in composites.lib.unb.ca\t"
 weight: 0
+new_revision: false

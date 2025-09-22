@@ -6,3 +6,4 @@ name: Photographer
 vid: photographer
 description: 'Controlled vocabulary for photographers in composites.lib.unb.ca'
 weight: 0
+new_revision: false
