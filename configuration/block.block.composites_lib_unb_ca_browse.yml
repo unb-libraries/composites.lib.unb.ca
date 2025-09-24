@@ -1,0 +1,30 @@
+uuid: d87f5a96-5f47-4eaa-ba60-5b51d8451091
+langcode: en
+status: true
+dependencies:
+  module:
+    - comp_core
+    - system
+  theme:
+    - composites_lib_unb_ca
+id: composites_lib_unb_ca_browse
+theme: composites_lib_unb_ca
+region: content
+weight: -2
+provider: null
+plugin: comp_browse
+settings:
+  id: comp_browse
+  label: Browse
+  label_display: visible
+  provider: comp_core
+visibility:
+  response_status:
+    id: response_status
+    negate: false
+    status_codes:
+      - 200
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
