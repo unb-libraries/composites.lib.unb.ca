@@ -17,7 +17,9 @@
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "drupal/core-composer-scaffold": true,
       "oomphinc/composer-installers-extender": true,
-      "phpstan/extension-installer": true
+      "php-http/discovery": true,
+      "phpstan/extension-installer": true,
+      "tbachert/spi": true
     },
     "discard-changes": true,
     "preferred-install": {
@@ -154,6 +156,21 @@
         "version": "dev-master"
       },
       "type": "package"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "fengyuanchen/jquery-cropper",
+        "version": "1.0.2",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/fengyuanchen/jquery-cropper/archive/refs/tags/v1.0.2.zip",
+          "type": "zip"
+        },
+        "autoload": {
+          "files": []
+        }
+      }
     }
   ],
   "require": {
@@ -181,6 +198,7 @@
     "drupal/twig_field_value": "^2",
     "drupal/twig_tweak": "^3",
     "drupal/views_slideshow": "^5",
+    "fengyuanchen/jquery-cropper": "^1",
     "google/apiclient": "^2",
     "jonthornton/jquery-timepicker": "^1",
     "jquery/hoverintent": "^1",

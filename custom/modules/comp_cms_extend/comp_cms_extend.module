@@ -110,9 +110,6 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           '#value' => 'Refresh Preview',
           '#submit' => ['refresh_subject_img'],
           '#attached' => [
-            'library' => [
-              'comp_cms_extend/refresh_subject_img',
-            ],
             'drupalSettings' => [
               'comp_cms_extend' => [
                 'comp_url' => $comp_url,
