@@ -16,3 +16,12 @@ openseadragon_viewer:
   dependencies:
     - comp_cms_extend/openseadragon
     - core/drupalSettings
+
+cropperjs:
+  version: 1.5.13
+  js:
+    https://unpkg.com/cropperjs@1.5.13/dist/cropper.min.js: { type: external, minified: true }
+    js/cropper_init.js: {}
+  css:
+    theme:
+      https://unpkg.com/cropperjs@1.5.13/dist/cropper.css: { type: external }

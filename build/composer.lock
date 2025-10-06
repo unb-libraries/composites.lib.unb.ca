@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f89b3c709892244a54a9237a8afce2a",
+    "content-hash": "11850616b340b58981b1d4343b5c80a1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3423,18 +3423,6 @@
             "time": "2025-03-06T22:45:56+00:00"
         },
         {
-            "name": "fengyuanchen/jquery-cropper",
-            "version": "1.0.2",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/fengyuanchen/jquery-cropper/archive/refs/tags/v1.0.2.zip"
-            },
-            "type": "drupal-library",
-            "autoload": {
-                "files": []
-            }
-        },
-        {
             "name": "fileeye/mimemap",
             "version": "2.2.2",
             "source": {
@@ -3689,16 +3677,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.414.0",
+            "version": "v0.415.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "5bd542b6d9639b89b95270ae85ed3062b4ca9b8e"
+                "reference": "080bdeb1d5243429164dc589b69426bae98dad1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/5bd542b6d9639b89b95270ae85ed3062b4ca9b8e",
-                "reference": "5bd542b6d9639b89b95270ae85ed3062b4ca9b8e",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/080bdeb1d5243429164dc589b69426bae98dad1d",
+                "reference": "080bdeb1d5243429164dc589b69426bae98dad1d",
                 "shasum": ""
             },
             "require": {
@@ -3727,9 +3715,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.414.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.415.0"
             },
-            "time": "2025-09-28T01:08:30+00:00"
+            "time": "2025-10-05T01:02:15+00:00"
         },
         {
             "name": "google/auth",
@@ -5457,16 +5445,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.46",
+            "version": "3.0.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "56483a7de62a6c2a6635e42e93b8a9e25d4f0ec6"
+                "reference": "9d6ca36a6c2dd434765b1071b2644a1c683b385d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/56483a7de62a6c2a6635e42e93b8a9e25d4f0ec6",
-                "reference": "56483a7de62a6c2a6635e42e93b8a9e25d4f0ec6",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/9d6ca36a6c2dd434765b1071b2644a1c683b385d",
+                "reference": "9d6ca36a6c2dd434765b1071b2644a1c683b385d",
                 "shasum": ""
             },
             "require": {
@@ -5547,7 +5535,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.46"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.47"
             },
             "funding": [
                 {
@@ -5563,7 +5551,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-06-26T16:29:55+00:00"
+            "time": "2025-10-06T01:07:24+00:00"
         },
         {
             "name": "psr/cache",
@@ -15306,7 +15294,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

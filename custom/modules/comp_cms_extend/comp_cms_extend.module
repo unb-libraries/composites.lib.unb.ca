@@ -9,6 +9,14 @@ use Drupal\image\Entity\ImageStyle;
 */
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function comp_cms_extend_form_node_composite_edit_form_alter(&$form, $form_state, $form_id) {
+  // Attach your CropperJS library.
+  $form['#attached']['library'][] = 'comp_cms_extend/cropperjs';
+}
+
+/**
  * Implements hook_form_alter().
  * Alter subject node form.
  */
@@ -23,7 +31,8 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
   if (in_array($form_id, $scope_forms)) {
     // Attach JS.
     $form['#attached']['library'][] = 'comp_core/absent-on-click';
-
+    $form['#attached']['library'][] = 'comp_cms_extend/cropperjs';
+  
     // Retrieve subject node, id, composite id.
     $subject = $form_state->getFormObject()->getEntity();
     $sid = $subject->id();

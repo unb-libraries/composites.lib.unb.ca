@@ -156,21 +156,6 @@
         "version": "dev-master"
       },
       "type": "package"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "fengyuanchen/jquery-cropper",
-        "version": "1.0.2",
-        "type": "drupal-library",
-        "dist": {
-          "url": "https://github.com/fengyuanchen/jquery-cropper/archive/refs/tags/v1.0.2.zip",
-          "type": "zip"
-        },
-        "autoload": {
-          "files": []
-        }
-      }
     }
   ],
   "require": {
@@ -198,7 +183,6 @@
     "drupal/twig_field_value": "^2",
     "drupal/twig_tweak": "^3",
     "drupal/views_slideshow": "^5",
-    "fengyuanchen/jquery-cropper": "^1",
     "google/apiclient": "^2",
     "jonthornton/jquery-timepicker": "^1",
     "jquery/hoverintent": "^1",
