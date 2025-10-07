@@ -8,7 +8,9 @@ dependencies:
     - field.field.node.subject.field_alt_name_source
     - field.field.node.subject.field_awards
     - field.field.node.subject.field_bottom_x
+    - field.field.node.subject.field_bottom_x_pixels
     - field.field.node.subject.field_bottom_y
+    - field.field.node.subject.field_bottom_y_pixels
     - field.field.node.subject.field_class
     - field.field.node.subject.field_composite
     - field.field.node.subject.field_gender
@@ -22,7 +24,9 @@ dependencies:
     - field.field.node.subject.field_subject_notes
     - field.field.node.subject.field_subject_title
     - field.field.node.subject.field_top_x
+    - field.field.node.subject.field_top_x_pixels
     - field.field.node.subject.field_top_y
+    - field.field.node.subject.field_top_y_pixels
     - field.field.node.subject.field_valedictorian
     - node.type.subject
 id: node.subject.default
@@ -68,9 +72,23 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_bottom_x_pixels:
+    type: number
+    weight: 26
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_bottom_y:
     type: number
     weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_bottom_y_pixels:
+    type: number
+    weight: 27
     region: content
     settings:
       placeholder: ''
@@ -134,9 +152,23 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_top_x_pixels:
+    type: number
+    weight: 28
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_top_y:
     type: number
     weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_top_y_pixels:
+    type: number
+    weight: 29
     region: content
     settings:
       placeholder: ''
@@ -147,6 +179,11 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox

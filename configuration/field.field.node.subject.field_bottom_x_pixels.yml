@@ -1,0 +1,23 @@
+uuid: e921badc-04c1-4a4c-b4e1-bbcb014a3490
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bottom_x_pixels
+    - node.type.subject
+id: node.subject.field_bottom_x_pixels
+field_name: field_bottom_x_pixels
+entity_type: node
+bundle: subject
+label: 'Bottom X (pixels)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
