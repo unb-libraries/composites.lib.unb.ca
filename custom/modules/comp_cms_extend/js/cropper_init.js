@@ -8,7 +8,6 @@
 
         // Initialize CropperJS
         var cropper = new Cropper(img, {
-          aspectRatio: 1,
           viewMode: 1,
         });
       });
