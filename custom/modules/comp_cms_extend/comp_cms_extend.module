@@ -42,12 +42,25 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
       !empty($subject->get('field_composite')->getValue()[0]['target_id']) ?
       $subject->get('field_composite')->getValue()[0]['target_id'] : NULL;
 
-    // If a composite is linked to the subject, add cropped image to form.
+    // If a composite is linked to the subject, add full and cropped images to form.
     if (!empty($cid)) {
       $composite = Node::load($cid);
       $comp_img = $composite->field_image;
 
       if (!empty($comp_img)) {
+        // Add full composite image to form.
+        $image_uri = $comp_img->entity->getFileUri();
+        $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($image_uri);
+        $div_classes = 'js-form-item form-item';
+
+        $form['composite_img'] = [
+          '#type' => 'markup',
+          '#prefix' => "<div id='comp-img-div' class='$div_classes'>" .
+            '<p class="font-weight-bold mt-5 mb-1">Full Composite</p>',
+          '#suffix' => '</div>',
+          '#markup' => "<img id='composite-img' class='d-block' src='$image_url'>",
+          '#weight' => -100,
+        ];
         // Retrieve display resolution (dpi).
         if (!empty($composite->get('field_disp_resolution')->getValue()[0])) {
           $dpi = intval($composite->get('field_disp_resolution')
@@ -71,7 +84,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
         if (!empty($style)) {
           // Add styled image to form.
-          $styled_image_url = $style->buildUrl($composite->field_image->entity->getFileUri());
+          $styled_image_url = $style->buildUrl($comp_img->entity->getFileUri());
           $div_classes = 'js-form-item form-item';
 
           $form['subject_img'] = [

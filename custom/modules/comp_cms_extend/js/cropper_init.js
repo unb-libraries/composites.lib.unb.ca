@@ -1,7 +1,7 @@
 (function (Drupal, once) {
   Drupal.behaviors.compCmsCropper = {
     attach: function (context, settings) {
-      once('compCmsCropper', '#subject-img', context).forEach(function(img) {
+      once('compCmsCropper', '#composite-img', context).forEach(function(img) {
         console.log('Initializing Cropper for:', img);
 
         var cropper = new Cropper(img, {
