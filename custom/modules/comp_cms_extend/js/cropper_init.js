@@ -1,4 +1,4 @@
-(function (Drupal, once) {
+(function ($, Drupal, once) {
   Drupal.behaviors.compCmsCropper = {
     attach: function (context, settings) {
       once('compCmsCropper', '#composite-img', context).forEach(function(img) {
@@ -13,11 +13,17 @@
             // Get cropping data
             var data = cropper.getData();
             // Coordinates: data.x, data.y, data.width, data.height
-            console.log('Crop coordinates:', data);
-            // You can now store these coordinates in hidden fields, or send them via AJAX, etc.
+            var tx = data.x;
+            var ty = data.y;
+            var bx = tx + data.width;
+            var by = ty + data.height;
+            $('#edit-field-top-x-pixels-0-value', context).val(tx);
+            $('#edit-field-top-y-pixels-0-value', context).val(ty);
+            $('#edit-field-bottom-x-pixels-0-value', context).val(bx);
+            $('#edit-field-bottom-y-pixels-0-value', context).val(by);
           }
         });
       });
     }
   };
-})(Drupal, once);
+})(jQuery, Drupal, once);
