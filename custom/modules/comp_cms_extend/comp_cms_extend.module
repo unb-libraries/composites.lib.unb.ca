@@ -61,19 +61,14 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           '#markup' => "<img id='composite-img' class='d-block' src='$image_url'>",
           '#weight' => -100,
         ];
-        // Retrieve display resolution (dpi).
-        if (!empty($composite->get('field_disp_resolution')->getValue()[0])) {
-          $dpi = intval($composite->get('field_disp_resolution')
-            ->getValue()[0]['value']);
 
-          // Load image style with preview cropping effect.
-          $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
-          $style = ImageStyle::load($style_name);
-        }
+        // Load image style with preview cropping effect.
+        $style_name = 'pv_composite_crop';
+        $style = ImageStyle::load($style_name);
 
-        if (empty($style) and !empty($dpi)) {
+        if (empty($style)) {
           // If preview style not available, load default image crop style.
-          $style_name = $sid . '_composite_crop_' . $dpi . 'dpi';
+          $style_name = 'composite_crop';
           $style = ImageStyle::load($style_name);
         }
 
@@ -173,19 +168,15 @@ function refresh_subject_img($form, &$form_state) {
     $comp_img = $composite->field_image;
 
     if (!empty($comp_img)) {
-      // Retrieve display resolution (dpi).
-      $dpi = intval($composite->get('field_disp_resolution')
-        ->getValue()[0]['value']);
-
       // Crop effect configuration.
       // Retrieve coordinates from subject record.
-      $topX = floatval($form_state->getValue('field_top_x')[0]['value']);
-      $topY = floatval($form_state->getValue('field_top_y')[0]['value']);
-      $botX = floatval($form_state->getValue('field_bottom_x')[0]['value']);
-      $botY = floatval($form_state->getValue('field_bottom_y')[0]['value']);
+      $topX = floatval($form_state->getValue('field_top_x_pixels')[0]['value']);
+      $topY = floatval($form_state->getValue('field_top_y_pixels')[0]['value']);
+      $botX = floatval($form_state->getValue('field_bottom_x_pixels')[0]['value']);
+      $botY = floatval($form_state->getValue('field_bottom_y_pixels')[0]['value']);
 
       // Create preview style.
-      update_crop_style('pv', $topX, $topY, $botX, $botY, $dpi, TRUE);
+      update_crop_style('pv', $topX, $topY, $botX, $botY, TRUE);
 
       $form_state->setRebuild(TRUE);
     }

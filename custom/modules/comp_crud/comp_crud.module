@@ -114,10 +114,10 @@ function comp_crud_entity_presave($entity) {
       // Zero out coordinates if 'absent' is checked.
       if (!empty($entity->get('field_absent')->getValue()[0])) {
         if ($entity->get('field_absent')->getValue()[0]['value']) {
-          $entity->set('field_top_x', 0);
-          $entity->set('field_top_y', 0);
-          $entity->set('field_bottom_x', 0);
-          $entity->set('field_bottom_y', 0);
+          $entity->set('field_top_x_pixels', 0);
+          $entity->set('field_top_y_pixels', 0);
+          $entity->set('field_bottom_x_pixels', 0);
+          $entity->set('field_bottom_y_pixels', 0);
 
           // Delete image style if existing.
           $nid = $entity->id();
@@ -198,16 +198,11 @@ function comp_crud_entity_insert($entity) {
 
         // Generate subject image crop style.
         // Retrieve coordinates from subject record.
-        $topX = floatval($entity->get('field_top_x')->getValue()[0]['value']);
-        $topY = floatval($entity->get('field_top_y')->getValue()[0]['value']);
-        $botX = floatval($entity->get('field_bottom_x')->getValue()[0]['value']);
-        $botY = floatval($entity->get('field_bottom_y')->getValue()[0]['value']);
-
-        // Retrieve display resolution (dpi).
-        $dpi = intval($composite->get('field_disp_resolution')
-          ->getValue()[0]['value']);
-
-        $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
+        $topX = floatval($variables['content']['field_top_x_pixels'][0]['#markup']);
+        $topY = floatval($variables['content']['field_top_y_pixels'][0]['#markup']);
+        $botX = floatval($variables['content']['field_bottom_x_pixels'][0]['#markup']);
+        $botY = floatval($variables['content']['field_bottom_y_pixels'][0]['#markup']);
+        $style = update_crop_style($sid, $topX, $topY, $botX, $botY, TRUE);
       }
     break;
   }
@@ -320,26 +315,20 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $variables['content']['composite_image'] = $comp_img->view();
     $variables['content']['composite_image']['#title'] = 'Composite Image';
 
-    // Retrieve display resolution (dpi).
-    if (!empty($composite->get('field_disp_resolution')->getValue()[0])) {
-      $dpi = intval($composite->get('field_disp_resolution')
-        ->getValue()[0]['value']);
-    }
-
     // Crop effect configuration.
     // Retrieve coordinates from subject record.
-    if (!empty($variables['content']['field_top_x'][0])
-    and !empty($variables['content']['field_top_y'][0])
-    and !empty($variables['content']['field_bottom_x'])
-    and !empty($variables['content']['field_bottom_y'][0])
+    if (!empty($variables['content']['field_top_x_pixels'][0])
+    and !empty($variables['content']['field_top_y_pixels'][0])
+    and !empty($variables['content']['field_bottom_x_pixels'])
+    and !empty($variables['content']['field_bottom_y_pixels'][0])
     ) {
-      $topX = floatval($variables['content']['field_top_x'][0]['#markup']);
-      $topY = floatval($variables['content']['field_top_y'][0]['#markup']);
-      $botX = floatval($variables['content']['field_bottom_x'][0]['#markup']);
-      $botY = floatval($variables['content']['field_bottom_y'][0]['#markup']);
+      $topX = floatval($variables['content']['field_top_x_pixels'][0]['#markup']);
+      $topY = floatval($variables['content']['field_top_y_pixels'][0]['#markup']);
+      $botX = floatval($variables['content']['field_bottom_x_pixels'][0]['#markup']);
+      $botY = floatval($variables['content']['field_bottom_y_pixels'][0]['#markup']);
 
       // Call style updating method. Override existing.
-      $style = update_crop_style($sid, $topX, $topY, $botX, $botY, $dpi, TRUE);
+      $style = update_crop_style($sid, $topX, $topY, $botX, $botY, TRUE);
 
       $style_name = $style->getName();
 
@@ -379,9 +368,9 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $variables['content']['subject_image']['0']['#item'] = $image;
   }
 
-  if (!empty($dpi)) {
+  if (true) {
     // Delete preview image crop style.
-    $style_name = 'pv_composite_crop_' . $dpi . 'dpi';
+    $style_name = 'pv_composite_crop';
     $style = ImageStyle::load($style_name);
 
     if (!empty($style)) {
@@ -392,16 +381,16 @@ function comp_crud_preprocess_node__subject(&$variables) {
 
 }
 
-function update_crop_style($id, $topX, $topY, $botX, $botY, $dpi, $override) {
+function update_crop_style($id, $topX, $topY, $botX, $botY, $override) {
   // Calculate anchor, width, height using resolution (dpi).
-  $anchorX = $topX * $dpi;
-  $anchorY = $topY * $dpi;
-  $anchor = strval(floor($anchorX)) . "-" . strval(floor($anchorY));
-  $width = ($botX * $dpi) - $anchorX;
-  $height =($botY * $dpi) - $anchorY;
+  $anchorX = $topX;
+  $anchorY = $topY;
+  $anchor = strval($topX) . "-" . strval($topY);
+  $width = $botX - $anchorX;
+  $height = $botY - $anchorY;
 
   // Crop image style name.
-  $style_name = $id . '_composite_crop_' . $dpi . 'dpi';
+  $style_name = $id . '_composite_crop';
 
   // Null style reference if it doesn't exist, otherwise load it.
   $style = empty(ImageStyle::load($style_name)) ? NULL
