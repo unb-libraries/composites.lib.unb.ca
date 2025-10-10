@@ -50,7 +50,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
       if (!empty($comp_img)) {
         // Add full composite image to form.
         $image_uri = $comp_img->entity->getFileUri();
-        $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($image_uri);
+        $image_url = ImageStyle::load('full_jpeg')->buildUrl($image_uri);;
         $div_classes = 'js-form-item form-item';
 
         $form['composite_img'] = [

@@ -2,6 +2,7 @@ _core:
   default_config_hash: 3A_itNs_mZx3q7kkBSStpNw4VtM51gtQa4WtKCTDP-M
 quality: 75
 binaries: imagemagick
+imagemagick_version: v7
 path_to_binaries: ''
 prepend: ''
 log_warnings: true
@@ -31,7 +32,7 @@ image_formats:
     enabled: false
   TIFF:
     mime_type: image/tiff
-    enabled: false
+    enabled: true
   PDF:
     mime_type: application/pdf
     enabled: false

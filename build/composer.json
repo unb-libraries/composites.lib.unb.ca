@@ -170,7 +170,7 @@
     "drupal/fontawesome": "^2",
     "drupal/google_analytics": "^4",
     "drupal/health_check": "^1",
-    "drupal/imagemagick": "^3",
+    "drupal/imagemagick": "^4",
     "drupal/pathauto": "^1",
     "drupal/quickedit": "^1", 
     "drupal/redis": "^1",
