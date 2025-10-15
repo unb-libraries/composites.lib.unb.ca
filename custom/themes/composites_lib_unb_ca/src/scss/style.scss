@@ -2,14 +2,9 @@
 @import 'import';
 
 // Global (careful here).
-#composite-img {
-  margin: 0 !important;
-  box-shadow: none !important;
-  border: none !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.cropper-hidden {
+  display: none !important;
+  max-width: none !important;
 }
 // Hide all alt-text form input fields.
 div[class*="form-item-field-image-"][class*="-alt"] {
