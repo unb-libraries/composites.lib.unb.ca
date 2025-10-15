@@ -432,7 +432,7 @@ function update_crop_style($id, $topX, $topY, $botX, $botY, $override) {
     $config = [
       'uuid' => NULL,
       'id' => 'image_scale',
-      'weight' => 0,
+      'weight' => 50,
       'data' => [
         'width' => 400,
         'upscale' => 1,
