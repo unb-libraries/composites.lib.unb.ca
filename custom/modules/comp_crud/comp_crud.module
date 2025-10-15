@@ -367,17 +367,14 @@ function comp_crud_preprocess_node__subject(&$variables) {
     $variables['content']['subject_image']['0']['#item'] = $image;
   }
 
-  if (true) {
-    // Delete preview image crop style.
-    $style_name = 'pv_composite_crop';
-    $style = ImageStyle::load($style_name);
+  // Delete preview image crop style.
+  $style_name = 'pv_composite_crop';
+  $style = ImageStyle::load($style_name);
 
-    if (!empty($style)) {
-      $style->delete();
-      $style->flush();
-    }
+  if (!empty($style)) {
+    $style->delete();
+    $style->flush();
   }
-
 }
 
 function update_crop_style($id, $topX, $topY, $botX, $botY, $override) {

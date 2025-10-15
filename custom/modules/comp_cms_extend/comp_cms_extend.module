@@ -36,7 +36,6 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
     // Retrieve subject node, id, composite id.
     $subject = $form_state->getFormObject()->getEntity();
     $sid = $subject->id();
-    $preview =  FALSE;
 
     $cid =
       !empty($subject->get('field_composite')->getValue()[0]['target_id']) ?
@@ -68,7 +67,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
         if (empty($style)) {
           // If preview style not available, load default image crop style.
-          $style_name = 'composite_crop';
+          $style_name = $sid . '_composite_crop';
           $style = ImageStyle::load($style_name);
         }
 
