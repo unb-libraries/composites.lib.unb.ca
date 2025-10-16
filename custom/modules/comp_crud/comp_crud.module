@@ -379,11 +379,15 @@ function comp_crud_preprocess_node__subject(&$variables) {
 
 function update_crop_style($id, $topX, $topY, $botX, $botY, $override) {
   // Calculate anchor, width, height using resolution (dpi).
+  // Style anchor offset.
+  $xOff = .97;
+  $yOff = .95;
   $anchorX = $topX;
   $anchorY = $topY;
-  $anchor = strval($topX) . "-" . strval($topY);
+  $anchor = strval(floor($topX * $xOff)) . "-" . strval(floor($topY * $yOff));
   $width = $botX - $anchorX;
   $height = $botY - $anchorY;
+
 
   // Crop image style name.
   $style_name = $id . '_composite_crop';
