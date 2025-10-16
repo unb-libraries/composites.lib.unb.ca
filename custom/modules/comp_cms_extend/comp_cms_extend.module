@@ -174,8 +174,19 @@ function refresh_subject_img($form, &$form_state) {
       $botX = floatval($form_state->getValue('field_bottom_x_pixels')[0]['value']);
       $botY = floatval($form_state->getValue('field_bottom_y_pixels')[0]['value']);
 
+      if (!$comp_img->isEmpty()) {
+        /** @var \Drupal\file\FileInterface $file */
+        $file = $comp_img->entity;
+        $uri = $file->getFileUri();
+        // Convert stream wrapper URI to real path on disk.
+        $realpath = \Drupal::service('file_system')->realpath($uri);
+
+        if ($realpath && file_exists($realpath)) {
+          [$width, $height] = getimagesize($realpath);
+        }
+      }
       // Create preview style.
-      update_crop_style('pv', $topX, $topY, $botX, $botY, TRUE);
+      update_crop_style($width, $height, 'pv', $topX, $topY, $botX, $botY, TRUE);
 
       $form_state->setRebuild(TRUE);
     }

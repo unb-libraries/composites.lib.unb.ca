@@ -326,8 +326,20 @@ function comp_crud_preprocess_node__subject(&$variables) {
       $botX = floatval($variables['content']['field_bottom_x_pixels'][0]['#markup']);
       $botY = floatval($variables['content']['field_bottom_y_pixels'][0]['#markup']);
 
+      if (!$comp_img->isEmpty()) {
+        /** @var \Drupal\file\FileInterface $file */
+        $file = $comp_img->entity;
+        $uri = $file->getFileUri();
+        // Convert stream wrapper URI to real path on disk.
+        $realpath = \Drupal::service('file_system')->realpath($uri);
+
+        if ($realpath && file_exists($realpath)) {
+          [$width, $height] = getimagesize($realpath);
+        }
+      }
+
       // Call style updating method. Override existing.
-      $style = update_crop_style($sid, $topX, $topY, $botX, $botY, TRUE);
+      $style = update_crop_style($width, $height, $sid, $topX, $topY, $botX, $botY, TRUE);
 
       $style_name = $style->getName();
 
@@ -377,11 +389,13 @@ function comp_crud_preprocess_node__subject(&$variables) {
   }
 }
 
-function update_crop_style($id, $topX, $topY, $botX, $botY, $override) {
+function update_crop_style($width, $height, $id, $topX, $topY, $botX, $botY, $override) {
   // Calculate anchor, width, height using resolution (dpi).
   // Style anchor offset.
-  $xOff = .97;
-  $yOff = .95;
+  $xBase = 1.015;
+  $yBase = .98;
+  $xOff = $xBase - ($width / 100000);
+  $yOff = $yBase - ($height / 100000);
   $anchorX = $topX;
   $anchorY = $topY;
   $anchor = strval(floor($topX * $xOff)) . "-" . strval(floor($topY * $yOff));
