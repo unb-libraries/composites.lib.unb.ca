@@ -5,9 +5,12 @@
  *  - Dry run (no saves): drush scr scripts/to_pixels.php
  *  - Apply changes:      drush scr scripts/to_pixels.php -- --apply
  *  - Single subject:      drush scr scripts/to_pixels.php -- --nid=123 [--apply]
+ *  - Restrict to composite: drush scr scripts/to_pixels.php -- --cid=123 [--apply]
  *
  * Behavior:
  *  - Operates on nodes of type 'subject'.
+ *  - If --cid (or -c) is provided, only subjects that reference that composite via field_composite
+ *    will be processed.
  *  - Reads field_disp_resolution from the composite referenced by subject->field_composite.
  *    If the composite's field_disp_resolution is missing/invalid the script falls back
  *    to the default resolution (72). It no longer falls back to the subject's field.
@@ -50,6 +53,41 @@ foreach ($argv as $i => $arg) {
   }
 }
 
+// NEW: Parse optional --cid (or -c) to restrict processed subjects.
+// Accepts: --cid=123 or --cid 123 or -c 123
+// For backward compatibility we still accept --composite-id and --composite-id=123.
+$composite_id = null;
+foreach ($argv as $i => $arg) {
+  if (strpos($arg, '--cid=') === 0) {
+    $val = substr($arg, strlen('--cid='));
+    if (is_numeric($val)) {
+      $composite_id = (int) $val;
+      break;
+    }
+  }
+  if ($arg === '--cid' && isset($argv[$i + 1]) && is_numeric($argv[$i + 1])) {
+    $composite_id = (int) $argv[$i + 1];
+    break;
+  }
+  if ($arg === '-c' && isset($argv[$i + 1]) && is_numeric($argv[$i + 1])) {
+    $composite_id = (int) $argv[$i + 1];
+    break;
+  }
+
+  // Backward compatibility: accept --composite-id and --composite-id=123
+  if (strpos($arg, '--composite-id=') === 0) {
+    $val = substr($arg, strlen('--composite-id='));
+    if (is_numeric($val)) {
+      $composite_id = (int) $val;
+      break;
+    }
+  }
+  if ($arg === '--composite-id' && isset($argv[$i + 1]) && is_numeric($argv[$i + 1])) {
+    $composite_id = (int) $argv[$i + 1];
+    break;
+  }
+}
+
 // Default resolution to use when composite field_disp_resolution is missing or invalid.
 $default_resolution = 72.0;
 
@@ -74,6 +112,10 @@ $skipped_count = 0;
 
 echo "Starting subject nodes display-resolution -> pixels update (" . ($apply ? "APPLYING CHANGES" : "DRY RUN") . ")\n";
 
+if ($composite_id !== null) {
+  echo "Filtering subjects to those linking to composite id {$composite_id}\n";
+}
+
 $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 $file_storage = \Drupal::entityTypeManager()->getStorage('file');
 
@@ -88,6 +130,22 @@ if ($nid !== null) {
     echo "Node with nid {$nid} is of type '" . $node->getType() . "' (expected 'subject'). Exiting.\n";
     exit(1);
   }
+
+  // If composite filter provided, ensure this node references that composite.
+  if ($composite_id !== null) {
+    $referenced_cid = null;
+    if ($node->hasField('field_composite') && !$node->get('field_composite')->isEmpty()) {
+      $vals = $node->get('field_composite')->getValue();
+      if (!empty($vals) && isset($vals[0]['target_id']) && $vals[0]['target_id']) {
+        $referenced_cid = (int) $vals[0]['target_id'];
+      }
+    }
+    if ($referenced_cid !== $composite_id) {
+      echo "Node nid {$nid} does not reference composite {$composite_id} (references: " . var_export($referenced_cid, true) . "). Nothing to do. Exiting.\n";
+      exit(0);
+    }
+  }
+
   $nids_all = [$nid];
   $total = 1;
   echo "Targeting single subject node: nid {$nid}\n";
@@ -98,11 +156,18 @@ else {
     ->condition('type', 'subject')
     ->accessCheck(FALSE);
 
+  // If composite filter is set, restrict subjects to those referencing the composite via field_composite.
+  if ($composite_id !== null) {
+    // entityQuery accepts the field value (target id) as the referenced entity id.
+    // Use the field machine name; this should work for entity reference fields.
+    $query->condition('field_composite', $composite_id);
+  }
+
   // Execute to get nids
   $nids_all = $query->execute();
   $total = count($nids_all);
   if ($total === 0) {
-    echo "No nodes of type 'subject' found.\n";
+    echo "No nodes of type 'subject' found" . ($composite_id !== null ? " that reference composite {$composite_id}" : "") . ".\n";
     exit(0);
   }
 
