@@ -61,7 +61,26 @@ a.comp-collapse {
 #composite-links {
   width: 960px;
 }
-
+// Remove left margin from subject preview photo.
+#subject-img {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+}
+// Hide subject coordinate form fields.
+#node-subject-edit-form [id*="-x-"], 
+#node-subject-edit-form [id*="-y-"],
+.tabledrag-toggle-weight { 
+  display: none !important;
+}
+// Space absent subject field.
+#edit-field-absent-wrapper {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+// Space absent subject help text.
+#edit-field-absent-value--description {
+  margin-left: 0 !important;
+}
 // Main.
 main[role="main"] {
   // Odd useless anchor?

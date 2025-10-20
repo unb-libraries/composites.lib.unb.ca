@@ -43,10 +43,6 @@
             $('#edit-field-top-y-pixels-0-value', context).val(Math.round(ty));
             $('#edit-field-bottom-x-pixels-0-value', context).val(Math.round(bx));
             $('#edit-field-bottom-y-pixels-0-value', context).val(Math.round(by));
-            $('#edit-field-top-x-0-value', context).val(tx / 72);
-            $('#edit-field-top-y-0-value', context).val(ty / 72);
-            $('#edit-field-bottom-x-0-value', context).val(bx / 72);
-            $('#edit-field-bottom-y-0-value', context).val(by / 72);
           }
         });
       });

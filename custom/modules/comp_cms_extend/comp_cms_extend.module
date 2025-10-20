@@ -51,13 +51,17 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $image_uri = $comp_img->entity->getFileUri();
         $image_url = ImageStyle::load('full_jpeg')->buildUrl($image_uri);;
         $div_classes = 'js-form-item form-item';
+        $description = '
+          Use the highlight square to select the area of the composite to be cropped for 
+          the current subject. Click the [Refresh Preview] button under Composite Crop Preview 
+          to update the preview without saving the record.
+        ';
 
         $form['composite_img'] = [
-          '#type' => 'markup',
-          '#prefix' => "<div id='comp-img-div' class='$div_classes'>" .
-            '<p class="font-weight-bold mt-5 mb-1">Full Composite</p>',
-          '#suffix' => '</div>',
+          '#type' => 'item',
+          '#title' => t('Full Composite'),
           '#markup' => "<img id='composite-img' class='d-block' src='$image_url'>",
+          '#description' => t($description),
           '#weight' => -100,
         ];
 
@@ -84,7 +88,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
           $form['subject_img'] = [
             '#type' => 'markup',
             '#prefix' => "<div id='subject-img-div' class='$div_classes'>" .
-              '<p class="font-weight-bold mt-5 mb-1">Composite Crop Preview</p>',
+              '<p class="font-weight-bold mt-4 mb-1">Composite Crop Preview</p>',
             '#suffix' => '</div>',
             '#markup' => "<img id='subject-img' class='d-block' src='$styled_image_url'>",
             '#weight' => -100,
@@ -93,27 +97,6 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
 
         // Flush caches to trigger node preprocess on refresh.
         drupal_flush_all_caches();
-
-        // Add composite cropping label.
-        $crop_help = "Check the box below if the person is absent from the
-          composite. Enter coordinates otherwise. Top coordinates correspond to
-          the top-left corner where the composite should be cropped, and bottom
-          coordinates correspond to the bottom-right. Coordinates should be entered as a
-          factor of the composite's resolution. E.g. for a 1000x1000 pixels
-          composite at 100dpi, the coordinates to crop the full image would be:
-          Top X: 0, Top Y: 0, Bottom X: 10, Bottom Y: 10. Click 'Refresh Preview'
-          to see results. Exit the 'Edit' tab without saving to reset.";
-
-        $form['composite_cropping'] = [
-          '#type' => 'markup',
-          '#prefix' => "<div class='$div_classes'><p class='font-weight-bold mt-5 mb-1'>",
-          '#markup' => t('Composite Crop Coordinates'),
-          '#suffix' => "</p><div class='text-justify description'>$crop_help</div></div>",
-          '#weight' => -10,
-        ];
-
-        $form['composite_cropping']['#states']['invisible'][':input[name="field_absent[value]"]']
-          = ['checked' => TRUE];
 
         // Add refresh image button.
         // Get composite image URL with a base style.
@@ -132,7 +115,7 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
               ],
             ],
           ],
-          '#weight' => 4,
+          '#weight' => 0,
         ];
 
         $form['refresh_subject_img']['#states']['invisible'][':input[name="field_absent[value]"]']
