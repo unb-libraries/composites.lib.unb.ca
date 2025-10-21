@@ -52,9 +52,10 @@ function comp_cms_extend_form_alter(&$form, $form_state, $form_id) {
         $image_url = ImageStyle::load('full_jpeg')->buildUrl($image_uri);;
         $div_classes = 'js-form-item form-item';
         $description = '
-          Use the highlight square to select the area of the composite to be cropped for 
-          the current subject. Click the [Refresh Preview] button under Composite Crop Preview 
-          to update the preview without saving the record.
+          Use the highlight box handles to select the area of the composite to be cropped for 
+          the current subject. Use Shift + mouse wheel to zoom in/out, and Shift + arrow keys
+          to fine-tune the selection area. Click the [Refresh Preview] button under Composite 
+          Crop Preview to update the preview without saving the record.
         ';
 
         $form['composite_img'] = [
