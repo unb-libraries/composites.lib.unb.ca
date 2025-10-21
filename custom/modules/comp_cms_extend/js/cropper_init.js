@@ -71,9 +71,10 @@
 
           // Zoom sensitivity: smaller = slower/finer, bigger = faster/coarser
           var SENSITIVITY = 800; // tweak this number if zoom is too fast/slow
-          var MAX_STEP = 0.5;
-          var MIN_STEP = -0.5;
+          var MAX_STEP = 0.9;
+          var MIN_STEP = -0.9;
 
+          // This handler keeps the center at the center of the current crop box.
           function wheelHandler(e) {
             // Only act when Shift key is pressed.
             if (!e.shiftKey) {
@@ -81,25 +82,95 @@
               return;
             }
 
-            // Shift is pressed -> intercept and zoom.
             e.preventDefault();
             e.stopPropagation();
 
-            if (!cropper) {
-              return;
-            }
-
-            // Normalize and scale. Positive value zooms in.
-            var raw = -e.deltaY; // invert so wheel-up (negative deltaY) becomes positive
-            var step = raw / SENSITIVITY;
-            // Clamp to avoid very large jumps (e.g., high-resolution wheels)
-            step = Math.max(Math.min(step, MAX_STEP), MIN_STEP);
+            if (!cropper) return;
 
             try {
-              cropper.zoom(step);
+              // Normalize step (positive -> zoom in)
+              var raw = -e.deltaY;
+              var step = raw / SENSITIVITY;
+              step = Math.max(Math.min(step, MAX_STEP), MIN_STEP);
+
+              // Compute multiplicative factor for canvas (factor > 1 => zoom in)
+              var factor = 1 + step;
+              if (factor <= 0.01) factor = 0.01;
+
+              // Obtain current data
+              var data = cropper.getData(); // crop box in image coordinates
+              var imageData = cropper.getImageData(); // natural sizes etc.
+              var canvasData = cropper.getCanvasData(); // displayed canvas position/size
+
+              var naturalWidth = imageData.naturalWidth || imageData.width;
+              var naturalHeight = imageData.naturalHeight || imageData.height;
+              if (!naturalWidth || !naturalHeight) {
+                // Can't compute without natural sizes; fallback to API zoom
+                cropper.zoom(step);
+                return;
+              }
+
+              // crop box center in image coordinates
+              var cxImage = (data.x || 0) + (data.width || 0) / 2;
+              var cyImage = (data.y || 0) + (data.height || 0) / 2;
+
+              // current scale from image coords -> container coords
+              var oldScaleX = canvasData.width / naturalWidth;
+              var oldScaleY = canvasData.height / naturalHeight;
+              // use X scale (they should match), but guard
+              var oldScale = (oldScaleX + oldScaleY) / 2 || oldScaleX || oldScaleY || 1;
+
+              // center in container coordinates
+              var centerContainerX = canvasData.left + cxImage * oldScale;
+              var centerContainerY = canvasData.top + cyImage * oldScale;
+
+              // new canvas size
+              var newCanvasWidth = canvasData.width * factor;
+              var newCanvasHeight = canvasData.height * factor;
+
+              // new scale
+              var newScale = newCanvasWidth / naturalWidth;
+
+              // compute new top-left so the crop-box center remains at the same container point
+              var newLeft = centerContainerX - cxImage * newScale;
+              var newTop = centerContainerY - cyImage * newScale;
+
+              // Clamp new canvas so image isn't completely moved out of view.
+              // Ensure some minimum canvas size (so zoom doesn't go to zero).
+              var MIN_CANVAS_DIM = 20;
+              if (newCanvasWidth < MIN_CANVAS_DIM) newCanvasWidth = MIN_CANVAS_DIM;
+              if (newCanvasHeight < MIN_CANVAS_DIM) newCanvasHeight = MIN_CANVAS_DIM;
+
+              // Also optionally clamp to avoid showing huge image (optional)
+              var MAX_CANVAS_MULTIPLIER = 50; // relative to initial canvas size
+              var maxW = (canvasData.width || naturalWidth) * MAX_CANVAS_MULTIPLIER;
+              var maxH = (canvasData.height || naturalHeight) * MAX_CANVAS_MULTIPLIER;
+              if (newCanvasWidth > maxW) newCanvasWidth = maxW;
+              if (newCanvasHeight > maxH) newCanvasHeight = maxH;
+
+              // Recompute newScale if sizes changed by clamps
+              newScale = newCanvasWidth / naturalWidth;
+              newLeft = centerContainerX - cxImage * newScale;
+              newTop = centerContainerY - cyImage * newScale;
+
+              // Apply canvas transform — this effectively "zooms" the image content.
+              cropper.setCanvasData({
+                left: newLeft,
+                top: newTop,
+                width: newCanvasWidth,
+                height: newCanvasHeight
+              });
+
+              // No change to crop box image coordinates is necessary; inputs remain valid.
+              // But ensure UI shows exact values in inputs (rounded)
+              var updatedData = cropper.getData(true);
+              $tx.val(Math.round(updatedData.x || 0));
+              $ty.val(Math.round(updatedData.y || 0));
+              $bx.val(Math.round((updatedData.x || 0) + (updatedData.width || 0)));
+              $by.val(Math.round((updatedData.y || 0) + (updatedData.height || 0)));
             } catch (err) {
               if (window && window.console) {
-                console.debug('cropper.zoom error', err);
+                console.debug('centered canvas zoom error', err);
               }
             }
           }
@@ -108,13 +179,9 @@
           container.addEventListener('wheel', wheelHandler, { passive: false });
 
           // ---- Keyboard handler: move crop box by 1px when Shift + Arrow keys ----
-          // We will act when either:
-          //  - the mouse pointer is over the cropper wrapper, or
-          //  - focus is inside the cropper wrapper (e.g., an element inside is focused)
           var isPointerOver = false;
           var hasFocusInside = false;
 
-          // Track pointer over the cropper wrapper
           try {
             container.addEventListener('mouseenter', function () {
               isPointerOver = true;
@@ -123,17 +190,15 @@
               isPointerOver = false;
             }, true);
           } catch (err) {
-            // If container is document or something else that doesn't support these,
-            // ignore — we'll still rely on focus checks.
+            // ignore if not supported
           }
 
-          // Track focus inside cropper wrapper using focusin/focusout
           document.addEventListener('focusin', function (ev) {
             if (container && container.contains(ev.target)) {
               hasFocusInside = true;
             }
           }, true);
-          document.addEventListener('focusout', function (ev) {
+          document.addEventListener('focusout', function () {
             if (container && !container.contains(document.activeElement)) {
               hasFocusInside = false;
             }
