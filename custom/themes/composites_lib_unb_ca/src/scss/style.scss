@@ -94,6 +94,10 @@ main[role="main"] {
     // Display subjects multi-value field as columns.
     & dl > dd > ul.comp-subjects {
       columns: 3;
+
+      .editor:hover {
+        background-color: #ececeb;
+      }
     }
     // Blocks.
     & div.block {

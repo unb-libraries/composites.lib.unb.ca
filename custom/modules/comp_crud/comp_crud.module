@@ -198,10 +198,22 @@ function comp_crud_entity_insert($entity) {
 
         // Generate subject image crop style.
         // Retrieve coordinates from subject record.
-        $topX = floatval($entity->get('field_top_x_pixels')->getValue()[0]['value']);
-        $topY = floatval($entity->get('field_top_y_pixels')->getValue()[0]['value']);
-        $botX = floatval($entity->get('field_bottom_x_pixels')->getValue()[0]['value']);
-        $botY = floatval($entity->get('field_bottom_y_pixels')->getValue()[0]['value']);
+        $topX = $entity->get('field_top_x_pixels')->getValue() ?
+          floatval($entity->get('field_top_x_pixels')->getValue()[0]['value']) :
+          NULL
+        ;
+        $topY = $entity->get('field_top_y_pixels')->getValue() ?
+          floatval($entity->get('field_top_y_pixels')->getValue()[0]['value']) :
+          NULL
+        ;
+        $bottomX = $entity->get('field_bottom_x_pixels')->getValue() ?
+          floatval($entity->get('field_bottom_x_pixels')->getValue()[0]['value']) :
+          NULL
+        ;
+        $bottomY = $entity->get('field_bottom_y_pixels')->getValue() ?
+          floatval($entity->get('field_bottom_y_pixels')->getValue()[0]['value']) :
+          NULL
+        ;
       }
     break;
   }

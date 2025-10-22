@@ -136,7 +136,27 @@
       <dd>
         <ul class="comp-subjects">
         {% for subject in content.field_subjects|field_value %}
-          <li>{{ subject }}</li>
+        
+          {% if logged_in %}
+            {% set edit_link = '<a href="/node/' ~ subject['#entity'].id() ~ '/edit" class="ml-2"><i class="ml-1 fa fa-pen"></i></a>' %}
+            {% set role_class = 'editor' %}
+
+            {% if 
+              (not subject['#entity'].field_top_x_pixels.getValue()) or
+              (not subject['#entity'].field_top_y_pixels.getValue()) or
+              (not subject['#entity'].field_bottom_x_pixels.getValue()) or
+              (not subject['#entity'].field_bottom_y_pixels.getValue())
+            %}
+              {% set crop_flag = '<i class="ml-1 fa fa-eye-slash"></i>' %}
+            {% else %}
+              {% set crop_flag = '' %}
+            {% endif %}
+
+          {% else %}
+            {% set edit_link = '' %}
+          {% endif %}
+
+          <li><div class="pr-3 overflow-auto{{ ' ' ~ role_class}}">{{ subject }}{{ edit_link|raw }}{{ crop_flag|raw }}</div></li>
         {% endfor %}
         </ul>
       </dd>
