@@ -1,0 +1,22 @@
+uuid: a70278ab-da65-47b5-ab55-64bba8e59eed
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: photographer_url_pattern
+label: 'Photographer URL Pattern'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'photographers/[term:name]'
+selection_criteria:
+  7aae7222-44f3-458e-a733-c24cb9645f33:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 7aae7222-44f3-458e-a733-c24cb9645f33
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      photographer: photographer
+selection_logic: and
+weight: -5
+relationships: {  }
