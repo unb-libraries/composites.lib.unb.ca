@@ -172,6 +172,7 @@
     "drupal/health_check": "^3",
     "drupal/imagemagick": "^3",
     "drupal/pathauto": "^1",
+    "drupal/subpathauto": "^1",
     "drupal/quickedit": "^1", 
     "drupal/redis": "^1",
     "drupal/rdf": "^2", 
