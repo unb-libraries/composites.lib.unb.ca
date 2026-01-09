@@ -30,7 +30,7 @@
   "conflict": {
     "drupal/drupal": "*"
   },
-  "description": "Drupal 8 component of composites.lib.unb.ca",
+  "description": "Drupal 11 component of composites.lib.unb.ca",
   "extra": {
     "drupal-scaffold": {
       "locations": {
@@ -161,21 +161,21 @@
   "require": {
     "drupal/admin_toolbar": "^3",
     "drupal/bootstrap4": "^3",
-    "drupal/color": "^1", 
-    "drupal/core": "^10",    
-    "drupal/core-composer-scaffold": "^10",
-    "drupal/core-recommended": "^10",
+    "drupal/color": "^2", 
+    "drupal/core": "^11",    
+    "drupal/core-composer-scaffold": "^11",
+    "drupal/core-recommended": "^11",
     "drupal/externalauth": "^2",
     "drupal/facets": "^2",
     "drupal/fontawesome": "^2",
     "drupal/google_analytics": "^4",
     "drupal/health_check": "^3",
-    "drupal/imagemagick": "^3",
+    "drupal/imagemagick": "^4",
     "drupal/pathauto": "^1",
     "drupal/subpathauto": "^1",
     "drupal/quickedit": "^1", 
     "drupal/redis": "^1",
-    "drupal/rdf": "^2", 
+    "drupal/rdf": "^3", 
     "drupal/samlauth": "^3",
     "drupal/search_api": "^1",
     "drupal/search_api_solr": "^4",
@@ -191,12 +191,12 @@
     "malsup/jquery.cycle": "^1",
     "oomphinc/composer-installers-extender": "^2",
     "trentrichardson/jquery-timepicker-addon": "^1",
-    "unb-libraries/composer-drupal-scaffold": "^10",
+    "unb-libraries/composer-drupal-scaffold": "^11.x-dev",
     "unb-libraries/saml_features": "dev-10.x-1.x",
-    "unb-libraries/unb_lib_zircon": "dev-10.x-bootstrap-4.x"
+    "unb-libraries/unb_lib_zircon": "dev-11.x-bootstrap-4.x"
   },
   "require-dev": {
-    "unb-libraries/drupal-development-libraries": "^10"
+    "unb-libraries/drupal-development-libraries": "^11.x-dev"
   },
   "type": "project"
 }

@@ -24,9 +24,6 @@ track:
   displayfeatures: false
 privacy:
   anonymizeip: true
-custom:
-  dimension: {  }
-  metric: {  }
 codesnippet:
   create: {  }
   before: ''
@@ -34,4 +31,3 @@ codesnippet:
 translation_set: false
 cache: false
 debug: false
-premium: false

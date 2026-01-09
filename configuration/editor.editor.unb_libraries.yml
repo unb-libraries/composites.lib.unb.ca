@@ -83,6 +83,7 @@ settings:
       properties:
         reversed: false
         startIndex: true
+        styles: true
       multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags:
@@ -90,8 +91,8 @@ settings:
         - '<cite class>'
         - '<blockquote cite class>'
         - '<code class>'
-        - '<ul class type>'
-        - '<ol class type>'
+        - '<ul class>'
+        - '<ol class>'
         - '<li class>'
         - '<dl class>'
         - '<dt class>'
