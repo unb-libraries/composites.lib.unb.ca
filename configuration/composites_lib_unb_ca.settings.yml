@@ -1,6 +1,6 @@
 features:
-  node_user_picture: 0
-  comment_user_picture: 1
+  node_user_picture: false
+  comment_user_picture: true
   comment_user_verification: 1
   favicon: 1
 logo:

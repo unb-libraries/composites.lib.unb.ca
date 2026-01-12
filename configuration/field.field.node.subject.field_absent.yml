@@ -9,8 +9,8 @@ id: node.subject.field_absent
 field_name: field_absent
 entity_type: node
 bundle: subject
-label: 'Absent from composite photo'
-description: '<s>Caution: </s>Checking this box will hide all cropping controls, and no composite crop will be generated for the current subject when saved.'
+label: 'Absent From Composite Photo'
+description: ''
 required: false
 translatable: false
 default_value:

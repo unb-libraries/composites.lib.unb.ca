@@ -1,0 +1,6 @@
+name: Composites Slideshow
+type: module
+description: Slideshow functionality extension for composites.lib.unb.ca
+core: 11.x
+core_version_requirement: ^9 || ^10 || ^11
+package: Custom

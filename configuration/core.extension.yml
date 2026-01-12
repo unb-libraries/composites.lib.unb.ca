@@ -13,6 +13,7 @@ module:
   comp_core: 0
   comp_crud: 0
   comp_install: 0
+  comp_slideshow: 0
   config: 0
   contact: 0
   context_branding: 0
@@ -54,7 +55,6 @@ module:
   simple_sitemap: 0
   simple_sitemap_views: 0
   sophron: 0
-  subpathauto: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -72,8 +72,8 @@ module:
   minimal: 1000
 theme:
   stable9: 0
+  claro: 0
   bootstrap4: 0
   composites_lib_unb_ca: 0
   unb_lib_zircon: 0
-  claro: 0
 profile: minimal

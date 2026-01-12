@@ -1,0 +1,15 @@
+#block-bs5-comp-lib-unb-ca-views-block-rotating-banner-block-1-3 [class^="swiper-button-"] {
+  opacity: 0;
+  color: white;
+  font-weight: 1000;
+  transition: opacity .3s;
+}
+
+#block-bs5-comp-lib-unb-ca-views-block-rotating-banner-block-1-3:hover [class^="swiper-button-"] {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  height: auto;
+}

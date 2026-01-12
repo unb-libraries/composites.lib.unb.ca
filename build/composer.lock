@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb930fbec5af4bd9755db8b12d9eb357",
+    "content-hash": "943fde833e9e1b982ea0e27221fb8036",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3505,16 +3505,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.427.0",
+            "version": "v0.428.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "cc74cd104a1ed1cf545480c52f13831e6eb0efe2"
+                "reference": "94a3c50a80a36cafb76e32fb76b8007e9f572deb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/cc74cd104a1ed1cf545480c52f13831e6eb0efe2",
-                "reference": "cc74cd104a1ed1cf545480c52f13831e6eb0efe2",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/94a3c50a80a36cafb76e32fb76b8007e9f572deb",
+                "reference": "94a3c50a80a36cafb76e32fb76b8007e9f572deb",
                 "shasum": ""
             },
             "require": {
@@ -3543,9 +3543,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.427.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.428.0"
             },
-            "time": "2025-12-24T01:04:22+00:00"
+            "time": "2026-01-12T00:58:26+00:00"
         },
         {
             "name": "google/auth",
@@ -4706,6 +4706,33 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.7.0"
             },
             "time": "2025-12-06T11:56:16+00:00"
+        },
+        {
+            "name": "npm-asset/ssr-window",
+            "version": "4.0.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/ssr-window/-/ssr-window-4.0.2.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/swiper",
+            "version": "9.4.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/swiper/-/swiper-9.4.1.tgz"
+            },
+            "require": {
+                "npm-asset/ssr-window": ">=4.0.2,<5.0.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "onelogin/php-saml",
@@ -9608,13 +9635,13 @@
     "stability-flags": {
         "jquery/json2": 20,
         "unb-libraries/composer-drupal-scaffold": 20,
-        "unb-libraries/drupal-development-libraries": 20,
         "unb-libraries/saml_features": 20,
-        "unb-libraries/unb_lib_zircon": 20
+        "unb-libraries/unb_lib_zircon": 20,
+        "unb-libraries/drupal-development-libraries": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

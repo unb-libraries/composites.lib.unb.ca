@@ -8,9 +8,7 @@ dependencies:
     - field.field.node.subject.field_alt_name_source
     - field.field.node.subject.field_awards
     - field.field.node.subject.field_bottom_x
-    - field.field.node.subject.field_bottom_x_pixels
     - field.field.node.subject.field_bottom_y
-    - field.field.node.subject.field_bottom_y_pixels
     - field.field.node.subject.field_class
     - field.field.node.subject.field_composite
     - field.field.node.subject.field_gender
@@ -24,9 +22,7 @@ dependencies:
     - field.field.node.subject.field_subject_notes
     - field.field.node.subject.field_subject_title
     - field.field.node.subject.field_top_x
-    - field.field.node.subject.field_top_x_pixels
     - field.field.node.subject.field_top_y
-    - field.field.node.subject.field_top_y_pixels
     - field.field.node.subject.field_valedictorian
     - node.type.subject
   module:
@@ -81,15 +77,6 @@ content:
     third_party_settings: {  }
     weight: 11
     region: content
-  field_bottom_x_pixels:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 16
-    region: content
   field_bottom_y:
     type: number_decimal
     label: above
@@ -100,15 +87,6 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 12
-    region: content
-  field_bottom_y_pixels:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 17
     region: content
   field_class:
     type: string
@@ -176,15 +154,6 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
-  field_top_x_pixels:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 18
-    region: content
   field_top_y:
     type: number_decimal
     label: above
@@ -195,15 +164,6 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 10
-    region: content
-  field_top_y_pixels:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 19
     region: content
   field_valedictorian:
     type: boolean

@@ -1,0 +1,21 @@
+/* Hide the raw slides until Swiper is fully initialized to avoid FOUC/expanded slides.
+   We reveal the slider when the JS adds the .swiper-ready class. */
+.swiper-slider {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .24s ease, visibility 0s linear .24s;
+}
+
+/* When JS has initialized the slider and optionally images are ready, show it. */
+.swiper-slider.swiper-ready {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Keep a min-height to avoid big layout jumps while hidden (adjust to your content). */
+.swiper-slider {
+  min-height: 150px; /* tune to your slide height to prevent layout shift */
+}
+
+/* If JS is disabled, show content via <noscript> or fallback class */

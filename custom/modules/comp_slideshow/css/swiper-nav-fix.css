@@ -1,0 +1,23 @@
+/* Target the real slider container class from your DOM */
+.view-content.swiper-slider {
+  position: relative; /* make this the containing block for absolute children */
+}
+
+/* Center the navigation inside that slider */
+.view-content.swiper-slider .swiper-button-next,
+.view-content.swiper-slider .swiper-button-prev {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin-top: 0 !important;
+}
+
+/* Align navigation buttons to their respective sides */
+.view-content.swiper-slider {
+  .swiper-button-next {
+    justify-content: flex-end;
+  }
+  .swiper-button-prev {
+    justify-content: flex-start;
+  }
+}
+
