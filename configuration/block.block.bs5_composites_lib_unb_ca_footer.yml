@@ -1,0 +1,25 @@
+uuid: 9f9105f7-3bab-496e-b1b5-388092ab5de8
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - bs5_composites_lib_unb_ca
+id: bs5_composites_lib_unb_ca_footer
+theme: bs5_composites_lib_unb_ca
+region: footer_first
+weight: -5
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

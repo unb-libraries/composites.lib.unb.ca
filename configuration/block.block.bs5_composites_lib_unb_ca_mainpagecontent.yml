@@ -1,0 +1,20 @@
+uuid: d9371347-24ce-43f8-9dd7-6e7b28b09b01
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bs5_composites_lib_unb_ca
+id: bs5_composites_lib_unb_ca_mainpagecontent
+theme: bs5_composites_lib_unb_ca
+region: content
+weight: 3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

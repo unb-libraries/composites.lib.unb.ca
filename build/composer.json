@@ -165,6 +165,7 @@
   "require": {
     "drupal/admin_toolbar": "^3",
     "drupal/bootstrap4": "^3",
+    "drupal/bootstrap": "^5",
     "drupal/color": "^2", 
     "drupal/core": "^11",    
     "drupal/core-composer-scaffold": "^11",

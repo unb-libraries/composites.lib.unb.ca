@@ -1,0 +1,23 @@
+uuid: 4ed3ab56-3354-4f58-a56f-e09be44ca5ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.comp_decade_facet
+  module:
+    - facets
+  theme:
+    - bs5_composites_lib_unb_ca
+id: bs5_composites_lib_unb_ca_comp.decadefacet
+theme: bs5_composites_lib_unb_ca
+region: content
+weight: 2
+provider: null
+plugin: 'facet_block:comp_decade_facet'
+settings:
+  id: 'facet_block:comp_decade_facet'
+  label: 'Browse by Year'
+  label_display: visible
+  provider: facets
+  block_id: comp.decadefacet
+visibility: {  }

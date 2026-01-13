@@ -1,0 +1,29 @@
+uuid: 66b33e38-5561-4d04-a31d-534c5fd90e20
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search_subjects
+  module:
+    - system
+    - views
+  theme:
+    - bs5_composites_lib_unb_ca
+id: bs5_composites_lib_unb_ca_exposedformsearch_subjectspage_1
+theme: bs5_composites_lib_unb_ca
+region: content
+weight: -3
+provider: null
+plugin: 'views_exposed_filter_block:search_subjects-page_1'
+settings:
+  id: 'views_exposed_filter_block:search_subjects-page_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '/search-persons*'

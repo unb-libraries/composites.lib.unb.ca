@@ -1,0 +1,26 @@
+uuid: 2c18ed86-2db5-493d-bcef-b4373aae07a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - comp_core
+    - system
+  theme:
+    - bs5_composites_lib_unb_ca
+id: bs5_composites_lib_unb_ca_browse
+theme: bs5_composites_lib_unb_ca
+region: content
+weight: -2
+provider: null
+plugin: comp_browse
+settings:
+  id: comp_browse
+  label: Browse
+  label_display: visible
+  provider: comp_core
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "<front>\r\n/search-persons*"

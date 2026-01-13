@@ -1,0 +1,29 @@
+uuid: 6678e52b-ed23-4fb0-b697-f7aa342bd704
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search_subjects
+  module:
+    - system
+    - views
+  theme:
+    - bs5_composites_lib_unb_ca
+id: bs5_composites_lib_unb_ca_exposedformsearch_subjectspage_1_2
+theme: bs5_composites_lib_unb_ca
+region: content
+weight: -4
+provider: null
+plugin: 'views_exposed_filter_block:search_subjects-page_1'
+settings:
+  id: 'views_exposed_filter_block:search_subjects-page_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: Search
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

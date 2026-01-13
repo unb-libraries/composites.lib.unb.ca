@@ -76,4 +76,6 @@ theme:
   bootstrap4: 0
   composites_lib_unb_ca: 0
   unb_lib_zircon: 0
+  bootstrap: 0
+  bs5_composites_lib_unb_ca: 0
 profile: minimal

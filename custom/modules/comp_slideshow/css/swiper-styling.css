@@ -1,11 +1,11 @@
-#block-bs5-comp-lib-unb-ca-views-block-rotating-banner-block-1-3 [class^="swiper-button-"] {
+#block-bs5-composites-lib-unb-ca-views-block-slideshow-block-1 [class^="swiper-button-"] {
   opacity: 0;
   color: white;
   font-weight: 1000;
   transition: opacity .3s;
 }
 
-#block-bs5-comp-lib-unb-ca-views-block-rotating-banner-block-1-3:hover [class^="swiper-button-"] {
+#block-bs5-composites-lib-unb-ca-views-block-slideshow-block-1:hover [class^="swiper-button-"] {
   opacity: 1;
 }
 

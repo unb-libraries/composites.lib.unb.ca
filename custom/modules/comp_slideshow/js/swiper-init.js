@@ -4,7 +4,7 @@
   Drupal.behaviors.compSlideshowSwiper = {
     attach: function (context, settings) {
       // Add swiper-slider class to view-content if needed.
-      var viewContent = context.querySelector('#block-views-block-slideshow-block-1 .view-content');
+      var viewContent = context.querySelector('#block-bs5-composites-lib-unb-ca-views-block-slideshow-block-1 .view-content');
       if (viewContent && !viewContent.classList.contains('swiper-slider')) {
         viewContent.classList.add('swiper-slider');
       }

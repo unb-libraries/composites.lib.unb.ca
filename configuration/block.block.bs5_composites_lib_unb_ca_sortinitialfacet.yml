@@ -1,0 +1,23 @@
+uuid: 4face5d4-b05f-4b2b-a202-35a04b91937a
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sort_initial_facet
+  module:
+    - facets
+  theme:
+    - bs5_composites_lib_unb_ca
+id: bs5_composites_lib_unb_ca_sortinitialfacet
+theme: bs5_composites_lib_unb_ca
+region: content
+weight: 1
+provider: null
+plugin: 'facet_block:sort_initial_facet'
+settings:
+  id: 'facet_block:sort_initial_facet'
+  label: 'Browse by Person or Name'
+  label_display: visible
+  provider: facets
+  block_id: sortinitialfacet
+visibility: {  }
