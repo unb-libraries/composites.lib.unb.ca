@@ -146,6 +146,15 @@ body {
   }
 }
 
+/* Main container - Home ONLY */
+body.path-frontpage {
+  .tabs {
+    .primary.nav-tabs {
+      margin-top: 15rem;
+    }
+  }
+}
+
 /* Main container - Home, Search, static page */
 body.path-frontpage,
 body.node--type-static-page,
