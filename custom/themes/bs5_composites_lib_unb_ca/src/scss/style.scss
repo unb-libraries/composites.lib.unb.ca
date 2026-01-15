@@ -354,6 +354,37 @@ body {
             font-size: 1.8rem;
           }
         }
+        /* Facet blocks. */
+        div.block.block-facets {
+          padding: 1em 1.4em;
+          h1 {
+            font-size: 1.4rem;
+          }
+          h2 {
+            font-size: 1.2rem;
+          }
+          h3, h4, h5, h6 {
+            font-size: 1rem;
+            font-weight: normal;
+          }
+          ul.js-facets-links {
+            list-style-type: none;
+            padding-left: 0;
+            & > li {
+              display: inline;
+              padding: 0 2px 0 8px;
+              &:not(:first-of-type) {
+                border-left: 1px solid;
+              }
+            }
+            a.is-active {
+              font-weight: bolder;
+              span.facet-item__status {
+                display: none;
+              }
+            }
+          }
+        }
         /* Main block */
         .block-system-main-block {
           .content {
