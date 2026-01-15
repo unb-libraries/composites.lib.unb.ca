@@ -146,11 +146,6 @@ body {
   }
 }
 
-/* Main container - Home ONLY */
-body.path-frontpage {
-
-}
-
 /* Main container - Home, Search, static page */
 body.path-frontpage,
 body.node--type-static-page,
@@ -178,12 +173,12 @@ body.path-search {
         }
         .views-exposed-form {
           float: inline-start;
-          width: 794px;
+          width: 854px;
         }
         .views-exposed-form + .block {
           position: relative;
           float: inline-end;
-          width: 458px;
+          width: 398px;
           + * {
             clear: both;
           }
@@ -192,7 +187,7 @@ body.path-search {
         .views-exposed-form {
           margin-bottom: 2rem;
           h2 {
-            margin-bottom: 0;
+            margin-bottom: 1rem;
           }
           form {
             margin-top: -.5rem;
@@ -201,13 +196,13 @@ body.path-search {
                 margin-left: 1rem;
               }
               > div:first-child {
-                width: 510px;
+                width: 570px;
               }
               label {
                 visibility: hidden;
               }
               .form-actions {
-                align-self: anchor-center;
+                align-self: auto;
               }
             }
           }
