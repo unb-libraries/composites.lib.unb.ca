@@ -73,6 +73,7 @@ body {
     .site-title {
       margin-bottom: 0;
       font-size: 2.2rem;
+      font-weight: 500;
       color: custom.$unb-darkred;
     }
     .site-slogan {
@@ -117,6 +118,7 @@ body {
             &.is-active,
             &:hover,
             &:focus {
+              cursor: pointer;
               background-color: custom.$unb-darkerred;
             }
           }
@@ -173,12 +175,12 @@ body.path-search {
         }
         .views-exposed-form {
           float: inline-start;
-          width: 854px;
+          width: 794px;
         }
         .views-exposed-form + .block {
           position: relative;
           float: inline-end;
-          width: 398px;
+          width: 458px;
           + * {
             clear: both;
           }
