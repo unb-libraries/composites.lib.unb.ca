@@ -1,7 +1,7 @@
 core: 11.x
 core_version_requirement: ^9 || ^10 || ^11
 type: theme
-name: Composites
+name: bs5_composites_lib_unb_ca
 package: Custom
 description: Bootstrap 5, Drupal 11 theme for composites.lib.unb.ca
 base theme: bootstrap

@@ -148,11 +148,7 @@ body {
 
 /* Main container - Home ONLY */
 body.path-frontpage {
-  .tabs {
-    .primary.nav-tabs {
-      margin-top: 15rem;
-    }
-  }
+
 }
 
 /* Main container - Home, Search, static page */
@@ -188,6 +184,9 @@ body.path-search {
           position: relative;
           float: inline-end;
           width: 458px;
+          + * {
+            clear: both;
+          }
         }
         /* Search block */
         .views-exposed-form {
