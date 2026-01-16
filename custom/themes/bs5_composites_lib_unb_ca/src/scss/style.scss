@@ -370,14 +370,14 @@ body {
             }
             /* Links */
             a:not(.btn):focus {
-              color: $unb-turquoise;
+              color: custom.$unb-turquoise;
               background: initial;
             }
             // Link status.
             & a:not(.btn):hover {
               border-bottom: 1px solid;
               background-color: initial;
-              color: $unb-darkerred;
+              color: custom.$unb-darkerred;
               transition: color 0.15s ease-in, border-color 0.15s ease-in;
               box-shadow: none !important;
             }
@@ -407,7 +407,7 @@ body {
                 &:not(:last-of-type) > ul > li,
                 & > ul > li:not(.browse-subjects-row):not(.shared-name-row):not(:last-of-type) {
                   padding-bottom: 1em;
-                  border-bottom: 1px solid $unb-halfgray;
+                  border-bottom: 1px solid custom.$unb-halfgray;
                 }
 
                 & div.collapse > div.item-list > ul,
