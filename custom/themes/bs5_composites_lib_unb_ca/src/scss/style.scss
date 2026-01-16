@@ -512,7 +512,49 @@ body {
                 }
               }
             }
-            // OpenSeadragon viewer.
+            /* Display subjects multi-value field as columns. */
+            dl > dd > ul.comp-subjects {
+              columns: 3;
+
+              .editor:hover {
+                background-color: #ececeb;
+              }
+            }
+            /* Blocks */
+            div.block {
+              /* Collapse subjects */ 
+              a.comp-collapse {
+                border: initial !important;
+              }
+            }
+            /* Node forms */
+            .node-form {
+              .field--name-field-top-x,
+              .field--name-field-top-y,
+              .field--name-field-bottom-x,
+              .field--name-field-bottom-y {
+                width: 20%;
+                display: inline-block;
+              }
+              .image-preview {
+                margin-bottom: 1rem;
+              }
+              #edit-field-image-0--description {
+                margin-top: 1rem;
+              }
+              #edit-field-grad-ceremony-0-uri--description ul li:last-of-type {
+                display: none;
+              }
+              #edit-field-composite {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                pointer-events: none;
+              }
+              #edit-delete {
+                display: none;
+              }
+            }
+            /* OpenSeadragon viewer */
             & div#seadragon-viewer {
               margin-top: 2em;
               height: 800px;
