@@ -489,6 +489,11 @@ body {
                 }
               }
             }
+            // OpenSeadragon viewer.
+            & div#seadragon-viewer {
+              margin-top: 2em;
+              height: 800px;
+            }
           }
         }
       }
