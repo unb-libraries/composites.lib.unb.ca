@@ -27,7 +27,7 @@ body {
   /* All in page (toolbar excluded) */
   margin: auto;
   padding: 1rem;
-  a {
+  a, a> span {
     text-decoration: none;
     color: custom.$unb-darkred;
     &:active,
@@ -362,7 +362,7 @@ body {
             font-size: 1.4rem;
           }
           h2 {
-            font-size: 1.2rem;
+            //font-size: 1.2rem;
           }
           h3, h4, h5, h6 {
             font-size: 1rem;
