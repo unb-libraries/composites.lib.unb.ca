@@ -39,6 +39,38 @@ body {
       color: custom.$unb-darkerred;
     }
   }
+  /* Collapse links */
+  a.comp-collapse {
+    border: none !important;
+    /* Adjust */
+    & ~ svg {
+      /* Hide expanded arrow when collapsed. */
+      &.subs-expanded {
+        display: none;
+      }
+    }
+    & > span {
+      &.subs-expanded {
+        display: none;
+      }
+      &.subs-collapsed {
+        display: inline-block;
+      }
+    }
+    /* Show expanded arrow, hide collpased arrow when expanded */
+    &[aria-expanded="true"] {
+
+      & ~ svg.subs-expanded,
+      & > span.subs-expanded {
+        display:inline-block;
+      }
+
+      & ~ svg.subs-collapsed,
+      & > span.subs-collapsed {
+        display: none;
+      }
+    }
+  }
   /* All controls */
   input, select {
     border: 1px solid custom.$unb-25gray !important;
