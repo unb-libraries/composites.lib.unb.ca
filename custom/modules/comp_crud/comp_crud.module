@@ -505,7 +505,7 @@ function prepare_dzi_batch($fid, $nid) {
     'init_message'     => t('Starting...'),
     'progress_message' => t('Processed @current out of @total.'),
     'error_message'    => t('An error occurred during processing.'),
-    'finished' => t('Done.'),
+    'finished' => 'dzi_batch_finished',
   ];
 
   // Add generation of DZI tiles for file to batch operations.
@@ -523,18 +523,16 @@ function generate_dzi_tiles($fid, $nid, $context) {
   $filename = $file->getFilename();
 
   if (empty($context['sandbox']['dzi_started'])) {
-
     // Cut extension from filename.
     $fn_plain = substr($filename, 0, -4);
     // Get image path.
-    $scheme = \Drupal::config('system.file')->get('default_scheme');
-    $img_location = \Drupal::service('file_system')->realpath($scheme . "://") . "/comp_images";
+    $img_location = \Drupal::service('file_system')->realpath("public://") . "/comp_images";
     $img_path = $img_location . "/$filename";
     $dzi_path = $img_location . "/dzi/composite_$nid";
 
     // Generate or update DZI tiles.
-    $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" .
-     " -o \"{$dzi_path}\"";
+   $command = "/usr/local/bin/magick-slicer -e jpg -i \"{$img_path}\"" . 
+    " -o \"{$dzi_path}\"";
 
     // Run command in shell, capture pid, mark DZI generation as started.
     $pid = shell_exec("$command >/dev/null 2>/dev/null & echo $!");
@@ -559,10 +557,23 @@ function generate_dzi_tiles($fid, $nid, $context) {
   }
 }
 
+/**  
+ * Batch finished callback function (required for Drupal ^11)
+ */
+function dzi_batch_finished($success, $results, $operations) {
+  $messenger = \Drupal::messenger();
+
+  if ($success) {
+    $messenger->addMessage(t('Done.'));
+  }
+  else {
+    $messenger->addMessage(t('There were errors updating high-resolution DZI tiles.'), 'error');
+  }
+}
+
 /**
  * Checks if a given process is running.
  */
-
 function isRunning($pid){
   try {
     $result = shell_exec(sprintf("ps -o pid | grep %d", $pid));
