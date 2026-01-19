@@ -183,7 +183,7 @@ body {
 /* Main container - Home, Search, static page */
 body.path-frontpage,
 body.node--type-static-page,
-body.path-search {
+body.path-search-persons {
   #main-wrapper {
     #main {
       padding: 0;
@@ -258,7 +258,7 @@ body.path-search {
 }
 
 /* Main container - Search */
-body.path-search {
+body.path-search-persons {
     #main-wrapper {
     #main {
       padding: 0;
@@ -274,7 +274,7 @@ body.path-search {
 }
 
 /* Main container - Elsewhere */
-body:not(.path-frontpage, .path-search) {
+body:not(.path-frontpage, .path-search-persons) {
     #main-wrapper {
       #main {
         .section {
@@ -630,7 +630,7 @@ body {
   /* Main container - Home, Search, static page */
   body.path-frontpage,
   body.node--type-static-page,
-  body.path-search {
+  body.path-search-persons {
     #main-wrapper {
       #main {
         .section {
@@ -685,7 +685,7 @@ body {
     }
   }
   /* Main container - Search */
-  body.path-search {
+  body.path-search-persons {
     #main-wrapper {
       #main {
         padding: 0;
@@ -847,7 +847,7 @@ body {
   /* Main container - Home, Search, static page */
   body.path-frontpage,
   body.node--type-static-page,
-  body.path-search {
+  body.path-search-persons {
     #main-wrapper {
       #main {
         .section {
@@ -906,7 +906,7 @@ body {
     }
   }
   /* Main container - Search */
-  body.path-search {
+  body.path-search-persons {
       #main-wrapper {
       #main {
         .section {
@@ -1060,7 +1060,7 @@ body {
   /* Main container - Home, Search, static page */
   body.path-frontpage,
   body.node--type-static-page,
-  body.path-search {
+  body.path-search-persons {
     #main-wrapper {
       #main {
         .section {
@@ -1125,7 +1125,7 @@ body {
     }
   }
   /* Main container - Search */
-  body.path-search {
+  body.path-search-persons {
       #main-wrapper {
       #main {
         .section {
