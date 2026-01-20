@@ -44,7 +44,9 @@ hidden:
   field_alt_name_source: true
   field_awards: true
   field_bottom_x: true
+  field_bottom_x_pixels: true
   field_bottom_y: true
+  field_bottom_y_pixels: true
   field_class: true
   field_composite: true
   field_gender: true
@@ -60,7 +62,9 @@ hidden:
   field_surname: true
   field_title: true
   field_top_x: true
+  field_top_x_pixels: true
   field_top_y: true
+  field_top_y_pixels: true
   field_valedictorian: true
   langcode: true
   search_api_excerpt: true

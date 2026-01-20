@@ -176,11 +176,15 @@ content:
     weight: 5
     region: content
 hidden:
+  field_bottom_x_pixels: true
+  field_bottom_y_pixels: true
   field_gender: true
   field_graduate_id: true
   field_sort_initial: true
   field_source_file: true
   field_subject_campus: true
+  field_top_x_pixels: true
+  field_top_y_pixels: true
   langcode: true
   links: true
   search_api_excerpt: true

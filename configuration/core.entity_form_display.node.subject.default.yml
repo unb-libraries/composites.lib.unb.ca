@@ -8,7 +8,9 @@ dependencies:
     - field.field.node.subject.field_alt_name_source
     - field.field.node.subject.field_awards
     - field.field.node.subject.field_bottom_x
+    - field.field.node.subject.field_bottom_x_pixels
     - field.field.node.subject.field_bottom_y
+    - field.field.node.subject.field_bottom_y_pixels
     - field.field.node.subject.field_class
     - field.field.node.subject.field_composite
     - field.field.node.subject.field_gender
@@ -22,7 +24,9 @@ dependencies:
     - field.field.node.subject.field_subject_notes
     - field.field.node.subject.field_subject_title
     - field.field.node.subject.field_top_x
+    - field.field.node.subject.field_top_x_pixels
     - field.field.node.subject.field_top_y
+    - field.field.node.subject.field_top_y_pixels
     - field.field.node.subject.field_valedictorian
     - node.type.subject
 id: node.subject.default
@@ -32,20 +36,12 @@ mode: default
 content:
   field_absent:
     type: boolean_checkbox
-    weight: -5
+    weight: 0
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_alt_name:
-    type: string_textfield
-    weight: 12
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_alt_name_source:
     type: string_textfield
     weight: 13
     region: content
@@ -53,9 +49,17 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_alt_name_source:
+    type: string_textfield
+    weight: 14
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_awards:
     type: string_textfield
-    weight: 11
+    weight: 12
     region: content
     settings:
       size: 60
@@ -68,9 +72,23 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_bottom_x_pixels:
+    type: number
+    weight: 18
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_bottom_y:
     type: number
     weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_bottom_y_pixels:
+    type: number
+    weight: 19
     region: content
     settings:
       placeholder: ''
@@ -83,7 +101,7 @@ content:
     third_party_settings: {  }
   field_gender:
     type: options_buttons
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -113,7 +131,7 @@ content:
     third_party_settings: {  }
   field_subject_notes:
     type: string_textarea
-    weight: 15
+    weight: 16
     region: content
     settings:
       rows: 5
@@ -134,9 +152,23 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_top_x_pixels:
+    type: number
+    weight: 20
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_top_y:
     type: number
     weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_top_y_pixels:
+    type: number
+    weight: 21
     region: content
     settings:
       placeholder: ''
@@ -148,9 +180,14 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  simple_sitemap:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 16
+    weight: 17
     region: content
     settings:
       display_label: true
