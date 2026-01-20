@@ -68,6 +68,9 @@
       ]
     },
     "patches": {
+      "drupal/bootstrap": {
+        "Fix bootstrap_icons schema type mismatch": "/build/patches/bootstrap-icons-schema-fix.patch"
+      },
       "drupal/core": {
         "Fix no URL key warning": "https://www.drupal.org/files/issues/2023-10-07/fix-license-missing-url.patch"
       }
