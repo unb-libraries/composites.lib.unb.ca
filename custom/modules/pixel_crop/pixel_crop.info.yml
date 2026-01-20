@@ -1,0 +1,5 @@
+name: Pixel Crop
+type: module
+description: Provides a pixel-based image style effect for pixel-perfect cropping.
+core_version_requirement: ^11
+package: Custom

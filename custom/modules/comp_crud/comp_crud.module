@@ -401,14 +401,15 @@ function comp_crud_preprocess_node__subject(&$variables) {
   }
 }
 
-function update_crop_style($width, $height, $id, $topX, $topY, $botX, $botY, $override) {
+function update_crop_style($comp_width, $comp_height, $id, $topX, $topY, $botX, $botY, $override) {
   // Calculate anchor, width, height using resolution (dpi).
   // Calculate and apply style anchor offset.
   $xBase = -15;  
   $yBase = -20;  
-  $xOff = $xBase * $width / 1000;
-  $yOff = $yBase * $height / 1000;
-  $anchor = strval($topX + $xOff) . "-" . strval($topY + $yOff);
+  $xOff = $xBase * $comp_width / 1000;
+  $yOff = $yBase * $comp_height / 1000;
+  $anchorX = round($topX + $xOff);
+  $anchorY = round($topY + $yOff);
   $width = $botX - $topX;
   $height = $botY - $topY;
 
@@ -436,13 +437,13 @@ function update_crop_style($width, $height, $id, $topX, $topY, $botX, $botY, $ov
 
     // Configuration for cropping effect.
     $config = [
-      'uuid' => NULL,
-      'id' => 'image_crop',
+      'id' => 'pixel_crop',
       'weight' => 0,
       'data' => [
+        'x' => $anchorX,
+        'y' => $anchorY,
         'width' => $width,
         'height' => $height,
-        'anchor' => $anchor,
       ],
     ];
 
