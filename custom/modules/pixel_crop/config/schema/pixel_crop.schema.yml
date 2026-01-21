@@ -1,0 +1,16 @@
+image.style.*.effects.*.data:
+  type: mapping
+  label: 'Image effect data'
+  mapping:
+    x:
+      type: integer
+      label: 'Pixel crop: X coordinate'
+    y:
+      type: integer
+      label: 'Pixel crop: Y coordinate'
+    width:
+      type: integer
+      label: 'Pixel crop: Width'
+    height:
+      type: integer
+      label: 'Pixel crop: Height'
