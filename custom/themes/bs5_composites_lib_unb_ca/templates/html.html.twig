@@ -39,6 +39,14 @@
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
+    {# Begin favicons #}
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/themes/custom/bs5_composites_lib_unb_ca/dist/img/favicon.svg">
+    <link rel="apple-touch-icon" href="/themes/custom/bs5_composites_lib_unb_ca/dist/img/apple-touch-icon.png">
+    <link rel="mask-icon" href="/themes/custom/bs5_composites_lib_unb_ca/dist/img/mask-icon.svg" color="#000000">
+    <link rel="manifest" href="/themes/custom/bs5_composites_lib_unb_ca/dist/img/manifest.json">
+    <link rel="manifest" href="/themes/custom/bs5_composites_lib_unb_ca/dist/img/site.webmanifest">
+    {# End favicons #}
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     <a href="#main-content" class="visually-hidden">
