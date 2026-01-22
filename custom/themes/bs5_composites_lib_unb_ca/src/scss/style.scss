@@ -27,7 +27,7 @@ body {
   /* All in page (toolbar excluded) */
   margin: auto;
   padding: 1rem;
-  a, a> span {
+  a:not(.btn), a:not(.btn) > span {
     text-decoration: none;
     color: custom.$unb-darkred;
     &:active,
@@ -83,9 +83,16 @@ body {
   button, .btn {
     background-color: custom.$unb-darkerred;
     border-color: custom.$unb-darkerred;
+    box-shadow: none !important;
     &:hover {
       background-color: custom.$unb-darkred;
       border-color: custom.$unb-darkred;
+    }
+    > svg {
+      margin-right: .5rem;
+    }
+    > span, > svg > path {
+      color: custom.$offwhite !important;
     }
   }
   /* All tables */
@@ -401,13 +408,12 @@ body {
               font-size: 1rem;
             }
             /* Links */
-            a:not(.btn):focus {
+            a:not(.btn, .page-link) {
               color: custom.$unb-turquoise;
               background: initial;
             }
             // Link status.
             & a:not(.btn):hover {
-              border-bottom: 1px solid;
               background-color: initial;
               color: custom.$unb-darkerred;
               transition: color 0.15s ease-in, border-color 0.15s ease-in;
@@ -416,6 +422,7 @@ body {
             /* Views */
             div.view:not(.view-slideshow):not(.view-subjects-by-shared-name) {
               margin-top: 2em;
+              margin-bottom: 1rem;
               /* Unordered lists */
               ul:not(.composite-subjects):not(.dropbutton) {
                 margin-top: 1rem;
