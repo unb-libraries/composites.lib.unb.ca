@@ -10,6 +10,7 @@ comp_cms_extend.add_comp_subject:
   defaults:
     _controller: '\Drupal\comp_cms_extend\Controller\CompCMSExtendController::addCompSubject'
   options:
+    _admin_route: TRUE
     parameters:
       cid:
         type: integer
