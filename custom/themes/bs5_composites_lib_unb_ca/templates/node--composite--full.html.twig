@@ -132,7 +132,7 @@
     </div>
 
     <dl>
-      <dt>{{ 'People' }}</dt>
+      <dt>{{ 'In this photo:' }}</dt>
       <dd>
         <ul class="comp-subjects">
         {% for subject in content.field_subjects|field_value %}
@@ -172,7 +172,7 @@
 
     {% if content.field_notes|field_value %}
       <dl>
-        <dt>{{ content.field_notes|field_label }}</dt>
+        <dt>{{ content.field_notes|field_label ~ ':' }}</dt>
         <dd>{{ content.field_notes|field_value }}</dd>
       </dl>
     {% endif %}

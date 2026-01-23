@@ -521,7 +521,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: '<h2 id="subject-full-additional" class="h6 font-weight-bold text-dark mt-4 mb-0">Additional records of interest with the same name:</h2>'
+          content: '<h2 id="subject-full-additional">Additional records of interest with the same name:</h2>'
           tokenize: false
       footer: {  }
       display_extenders: {  }

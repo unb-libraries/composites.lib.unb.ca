@@ -28,7 +28,7 @@ body {
   margin: auto;
   padding: 1rem;
   a:not(.btn), 
-  a:not(.btn) > span{
+  a:not(.btn) > span {
     text-decoration: none;
     color: custom.$unb-darkred;
     &:active,
@@ -46,6 +46,9 @@ body {
   /* Collapse links */
   a.comp-collapse {
     border: none !important;
+    &:focus {
+      text-decoration: none;
+    }
     /* Adjust */
     & ~ svg {
       /* Hide expanded arrow when collapsed. */
@@ -104,13 +107,22 @@ body {
       }
     }
   }
+  /* All definition table titles */
+  dt {
+    margin-bottom: 1rem;
+  }
   /* All SVG */
   svg {
-    margin: 0 .5rem;
+    margin: 0 .3rem;
+    vertical-align: middle;
   }
   /* Unordered lists */
-  ul:not(.nav, .vertical-tabs__menu) {
+  ul:not(
+    .nav, 
+    .pagination, 
+    .vertical-tabs__menu) {
     list-style: disc;
+    list-style-type: circle;
   }
   /* All list group items */
   .list-group-item {
@@ -127,6 +139,7 @@ body {
       font-size: 2.2rem;
       font-weight: 500;
       color: custom.$unb-darkred;
+      text-transform: uppercase;
     }
     .site-slogan {
       font-size: .9rem;
@@ -222,8 +235,6 @@ body.path-search-persons {
           height: 180px;
           padding: 1rem;
           background-color: custom.$unb-halfgray;
-          > h2 {
-          }
         }
         .views-exposed-form {
           float: inline-start;
@@ -315,21 +326,12 @@ body:not(.path-frontpage, .path-search-persons) {
           }
           fieldset {
             width: 668px !important;
-            .js-form-item {
-            }
           }
           .form-actions {
             display: inline-block;
             & > * {
               width: 100px;
               display: inline-block;
-            }
-          }
-        }
-        /* Main block */
-        .block-system-main-block {
-          .content {
-            .view-header {
             }
           }
         }
@@ -342,7 +344,7 @@ body {
   #main-wrapper {
     #main {
       max-width: 100% !important;
-      /* Al images except slides */
+      /* All images except slides */
       img:not([class^=image-style-slideshow]) {
         margin: 1rem;
         max-width: 100%;
@@ -379,18 +381,14 @@ body {
         div.block.block-facets {
           padding: 1em 1.4em;
           background-color: custom.$unb-halfgray;
-          h1 {
-            font-size: 1.4rem;
-          }
           h2 {
-            //font-size: 1.2rem;
+            font-size: 2rem;
           }
-          h3, h4, h5, h6 {
+          h3 {
             font-size: 1rem;
             font-weight: normal;
           }
           ul.js-facets-links {
-            list-style-type: none;
             padding-left: 0;
             & > li {
               display: inline;
@@ -413,15 +411,15 @@ body {
             /* Headers */
             h1, h1 * {
               font-size: 2rem;
-              font-weight: 600;
+              font-weight: 700;
             }
             h2, h2 * {
-              font-size: 1.4rem;
-              font-weight: 600;
+              font-size: 1.6rem;
+              font-weight: 700;
             }
             h3, h3 * {
-              font-size: 1rem;
-              font-weight: 600;
+              font-size: 1.4rem;
+              font-weight: 700;
             }
             /* Links */
             a:not(.btn, .page-link) {
@@ -442,7 +440,6 @@ body {
               /* Unordered lists */
               ul:not(.composite-subjects):not(.dropbutton) {
                 margin-top: 1rem;
-                list-style: none;
               }
               ul.composite-subjects {
                 columns: 2;
@@ -452,24 +449,26 @@ body {
             div.views-element-container {
               /* Item list. */
               div.view-content > div.item-list {
-                margin-top: 1em;
+                margin-top: 1rem;
                 margin-left: 1.5em;
-
                 .browse-composites-row {
-                  list-style-type: none;
+                  list-style: none;
                 }
-
                 &:not(:last-of-type) > ul > li,
                 & > ul > li:not(.browse-subjects-row):not(.shared-name-row):not(:last-of-type) {
+                  margin-bottom: 1rem;
                   padding-bottom: 1em;
                   border-bottom: 1px solid custom.$unb-halfgray;
                 }
 
                 & div.collapse > div.item-list > ul,
                 & div.subjects-top > div.item-list > ul {
+                  display: block;
                   columns: 2;
+                  li {
+                    display: list-item;
+                  }
                 }
-
                 .comp-thumb a:active,
                 .comp-thumb a:focus,
                 .comp-thumb a:focus-within,
@@ -485,7 +484,9 @@ body {
               }
 
               & .view-header #subject-full-additional {
-                font-size: 1rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                margin-bottom: 0;
               }
             }
             .view-header {
@@ -500,8 +501,8 @@ body {
               margin-top: 2rem;
               .item-list {
                 margin-top: 1rem;
+                margin-left: 1rem;
                 ul {
-                  list-style: disc;
                   li {
                     margin-left: 1.5rem;
                   }
@@ -546,6 +547,16 @@ body {
                     box-shadow: none !important;
                   }
                 }
+              }
+            }
+            /* Composite nodes */
+            .composite {
+              img {
+                margin: 0;
+                width: 100%;
+              }
+              .text-right {
+                text-align: end;
               }
             }
             .node__content {
@@ -729,7 +740,7 @@ body {
   body {
     #main-wrapper {
       #main {
-        /* Al images except slides */
+        /* All images except slides */
         img:not([class^=image-style-slideshow]) {
           &.image-style-degree-thumbnail {
           }
@@ -947,7 +958,7 @@ body {
   body {
     #main-wrapper {
       #main {
-        /* Al images except slides */
+        /* All images except slides */
         img:not([class^=image-style-slideshow]) {
           &.image-style-degree-thumbnail {
           }
@@ -1166,7 +1177,7 @@ body {
   body {
     #main-wrapper {
       #main {
-        /* Al images except slides */
+        /* All images except slides */
         img:not([class^=image-style-slideshow]) {
           &.image-style-degree-thumbnail {
           }
