@@ -555,8 +555,12 @@ body {
                 margin: 0;
                 width: 100%;
               }
-              .text-right {
-                text-align: end;
+              #composite-links {
+                width: 100%;
+                max-width: 100%;
+                .text-right {
+                  text-align: end;
+                }
               }
             }
             .node__content {
@@ -576,6 +580,11 @@ body {
                       padding: 0 !important;
                     }
                   }
+                }
+              }
+              .subject-portrait {
+                img {
+                  width: 80%;
                 }
               }
             }
@@ -669,19 +678,6 @@ body {
     #main-wrapper {
       #main {
         .section {
-          /* Slideshow block */
-          .block-views[class*='-swiper'] {
-            .swiper-slider {
-            }
-          }
-          /* Search and browse blocks */
-          .views-exposed-form,
-          .views-exposed-form + .block {
-            display: block;
-            height: initial;
-            > h2 {
-            }
-          }
           .views-exposed-form {
             width: 100%;
           }
@@ -691,29 +687,10 @@ body {
           /* Search block */
           .views-exposed-form {
             margin-bottom: 0;
-            h2 {
-            }
-            form {
-              & > .flex-wrap {
-                > div:not(:first-child) {
-                }
-                > div:first-child {
-                }
-                label {
-                }
-                .form-actions {
-                }
-              }
-            }
           }
           /* Browse block */
           .views-exposed-form + .block {
             margin-bottom: 2rem;
-            p {
-            }
-          }
-          /* Page title block */
-          .block-page-title-block {
           }
         }
       }
@@ -740,38 +717,12 @@ body {
   body {
     #main-wrapper {
       #main {
-        /* All images except slides */
-        img:not([class^=image-style-slideshow]) {
-          &.image-style-degree-thumbnail {
-          }
-        }
         .section {
           /* Exposed form */
           #views-exposed-form-browse-awards-page-1 {
             & > .flex-wrap {
-              > div:not(:first-child) {
-              }
-              > div:first-child {
-              }
-              label {
-              }
-              .form-actions {
-              }
-              fieldset {
-              }
-              .form-item-sort-order {
-              }
-              .js-form-item, .form-actions, fieldset {
-
-                > label {
-                }
-                > .button {
-                }
-              }
               fieldset {
                 display: block;
-                legend {
-                }
               }
               .form-item-field-season-target-id {
                 margin-right: 260px;
@@ -785,287 +736,25 @@ body {
               }
             }
           }
-          /* Page title block */
-          .block-page-title-block {
-            .field--name-title, 
-            .title {
-            }
-          }
-          /* Main block */
-          .block-system-main-block {
-            .content {
-              /* Headers */
-              h1, h1 * {
-              }
-              h2, h2 * {
-              }
-              h3, h3 * {
-              }
-              .view-header {
-              }
-              .view-awards-x-ceremony,
-              .view-addresses-x-ceremony {
-                .view-content.row {
-                }
-              }
-              .view-content.row {
-                .item-list {
-                  ul {
-                    li {
-                    }
-                  }
-                }
-                .views-row {
-                  table {
-                    & * {
-                    }
-                    tbody {
-                      tr {
-                        td {
-                        }
-                      }
-                    }
-                  }
-                  strong {
-                  }
-                }
-              }
-              .view-footer {
-              }
-              nav {
-                .pagination {
-                  .page-item {
-                    &.active {
-                      .page-link {
-                      }
-                    }
-                    a {
-                    }
-                  }
-                }
-              }
-              .node__content {
-                table {
-                  & * {
-                  }
-                  tbody {
-                    tr {
-                      &:nth-child(odd) {
-                      }
-                      td {
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
         }
       }
     }
   }
 }
 @media screen and (width <= 1199px) {
-  /* Main navigation */
-  #navbar-main {
-    .navbar-toggler {
-      span {
-      }
-      &:not(.collapsed) {
-        + .navbar-collapse .dropdown-menu.show {
-          .dropdown-item {
-          }
-        }
-      }
-    }
-  }
-  /* Main container - Home, Search, static page */
-  body.path-frontpage,
-  body.node--type-static-page,
-  body.path-search-persons {
-    #main-wrapper {
-      #main {
-        .section {
-          /* Slideshow block */
-          .block-views[class*='-swiper'] {
-            .swiper-slider {
-            }
-          }
-          /* Search and browse blocks */
-          .views-exposed-form,
-          .views-exposed-form + .block {
-            > h2 {
-            }
-          }
-          .views-exposed-form {
-          }
-          .views-exposed-form + .block {
-          }
-          /* Search block */
-          .views-exposed-form {
-            h2 {
-            }
-            form {
-              & > .flex-wrap {
-                > div:not(:first-child) {
-                }
-                > div:first-child {
-                }
-                label {
-                }
-                .form-actions {
-                }
-                .js-form-item, .form-actions, fieldset {
-                  > label {
-                  }
-                  > .button {
-                  }
-                }
-                fieldset {
-                  legend {
-                  }
-                }
-              }
-            }
-          }
-          /* Browse block */
-          .views-exposed-form + .block {
-            p {
-            }
-          }
-          /* Page title block */
-          .block-page-title-block {
-          }
-        }
-      }
-    }
-  }
-  /* Main container - Search */
-  body.path-search-persons {
-      #main-wrapper {
-      #main {
-        .section {
-          /* Search and browse blocks */
-          .views-exposed-form {
-          }
-          .views-exposed-form + .block {
-          }
-        }
-      }
-    }
-  }
   /* Main container - Everywhere */
   body {
     #main-wrapper {
       #main {
-        /* All images except slides */
-        img:not([class^=image-style-slideshow]) {
-          &.image-style-degree-thumbnail {
-          }
-        }
         .section {
           /* Exposed form */
           .views-exposed-form {
             & > .flex-wrap {
-              > div:not(:first-child) {
-              }
-              > div:first-child {
-              }
-              label {
-              }
-              .form-actions {
-              }
               fieldset {
                 margin-right: 200px;
               }
               .form-item-sort-order {
                 margin-left: 0 !important;
-              }
-              .js-form-item, .form-actions, fieldset {
-
-                > label {
-                }
-                > .button {
-                }
-              }
-              fieldset {
-                legend {
-                }
-              }
-            }
-          }
-          /* Page title block */
-          .block-page-title-block {
-            .field--name-title, 
-            .title {
-            }
-          }
-          /* Main block */
-          .block-system-main-block {
-            .content {
-              /* Headers */
-              h1, h1 * {
-              }
-              h2, h2 * {
-              }
-              h3, h3 * {
-              }
-              .view-header {
-              }
-              .view-awards-x-ceremony,
-              .view-addresses-x-ceremony {
-                .view-content.row {
-                }
-              }
-              .view-content.row {
-                .item-list {
-                  ul {
-                    li {
-                    }
-                  }
-                }
-                .views-row {
-                  table {
-                    & * {
-                    }
-                    tbody {
-                      tr {
-                        td {
-                        }
-                      }
-                    }
-                  }
-                  strong {
-                  }
-                }
-              }
-              .view-footer {
-              }
-              nav {
-                .pagination {
-                  .page-item {
-                    &.active {
-                      .page-link {
-                      }
-                    }
-                    a {
-                    }
-                  }
-                }
-              }
-              .node__content {
-                table {
-                  & * {
-                  }
-                  tbody {
-                    tr {
-                      &:nth-child(odd) {
-                      }
-                      td {
-                      }
-                    }
-                  }
-                }
               }
             }
           }
@@ -1078,8 +767,6 @@ body {
   /* Main navigation */
   #navbar-main {
     .navbar-toggler {
-      span {
-      }
       &:not(.collapsed) {
         background-color: custom.$unb-darkgray !important;
         border-color: custom.$unb-darkgray !important;
@@ -1102,34 +789,14 @@ body {
           /* Slideshow block */
           .block-views[class*='-swiper'] {
             display: none;
-            .swiper-slider {
-            }
-          }
-          /* Search and browse blocks */
-          .views-exposed-form,
-          .views-exposed-form + .block {
-            > h2 {
-            }
           }
           .views-exposed-form {
             margin-top: 0;
           }
-          .views-exposed-form + .block {
-          }
           /* Search block */
           .views-exposed-form {
-            h2 {
-            }
             form {
               & > .flex-wrap {
-                > div:not(:first-child) {
-                }
-                > div:first-child {
-                }
-                label {
-                }
-                .form-actions {
-                }
                 .js-form-item, .form-actions, fieldset {
                   display: contents;
                   > label {
@@ -1147,28 +814,6 @@ body {
               }
             }
           }
-          /* Browse block */
-          .views-exposed-form + .block {
-            p {
-            }
-          }
-          /* Page title block */
-          .block-page-title-block {
-          }
-        }
-      }
-    }
-  }
-  /* Main container - Search */
-  body.path-search-persons {
-      #main-wrapper {
-      #main {
-        .section {
-          /* Search and browse blocks */
-          .views-exposed-form {
-          }
-          .views-exposed-form + .block {
-          }
         }
       }
     }
@@ -1177,23 +822,10 @@ body {
   body {
     #main-wrapper {
       #main {
-        /* All images except slides */
-        img:not([class^=image-style-slideshow]) {
-          &.image-style-degree-thumbnail {
-          }
-        }
         .section {
           /* Exposed form */
           .views-exposed-form {
             & > .flex-wrap {
-              > div:not(:first-child) {
-              }
-              > div:first-child {
-              }
-              label {
-              }
-              .form-actions {
-              }
               .js-form-item, .form-actions, fieldset {
                 display: contents;
                 > label {
@@ -1211,78 +843,12 @@ body {
               }
             }
           }
-          /* Page title block */
-          .block-page-title-block {
-            .field--name-title, 
-            .title {
-            }
-          }
           /* Main block */
           .block-system-main-block {
             .content {
-              /* Headers */
-              h1, h1 * {
-              }
-              h2, h2 * {
-              }
-              h3, h3 * {
-              }
-              .view-header {
-              }
-              .view-awards-x-ceremony,
-              .view-addresses-x-ceremony {
-                .view-content.row {
-                }
-              }
-              .view-content.row {
-                .item-list {
-                  ul {
-                    li {
-                    }
-                  }
-                }
-                .views-row {
-                  table {
-                    & * {
-                    }
-                    tbody {
-                      tr {
-                        td {
-                        }
-                      }
-                    }
-                  }
-                  strong {
-                  }
-                }
-              }
-              .view-footer {
-              }
-              nav {
-                .pagination {
-                  .page-item {
-                    &.active {
-                      .page-link {
-                      }
-                    }
-                    a {
-                    }
-                  }
-                }
-              }
-              .node__content {
-                table {
-                  & * {
-                  }
-                  tbody {
-                    tr {
-                      &:nth-child(odd) {
-                      }
-                      td {
-                      }
-                    }
-                  }
-                }
+            /* Display subjects multi-value field as columns. */
+              dl > dd > ul.comp-subjects {
+                columns: 2;
               }
             }
           }
@@ -1291,14 +857,10 @@ body {
     }
   }
   /* Footer */
-  .site-footer, .site-footer * {
-  }
   .site-footer {
     .container {
       #footer-logo-div, #footer-copy {
         text-align: center;
-      }
-      #footer-logo-div {
       }
       #footer-copy {
         margin-top: .5rem;

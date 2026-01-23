@@ -1,0 +1,20 @@
+uuid: e24d9053-741f-44cd-b557-0bf3e0812bef
+langcode: en
+status: true
+dependencies:
+  theme:
+    - composites_admin
+_core:
+  default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
+id: composites_admin_local_actions
+theme: composites_admin
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

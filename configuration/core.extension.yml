@@ -75,4 +75,5 @@ theme:
   claro: 0
   bs5_composites_lib_unb_ca: 0
   bootstrap: 0
+  composites_admin: 0
 profile: minimal

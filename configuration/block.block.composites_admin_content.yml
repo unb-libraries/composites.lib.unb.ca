@@ -1,0 +1,22 @@
+uuid: d4be0e60-426b-4450-adb4-a92f2b2142b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - composites_admin
+_core:
+  default_config_hash: a0Yyx1GeyKarZ4T_yXQBR_ZFKnXiFLtxAb6gWLd8nr0
+id: composites_admin_content
+theme: composites_admin
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

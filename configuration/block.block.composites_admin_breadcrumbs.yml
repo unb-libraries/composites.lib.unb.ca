@@ -1,0 +1,22 @@
+uuid: b5352dde-2048-4ae2-afe6-30e207512e7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - composites_admin
+_core:
+  default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
+id: composites_admin_breadcrumbs
+theme: composites_admin
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

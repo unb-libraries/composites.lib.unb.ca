@@ -1,0 +1,22 @@
+uuid: 6c69853c-8d84-477d-92c1-4f032c65cb84
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - composites_admin
+_core:
+  default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
+id: composites_admin_help
+theme: composites_admin
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

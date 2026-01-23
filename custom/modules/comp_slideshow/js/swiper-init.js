@@ -23,7 +23,10 @@
             if (child === wrapper) break;
             container.removeChild(child);
             if (child.nodeType === 3 && !/\S/.test(child.nodeValue)) continue;
-            if (child.nodeType === 1) child.classList.add('swiper-slide');
+            if (child.nodeType === 1) {
+              child.classList.add('swiper-slide');
+              child.classList.remove('visually-hidden');
+            }
             wrapper.appendChild(child);
           }
           container.appendChild(wrapper);
@@ -31,6 +34,7 @@
           var kids = wrapper.children;
           for (var i = 0; i < kids.length; i++) {
             kids[i].classList.add('swiper-slide');
+            kids[i].classList.remove('visually-hidden');
           }
         }
 
