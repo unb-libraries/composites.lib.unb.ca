@@ -352,7 +352,6 @@ function comp_crud_preprocess_node__subject(&$variables) {
 
       // Call style updating method. Override existing.
       $style = update_crop_style($width, $height, $sid, $topX, $topY, $botX, $botY, TRUE);
-
       $style_name = $style->getName();
 
       if (!empty($style)) {
@@ -367,8 +366,20 @@ function comp_crud_preprocess_node__subject(&$variables) {
 
         $variables['content']['subject_image']['#title'] = 'Individual Portrait';
         $variables['content']['subject_image']['#weight'] = -1;
-      }
+      }      
     }
+    else {
+      // Save default image as renederable field to content.
+      $variables['content']['subject_image'] = $comp_img->view([
+        'type' => 'image',
+        'label' => 'above',
+        'settings' => [
+          'image_style' => 'full_jpeg',
+        ],
+      ]);
+    }
+    $variables['content']['subject_image']['#title'] = 'Individual Portrait';
+    $variables['content']['subject_image']['#weight'] = -1;
   }
 
   if (!empty($variables['content']['subject_image']['0']['#item'])) {

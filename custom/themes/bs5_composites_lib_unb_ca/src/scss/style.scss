@@ -66,12 +66,10 @@ body {
     }
     /* Show expanded arrow, hide collpased arrow when expanded */
     &[aria-expanded="true"] {
-
       & ~ svg.subs-expanded,
       & > span.subs-expanded {
         display:inline-block;
       }
-
       & ~ svg.subs-collapsed,
       & > span.subs-collapsed {
         display: none;
@@ -109,7 +107,7 @@ body {
   }
   /* All definition table titles */
   dt {
-    margin-bottom: 1rem;
+    margin-bottom: .6rem;
   }
   /* All SVG */
   svg {
@@ -457,7 +455,7 @@ body {
                 &:not(:last-of-type) > ul > li,
                 & > ul > li:not(.browse-subjects-row):not(.shared-name-row):not(:last-of-type) {
                   margin-bottom: 1rem;
-                  padding-bottom: 1em;
+                  padding-bottom: 1rem;
                   border-bottom: 1px solid custom.$unb-halfgray;
                 }
 
@@ -477,13 +475,19 @@ body {
                 }
               }
             }
+            .node-subtitle {
+              font-size: 1.4rem;
+              font-weight: 500;
+            }
             /* Subjects by shared name */
-            & div.view-subjects-by-shared-name {
-              & ul {
-                list-style: none;
+            div.view-subjects-by-shared-name {
+              .row {
+                margin-top: 1rem;
+                ul {
+                  list-style: none;
+                }
               }
-
-              & .view-header #subject-full-additional {
+              .view-header #subject-full-additional {
                 font-size: 1.2rem;
                 font-weight: 500;
                 margin-bottom: 0;
