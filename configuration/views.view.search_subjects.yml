@@ -422,6 +422,13 @@ display:
           1: AND
       style:
         type: html_list
+        options:
+          grouping: {  }
+          row_class: search-row
+          default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: fields
         options:
@@ -470,6 +477,7 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.people_composites_lib_unb_ca'
+        - 'search_api_list:people_composites_lib_unb_ca'
   page_1:
     id: page_1
     display_title: Page
@@ -477,7 +485,9 @@ display:
     position: 1
     display_options:
       exposed_block: true
-      display_extenders: {  }
+      display_extenders:
+        simple_sitemap_display_extender:
+          variants: {  }
       path: search-persons
     cache_metadata:
       max-age: -1
@@ -489,3 +499,4 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.people_composites_lib_unb_ca'
+        - 'search_api_list:people_composites_lib_unb_ca'

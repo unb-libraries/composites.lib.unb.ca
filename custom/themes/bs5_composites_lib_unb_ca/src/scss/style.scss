@@ -453,7 +453,7 @@ body {
                   list-style: none;
                 }
                 &:not(:last-of-type) > ul > li,
-                & > ul > li:not(.browse-subjects-row):not(.shared-name-row):not(:last-of-type) {
+                & > ul > li:not(.browse-subjects-row, .shared-name-row, .search-row):not(:last-of-type) {
                   margin-bottom: 1rem;
                   padding-bottom: 1rem;
                   border-bottom: 1px solid custom.$unb-halfgray;
