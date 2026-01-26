@@ -5,18 +5,17 @@ dependencies:
   config:
     - field.storage.node.field_alt_name
     - field.storage.node.field_awards
-    - field.storage.node.field_composite
     - field.storage.node.field_comp_year
-    - field.storage.node.field_notes
+    - field.storage.node.field_composite
     - field.storage.node.field_initials
+    - field.storage.node.field_notes
     - field.storage.node.field_sort_initial
     - field.storage.node.field_subject_notes
     - field.storage.node.field_subject_title
     - search_api.server.subjects_composites_lib_unb_ca
   module:
-    - search_api_solr
     - node
-    - search_api
+    - search_api_solr
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -157,7 +156,7 @@ field_settings:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: text
+    type: 'solr_text_custom:ngram'
     boost: 3.0
     dependencies:
       module:
@@ -197,6 +196,7 @@ tracker_settings:
     indexing_order: lifo
 options:
   cron_limit: 400
+  delete_on_fail: true
   index_directly: true
   track_changes_in_references: true
 server: subjects_composites_lib_unb_ca
