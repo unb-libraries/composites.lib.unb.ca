@@ -458,9 +458,23 @@ body {
                   padding-bottom: 1rem;
                   border-bottom: 1px solid custom.$unb-halfgray;
                 }
-
-                & div.collapse > div.item-list > ul,
-                & div.subjects-top > div.item-list > ul {
+                .subjects-top {
+                  margin-bottom: -4px;
+                }
+                .subjects-bottom {
+                  margin-top: -4px;
+                  > .item-list {
+                    margin-top: -1rem;
+                    > ul {
+                      li:nth-child(-n+8) {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+                .collapse > .item-list > ul,
+                .collapsing > .item-list > ul,
+                .subjects-top > .item-list > ul {
                   display: block;
                   columns: 2;
                   li {
