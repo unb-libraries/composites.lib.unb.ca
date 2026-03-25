@@ -181,7 +181,7 @@
     "drupal/imagemagick": "^4",
     "drupal/pathauto": "^1",
     "drupal/subpathauto": "^1",
-    "drupal/quickedit": "^1", 
+    "drupal/quickedit": "^2", 
     "drupal/redis": "^1",
     "drupal/rdf": "^3", 
     "drupal/samlauth": "^3",
