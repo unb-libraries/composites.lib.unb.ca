@@ -3,8 +3,8 @@
 namespace Drupal\context_branding\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Config\ConfigFactory;
-use Drupal\Core\Path\PathMatcher;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -18,70 +18,51 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * )
  */
 class ContextBrandingBlock extends BlockBase implements ContainerFactoryPluginInterface {
+
   /**
-   * For service dependency injection.
+   * Path matcher service.
    *
-   * @var Drupal\Core\Path\PathMatcher
+   * @var \Drupal\Core\Path\PathMatcherInterface
    */
   protected $pathMatcher;
 
   /**
-   * For service dependency injection.
+   * Config factory service.
    *
-   * @var Drupal\Core\Config\ConfigFactory
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   protected $configFactory;
 
   /**
    * Class constructor.
-   *
-   * @param array $configuration
-   *   The block configuration.
-   * @param string $plugin_id
-   *   The plugin identifier.
-   * @param mixed $plugin_definition
-   *   The plugin definition.
-   * @param Drupal\Core\Path\PathMatcher $path_matcher
-   *   Path matcher service dependency injection.
-   * @param Drupal\Core\Config\ConfigFactory $config_factory
-   *   Config factory service dependency injection.
    */
   public function __construct(
     array $configuration,
     $plugin_id,
     $plugin_definition,
-    PathMatcher $path_matcher,
-    ConfigFactory $config_factory) {
+    PathMatcherInterface $path_matcher,
+    ConfigFactoryInterface $config_factory,
+  ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->pathMatcher = $path_matcher;
     $this->configFactory = $config_factory;
   }
 
   /**
-   * Object create function.
-   *
-   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
-   *   Container interface.
-   * @param array $configuration
-   *   The block configuration.
-   * @param string $plugin_id
-   *   The plugin identifier.
-   * @param mixed $plugin_definition
-   *   The plugin definition.
-   *
-   * @return static
+   * {@inheritdoc}
    */
   public static function create(
     ContainerInterface $container,
     array $configuration,
     $plugin_id,
-    $plugin_definition) {
+    $plugin_definition,
+  ) {
     return new static(
       $configuration,
       $plugin_id,
       $plugin_definition,
       $container->get('path.matcher'),
-      $container->get('config.factory')
+      $container->get('config.factory'),
     );
   }
 
@@ -123,7 +104,7 @@ class ContextBrandingBlock extends BlockBase implements ContainerFactoryPluginIn
     ";
 
     return [
-      '#markup' => $this->t($markup),
+      '#markup' => $markup,
     ];
   }
 
