@@ -220,25 +220,25 @@ body.path-search-persons {
       padding: 0;
       .section {
         /* Slideshow block */
-        .block-views[class*='-swiper'] {
+        .views-element-container[class*='-swiper'] {
           .swiper-slider {
             margin: revert;
           }
         }
         /* Search and browse blocks */
-        .views-exposed-form,
-        .views-exposed-form + .block {
+        .block-views-exposed-filter-blocksearch-subjects-page-1,
+        .block-views-exposed-filter-blocksearch-subjects-page-1 + .block {
           display: inline-block;
           margin-top: 1rem;
           height: 180px;
           padding: 1rem;
           background-color: custom.$unb-halfgray;
         }
-        .views-exposed-form {
+        .block-views-exposed-filter-blocksearch-subjects-page-1 {
           float: inline-start;
           width: 794px;
         }
-        .views-exposed-form + .block {
+        .block-views-exposed-filter-blocksearch-subjects-page-1 + .block {
           position: relative;
           float: inline-end;
           width: 458px;
@@ -247,7 +247,7 @@ body.path-search-persons {
           }
         }
         /* Search block */
-        .views-exposed-form {
+        .block-views-exposed-filter-blocksearch-subjects-page-1 {
           margin-bottom: 2rem;
           h2 {
             margin-bottom: 1rem;
@@ -271,7 +271,7 @@ body.path-search-persons {
           }
         }
         /* Browse block */
-        .views-exposed-form + .block {
+        .block-views-exposed-filter-blocksearch-subjects-page-1 + .block {
           p {
             margin-bottom: .5rem;
           }

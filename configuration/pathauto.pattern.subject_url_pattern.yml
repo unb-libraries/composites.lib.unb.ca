@@ -7,16 +7,16 @@ dependencies:
 id: subject_url_pattern
 label: 'Subject URL Pattern'
 type: 'canonical_entities:node'
-pattern: 'persons/[node:title]'
+pattern: '/persons/[node:title]'
 selection_criteria:
   aa0a3183-4885-4119-ae09-8879e8bb4a53:
     id: 'entity_bundle:node'
     negate: false
-    uuid: aa0a3183-4885-4119-ae09-8879e8bb4a53
     context_mapping:
       node: node
     bundles:
       subject: subject
+    uuid: aa0a3183-4885-4119-ae09-8879e8bb4a53
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -7,16 +7,16 @@ dependencies:
 id: composite_url_pattern
 label: 'Composite URL Pattern'
 type: 'canonical_entities:node'
-pattern: 'composites/[node:title]'
+pattern: '/composites/[node:title]'
 selection_criteria:
   e42035ca-859f-490b-8bed-5bec935dbe63:
     id: 'entity_bundle:node'
     negate: false
-    uuid: e42035ca-859f-490b-8bed-5bec935dbe63
     context_mapping:
       node: node
     bundles:
       composite: composite
+    uuid: e42035ca-859f-490b-8bed-5bec935dbe63
 selection_logic: and
 weight: -5
 relationships: {  }
