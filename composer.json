@@ -25,7 +25,6 @@
     }
   ],
   "require": {
-    "unb-libraries/unb_lib_zircon": "dev-11.x-bootstrap-4.x"
   },
   "require-dev": {
     "twbs/bootstrap": "~4.5.3",

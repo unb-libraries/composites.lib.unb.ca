@@ -202,8 +202,7 @@
     "oomphinc/composer-installers-extender": "^2",
     "trentrichardson/jquery-timepicker-addon": "^1",
     "unb-libraries/composer-drupal-scaffold": "^11.x-dev",
-    "unb-libraries/saml_features": "dev-10.x-1.x",
-    "unb-libraries/unb_lib_zircon": "dev-11.x-bootstrap-4.x"
+    "unb-libraries/saml_features": "dev-10.x-1.x"
   },
   "require-dev": {
     "unb-libraries/drupal-development-libraries": "^11.x-dev"
