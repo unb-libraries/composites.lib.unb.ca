@@ -293,8 +293,8 @@ body.path-search-persons {
       padding: 0;
       .section {
         /* Search and browse blocks */
-        .views-exposed-form,
-        .views-exposed-form + .block {
+        .block-views-exposed-filter-blocksearch-subjects-page-1,
+        .block-views-exposed-filter-blocksearch-subjects-page-1 + .block {
           margin-top: 0;
         }
       }
@@ -696,18 +696,18 @@ body {
     #main-wrapper {
       #main {
         .section {
-          .views-exposed-form {
+          .block-views-exposed-filter-blocksearch-subjects-page-1 {
             width: 100%;
           }
-          .views-exposed-form + .block {
+          .block-views-exposed-filter-blocksearch-subjects-page-1 + .block {
             width: 100%;
           }
           /* Search block */
-          .views-exposed-form {
+          .block-views-exposed-filter-blocksearch-subjects-page-1 {
             margin-bottom: 0;
           }
           /* Browse block */
-          .views-exposed-form + .block {
+          .block-views-exposed-filter-blocksearch-subjects-page-1 + .block {
             margin-bottom: 2rem;
           }
         }
@@ -721,10 +721,10 @@ body {
         padding: 0;
         .section {
           /* Search and browse blocks */
-          .views-exposed-form {
+          .block-views-exposed-filter-blocksearch-subjects-page-1 {
             margin-top: 0;
           }
-          .views-exposed-form + .block {
+          .block-views-exposed-filter-blocksearch-subjects-page-1 + .block {
             margin-top: 1rem;
           }
         }
