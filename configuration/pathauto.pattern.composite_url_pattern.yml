@@ -2,6 +2,8 @@ uuid: 97e36d25-9a89-4a66-b965-40280018aed8
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.composite
   module:
     - node
 id: composite_url_pattern
@@ -16,7 +18,6 @@ selection_criteria:
       node: node
     bundles:
       composite: composite
-    uuid: e42035ca-859f-490b-8bed-5bec935dbe63
 selection_logic: and
 weight: -5
 relationships: {  }
