@@ -1721,17 +1721,17 @@
         },
         {
             "name": "drupal/externalauth",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/externalauth.git",
-                "reference": "2.0.12"
+                "reference": "2.0.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.12.zip",
-                "reference": "2.0.12",
-                "shasum": "8bea36d373c25a5c8272b233e219946d355e7636"
+                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.13.zip",
+                "reference": "2.0.13",
+                "shasum": "7daa85bd385c850e1a9c7a92fad15f394e7891b9"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -1739,8 +1739,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.12",
-                    "datestamp": "1784046748",
+                    "version": "2.0.13",
+                    "datestamp": "1786557339",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1756,14 +1756,6 @@
                     "name": "Sven Decabooter",
                     "homepage": "https://www.drupal.org/u/svendecabooter",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "snufkin",
-                    "homepage": "https://www.drupal.org/user/58645"
-                },
-                {
-                    "name": "svendecabooter",
-                    "homepage": "https://www.drupal.org/user/35369"
                 }
             ],
             "description": "Helper module to authenticate users using an external site / service and storing identification details",
@@ -3596,16 +3588,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.454.0",
+            "version": "v0.455.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "4c0b343eb836b63616592ce98eca9f804b2b6493"
+                "reference": "86cecb5443bde01cb6731a650735680b9ab8b4c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/4c0b343eb836b63616592ce98eca9f804b2b6493",
-                "reference": "4c0b343eb836b63616592ce98eca9f804b2b6493",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/86cecb5443bde01cb6731a650735680b9ab8b4c0",
+                "reference": "86cecb5443bde01cb6731a650735680b9ab8b4c0",
                 "shasum": ""
             },
             "require": {
@@ -3634,9 +3626,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.454.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.455.0"
             },
-            "time": "2026-08-10T01:06:25+00:00"
+            "time": "2026-08-17T01:06:24+00:00"
         },
         {
             "name": "google/auth",
