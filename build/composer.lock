@@ -932,16 +932,16 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "e96fe45e92a54233726014a7cc7340abf29bb14c"
+                "reference": "71d305eaa6480d3d3460c7d053d1da7749fa9cca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e96fe45e92a54233726014a7cc7340abf29bb14c",
-                "reference": "e96fe45e92a54233726014a7cc7340abf29bb14c",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/71d305eaa6480d3d3460c7d053d1da7749fa9cca",
+                "reference": "71d305eaa6480d3d3460c7d053d1da7749fa9cca",
                 "shasum": ""
             },
             "require": {
@@ -987,7 +987,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/lexer/issues",
-                "source": "https://github.com/doctrine/lexer/tree/3.0.2"
+                "source": "https://github.com/doctrine/lexer/tree/3.0.3"
             },
             "funding": [
                 {
@@ -1003,7 +1003,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-14T20:44:06+00:00"
+            "time": "2026-10-01T06:59:29+00:00"
         },
         {
             "name": "dompdf/php-font-lib",
@@ -1722,17 +1722,17 @@
         },
         {
             "name": "drupal/externalauth",
-            "version": "2.0.14",
+            "version": "2.0.15",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/externalauth.git",
-                "reference": "2.0.14"
+                "reference": "2.0.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.14.zip",
-                "reference": "2.0.14",
-                "shasum": "b607fef852778a6bb0e81c5e15e817ef756ddb77"
+                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.15.zip",
+                "reference": "2.0.15",
+                "shasum": "20fe35b605b4c137505d6f3c882690e53f31cd5d"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -1740,8 +1740,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.14",
-                    "datestamp": "1790796109",
+                    "version": "2.0.15",
+                    "datestamp": "1790861291",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3601,16 +3601,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.461.0",
+            "version": "v0.462.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "653eec9b7767d34f0cbe2a702cf2c2b825a4857d"
+                "reference": "da59366999d50aea47215c0834d88dce4ba5323a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/653eec9b7767d34f0cbe2a702cf2c2b825a4857d",
-                "reference": "653eec9b7767d34f0cbe2a702cf2c2b825a4857d",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/da59366999d50aea47215c0834d88dce4ba5323a",
+                "reference": "da59366999d50aea47215c0834d88dce4ba5323a",
                 "shasum": ""
             },
             "require": {
@@ -3639,9 +3639,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.461.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.462.0"
             },
-            "time": "2026-09-25T22:00:27+00:00"
+            "time": "2026-10-05T01:38:19+00:00"
         },
         {
             "name": "google/auth",
