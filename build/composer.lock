@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46fbb68b8d95d4d23b2c74b056d2c440",
+    "content-hash": "5276dbe5a0d951dc84551fed25f2e2a1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1211,111 +1211,6 @@
             }
         },
         {
-            "name": "drupal/bootstrap4",
-            "version": "3.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/bootstrap4.git",
-                "reference": "3.0.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap4-3.0.7.zip",
-                "reference": "3.0.7",
-                "shasum": "c4989d6fe4b0d33a07c47f4a7bad976a9ced30c3"
-            },
-            "require": {
-                "drupal/core": "^10.2 || ^11"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "3.0.7",
-                    "datestamp": "1767794815",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Janna M (jannakha)",
-                    "homepage": "https://www.drupal.org/u/jannakha",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Vladimir Roudakov (vladimiraus)",
-                    "homepage": "https://www.drupal.org/u/vladimiraus",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Master theme using Bootstrap 4: powerful front-end framework for faster and easier web development.",
-            "homepage": "https://www.drupal.org/project/bootstrap4",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/bootstrap4",
-                "issues": "https://www.drupal.org/project/issues/bootstrap4"
-            }
-        },
-        {
-            "name": "drupal/color",
-            "version": "2.0.0-alpha1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/color.git",
-                "reference": "2.0.0-alpha1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/color-2.0.0-alpha1.zip",
-                "reference": "2.0.0-alpha1",
-                "shasum": "5e518124fe3e18f0104ecad7dd4d6d6dce441e83"
-            },
-            "require": {
-                "drupal/core": ">=10.1.3 || ^11"
-            },
-            "require-dev": {
-                "drupal/bartik": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.0-alpha1",
-                    "datestamp": "1751431548",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "andypost",
-                    "homepage": "https://www.drupal.org/user/118908"
-                },
-                {
-                    "name": "kostyashupenko",
-                    "homepage": "https://www.drupal.org/user/3281537"
-                }
-            ],
-            "description": "Allows users to change the color scheme of compatible themes",
-            "homepage": "https://www.drupal.org/project/color",
-            "support": {
-                "source": "https://git.drupalcode.org/project/color"
-            }
-        },
-        {
             "name": "drupal/core",
             "version": "11.4.11",
             "source": {
@@ -2322,85 +2217,6 @@
             }
         },
         {
-            "name": "drupal/rdf",
-            "version": "3.0.0-beta2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/rdf.git",
-                "reference": "3.0.0-beta2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rdf-3.0.0-beta2.zip",
-                "reference": "3.0.0-beta2",
-                "shasum": "1cdc2900f70bc405d542fb56209905ebc8d5dae2"
-            },
-            "require": {
-                "drupal/core": "^10.3 || ^11.0"
-            },
-            "require-dev": {
-                "easyrdf/easyrdf": "^1.0 || ^1.1"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "3.0.0-beta2",
-                    "datestamp": "1721596082",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Arto",
-                    "homepage": "https://www.drupal.org/user/26089"
-                },
-                {
-                    "name": "bbrala",
-                    "homepage": "https://www.drupal.org/user/3366066"
-                },
-                {
-                    "name": "bhuga",
-                    "homepage": "https://www.drupal.org/user/186547"
-                },
-                {
-                    "name": "febbraro",
-                    "homepage": "https://www.drupal.org/user/43670"
-                },
-                {
-                    "name": "jmiccolis",
-                    "homepage": "https://www.drupal.org/user/31731"
-                },
-                {
-                    "name": "linclark",
-                    "homepage": "https://www.drupal.org/user/396253"
-                },
-                {
-                    "name": "miglius",
-                    "homepage": "https://www.drupal.org/user/18741"
-                },
-                {
-                    "name": "scor",
-                    "homepage": "https://www.drupal.org/user/52142"
-                },
-                {
-                    "name": "smustgrave",
-                    "homepage": "https://www.drupal.org/user/3252890"
-                }
-            ],
-            "description": "Enriches your content with metadata to let other applications (e.g. search engines, aggregators) better understand its relationships and attributes",
-            "homepage": "https://www.drupal.org/project/rdf",
-            "support": {
-                "source": "https://git.drupalcode.org/project/rdf"
-            }
-        },
-        {
             "name": "drupal/redis",
             "version": "1.11.0",
             "source": {
@@ -3073,64 +2889,6 @@
             }
         },
         {
-            "name": "drupal/views_slideshow",
-            "version": "5.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/views_slideshow.git",
-                "reference": "5.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_slideshow-5.0.1.zip",
-                "reference": "5.0.1",
-                "shasum": "f181dd86f40f0a65186ee818daded06a98e5d510"
-            },
-            "require": {
-                "drupal/core": "^9 || ^10 || ^11"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "5.0.1",
-                    "datestamp": "1724040371",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Neslee Canil Pinto",
-                    "homepage": "https://www.drupal.org/u/neslee-canil-pinto",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "nickdickinsonwilde",
-                    "homepage": "https://www.drupal.org/user/3094661"
-                },
-                {
-                    "name": "redndahead",
-                    "homepage": "https://www.drupal.org/user/160320"
-                },
-                {
-                    "name": "vbouchet",
-                    "homepage": "https://www.drupal.org/user/1671428"
-                }
-            ],
-            "description": "Describes relationships between entities.",
-            "homepage": "https://www.drupal.org/project/views_slideshow",
-            "support": {
-                "source": "https://git.drupalcode.org/project/views_slideshow",
-                "issues": "https://www.drupal.org/project/issues/views_slideshow"
-            }
-        },
-        {
             "name": "drush/drush",
             "version": "13.8.0",
             "source": {
@@ -3465,265 +3223,6 @@
                 "source": "https://github.com/FileEye/pel/tree/0.12.1"
             },
             "time": "2026-03-19T18:27:55+00:00"
-        },
-        {
-            "name": "firebase/php-jwt",
-            "version": "v7.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/googleapis/php-jwt.git",
-                "reference": "0501f5729b9e2448516674aff07c7d1727869b8e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/php-jwt/zipball/0501f5729b9e2448516674aff07c7d1727869b8e",
-                "reference": "0501f5729b9e2448516674aff07c7d1727869b8e",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "^7.4||^8.0",
-                "phpfastcache/phpfastcache": "^9.2",
-                "phpseclib/phpseclib": "~3.0",
-                "phpspec/prophecy-phpunit": "^2.2",
-                "phpunit/phpunit": "^9.5",
-                "psr/cache": "^2.0||^3.0",
-                "psr/http-client": "^1.0",
-                "psr/http-factory": "^1.0"
-            },
-            "suggest": {
-                "ext-sodium": "Support EdDSA (Ed25519) signatures",
-                "paragonie/sodium_compat": "Support EdDSA (Ed25519) signatures when libsodium is not present",
-                "phpseclib/phpseclib": "Support PS256 (RSASSA-PSS) signatures"
-            },
-            "type": "library",
-            "extra": {
-                "component": {
-                    "id": "jwt",
-                    "path": "Jwt",
-                    "entry": "README.md",
-                    "target": "googleapis/php-jwt.git"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Firebase\\JWT\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Neuman Vong",
-                    "email": "neuman+pear@twilio.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Anant Narayanan",
-                    "email": "anant@php.net",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
-            "homepage": "https://github.com/googleapis/php-jwt",
-            "keywords": [
-                "jwt",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/googleapis/php-jwt/issues",
-                "source": "https://github.com/googleapis/php-jwt/tree/v7.2.1"
-            },
-            "time": "2026-09-28T17:51:46+00:00"
-        },
-        {
-            "name": "google/apiclient",
-            "version": "v2.20.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/googleapis/google-api-php-client.git",
-                "reference": "31b577e7012c4e68d5289d63aaf7e6d471ec1ff1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/31b577e7012c4e68d5289d63aaf7e6d471ec1ff1",
-                "reference": "31b577e7012c4e68d5289d63aaf7e6d471ec1ff1",
-                "shasum": ""
-            },
-            "require": {
-                "firebase/php-jwt": "^6.0||^7.0",
-                "google/apiclient-services": "~0.350",
-                "google/auth": "^1.53",
-                "guzzlehttp/guzzle": "^7.8.2||^8.0",
-                "guzzlehttp/psr7": "^2.6.3||^3.0",
-                "monolog/monolog": "^2.9||^3.0",
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "cache/filesystem-adapter": "^1.1",
-                "composer/composer": "^2.9",
-                "phpcompatibility/php-compatibility": "^9.2",
-                "phpspec/prophecy-phpunit": "^2.1",
-                "phpunit/phpunit": "^9.6",
-                "squizlabs/php_codesniffer": "^3.8",
-                "symfony/css-selector": "^5.4",
-                "symfony/dom-crawler": "^5.4"
-            },
-            "suggest": {
-                "cache/filesystem-adapter": "For caching certs and tokens (using Google\\Client::setCache)"
-            },
-            "type": "library",
-            "extra": {
-                "component": {
-                    "entry": "src/Client.php"
-                },
-                "branch-alias": {
-                    "dev-main": "2.x-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/aliases.php"
-                ],
-                "psr-4": {
-                    "Google\\": "src/"
-                },
-                "classmap": [
-                    "src/aliases.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "Client library for Google APIs",
-            "homepage": "http://developers.google.com/api-client-library/php",
-            "keywords": [
-                "google"
-            ],
-            "support": {
-                "issues": "https://github.com/googleapis/google-api-php-client/issues",
-                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.20.1"
-            },
-            "time": "2026-09-25T18:54:19+00:00"
-        },
-        {
-            "name": "google/apiclient-services",
-            "version": "v0.465.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "f35b67ab75c8ec4760782c03c047ce89ab8d265e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/f35b67ab75c8ec4760782c03c047ce89ab8d265e",
-                "reference": "f35b67ab75c8ec4760782c03c047ce89ab8d265e",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.6"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "autoload.php"
-                ],
-                "psr-4": {
-                    "Google\\Service\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "Client library for Google APIs",
-            "homepage": "http://developers.google.com/api-client-library/php",
-            "keywords": [
-                "google"
-            ],
-            "support": {
-                "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.465.0"
-            },
-            "time": "2026-10-26T01:14:21+00:00"
-        },
-        {
-            "name": "google/auth",
-            "version": "v1.55.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "293fdf064cfc5b77a22bb7406b59f149b3fb70e8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/293fdf064cfc5b77a22bb7406b59f149b3fb70e8",
-                "reference": "293fdf064cfc5b77a22bb7406b59f149b3fb70e8",
-                "shasum": ""
-            },
-            "require": {
-                "firebase/php-jwt": "^6.0||^7.0",
-                "guzzlehttp/guzzle": "^7.8.2||^8.0",
-                "guzzlehttp/psr7": "^2.6.3||^3.0",
-                "php": "^8.1",
-                "psr/cache": "^2.0||^3.0",
-                "psr/http-client": "^1.0",
-                "psr/http-message": "^1.1||^2.0",
-                "psr/log": "^2.0||^3.0"
-            },
-            "require-dev": {
-                "guzzlehttp/promises": "^2.0.3||^3.0",
-                "kelvinmo/simplejwt": "^1.1.0",
-                "phpseclib/phpseclib": "^3.0.35",
-                "phpspec/prophecy-phpunit": "^2.1",
-                "phpunit/phpunit": "^9.6.34",
-                "sebastian/comparator": ">=1.2.3",
-                "squizlabs/php_codesniffer": "^4.0",
-                "symfony/filesystem": "^6.4.39||^7.3",
-                "symfony/process": "^6.4.41||^7.0"
-            },
-            "suggest": {
-                "phpseclib/phpseclib": "May be used in place of OpenSSL for signing strings or for token management. Please require version ^2."
-            },
-            "type": "library",
-            "extra": {
-                "component": {
-                    "id": "auth",
-                    "path": "Auth",
-                    "entry": "README.md",
-                    "target": "googleapis/google-auth-library-php.git"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Google\\Auth\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "Google Auth Library for PHP",
-            "homepage": "https://github.com/googleapis/google-auth-library-php",
-            "keywords": [
-                "Authentication",
-                "google",
-                "oauth2"
-            ],
-            "support": {
-                "docs": "https://cloud.google.com/php/docs/reference/auth/latest",
-                "issues": "https://github.com/googleapis/google-auth-library-php/issues",
-                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.55.2"
-            },
-            "time": "2026-10-16T21:30:20+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -4227,42 +3726,6 @@
             "time": "2025-12-05T14:53:09+00:00"
         },
         {
-            "name": "jonthornton/jquery-timepicker",
-            "version": "1.11.15",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jonthornton-jquery-timepicker"
-            }
-        },
-        {
-            "name": "jquery/hoverintent",
-            "version": "1.10.2",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/briancherne/jquery-hoverIntent/archive/v1.10.2.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.hover-intent"
-            }
-        },
-        {
-            "name": "jquery/json2",
-            "version": "dev-master",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/douglascrockford/JSON-js/archive/master.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "json2"
-            }
-        },
-        {
             "name": "justinrainbow/json-schema",
             "version": "6.8.2",
             "source": {
@@ -4615,18 +4078,6 @@
             "time": "2026-04-11T18:38:28+00:00"
         },
         {
-            "name": "malsup/jquery.cycle",
-            "version": "1.0",
-            "dist": {
-                "type": "file",
-                "url": "https://malsup.github.io/jquery.cycle.all.js"
-            },
-            "require": {
-                "composer/installers": "^2"
-            },
-            "type": "drupal-library"
-        },
-        {
             "name": "marc-mabe/php-enum",
             "version": "v4.7.2",
             "source": {
@@ -4814,111 +4265,6 @@
                 "source": "https://github.com/mck89/peast/tree/v1.17.7"
             },
             "time": "2026-07-21T11:56:06+00:00"
-        },
-        {
-            "name": "monolog/monolog",
-            "version": "3.12.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "d7059e4c691d05ea1222b5124bed0f961be46e15"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d7059e4c691d05ea1222b5124bed0f961be46e15",
-                "reference": "d7059e4c691d05ea1222b5124bed0f961be46e15",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "psr/log": "^2.0 || ^3.0"
-            },
-            "provide": {
-                "psr/log-implementation": "3.0.0"
-            },
-            "require-dev": {
-                "aws/aws-sdk-php": "^3.0",
-                "doctrine/couchdb": "~1.0@dev",
-                "elasticsearch/elasticsearch": "^7 || ^8",
-                "ext-json": "*",
-                "graylog2/gelf-php": "^1.4.2 || ^2.0",
-                "guzzlehttp/guzzle": "^7.4.5",
-                "guzzlehttp/psr7": "^2.2",
-                "mongodb/mongodb": "^1.8 || ^2.0",
-                "php-amqplib/php-amqplib": "~2.4 || ^3",
-                "php-console/php-console": "^3.1.8",
-                "phpstan/phpstan": "^2",
-                "phpstan/phpstan-deprecation-rules": "^2",
-                "phpstan/phpstan-strict-rules": "^2",
-                "phpunit/phpunit": "^10.5.17 || ^11.0.7",
-                "predis/predis": "^1.1 || ^2",
-                "psr/clock": "^1.0",
-                "rollbar/rollbar": "^4.0",
-                "ruflin/elastica": "^7 || ^8",
-                "symfony/mailer": "^5.4 || ^6",
-                "symfony/mime": "^5.4 || ^6"
-            },
-            "suggest": {
-                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
-                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
-                "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
-                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-curl": "Required to send log messages using the IFTTTHandler, the LogglyHandler, the SendGridHandler, the SlackWebhookHandler or the TelegramBotHandler",
-                "ext-mbstring": "Allow to work properly with unicode symbols",
-                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
-                "ext-openssl": "Required to send log messages using SSL",
-                "ext-sockets": "Allow sending log messages to a Syslog server (via UDP driver)",
-                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
-                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
-                "psr/clock": "Required to pass a clock to the Logger and control the timestamp of log records",
-                "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Monolog\\": "src/Monolog"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jordi Boggiano",
-                    "email": "j.boggiano@seld.be",
-                    "homepage": "https://seld.be"
-                }
-            ],
-            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "homepage": "https://github.com/Seldaek/monolog",
-            "keywords": [
-                "log",
-                "logging",
-                "psr-3"
-            ],
-            "support": {
-                "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/3.12.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/Seldaek",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-09-29T19:21:12+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -5584,55 +4930,6 @@
                 "source": "https://github.com/phpowermove/docblock/tree/v4.0"
             },
             "time": "2021-09-22T16:57:06+00:00"
-        },
-        {
-            "name": "psr/cache",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/cache.git",
-                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/cache/zipball/aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
-                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Cache\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for caching libraries",
-            "keywords": [
-                "cache",
-                "psr",
-                "psr-6"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/cache/tree/3.0.0"
-            },
-            "time": "2021-02-03T23:26:27+00:00"
         },
         {
             "name": "psr/container",
@@ -9377,18 +8674,6 @@
             "time": "2026-10-12T12:34:30+00:00"
         },
         {
-            "name": "trentrichardson/jquery-timepicker-addon",
-            "version": "1.6.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/v1.6.3.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery-timepicker-addon"
-            }
-        },
-        {
             "name": "twbs/bootstrap",
             "version": "v5.3.8",
             "source": {
@@ -10043,6 +9328,55 @@
             }
         },
         {
+            "name": "psr/cache",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/cache/tree/3.0.0"
+            },
+            "time": "2021-02-03T23:26:27+00:00"
+        },
+        {
             "name": "unb-libraries/drupal-development-libraries",
             "version": "11.x-dev",
             "source": {
@@ -10081,14 +9415,13 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "jquery/json2": 20,
         "unb-libraries/composer-drupal-scaffold": 20,
-        "unb-libraries/drupal-development-libraries": 20,
-        "unb-libraries/saml_features": 20
+        "unb-libraries/saml_features": 20,
+        "unb-libraries/drupal-development-libraries": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
 }

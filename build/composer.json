@@ -89,89 +89,12 @@
     {
       "type": "composer",
       "url": "https://asset-packagist.org"
-    },
-    {
-      "package": {
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip"
-        },
-        "extra": {
-          "installer-name": "jonthornton-jquery-timepicker"
-        },
-        "name": "jonthornton/jquery-timepicker",
-        "type": "drupal-library",
-        "version": "1.11.15"
-      },
-      "type": "package"
-    },
-    {
-      "package": {
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/v1.6.3.zip"
-        },
-        "extra": {
-          "installer-name": "jquery-timepicker-addon"
-        },
-        "name": "trentrichardson/jquery-timepicker-addon",
-        "type": "drupal-library",
-        "version": "1.6.3"
-      },
-      "type": "package"
-    },
-    {
-      "package": {
-        "dist": {
-          "type": "file",
-          "url": "https://malsup.github.io/jquery.cycle.all.js"
-        },
-        "name": "malsup/jquery.cycle",
-        "require": {
-          "composer/installers": "^2"
-        },
-        "type": "drupal-library",
-        "version": "1.0"
-      },
-      "type": "package"
-    },
-    {
-      "package": {
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/briancherne/jquery-hoverIntent/archive/v1.10.2.zip"
-        },
-        "extra": {
-          "installer-name": "jquery.hover-intent"
-        },
-        "name": "jquery/hoverintent",
-        "type": "drupal-library",
-        "version": "1.10.2"
-      },
-      "type": "package"
-    },
-    {
-      "package": {
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/douglascrockford/JSON-js/archive/master.zip"
-        },
-        "extra": {
-          "installer-name": "json2"
-        },
-        "name": "jquery/json2",
-        "type": "drupal-library",
-        "version": "dev-master"
-      },
-      "type": "package"
     }
   ],
   "require": {
     "drupal/admin_toolbar": "^3",
-    "drupal/bootstrap4": "^3",
     "drupal/bootstrap": "^5",
-    "drupal/color": "^2", 
-    "drupal/core": "^11",    
+    "drupal/core": "^11",
     "drupal/core-composer-scaffold": "^11",
     "drupal/core-recommended": "^11",
     "drupal/externalauth": "^2",
@@ -182,9 +105,8 @@
     "drupal/imagemagick": "^4",
     "drupal/pathauto": "^1",
     "drupal/subpathauto": "^1",
-    "drupal/quickedit": "^2", 
+    "drupal/quickedit": "^2",
     "drupal/redis": "^1",
-    "drupal/rdf": "^3", 
     "drupal/samlauth": "^3",
     "drupal/search_api": "^1",
     "drupal/search_api_solr": "^4",
@@ -192,15 +114,8 @@
     "drupal/token": "^1",
     "drupal/twig_field_value": "^2",
     "drupal/twig_tweak": "^3",
-    "drupal/views_slideshow": "^5",
-    "google/apiclient": "^2",
-    "jonthornton/jquery-timepicker": "^1",
-    "jquery/hoverintent": "^1",
-    "jquery/json2": "dev-master",
-    "malsup/jquery.cycle": "^1",
     "npm-asset/swiper": "^9",
     "oomphinc/composer-installers-extender": "^2",
-    "trentrichardson/jquery-timepicker-addon": "^1",
     "unb-libraries/composer-drupal-scaffold": "^11.x-dev",
     "unb-libraries/saml_features": "dev-10.x-1.x"
   },
