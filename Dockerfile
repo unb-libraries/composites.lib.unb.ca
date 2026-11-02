@@ -1,6 +1,6 @@
 FROM ghcr.io/unb-libraries/drupal:11.x-1.x-unblib
 
-ENV ADDITIONAL_OS_PACKAGES="tiff-dev tiff postfix imagemagick bash postfix php84-ldap php84-xmlreader php84-zip php84-pecl-redis"
+ENV ADDITIONAL_OS_PACKAGES="tiff-dev tiff postfix imagemagick bash postfix php${PHP_VERSION}-ldap php${PHP_VERSION}-xmlreader php${PHP_VERSION}-zip php${PHP_VERSION}-pecl-redis"
 ENV DRUPAL_SITE_ID="comp"
 ENV DRUPAL_SITE_URI="composites.lib.unb.ca"
 ENV DRUPAL_SITE_UUID="022dab87-328e-494c-b8f8-ebde1e1a0162"
