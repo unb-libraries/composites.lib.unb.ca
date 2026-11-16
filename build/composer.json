@@ -44,7 +44,8 @@
         "type:drupal-core"
       ],
       "libraries/{$name}": [
-        "type:drupal-library"
+        "type:drupal-library",
+        "type:npm-asset"
       ],
       "modules/contrib/{$name}": [
         "type:drupal-module"
@@ -68,6 +69,9 @@
         "type:drupal-custom-theme"
       ]
     },
+    "installer-types": [
+      "npm-asset"
+    ],
     "patches": {
       "drupal/bootstrap": {
         "Fix bootstrap_icons schema type mismatch": "/build/patches/bootstrap-icons-schema-fix.patch"
